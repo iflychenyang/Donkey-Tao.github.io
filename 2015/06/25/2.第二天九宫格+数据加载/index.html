@@ -4,53 +4,68 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>iOS学习小结 | 陶飞的技术博客</title>
+    <title>陶飞的技术博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="陶飞">
     
 
     
-    <meta name="description" content="iOS9开始的新特性
-nonnull__nonnull
-nullable__nonnullable
-null_resettable
-NS_ASSUME_NONNULL_BEGIN \ NS_ASSUME_NONNULL_END
-泛型__contravariant__covariant
-__kindof
-UIWindow
-Storyboard Reference
-UIStackView
-Search">
+    <meta name="description" content="九宫格计算思路
+利用控件的索引index计算出控件所在的行号和列号
+利用列号计算控件的x值
+利用行号计算控件的y值
+
+HUD
+其他说法：指示器、遮盖、蒙板
+半透明HUD的做法
+背景色设置为半透明颜色
+
+
+
+定时任务
+方法1：performSelector
+
+12// 1.5s后自动调用self的hideHUD方法[self performSelector:@selector(hideHUD) wi">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS学习小结">
-<meta property="og:url" content="http://yoursite.com/2016/04/20/iOS学习小结/index.html">
+<meta property="og:title" content="陶飞的技术博客">
+<meta property="og:url" content="http://yoursite.com/2015/06/25/2.第二天九宫格+数据加载/index.html">
 <meta property="og:site_name" content="陶飞的技术博客">
-<meta property="og:description" content="iOS9开始的新特性
-nonnull__nonnull
-nullable__nonnullable
-null_resettable
-NS_ASSUME_NONNULL_BEGIN \ NS_ASSUME_NONNULL_END
-泛型__contravariant__covariant
-__kindof
-UIWindow
-Storyboard Reference
-UIStackView
-Search">
-<meta property="og:updated_time" content="2016-08-01T17:33:50.000Z">
+<meta property="og:description" content="九宫格计算思路
+利用控件的索引index计算出控件所在的行号和列号
+利用列号计算控件的x值
+利用行号计算控件的y值
+
+HUD
+其他说法：指示器、遮盖、蒙板
+半透明HUD的做法
+背景色设置为半透明颜色
+
+
+
+定时任务
+方法1：performSelector
+
+12// 1.5s后自动调用self的hideHUD方法[self performSelector:@selector(hideHUD) wi">
+<meta property="og:updated_time" content="2015-06-25T01:04:21.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS学习小结">
-<meta name="twitter:description" content="iOS9开始的新特性
-nonnull__nonnull
-nullable__nonnullable
-null_resettable
-NS_ASSUME_NONNULL_BEGIN \ NS_ASSUME_NONNULL_END
-泛型__contravariant__covariant
-__kindof
-UIWindow
-Storyboard Reference
-UIStackView
-Search">
+<meta name="twitter:title" content="陶飞的技术博客">
+<meta name="twitter:description" content="九宫格计算思路
+利用控件的索引index计算出控件所在的行号和列号
+利用列号计算控件的x值
+利用行号计算控件的y值
+
+HUD
+其他说法：指示器、遮盖、蒙板
+半透明HUD的做法
+背景色设置为半透明颜色
+
+
+
+定时任务
+方法1：performSelector
+
+12// 1.5s后自动调用self的hideHUD方法[self performSelector:@selector(hideHUD) wi">
 
     
     <link rel="alternative" href="/atom.xml" title="陶飞的技术博客" type="application/atom+xml">
@@ -101,14 +116,14 @@ Search">
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/04/20/iOS学习小结/" title="iOS学习小结" itemprop="url">iOS学习小结</a>
+      <a href="/2015/06/25/2.第二天九宫格+数据加载/" title="" itemprop="url"></a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="陶飞" target="_blank" itemprop="author">陶飞</a>
 		
   <p class="article-time">
-    <time datetime="2016-04-20T09:59:35.000Z" itemprop="datePublished"> 发表于 2016-04-20</time>
+    <time datetime="2015-06-25T01:04:21.000Z" itemprop="datePublished"> 发表于 2015-06-25</time>
     
   </p>
 </header>
@@ -117,86 +132,61 @@ Search">
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#iOS9开始的新特性"><span class="toc-number">1.</span> <span class="toc-text">iOS9开始的新特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#新技术的了解渠道"><span class="toc-number">2.</span> <span class="toc-text">新技术的了解渠道</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#程序员的学习"><span class="toc-number">3.</span> <span class="toc-text">程序员的学习</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#iOS技术的学习"><span class="toc-number">3.1.</span> <span class="toc-text">iOS技术的学习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#非iOS技术的学习"><span class="toc-number">3.2.</span> <span class="toc-text">非iOS技术的学习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#非技术的学习"><span class="toc-number">3.3.</span> <span class="toc-text">非技术的学习</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#快速上手公司的旧项目"><span class="toc-number">4.</span> <span class="toc-text">快速上手公司的旧项目</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#九宫格计算思路"><span class="toc-number">1.</span> <span class="toc-text">九宫格计算思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HUD"><span class="toc-number">2.</span> <span class="toc-text">HUD</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#定时任务"><span class="toc-number">3.</span> <span class="toc-text">定时任务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常见问题"><span class="toc-number">4.</span> <span class="toc-text">常见问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模型"><span class="toc-number">5.</span> <span class="toc-text">模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一个控件看不见有哪些可能？"><span class="toc-number">6.</span> <span class="toc-text">一个控件看不见有哪些可能？</span></a></li></ol>
 		
 		</div>
 		
-		<h2 id="iOS9开始的新特性"><a href="#iOS9开始的新特性" class="headerlink" title="iOS9开始的新特性"></a>iOS9开始的新特性</h2><ul>
-<li>nonnull__nonnull</li>
-<li>nullable__nonnullable</li>
-<li>null_resettable</li>
-<li>NS_ASSUME_NONNULL_BEGIN \ NS_ASSUME_NONNULL_END</li>
-<li>泛型__contravariant__covariant</li>
-<li>__kindof</li>
-<li>UIWindow</li>
-<li>Storyboard Reference</li>
-<li>UIStackView</li>
-<li>Search API</li>
-<li>3D touch</li>
+		<h2 id="九宫格计算思路"><a href="#九宫格计算思路" class="headerlink" title="九宫格计算思路"></a>九宫格计算思路</h2><ul>
+<li>利用控件的索引index计算出控件所在的行号和列号</li>
+<li>利用列号计算控件的x值</li>
+<li>利用行号计算控件的y值</li>
 </ul>
-<h2 id="新技术的了解渠道"><a href="#新技术的了解渠道" class="headerlink" title="新技术的了解渠道"></a>新技术的了解渠道</h2><ul>
-<li>WWDC开发者大会视频</li>
-<li>官方文档<ul>
-<li>General -&gt; Guides -&gt; iOS x.x API Diffs</li>
+<h2 id="HUD"><a href="#HUD" class="headerlink" title="HUD"></a>HUD</h2><ul>
+<li>其他说法：指示器、遮盖、蒙板</li>
+<li>半透明HUD的做法<ul>
+<li>背景色设置为半透明颜色</li>
 </ul>
 </li>
 </ul>
-<h2 id="程序员的学习"><a href="#程序员的学习" class="headerlink" title="程序员的学习"></a>程序员的学习</h2><h3 id="iOS技术的学习"><a href="#iOS技术的学习" class="headerlink" title="iOS技术的学习"></a>iOS技术的学习</h3><ul>
-<li>官当文档<ul>
-<li>Sample Code(示例代码)</li>
-<li>Guides(指南)</li>
-<li>Reference(API参考)</li>
+<h2 id="定时任务"><a href="#定时任务" class="headerlink" title="定时任务"></a>定时任务</h2><ul>
+<li>方法1：performSelector</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 1.5s后自动调用self的hideHUD方法</span></div><div class="line">[<span class="keyword">self</span> performSelector:<span class="keyword">@selector</span>(hideHUD) withObject:<span class="literal">nil</span> afterDelay:<span class="number">1.5</span>];</div></pre></td></tr></table></figure>
+<ul>
+<li>方法2：GCD</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(<span class="number">1.5</span> * <span class="built_in">NSEC_PER_SEC</span>)), dispatch_get_main_queue(), ^&#123;</div><div class="line">    <span class="comment">// 1.5s后自动执行这个block里面的代码</span></div><div class="line">    <span class="keyword">self</span>.hud.alpha = <span class="number">0.0</span>;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<ul>
+<li>方法3：NSTimer</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 1.5s后自动调用self的hideHUD方法</span></div><div class="line">[<span class="built_in">NSTimer</span> scheduledTimerWithTimeInterval:<span class="number">1.5</span> target:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(hideHUD) userInfo:<span class="literal">nil</span> repeats:<span class="literal">NO</span>];</div><div class="line"><span class="comment">// repeats如果为YES，意味着每隔1.5s都会调用一次self的hidHUD方法</span></div></pre></td></tr></table></figure>
+<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><ul>
+<li>项目里面的某个.m文件无法使用<ul>
+<li>检查：Build Phases -&gt; Compile Sources</li>
 </ul>
 </li>
-<li>博客<ul>
-<li><a href="http://www.cocoachina.com/ios/list_69_1.html" target="_blank" rel="external">CocoaChina</a></li>
-<li><a href="http://ios.jobbole.com/" target="_blank" rel="external">伯乐在线</a></li>
-<li><a href="http://objccn.io/" target="_blank" rel="external">objc中国</a></li>
-<li><a href="https://github.com/tangqiaoboy/iOSBlogCN" target="_blank" rel="external">优秀博客汇总</a></li>
-</ul>
-</li>
-<li>微博<ul>
-<li><a href="http://weibo.com/kaifazhetoutiao" target="_blank" rel="external">开发者头条</a> </li>
-<li><a href="http://weibo.com/cocoachina" target="_blank" rel="external">CocoaChina</a> </li>
-<li><a href="http://weibo.com/luohanchenyilong" target="_blank" rel="external">iOS程序犭袁</a> </li>
-<li><a href="http://weibo.com/tangqiaoboy" target="_blank" rel="external">唐巧_boy</a> </li>
-<li><a href="http://weibo.com/u/1364395395" target="_blank" rel="external">我就叫Sunny怎么了</a> </li>
-<li><a href="http://weibo.com/710312327" target="_blank" rel="external">KITTEN-YANG</a> </li>
-<li><a href="http://weibo.com/exceptions" target="_blank" rel="external">M了个J</a></li>
-<li><a href="http://weibo.com/u/5596623481" target="_blank" rel="external">小码哥教育</a></li>
-</ul>
-</li>
-<li>微信公众号<ul>
-<li>iOS开发(iosDevTips)</li>
-<li>iOS开发(iOSDevTip)</li>
-<li>iOS技术分享(iosinfo)</li>
-<li>猿圈(CodePush) </li>
-</ul>
-</li>
-<li>其他<ul>
-<li>多写技术博客(简书\个人博客站点)</li>
-<li>参加一些技术分享活动(北京\上海\广州\杭州)</li>
-<li>有自己的技术圈子</li>
+<li>项目里面的某个资源文件（比如plist、音频等）无法使用<ul>
+<li>检查：Build Phases -&gt; Copy Bundle Resources</li>
 </ul>
 </li>
 </ul>
-<h3 id="非iOS技术的学习"><a href="#非iOS技术的学习" class="headerlink" title="非iOS技术的学习"></a>非iOS技术的学习</h3><ul>
-<li><code>数据结构与算法(比如加密算法等等)</code></li>
-<li><code>HTML5</code></li>
-<li><code>JavaScript</code></li>
-<li>Java(Android\JavaEE)</li>
-<li>C++</li>
-</ul>
-<h3 id="非技术的学习"><a href="#非技术的学习" class="headerlink" title="非技术的学习"></a>非技术的学习</h3><ul>
-<li>管理\心理学\幸福\创业\历史</li>
-<li>网易公开课<ul>
-<li>各种国际名牌大学的课堂视频</li>
-<li>名人讲座(TED)</li>
+<h2 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h2><ul>
+<li>什么是模型？<ul>
+<li>专门用来存放数据的对象</li>
+<li>一般都是一些直接继承自NSObject的纯对象</li>
+<li>内部会提供一些属性来存放数据</li>
 </ul>
 </li>
-<li>名人讲座\名人访谈</li>
 </ul>
-<h2 id="快速上手公司的旧项目"><a href="#快速上手公司的旧项目" class="headerlink" title="快速上手公司的旧项目"></a>快速上手公司的旧项目</h2>  
+<h2 id="一个控件看不见有哪些可能？"><a href="#一个控件看不见有哪些可能？" class="headerlink" title="一个控件看不见有哪些可能？"></a>一个控件看不见有哪些可能？</h2><ul>
+<li>宽度或者高度其实为0</li>
+<li>位置不对（比如是个负数或者超大的数，已经超出屏幕）</li>
+<li>hidden == YES</li>
+<li>alpha &lt;= 0.01</li>
+<li>没有设置背景色、没有设置内容</li>
+<li>可能是文字颜色和背景色一样</li>
+</ul>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -208,7 +198,7 @@ Search">
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2016/04/20/iOS学习小结/" data-title="iOS学习小结 | 陶飞的技术博客" data-tsina="3015394781" class="share clearfix">
+	  <div data-url="http://yoursite.com/2015/06/25/2.第二天九宫格+数据加载/" data-title="陶飞的技术博客" data-tsina="3015394781" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -222,16 +212,16 @@ Search">
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2016/07/29/利用Reveal显示出来的层次关系/" title="利用Reveal分析出来的层次关系">
+ <a href="/2015/07/29/6.0603自定义等高/" title="">
   <strong>上一篇：</strong><br/>
   <span>
-  利用Reveal分析出来的层次关系</span>
+  (no title)</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2015/07/29/6.0603自定义等高/"  title="">
+<a href="/2015/06/07/1.第一天UI基础/"  title="">
  <strong>下一篇：</strong><br/> 
  <span>(no title)
 </span>
@@ -242,7 +232,7 @@ Search">
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2016/04/20/iOS学习小结/" data-title="iOS学习小结" data-url="http://yoursite.com/2016/04/20/iOS学习小结/"></div>
+	<div class="ds-thread" data-thread-key="2015/06/25/2.第二天九宫格+数据加载/" data-title="" data-url="http://yoursite.com/2015/06/25/2.第二天九宫格+数据加载/"></div>
 </section>
 
 
@@ -252,7 +242,7 @@ Search">
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#iOS9开始的新特性"><span class="toc-number">1.</span> <span class="toc-text">iOS9开始的新特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#新技术的了解渠道"><span class="toc-number">2.</span> <span class="toc-text">新技术的了解渠道</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#程序员的学习"><span class="toc-number">3.</span> <span class="toc-text">程序员的学习</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#iOS技术的学习"><span class="toc-number">3.1.</span> <span class="toc-text">iOS技术的学习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#非iOS技术的学习"><span class="toc-number">3.2.</span> <span class="toc-text">非iOS技术的学习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#非技术的学习"><span class="toc-number">3.3.</span> <span class="toc-text">非技术的学习</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#快速上手公司的旧项目"><span class="toc-number">4.</span> <span class="toc-text">快速上手公司的旧项目</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#九宫格计算思路"><span class="toc-number">1.</span> <span class="toc-text">九宫格计算思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HUD"><span class="toc-number">2.</span> <span class="toc-text">HUD</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#定时任务"><span class="toc-number">3.</span> <span class="toc-text">定时任务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常见问题"><span class="toc-number">4.</span> <span class="toc-text">常见问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模型"><span class="toc-number">5.</span> <span class="toc-text">模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一个控件看不见有哪些可能？"><span class="toc-number">6.</span> <span class="toc-text">一个控件看不见有哪些可能？</span></a></li></ol>
  
   </div>
 

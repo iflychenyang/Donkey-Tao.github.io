@@ -4,53 +4,56 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>iOS学习小结 | 陶飞的技术博客</title>
+    <title>陶飞的技术博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="陶飞">
     
 
     
-    <meta name="description" content="iOS9开始的新特性
-nonnull__nonnull
-nullable__nonnullable
-null_resettable
-NS_ASSUME_NONNULL_BEGIN \ NS_ASSUME_NONNULL_END
-泛型__contravariant__covariant
-__kindof
-UIWindow
-Storyboard Reference
-UIStackView
-Search">
+    <meta name="description" content="屏幕适配的发展历史
+iPhone3GS\iPhone4
+
+没有屏幕适配可言
+全部用frame、bounds、center进行布局
+很多这样的现象：坐标值、宽度高度值全部写死12UIButton *btn1 = [[UIButton alloc] init];btn1.frame = CGRectMake(0, 0, 320 - b, 480 - c);
+
+
+
+iPad出现、iPhone横屏
+
+出现">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS学习小结">
-<meta property="og:url" content="http://yoursite.com/2016/04/20/iOS学习小结/index.html">
+<meta property="og:title" content="陶飞的技术博客">
+<meta property="og:url" content="http://yoursite.com/2015/05/30/3.第三天UIScrollView/index.html">
 <meta property="og:site_name" content="陶飞的技术博客">
-<meta property="og:description" content="iOS9开始的新特性
-nonnull__nonnull
-nullable__nonnullable
-null_resettable
-NS_ASSUME_NONNULL_BEGIN \ NS_ASSUME_NONNULL_END
-泛型__contravariant__covariant
-__kindof
-UIWindow
-Storyboard Reference
-UIStackView
-Search">
-<meta property="og:updated_time" content="2016-08-01T17:33:50.000Z">
+<meta property="og:description" content="屏幕适配的发展历史
+iPhone3GS\iPhone4
+
+没有屏幕适配可言
+全部用frame、bounds、center进行布局
+很多这样的现象：坐标值、宽度高度值全部写死12UIButton *btn1 = [[UIButton alloc] init];btn1.frame = CGRectMake(0, 0, 320 - b, 480 - c);
+
+
+
+iPad出现、iPhone横屏
+
+出现">
+<meta property="og:updated_time" content="2015-05-30T07:31:23.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS学习小结">
-<meta name="twitter:description" content="iOS9开始的新特性
-nonnull__nonnull
-nullable__nonnullable
-null_resettable
-NS_ASSUME_NONNULL_BEGIN \ NS_ASSUME_NONNULL_END
-泛型__contravariant__covariant
-__kindof
-UIWindow
-Storyboard Reference
-UIStackView
-Search">
+<meta name="twitter:title" content="陶飞的技术博客">
+<meta name="twitter:description" content="屏幕适配的发展历史
+iPhone3GS\iPhone4
+
+没有屏幕适配可言
+全部用frame、bounds、center进行布局
+很多这样的现象：坐标值、宽度高度值全部写死12UIButton *btn1 = [[UIButton alloc] init];btn1.frame = CGRectMake(0, 0, 320 - b, 480 - c);
+
+
+
+iPad出现、iPhone横屏
+
+出现">
 
     
     <link rel="alternative" href="/atom.xml" title="陶飞的技术博客" type="application/atom+xml">
@@ -101,14 +104,14 @@ Search">
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/04/20/iOS学习小结/" title="iOS学习小结" itemprop="url">iOS学习小结</a>
+      <a href="/2015/05/30/3.第三天UIScrollView/" title="" itemprop="url"></a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="陶飞" target="_blank" itemprop="author">陶飞</a>
 		
   <p class="article-time">
-    <time datetime="2016-04-20T09:59:35.000Z" itemprop="datePublished"> 发表于 2016-04-20</time>
+    <time datetime="2015-05-30T07:31:23.000Z" itemprop="datePublished"> 发表于 2015-05-30</time>
     
   </p>
 </header>
@@ -117,86 +120,42 @@ Search">
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#iOS9开始的新特性"><span class="toc-number">1.</span> <span class="toc-text">iOS9开始的新特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#新技术的了解渠道"><span class="toc-number">2.</span> <span class="toc-text">新技术的了解渠道</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#程序员的学习"><span class="toc-number">3.</span> <span class="toc-text">程序员的学习</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#iOS技术的学习"><span class="toc-number">3.1.</span> <span class="toc-text">iOS技术的学习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#非iOS技术的学习"><span class="toc-number">3.2.</span> <span class="toc-text">非iOS技术的学习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#非技术的学习"><span class="toc-number">3.3.</span> <span class="toc-text">非技术的学习</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#快速上手公司的旧项目"><span class="toc-number">4.</span> <span class="toc-text">快速上手公司的旧项目</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#屏幕适配的发展历史"><span class="toc-number">1.</span> <span class="toc-text">屏幕适配的发展历史</span></a></li></ol>
 		
 		</div>
 		
-		<h2 id="iOS9开始的新特性"><a href="#iOS9开始的新特性" class="headerlink" title="iOS9开始的新特性"></a>iOS9开始的新特性</h2><ul>
-<li>nonnull__nonnull</li>
-<li>nullable__nonnullable</li>
-<li>null_resettable</li>
-<li>NS_ASSUME_NONNULL_BEGIN \ NS_ASSUME_NONNULL_END</li>
-<li>泛型__contravariant__covariant</li>
-<li>__kindof</li>
-<li>UIWindow</li>
-<li>Storyboard Reference</li>
-<li>UIStackView</li>
-<li>Search API</li>
-<li>3D touch</li>
+		<h2 id="屏幕适配的发展历史"><a href="#屏幕适配的发展历史" class="headerlink" title="屏幕适配的发展历史"></a>屏幕适配的发展历史</h2><ul>
+<li><p>iPhone3GS\iPhone4</p>
+<ul>
+<li>没有屏幕适配可言</li>
+<li>全部用frame、bounds、center进行布局</li>
+<li>很多这样的现象：坐标值、宽度高度值全部写死<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">UIButton</span> *btn1 = [[<span class="built_in">UIButton</span> alloc] init];</div><div class="line">btn1.frame = <span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">320</span> - b, <span class="number">480</span> - c);</div></pre></td></tr></table></figure>
+</li>
 </ul>
-<h2 id="新技术的了解渠道"><a href="#新技术的了解渠道" class="headerlink" title="新技术的了解渠道"></a>新技术的了解渠道</h2><ul>
-<li>WWDC开发者大会视频</li>
-<li>官方文档<ul>
-<li>General -&gt; Guides -&gt; iOS x.x API Diffs</li>
+</li>
+<li><p>iPad出现、iPhone横屏</p>
+<ul>
+<li>出现Autoresizing技术<ul>
+<li>让横竖屏适配相对简单</li>
+<li>让子控件可以跟随父控件的行为自动发生相应的变化</li>
+<li>前提是：关闭Autolayout功能</li>
+<li>局限性<ul>
+<li>只能解决子控件跟父控件的相对关系问题</li>
+<li>不能解决兄弟控件的相对关系问题</li>
 </ul>
 </li>
 </ul>
-<h2 id="程序员的学习"><a href="#程序员的学习" class="headerlink" title="程序员的学习"></a>程序员的学习</h2><h3 id="iOS技术的学习"><a href="#iOS技术的学习" class="headerlink" title="iOS技术的学习"></a>iOS技术的学习</h3><ul>
-<li>官当文档<ul>
-<li>Sample Code(示例代码)</li>
-<li>Guides(指南)</li>
-<li>Reference(API参考)</li>
+</li>
 </ul>
 </li>
-<li>博客<ul>
-<li><a href="http://www.cocoachina.com/ios/list_69_1.html" target="_blank" rel="external">CocoaChina</a></li>
-<li><a href="http://ios.jobbole.com/" target="_blank" rel="external">伯乐在线</a></li>
-<li><a href="http://objccn.io/" target="_blank" rel="external">objc中国</a></li>
-<li><a href="https://github.com/tangqiaoboy/iOSBlogCN" target="_blank" rel="external">优秀博客汇总</a></li>
-</ul>
-</li>
-<li>微博<ul>
-<li><a href="http://weibo.com/kaifazhetoutiao" target="_blank" rel="external">开发者头条</a> </li>
-<li><a href="http://weibo.com/cocoachina" target="_blank" rel="external">CocoaChina</a> </li>
-<li><a href="http://weibo.com/luohanchenyilong" target="_blank" rel="external">iOS程序犭袁</a> </li>
-<li><a href="http://weibo.com/tangqiaoboy" target="_blank" rel="external">唐巧_boy</a> </li>
-<li><a href="http://weibo.com/u/1364395395" target="_blank" rel="external">我就叫Sunny怎么了</a> </li>
-<li><a href="http://weibo.com/710312327" target="_blank" rel="external">KITTEN-YANG</a> </li>
-<li><a href="http://weibo.com/exceptions" target="_blank" rel="external">M了个J</a></li>
-<li><a href="http://weibo.com/u/5596623481" target="_blank" rel="external">小码哥教育</a></li>
-</ul>
-</li>
-<li>微信公众号<ul>
-<li>iOS开发(iosDevTips)</li>
-<li>iOS开发(iOSDevTip)</li>
-<li>iOS技术分享(iosinfo)</li>
-<li>猿圈(CodePush) </li>
-</ul>
-</li>
-<li>其他<ul>
-<li>多写技术博客(简书\个人博客站点)</li>
-<li>参加一些技术分享活动(北京\上海\广州\杭州)</li>
-<li>有自己的技术圈子</li>
+<li><p>iOS 6.0（Xcode4）开始</p>
+<ul>
+<li>出现了Autolayout技术</li>
+<li>从Xcode5.0(iOS 7.0)开始，开始流行Autolayout</li>
 </ul>
 </li>
 </ul>
-<h3 id="非iOS技术的学习"><a href="#非iOS技术的学习" class="headerlink" title="非iOS技术的学习"></a>非iOS技术的学习</h3><ul>
-<li><code>数据结构与算法(比如加密算法等等)</code></li>
-<li><code>HTML5</code></li>
-<li><code>JavaScript</code></li>
-<li>Java(Android\JavaEE)</li>
-<li>C++</li>
-</ul>
-<h3 id="非技术的学习"><a href="#非技术的学习" class="headerlink" title="非技术的学习"></a>非技术的学习</h3><ul>
-<li>管理\心理学\幸福\创业\历史</li>
-<li>网易公开课<ul>
-<li>各种国际名牌大学的课堂视频</li>
-<li>名人讲座(TED)</li>
-</ul>
-</li>
-<li>名人讲座\名人访谈</li>
-</ul>
-<h2 id="快速上手公司的旧项目"><a href="#快速上手公司的旧项目" class="headerlink" title="快速上手公司的旧项目"></a>快速上手公司的旧项目</h2>  
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -208,7 +167,7 @@ Search">
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2016/04/20/iOS学习小结/" data-title="iOS学习小结 | 陶飞的技术博客" data-tsina="3015394781" class="share clearfix">
+	  <div data-url="http://yoursite.com/2015/05/30/3.第三天UIScrollView/" data-title="陶飞的技术博客" data-tsina="3015394781" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -222,16 +181,16 @@ Search">
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2016/07/29/利用Reveal显示出来的层次关系/" title="利用Reveal分析出来的层次关系">
+ <a href="/2015/06/02/5.0601AutoLayout/" title="">
   <strong>上一篇：</strong><br/>
   <span>
-  利用Reveal分析出来的层次关系</span>
+  (no title)</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2015/07/29/6.0603自定义等高/"  title="">
+<a href="/2015/05/30/4.分页+屏幕适配/"  title="">
  <strong>下一篇：</strong><br/> 
  <span>(no title)
 </span>
@@ -242,7 +201,7 @@ Search">
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2016/04/20/iOS学习小结/" data-title="iOS学习小结" data-url="http://yoursite.com/2016/04/20/iOS学习小结/"></div>
+	<div class="ds-thread" data-thread-key="2015/05/30/3.第三天UIScrollView/" data-title="" data-url="http://yoursite.com/2015/05/30/3.第三天UIScrollView/"></div>
 </section>
 
 
@@ -252,7 +211,7 @@ Search">
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#iOS9开始的新特性"><span class="toc-number">1.</span> <span class="toc-text">iOS9开始的新特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#新技术的了解渠道"><span class="toc-number">2.</span> <span class="toc-text">新技术的了解渠道</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#程序员的学习"><span class="toc-number">3.</span> <span class="toc-text">程序员的学习</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#iOS技术的学习"><span class="toc-number">3.1.</span> <span class="toc-text">iOS技术的学习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#非iOS技术的学习"><span class="toc-number">3.2.</span> <span class="toc-text">非iOS技术的学习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#非技术的学习"><span class="toc-number">3.3.</span> <span class="toc-text">非技术的学习</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#快速上手公司的旧项目"><span class="toc-number">4.</span> <span class="toc-text">快速上手公司的旧项目</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#屏幕适配的发展历史"><span class="toc-number">1.</span> <span class="toc-text">屏幕适配的发展历史</span></a></li></ol>
  
   </div>
 
