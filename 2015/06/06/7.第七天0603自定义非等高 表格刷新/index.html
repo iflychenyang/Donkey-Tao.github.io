@@ -4,23 +4,68 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>postName | 陶飞的技术博客</title>
+    <title>陶飞的技术博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="陶飞">
     
 
     
-    <meta name="description" content="陶飞,陶飞的技术博客,iOS,机器学习">
+    <meta name="description" content="代理
+代理设计模式的作用:
+
+1.A对象监听B对象的一些行为，A成为B的代理
+2.B对象想告诉A对象一些事情，A成为B的代理
+
+
+代理设计模式的总结：
+
+如果你想监听别人的一些行为，那么你就要成为别人的代理
+如果你想告诉别人一些事情，那么就让别人成为你的代理
+
+
+代理设计模式的开发步骤
+
+1.拟一份协议（协议名字的格式：控件名 + Delegate），在协议里面声明一些代理方法（一般代理方法都是@">
 <meta property="og:type" content="article">
-<meta property="og:title" content="postName">
-<meta property="og:url" content="http://yoursite.com/2016/08/01/postName/index.html">
+<meta property="og:title" content="陶飞的技术博客">
+<meta property="og:url" content="http://yoursite.com/2015/06/06/7.第七天0603自定义非等高 表格刷新/index.html">
 <meta property="og:site_name" content="陶飞的技术博客">
-<meta property="og:description" content="陶飞,陶飞的技术博客,iOS,机器学习">
-<meta property="og:updated_time" content="2016-08-01T14:21:02.000Z">
+<meta property="og:description" content="代理
+代理设计模式的作用:
+
+1.A对象监听B对象的一些行为，A成为B的代理
+2.B对象想告诉A对象一些事情，A成为B的代理
+
+
+代理设计模式的总结：
+
+如果你想监听别人的一些行为，那么你就要成为别人的代理
+如果你想告诉别人一些事情，那么就让别人成为你的代理
+
+
+代理设计模式的开发步骤
+
+1.拟一份协议（协议名字的格式：控件名 + Delegate），在协议里面声明一些代理方法（一般代理方法都是@">
+<meta property="og:updated_time" content="2015-06-06T09:30:44.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="postName">
-<meta name="twitter:description" content="陶飞,陶飞的技术博客,iOS,机器学习">
+<meta name="twitter:title" content="陶飞的技术博客">
+<meta name="twitter:description" content="代理
+代理设计模式的作用:
+
+1.A对象监听B对象的一些行为，A成为B的代理
+2.B对象想告诉A对象一些事情，A成为B的代理
+
+
+代理设计模式的总结：
+
+如果你想监听别人的一些行为，那么你就要成为别人的代理
+如果你想告诉别人一些事情，那么就让别人成为你的代理
+
+
+代理设计模式的开发步骤
+
+1.拟一份协议（协议名字的格式：控件名 + Delegate），在协议里面声明一些代理方法（一般代理方法都是@">
 
     
     <link rel="alternative" href="/atom.xml" title="陶飞的技术博客" type="application/atom+xml">
@@ -70,14 +115,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/08/01/postName/" title="postName" itemprop="url">postName</a>
+      <a href="/2015/06/06/7.第七天0603自定义非等高 表格刷新/" title="" itemprop="url"></a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="陶飞" target="_blank" itemprop="author">陶飞</a>
 		
   <p class="article-time">
-    <time datetime="2016-08-01T14:21:02.000Z" itemprop="datePublished"> 发表于 2016-08-01</time>
+    <time datetime="2015-06-06T09:30:44.000Z" itemprop="datePublished"> 发表于 2015-06-06</time>
     
   </p>
 </header>
@@ -86,11 +131,44 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#代理"><span class="toc-number">1.</span> <span class="toc-text">代理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代理和通知的区别"><span class="toc-number">2.</span> <span class="toc-text">代理和通知的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#KVC-KVO"><span class="toc-number">3.</span> <span class="toc-text">KVC\KVO</span></a></li></ol>
 		
 		</div>
 		
-		  
+		<h2 id="代理"><a href="#代理" class="headerlink" title="代理"></a>代理</h2><ul>
+<li><p>代理设计模式的作用:</p>
+<ul>
+<li>1.A对象监听B对象的一些行为，A成为B的代理</li>
+<li>2.B对象想告诉A对象一些事情，A成为B的代理</li>
+</ul>
+</li>
+<li><p>代理设计模式的总结：</p>
+<ul>
+<li>如果你想监听别人的一些行为，那么你就要成为别人的代理</li>
+<li>如果你想告诉别人一些事情，那么就让别人成为你的代理</li>
+</ul>
+</li>
+<li><p>代理设计模式的开发步骤</p>
+<ul>
+<li>1.拟一份协议（协议名字的格式：控件名 + Delegate），在协议里面声明一些代理方法（一般代理方法都是@optional）</li>
+<li>2.声明一个代理属性：@property (nonatomic, weak) id&lt;代理协议&gt; delegate;</li>
+<li>3.在内部发生某些行为时，调用代理对应的代理方法，通知代理内部发生什么事</li>
+<li>4.设置代理：xxx.delegate = yyy;</li>
+<li>5.yyy对象遵守协议，实现代理方法</li>
+</ul>
+</li>
+</ul>
+<h2 id="代理和通知的区别"><a href="#代理和通知的区别" class="headerlink" title="代理和通知的区别"></a>代理和通知的区别</h2><ul>
+<li>代理：1个对象只能告诉另1个对象发生了什么事</li>
+<li>通知：1个对象可以告诉N个对象发生了什么事</li>
+</ul>
+<h2 id="KVC-KVO"><a href="#KVC-KVO" class="headerlink" title="KVC\KVO"></a>KVC\KVO</h2><ul>
+<li>KVC(Key Value Coding)常见作用：给模型属性赋值</li>
+<li>KVO(Key Value Observing)常用作用：监听模型属性值的改变</li>
+<li>KVO的使用步骤<br></li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// cc监听了aa的name属性的改变</span></div><div class="line">[aa addObserver:cc forKeyPath:<span class="string">@"name"</span> options: <span class="built_in">NSKeyValueObservingOptionOld</span> context:<span class="literal">nil</span>];</div><div class="line"></div><div class="line"><span class="comment">// cc得实现监听方法</span></div><div class="line"><span class="comment">/**</span></div><div class="line"> * 当监听到object的keyPath属性发生了改变</div><div class="line"> */</div><div class="line">- (<span class="keyword">void</span>)observeValueForKeyPath:(<span class="built_in">NSString</span> *)keyPath ofObject:(<span class="keyword">id</span>)object change:(<span class="built_in">NSDictionary</span> *)change context:(<span class="keyword">void</span> *)context</div><div class="line">&#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"监听到%@对象的%@属性发生了改变， %@"</span>, object, keyPath, change);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -102,7 +180,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2016/08/01/postName/" data-title="postName | 陶飞的技术博客" data-tsina="3015394781" class="share clearfix">
+	  <div data-url="http://yoursite.com/2015/06/06/7.第七天0603自定义非等高 表格刷新/" data-title="陶飞的技术博客" data-tsina="3015394781" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -115,11 +193,19 @@
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev" >
+ <a href="/2015/06/07/1.第一天UI基础/" title="">
+  <strong>上一篇：</strong><br/>
+  <span>
+  (no title)</span>
+</a>
+</div>
+
 
 <div class="next">
-<a href="/2016/08/01/hello-world/"  title="Hello World">
+<a href="/2015/06/05/8.第八天0604聊天布局/"  title="">
  <strong>下一篇：</strong><br/> 
- <span>Hello World
+ <span>(no title)
 </span>
 </a>
 </div>
@@ -128,7 +214,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2016/08/01/postName/" data-title="postName" data-url="http://yoursite.com/2016/08/01/postName/"></div>
+	<div class="ds-thread" data-thread-key="2015/06/06/7.第七天0603自定义非等高 表格刷新/" data-title="" data-url="http://yoursite.com/2015/06/06/7.第七天0603自定义非等高 表格刷新/"></div>
 </section>
 
 
@@ -138,7 +224,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#代理"><span class="toc-number">1.</span> <span class="toc-text">代理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代理和通知的区别"><span class="toc-number">2.</span> <span class="toc-text">代理和通知的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#KVC-KVO"><span class="toc-number">3.</span> <span class="toc-text">KVC\KVO</span></a></li></ol>
  
   </div>
 
