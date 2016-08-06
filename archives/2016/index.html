@@ -182,22 +182,14 @@ $(document).ready(function(){
 
 
   var m = $('#main'),
-    a = $('#asidepart'), //侧边栏
-    c = $('.closeaside'),//隐藏侧边栏
-    o = $('.openaside'); //显示侧边栏
-    c.click(function(){
-    a.addClass('fadeOut').css('display', 'none');
-    o.css('display', 'block').addClass('fadeIn');
-   var m = $('#main'),
-    a = $('#asidepart'), //侧边栏
-    c = $('.closeaside'),//隐藏侧边栏
-    o = $('.openaside'); //显示侧边栏
+      a = $('#asidepart'),//侧边栏
+      c = $('.closeaside'),//隐藏侧边栏
+      o = $('.openaside');//显示侧边栏
   c.click(function(){
     a.addClass('fadeOut').css('display', 'none');
     o.css('display', 'block').addClass('fadeIn');
-    $('#toc.toc-aside').css('display', 'block').addClass('fadeIn'); //这个是我新加的，修改点
     m.addClass('moveMain');
-    });  
+  });
   o.click(function(){
     o.css('display', 'none').removeClass('beforeFadeIn');
     a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
@@ -206,6 +198,8 @@ $(document).ready(function(){
   $(window).scroll(function(){
     o.css("top",Math.max(80,260-$(this).scrollTop()));
   });
+  
+
   
   $(window).resize(function(){
     getSize(); 
