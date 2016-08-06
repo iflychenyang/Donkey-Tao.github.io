@@ -1,0 +1,579 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>UI基础 | 陶飞的技术博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="陶飞">
+    
+
+    <meta name="keywords" content="UI基础">
+    <meta name="description" content="storyboard文件的认识
+用来描述软件界面
+默认情况下，程序一启动就会加载Main.storyboard
+加载storyboard时，会首先创建和显示箭头所指的控制器界面
+
+IBAction和IBOutlet
+IBAction：
+本质就是void
+能让方法具备连线的功能
+
+
+IBOutlet
+能让属性具备连线的功能
+
+
+
+storyboard连线容易出现的问题
+连接的方法代码被删掉，但是连线">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UI基础">
+<meta property="og:url" content="http://TaoFei0610.github.io/2014/04/26/1.第一天UI基础/index.html">
+<meta property="og:site_name" content="陶飞的技术博客">
+<meta property="og:description" content="storyboard文件的认识
+用来描述软件界面
+默认情况下，程序一启动就会加载Main.storyboard
+加载storyboard时，会首先创建和显示箭头所指的控制器界面
+
+IBAction和IBOutlet
+IBAction：
+本质就是void
+能让方法具备连线的功能
+
+
+IBOutlet
+能让属性具备连线的功能
+
+
+
+storyboard连线容易出现的问题
+连接的方法代码被删掉，但是连线">
+<meta property="og:updated_time" content="2016-08-02T05:35:15.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="UI基础">
+<meta name="twitter:description" content="storyboard文件的认识
+用来描述软件界面
+默认情况下，程序一启动就会加载Main.storyboard
+加载storyboard时，会首先创建和显示箭头所指的控制器界面
+
+IBAction和IBOutlet
+IBAction：
+本质就是void
+能让方法具备连线的功能
+
+
+IBOutlet
+能让属性具备连线的功能
+
+
+
+storyboard连线容易出现的问题
+连接的方法代码被删掉，但是连线">
+
+    
+    <link rel="alternative" href="/atom.xml" title="陶飞的技术博客" type="application/atom+xml">
+    
+    
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="陶飞的技术博客">陶飞的技术博客</a></h1>
+				<h2 class="blog-motto">记录下自己学习的点滴</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+    					<form class="search" action="http://zhannei.baidu.com/cse/search" target="_blank">
+					<label>Search</label>
+    					<input name="s" type="hidden" value= null ><input type="text" name="q" size="30" placeholder="搜索"><br>
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2014/04/26/1.第一天UI基础/" title="UI基础" itemprop="url">UI基础</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="陶飞" target="_blank" itemprop="author">陶飞</a>
+		
+  <p class="article-time">
+    <time datetime="2014-04-26T15:00:39.000Z" itemprop="datePublished"> 发表于 2014-04-26</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#storyboard文件的认识"><span class="toc-number">1.</span> <span class="toc-text">storyboard文件的认识</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IBAction和IBOutlet"><span class="toc-number">2.</span> <span class="toc-text">IBAction和IBOutlet</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#storyboard连线容易出现的问题"><span class="toc-number">3.</span> <span class="toc-text">storyboard连线容易出现的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UIViewController（控制器）的认识"><span class="toc-number">4.</span> <span class="toc-text">UIViewController（控制器）的认识</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类扩展"><span class="toc-number">5.</span> <span class="toc-text">类扩展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#项目属性"><span class="toc-number">6.</span> <span class="toc-text">项目属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UIView的常见属性"><span class="toc-number">7.</span> <span class="toc-text">UIView的常见属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UIView的常见方法"><span class="toc-number">8.</span> <span class="toc-text">UIView的常见方法</span></a></li></ol>
+		
+		</div>
+		
+		<h2 id="storyboard文件的认识"><a href="#storyboard文件的认识" class="headerlink" title="storyboard文件的认识"></a>storyboard文件的认识</h2><ul>
+<li>用来描述软件界面</li>
+<li>默认情况下，程序一启动就会加载Main.storyboard</li>
+<li>加载storyboard时，会首先创建和显示箭头所指的控制器界面</li>
+</ul>
+<h2 id="IBAction和IBOutlet"><a href="#IBAction和IBOutlet" class="headerlink" title="IBAction和IBOutlet"></a>IBAction和IBOutlet</h2><ul>
+<li>IBAction：<ul>
+<li>本质就是void</li>
+<li>能让方法具备连线的功能</li>
+</ul>
+</li>
+<li>IBOutlet<ul>
+<li>能让属性具备连线的功能</li>
+</ul>
+</li>
+</ul>
+<h2 id="storyboard连线容易出现的问题"><a href="#storyboard连线容易出现的问题" class="headerlink" title="storyboard连线容易出现的问题"></a>storyboard连线容易出现的问题</h2><ul>
+<li>连接的方法代码被删掉，但是连线没有去掉<ul>
+<li>可能会出现方法找不到错误</li>
+<li>unrecognized selector sent to instance</li>
+</ul>
+</li>
+<li>连接的属性代码被删掉，但是连线没有去掉<ul>
+<li>setValue:forUndefinedKey:]: this class is not key value coding-compliant for the key</li>
+</ul>
+</li>
+</ul>
+<h2 id="UIViewController（控制器）的认识"><a href="#UIViewController（控制器）的认识" class="headerlink" title="UIViewController（控制器）的认识"></a>UIViewController（控制器）的认识</h2><ul>
+<li>一个控制器负责管理一个大界面</li>
+<li>控制器负责界面的创建、事件处理等</li>
+</ul>
+<h2 id="类扩展"><a href="#类扩展" class="headerlink" title="类扩展"></a>类扩展</h2><ul>
+<li><p>格式</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@interface</span> 类名()</span></div><div class="line"><span class="comment">/** 属性、方法的声明 */</span></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>作用</p>
+<ul>
+<li>为某个类增加额外的属性和方法声明</li>
+<li>可以写在.h和.m文件中</li>
+</ul>
+</li>
+</ul>
+<h2 id="项目属性"><a href="#项目属性" class="headerlink" title="项目属性"></a>项目属性</h2><ul>
+<li>Product Name<ul>
+<li>软件名称、产品名称、项目名称</li>
+</ul>
+</li>
+<li>Organization Name<ul>
+<li>公司名称、组织名称</li>
+</ul>
+</li>
+<li>Organization Identifier<ul>
+<li>公司的唯一标识</li>
+<li>一般是公司域名的反写，比如com.520it</li>
+</ul>
+</li>
+<li>Bundle Identifier<ul>
+<li>软件的唯一标识</li>
+<li>一般是Organization Identifier + Product Name</li>
+</ul>
+</li>
+</ul>
+<h2 id="UIView的常见属性"><a href="#UIView的常见属性" class="headerlink" title="UIView的常见属性"></a>UIView的常见属性</h2><ul>
+<li>NSArray *subviews<ul>
+<li>所有的子控件</li>
+<li>数组元素的顺序决定着子控件的显示层级顺序（下标越大的，越显示在上面）</li>
+</ul>
+</li>
+</ul>
+<h2 id="UIView的常见方法"><a href="#UIView的常见方法" class="headerlink" title="UIView的常见方法"></a>UIView的常见方法</h2><ul>
+<li>addSubview:<ul>
+<li>添加一个子控件</li>
+<li>使用这个方法添加的子控件会被塞到subviews数组的最后面</li>
+</ul>
+</li>
+<li>可以使用下面的方法调整子控件在subview数组中的顺序</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 将子控件view插入到subviews数组的index位置</span></div><div class="line">- (<span class="keyword">void</span>)insertSubview:(<span class="built_in">UIView</span> *)view atIndex:(<span class="built_in">NSInteger</span>)index;</div><div class="line"></div><div class="line"><span class="comment">// 将子控件view显示到子控件siblingSubview的下面</span></div><div class="line">- (<span class="keyword">void</span>)insertSubview:(<span class="built_in">UIView</span> *)view belowSubview:(<span class="built_in">UIView</span> *)siblingSubview;</div><div class="line"><span class="comment">// 将子控件view显示到子控件siblingSubview的上面</span></div><div class="line">- (<span class="keyword">void</span>)insertSubview:(<span class="built_in">UIView</span> *)view aboveSubview:(<span class="built_in">UIView</span> *)siblingSubview;</div><div class="line"></div><div class="line"><span class="comment">// 将子控件view放到数组的最后面，显示在最上面</span></div><div class="line">- (<span class="keyword">void</span>)bringSubviewToFront:(<span class="built_in">UIView</span> *)view;</div><div class="line"><span class="comment">// 将子控件view放到数组的最前面，显示在最下面</span></div><div class="line">- (<span class="keyword">void</span>)sendSubviewToBack:(<span class="built_in">UIView</span> *)view;</div></pre></td></tr></table></figure>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/iOS/">iOS</a>
+</div>
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://TaoFei0610.github.io/2014/04/26/1.第一天UI基础/" data-title="UI基础 | 陶飞的技术博客" data-tsina="3015394781" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2014/04/27/2.第二天九宫格+数据加载/" title="UI基础(1)">
+  <strong>上一篇：</strong><br/>
+  <span>
+  UI基础(1)</span>
+</a>
+</div>
+
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2014/04/26/1.第一天UI基础/" data-title="UI基础" data-url="http://TaoFei0610.github.io/2014/04/26/1.第一天UI基础/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#storyboard文件的认识"><span class="toc-number">1.</span> <span class="toc-text">storyboard文件的认识</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IBAction和IBOutlet"><span class="toc-number">2.</span> <span class="toc-text">IBAction和IBOutlet</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#storyboard连线容易出现的问题"><span class="toc-number">3.</span> <span class="toc-text">storyboard连线容易出现的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UIViewController（控制器）的认识"><span class="toc-number">4.</span> <span class="toc-text">UIViewController（控制器）的认识</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类扩展"><span class="toc-number">5.</span> <span class="toc-text">类扩展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#项目属性"><span class="toc-number">6.</span> <span class="toc-text">项目属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UIView的常见属性"><span class="toc-number">7.</span> <span class="toc-text">UIView的常见属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UIView的常见方法"><span class="toc-number">8.</span> <span class="toc-text">UIView的常见方法</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/iOS/" title="iOS">iOS<sup>9</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=3015394781&verifier=655ac839&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/3015394781" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:taofei0610@gmail.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="陶飞">陶飞</a>
+		
+		
+		</p>
+
+		<script type="text/javascript">
+  		(function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+ 	 		(w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+ 		 e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  		})(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+  
+  		_st('install','AXHzsCAH4RKEmN-p72Lx','2.0.0');
+		</script>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"taofei"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?9833b52c905ccc936c62c38135a70622";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
