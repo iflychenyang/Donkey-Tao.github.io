@@ -4,23 +4,26 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>利用Reveal分析出来的层次关系 | 陶飞的技术博客</title>
+    <title>陶飞的技术博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="陶飞">
     
 
     
-    <meta name="description" content="UIScreen-&amp;gt;UIWindow-&amp;gt;UILayoutContainerView-&amp;gt;UITransitionView-&amp;gt;UIViewControllerWrapperView-&amp;gt;UILayoutContainerView-&amp;gt;UINavigationTransiton-&amp;gt;UIViewControllerWrapperView-&amp;gt;UIView-&amp;gt;">
+    <meta name="description" content="关于Reveal的使用1.首先破解reveal之前看视频还有某巧的文章时真的以为Reveal是没法办破解的，但是想想要花两百多大洋就还是有点不舍。于是，在网上搜了下，找到一篇关于Reveal破解及使用的文章。分析iOS UI的利器Reveal安装破解教程，很完美的破解了。
+2.Reveal的使用">
 <meta property="og:type" content="article">
-<meta property="og:title" content="利用Reveal分析出来的层次关系">
-<meta property="og:url" content="http://TaoFei0610.github.io/2016/07/29/利用Reveal显示出来的层次关系/index.html">
+<meta property="og:title" content="陶飞的技术博客">
+<meta property="og:url" content="http://TaoFei0610.github.io/2016/07/29/关于Reveal的使用/index.html">
 <meta property="og:site_name" content="陶飞的技术博客">
-<meta property="og:description" content="UIScreen-&amp;gt;UIWindow-&amp;gt;UILayoutContainerView-&amp;gt;UITransitionView-&amp;gt;UIViewControllerWrapperView-&amp;gt;UILayoutContainerView-&amp;gt;UINavigationTransiton-&amp;gt;UIViewControllerWrapperView-&amp;gt;UIView-&amp;gt;">
-<meta property="og:updated_time" content="2016-08-01T17:36:30.000Z">
+<meta property="og:description" content="关于Reveal的使用1.首先破解reveal之前看视频还有某巧的文章时真的以为Reveal是没法办破解的，但是想想要花两百多大洋就还是有点不舍。于是，在网上搜了下，找到一篇关于Reveal破解及使用的文章。分析iOS UI的利器Reveal安装破解教程，很完美的破解了。
+2.Reveal的使用">
+<meta property="og:updated_time" content="2016-07-29T06:46:03.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="利用Reveal分析出来的层次关系">
-<meta name="twitter:description" content="UIScreen-&amp;gt;UIWindow-&amp;gt;UILayoutContainerView-&amp;gt;UITransitionView-&amp;gt;UIViewControllerWrapperView-&amp;gt;UILayoutContainerView-&amp;gt;UINavigationTransiton-&amp;gt;UIViewControllerWrapperView-&amp;gt;UIView-&amp;gt;">
+<meta name="twitter:title" content="陶飞的技术博客">
+<meta name="twitter:description" content="关于Reveal的使用1.首先破解reveal之前看视频还有某巧的文章时真的以为Reveal是没法办破解的，但是想想要花两百多大洋就还是有点不舍。于是，在网上搜了下，找到一篇关于Reveal破解及使用的文章。分析iOS UI的利器Reveal安装破解教程，很完美的破解了。
+2.Reveal的使用">
 
     
     <link rel="alternative" href="/atom.xml" title="陶飞的技术博客" type="application/atom+xml">
@@ -70,14 +73,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/07/29/利用Reveal显示出来的层次关系/" title="利用Reveal分析出来的层次关系" itemprop="url">利用Reveal分析出来的层次关系</a>
+      <a href="/2016/07/29/关于Reveal的使用/" title="" itemprop="url"></a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="陶飞" target="_blank" itemprop="author">陶飞</a>
 		
   <p class="article-time">
-    <time datetime="2016-07-29T09:42:20.000Z" itemprop="datePublished"> 发表于 2016-07-29</time>
+    <time datetime="2016-07-29T06:46:03.000Z" itemprop="datePublished"> 发表于 2016-07-29</time>
     
   </p>
 </header>
@@ -86,12 +89,12 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#关于Reveal的使用"><span class="toc-number">1.</span> <span class="toc-text">关于Reveal的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-首先破解reveal"><span class="toc-number">1.1.</span> <span class="toc-text">1.首先破解reveal</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Reveal的使用"><span class="toc-number">1.2.</span> <span class="toc-text">2.Reveal的使用</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<p>UIScreen-&gt;UIWindow-&gt;UILayoutContainerView-&gt;UITransitionView-&gt;UIViewControllerWrapperView-&gt;UILayoutContainerView-&gt;UINavigationTransiton-&gt;UIViewControllerWrapperView-&gt;UIView-&gt;UIScrollView</p>
-  
+		<h3 id="关于Reveal的使用"><a href="#关于Reveal的使用" class="headerlink" title="关于Reveal的使用"></a>关于Reveal的使用</h3><h4 id="1-首先破解reveal"><a href="#1-首先破解reveal" class="headerlink" title="1.首先破解reveal"></a>1.首先破解reveal</h4><p>之前看视频还有某巧的文章时真的以为Reveal是没法办破解的，但是想想要花两百多大洋就还是有点不舍。于是，在网上搜了下，找到一篇关于Reveal破解及使用的文章。<a href="http://www.jianshu.com/p/0cc7089143a3" target="_blank" rel="external">分析iOS UI的利器Reveal安装破解教程</a>，很完美的破解了。</p>
+<h4 id="2-Reveal的使用"><a href="#2-Reveal的使用" class="headerlink" title="2.Reveal的使用"></a>2.Reveal的使用</h4>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -103,7 +106,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://TaoFei0610.github.io/2016/07/29/利用Reveal显示出来的层次关系/" data-title="利用Reveal分析出来的层次关系 | 陶飞的技术博客" data-tsina="3015394781" class="share clearfix">
+	  <div data-url="http://TaoFei0610.github.io/2016/07/29/关于Reveal的使用/" data-title="陶飞的技术博客" data-tsina="3015394781" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -117,18 +120,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2016/08/01/hello-world/" title="Hello World">
+ <a href="/2016/07/29/利用Reveal显示出来的层次关系/" title="利用Reveal分析出来的层次关系">
   <strong>上一篇：</strong><br/>
   <span>
-  Hello World</span>
+  利用Reveal分析出来的层次关系</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2016/07/29/关于Reveal的使用/"  title="">
+<a href="/2014/06/13/27.0713JSON:XML:解压缩/"  title="JSON/XML/解压缩">
  <strong>下一篇：</strong><br/> 
- <span>(no title)
+ <span>JSON/XML/解压缩
 </span>
 </a>
 </div>
@@ -137,7 +140,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2016/07/29/利用Reveal显示出来的层次关系/" data-title="利用Reveal分析出来的层次关系" data-url="http://TaoFei0610.github.io/2016/07/29/利用Reveal显示出来的层次关系/"></div>
+	<div class="ds-thread" data-thread-key="2016/07/29/关于Reveal的使用/" data-title="" data-url="http://TaoFei0610.github.io/2016/07/29/关于Reveal的使用/"></div>
 </section>
 
 
@@ -147,7 +150,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#关于Reveal的使用"><span class="toc-number">1.</span> <span class="toc-text">关于Reveal的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-首先破解reveal"><span class="toc-number">1.1.</span> <span class="toc-text">1.首先破解reveal</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Reveal的使用"><span class="toc-number">1.2.</span> <span class="toc-text">2.Reveal的使用</span></a></li></ol></li></ol>
  
   </div>
 
