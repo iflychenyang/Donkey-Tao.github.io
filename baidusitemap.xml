@@ -3,6 +3,42 @@
 
 
     
+  <url>
+    <loc>http://TaoFei0610.github.io/2016/07/23/hello-world/</loc>
+    <lastmod>2016-08-10T15:15:42.000Z</lastmod>
+    <data>
+        <display>
+        <title>First Post</title>
+        <pubTime>2016-07-23T15:00:39.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="iOS" url="http://TaoFei0610.github.io/categories/iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://TaoFei0610.github.io/2016/07/28/%E5%85%B3%E4%BA%8EReveal%E7%9A%84%E4%BD%BF%E7%94%A8/</loc>
+    <lastmod>2016-08-10T15:13:13.000Z</lastmod>
+    <data>
+        <display>
+        <title>关于Reveal的使用总结</title>
+        <pubTime>2016-07-28T15:12:24.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="iOS" url="http://TaoFei0610.github.io/categories/iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
     
     
     
@@ -176,36 +212,6 @@
         <display>
         <title>利用Reveal分析出来的层次关系</title>
         <pubTime>2016-07-29T09:42:20.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://TaoFei0610.github.io/2016/08/01/hello-world/</loc>
-    <lastmod>2016-08-01T12:42:39.000Z</lastmod>
-    <data>
-        <display>
-        <title>Hello World</title>
-        <pubTime>2016-08-01T12:42:39.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://TaoFei0610.github.io/2016/07/29/%E5%85%B3%E4%BA%8EReveal%E7%9A%84%E4%BD%BF%E7%94%A8/</loc>
-    <lastmod>2016-07-29T06:46:03.000Z</lastmod>
-    <data>
-        <display>
-        <title></title>
-        <pubTime>2016-07-29T06:46:03.000Z</pubTime>
         
          
            
