@@ -29,10 +29,10 @@ if DEBUG">
 
 自定义标记-&amp;gt;项目 -&amp;gt;buildSettings -&amp;gt; Swift flag -&amp;gt; Debug -&amp;gt;-D DEBUG
 if DEBUG">
-<meta property="og:image" content="http://Donkey-Tao.github.io/../images/CloneAndPuash.png">
+<meta property="og:image" content="http://Donkey-Tao.github.io/images/CloneAndPuash.png">
 <meta property="og:image" content="http://Donkey-Tao.github.io/../images/gitignoreAttention.png">
-<meta property="og:image" content="http://Donkey-Tao.github.io/../images/Deployment.png">
-<meta property="og:updated_time" content="2016-10-20T20:31:22.000Z">
+<meta property="og:image" content="http://Donkey-Tao.github.io/images/Deployment.png">
+<meta property="og:updated_time" content="2016-10-20T20:34:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="swift项目:微博">
 <meta name="twitter:description" content="Swift项目:新浪微博 声明：本文为博主Donkey-Tao原创，如需转载请注明出处。
@@ -42,7 +42,7 @@ if DEBUG">
 
 自定义标记-&amp;gt;项目 -&amp;gt;buildSettings -&amp;gt; Swift flag -&amp;gt; Debug -&amp;gt;-D DEBUG
 if DEBUG">
-<meta name="twitter:image" content="http://Donkey-Tao.github.io/../images/CloneAndPuash.png">
+<meta name="twitter:image" content="http://Donkey-Tao.github.io/images/CloneAndPuash.png">
 
     
     <link rel="alternative" href="/atom.xml" title="陶飞的技术博客" type="application/atom+xml">
@@ -136,7 +136,7 @@ if DEBUG">
 <p>首先在OSChina上面新建项目SinaWeib。这里没有采用SSH方式实现代码的管理，而是采用HTTPS方式来进行代码的管理。<a href="https://git.oschina.net/taofei0610/SinaWeibo.git" target="_blank" rel="external">https://git.oschina.net/taofei0610/SinaWeibo.git</a></p>
 <p>然后将项目Clone到的我的电脑上面，打开终端进入到代码存储的目录下，使用命令Clone下OSChina上面的项目。</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//用到的命令</span></div><div class="line">cd /Users/taofei/Documents/TFCode/TFOSChina</div><div class="line">git clone https:<span class="comment">//git.oschina.net/taofei0610/SinaWeibo.git</span></div><div class="line">cd SinaWeibo</div><div class="line">touch .gitignore</div><div class="line">git add .</div><div class="line">git commit -m <span class="string">"add gitignore"</span></div><div class="line">git push</div></pre></td></tr></table></figure>
-<p><img src="../images/CloneAndPuash.png" alt="clone项目"></p>
+<p><img src="/images/CloneAndPuash.png" alt="clone项目"></p>
 <p>到此就将OSChina上面的项目Clone下来了，但是由于OSChina上面创建项目时没有swift的.gitignore，所以我们要去GiyHub中找到swift项目开发中的gitignore并将其复制后加入我们的项目中。(<a href="https://github.com/github/gitignore" target="_blank" rel="external">https://github.com/github/gitignore</a>)</p>
 <p><code>注意：一般在这里复制的.gitignore中的内容时最好将#Pods中的#去掉，这样上传时不用将CocoaPods中的文件上传，只上传Podfile中的内容</code></p>
 <p><img src="../images/gitignoreAttention.png" alt="gitignore"></p>
@@ -149,7 +149,7 @@ if DEBUG">
 <li>设备方向（Device Orientation）：本项目只支持竖屏。</li>
 <li>启动图片（Launch Screen Source）:Use Asset Catalog. </li>
 </ul>
-<p><img src="../images/Deployment.png" alt="项目配置"></p>
+<p><img src="/images/Deployment.png" alt="项目配置"></p>
 <p>到这里我们可以将已有的启动图片添加到项目的启动图片文件夹中了。要想尽量没有警告可以将没有用到的items移除。项目图标也是同样。</p>
 <p>这里APP在模拟器上显示的是用们的项目名称，要想让其显示对用户比较有好多名称在项目的info.plist文件中修该Bundle name（或者Bundle display name） 后面的值为自己想要显示给用户的名称即可。我这里改为：微博。</p>
 <p>最后设置下项目前缀（class prefix）：TF</p>
