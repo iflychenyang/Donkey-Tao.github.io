@@ -1,0 +1,532 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>swift项目:微博 | 陶飞的技术博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="陶飞">
+    
+
+    <meta name="keywords" content="swift,项目">
+    <meta name="description" content="Swift项目:新浪微博 声明：本文为博主Donkey-Tao ![Donkey-Tao](http://taofei.me)原创，如需转载请注明出处。
+本项目使用swift3完成。
+写在项目之前：
+Swift中自定义LOG:在Debug环境下打印内容，但是在Release环境下不显示打印
+
+自定义标记-&amp;gt;项目 -&amp;gt;buildSettings -&amp;gt; Swift flag -&amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="swift项目:微博">
+<meta property="og:url" content="http://Donkey-Tao.github.io/2016/04/01/2016-04-01--swift项目/index.html">
+<meta property="og:site_name" content="陶飞的技术博客">
+<meta property="og:description" content="Swift项目:新浪微博 声明：本文为博主Donkey-Tao ![Donkey-Tao](http://taofei.me)原创，如需转载请注明出处。
+本项目使用swift3完成。
+写在项目之前：
+Swift中自定义LOG:在Debug环境下打印内容，但是在Release环境下不显示打印
+
+自定义标记-&amp;gt;项目 -&amp;gt;buildSettings -&amp;gt; Swift flag -&amp;">
+<meta property="og:image" content="http://Donkey-Tao.github.io/images/CloneAndPuash.png">
+<meta property="og:image" content="http://Donkey-Tao.github.io/images/gitignoreAttention.png">
+<meta property="og:image" content="http://Donkey-Tao.github.io/images/Deployment.png">
+<meta property="og:updated_time" content="2016-10-19T22:21:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="swift项目:微博">
+<meta name="twitter:description" content="Swift项目:新浪微博 声明：本文为博主Donkey-Tao ![Donkey-Tao](http://taofei.me)原创，如需转载请注明出处。
+本项目使用swift3完成。
+写在项目之前：
+Swift中自定义LOG:在Debug环境下打印内容，但是在Release环境下不显示打印
+
+自定义标记-&amp;gt;项目 -&amp;gt;buildSettings -&amp;gt; Swift flag -&amp;">
+<meta name="twitter:image" content="http://Donkey-Tao.github.io/images/CloneAndPuash.png">
+
+    
+    <link rel="alternative" href="/atom.xml" title="陶飞的技术博客" type="application/atom+xml">
+    
+    
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="陶飞的技术博客">陶飞的技术博客</a></h1>
+				<h2 class="blog-motto">记录下自己学习的点滴   (部分文章丢失,正在维护中......)</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+						<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+						<label>Search</label>
+							<input type="text" id="search" class="st-default-search-input" maxlength="20" placeholder="搜索" />
+						</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/04/01/2016-04-01--swift项目/" title="swift项目:微博" itemprop="url">swift项目:微博</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="陶飞" target="_blank" itemprop="author">陶飞</a>
+		
+  <p class="article-time">
+    <time datetime="2016-04-01T15:00:39.000Z" itemprop="datePublished"> 发表于 2016-04-01</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Swift项目-新浪微博"><span class="toc-number">1.</span> <span class="toc-text">Swift项目:新浪微博</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#项目的部署-OSChina"><span class="toc-number">1.1.</span> <span class="toc-text">项目的部署:OSChina</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#项目的基本设置"><span class="toc-number">1.2.</span> <span class="toc-text">项目的基本设置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#项目配置"><span class="toc-number">1.2.1.</span> <span class="toc-text">项目配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#整理项目文件目录结构"><span class="toc-number">1.2.2.</span> <span class="toc-text">整理项目文件目录结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#纯代码初始化项目"><span class="toc-number">1.2.3.</span> <span class="toc-text">纯代码初始化项目</span></a></li></ol></li></ol></li></ol>
+		
+		</div>
+		
+		<h1 id="Swift项目-新浪微博"><a href="#Swift项目-新浪微博" class="headerlink" title="Swift项目:新浪微博"></a>Swift项目:新浪微博</h1><p> <code>声明：本文为博主Donkey-Tao ![Donkey-Tao](http://taofei.me)原创，如需转载请注明出处。</code></p>
+<p>本项目使用swift3完成。</p>
+<p>写在项目之前：</p>
+<p>Swift中自定义LOG:在Debug环境下打印内容，但是在Release环境下不显示打印</p>
+<ul>
+<li>自定义标记-&gt;项目 -&gt;buildSettings -&gt; Swift flag -&gt; Debug -&gt;-D DEBUG</li>
+<li>if DEBUG 和endif</li>
+</ul>
+<p>1.获取所在文件：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 1.获取打印所在的文件</span></div><div class="line"><span class="keyword">let</span> file=(#file <span class="keyword">as</span> <span class="type">NSString</span>).lastPathComponent</div></pre></td></tr></table></figure>
+<p>2.获取打印所在的方法</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 2.获取打印所在的方法</span></div><div class="line"><span class="keyword">let</span> funcName = #function</div></pre></td></tr></table></figure>
+<p>3.获取打印所在的行</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 3.获取打印所在行数</span></div><div class="line"><span class="keyword">let</span> lineNum = #line</div></pre></td></tr></table></figure>
+<p>4.整个到一个TFLog函数中，并将函数放在AppDelegae.swift中，这样可以实现整个项目中都可以用，利于团队合作。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">TFLog</span>&lt;T&gt;<span class="params">(<span class="number">_</span> messsage : T, file : String = #file, funcName : String = #function, lineNum : Int = #line)</span></span> &#123;</div><div class="line"></div><div class="line">    #<span class="keyword">if</span> <span class="type">DEBUG</span>  </div><div class="line">        <span class="keyword">let</span> fileName = (file <span class="keyword">as</span> <span class="type">NSString</span>).lastPathComponent  </div><div class="line">        <span class="built_in">print</span>(<span class="string">"<span class="subst">\(fileName)</span>:(<span class="subst">\(lineNum)</span>)-<span class="subst">\(messsage)</span>"</span>) </div><div class="line">    #endif</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>其中上面函数中的</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#<span class="keyword">if</span> <span class="type">DEBUG</span></div><div class="line"></div><div class="line">#endif</div></pre></td></tr></table></figure>
+<p>​    可以通过TAGETS -&gt; Build Settings -&gt; Other Swift Flags -&gt; Debug -&gt;Any Architecture|Any SDK方式修改，在其中添加”-D DEBUG”，表示debug环境下有这样的一个标记。加上上面的这些就可以让TFLog()打印的东西在Debug环境下显示，在Release环境下不显示。</p>
+<p>​    到此在项目中以后就可以使用这样的自定义的TFLog()函数作为打印调试用，以后在其他的项目中也可以直接拿过去就用。</p>
+<h2 id="项目的部署-OSChina"><a href="#项目的部署-OSChina" class="headerlink" title="项目的部署:OSChina"></a>项目的部署:OSChina</h2><p>本项目采用Git管理源代码，为个人练手项目。所以，源代码开源且同时部署在GitHub和OSChina上面。</p>
+<p>首先在OSChina上面新建项目SinaWeib。这里没有采用SSH方式实现代码的管理，而是采用HTTPS方式来进行代码的管理。<a href="https://git.oschina.net/taofei0610/SinaWeibo.git" target="_blank" rel="external">https://git.oschina.net/taofei0610/SinaWeibo.git</a></p>
+<p>然后将项目Clone到的我的电脑上面，打开终端进入到代码存储的目录下，使用命令Clone下OSChina上面的项目。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//用到的命令</span></div><div class="line">cd /Users/taofei/Documents/TFCode/TFOSChina</div><div class="line">git clone https:<span class="comment">//git.oschina.net/taofei0610/SinaWeibo.git</span></div><div class="line">cd SinaWeibo</div><div class="line">touch .gitignore</div><div class="line">git add .</div><div class="line">git commit -m <span class="string">"add gitignore"</span></div><div class="line">git push</div></pre></td></tr></table></figure>
+<p><img src="images/CloneAndPuash.png" alt="clone项目"></p>
+<p>到此就将OSChina上面的项目Clone下来了，但是由于OSChina上面创建项目时没有swift的.gitignore，所以我们要去GiyHub中找到swift项目开发中的gitignore并将其复制后加入我们的项目中。(<a href="https://github.com/github/gitignore" target="_blank" rel="external">https://github.com/github/gitignore</a>)</p>
+<p><code>注意：一般在这里复制的.gitignore中的内容时最好将#Pods中的#去掉，这样上传时不用将CocoaPods中的文件上传，只上传Podfile中的内容</code></p>
+<p><img src="images/gitignoreAttention.png" alt="gitignore"></p>
+<p>这样关于swift的.gitignore文件就在项目中了，我们需要git对其进行管理。用命令将其加入然后提交本地最后push到OSChina即可。</p>
+<p>下面我们就可以新建swift项目放到刚才clone下来的与.gitignore同级的目录下。用Xcode创建完项目后我们就可以利用Xcode集成的Source Controller来commit，push项目代码了，当然命令行重度用户可以继续命令行也是特别好的。（此过程中第一次要输入OSChina的账号密码，直接输入就好了。）到此，项目部署完毕。</p>
+<p><code>注意：这里项目名称一定要规范尽量不要出现特殊的符号</code></p>
+<h2 id="项目的基本设置"><a href="#项目的基本设置" class="headerlink" title="项目的基本设置"></a>项目的基本设置</h2><h3 id="项目配置"><a href="#项目配置" class="headerlink" title="项目配置"></a>项目配置</h3><ul>
+<li>部署版本（Deployment Target）：本项目支持9.0及以上版本。（Swift很多要用到的语法比较新）</li>
+<li>设备（Devices）：iPhone</li>
+<li>设备方向（Device Orientation）：本项目只支持竖屏。</li>
+<li>启动图片（Launch Screen Source）:Use Asset Catalog. </li>
+</ul>
+<p><img src="images/Deployment.png" alt="项目配置"></p>
+<p>到这里我们可以将已有的启动图片添加到项目的启动图片文件夹中了。要想尽量没有警告可以将没有用到的items移除。项目图标也是同样。</p>
+<p>这里APP在模拟器上显示的是用们的项目名称，要想让其显示对用户比较有好多名称在项目的info.plist文件中修该Bundle name（或者Bundle display name） 后面的值为自己想要显示给用户的名称即可。我这里改为：微博。</p>
+<p>最后设置下项目前缀（class prefix）：TF</p>
+<h3 id="整理项目文件目录结构"><a href="#整理项目文件目录结构" class="headerlink" title="整理项目文件目录结构"></a>整理项目文件目录结构</h3><p>加入classes文件夹，里面分为：Main,Home,Message,Discover,Profile.</p>
+<p><code>注意：整理完目录结构要记得提交</code></p>
+<h3 id="纯代码初始化项目"><a href="#纯代码初始化项目" class="headerlink" title="纯代码初始化项目"></a>纯代码初始化项目</h3><p>一般现在公司用storyboard还是比较多的，苹果推出的很多技术都是storyboard相关的。本项目用纯代码来实现是为了在此过程中熟练swift开发。</p>
+<p>既然是纯代码方式就要将Main Interface中的main去掉，然后自己在AppDelegate中创建Window。</p>
+<p>创建窗口的跟控制器为：TFMainTabBarController，放在Main文件夹中。在AppDelegate中设置window的跟控制器时使用到TFMainTabBarController时不需要import。</p>
+<p>首先要解决默认蓝色的tabBarItem选项的问题</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//解决解决默认蓝色的tabBarItem选项图片的问题</span></div><div class="line">tabBar.tintColor = <span class="type">UIColor</span>.orange</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//或者在AppDelegate中设置tabBar的全局背景色</span></div><div class="line"><span class="type">UITabBar</span>.appearance().tintColor = <span class="type">UIColor</span>.orange</div></pre></td></tr></table></figure>
+<p>在TFMainTabBarController中我们要添加最少五个控制器，其中四个是类似的。所以，在此我们可以重载addChildViewController方法，并将其设置为private。将具体的添加子控制器要做的事封装在这个方法中。然后在主控制器中添加这四个相似的子控制器。</p>
+<p>当然也可以传字符串给函数，让去创建子控制器</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//0.1获取命名空间，根据字符串创建控制器</span></div><div class="line"><span class="keyword">let</span> nameSpace = <span class="type">Bundle</span>.main.infoDictionary!</div><div class="line"><span class="keyword">guard</span> <span class="keyword">let</span> childController = <span class="type">NSClassFromString</span>(nameSpace + <span class="string">"."</span> + <span class="keyword">guard</span> <span class="keyword">let</span> nameSpace = <span class="type">Bundle</span>.main.infoDictionary![<span class="string">"CFBundleExecutable"</span>] <span class="keyword">as</span>? <span class="type">String</span> <span class="keyword">else</span>&#123;</div><div class="line">        </div><div class="line">	<span class="type">TFLog</span>(<span class="string">"没有获取到命名空间"</span>)</div><div class="line">	<span class="keyword">return</span>      </div><div class="line">&#125;</div><div class="line"><span class="keyword">guard</span> <span class="keyword">let</span> <span class="number">_</span> = <span class="type">NSClassFromString</span>(nameSpace + <span class="string">"."</span> + <span class="string">"TFHomeViewController"</span>)<span class="keyword">else</span>&#123;</div><div class="line">            </div><div class="line">    <span class="type">TFLog</span>(<span class="string">"根据字符串创建控制器失败"</span>)</div><div class="line">	<span class="keyword">return</span></div><div class="line">&#125;</div><div class="line"><span class="comment">//0.2将对应的AnyClass转换为控制器类型</span></div><div class="line"><span class="keyword">guard</span> <span class="keyword">let</span> childVCType = childController <span class="keyword">as</span>? <span class="type">UIViewController</span>.<span class="type">Type</span> <span class="keyword">else</span>&#123;</div><div class="line">        </div><div class="line">	<span class="type">TFLog</span>(<span class="string">"没有获取到控制器的类型"</span>)</div><div class="line">	<span class="keyword">return</span></div><div class="line">&#125;</div><div class="line"> <span class="comment">//0.3根据控制器类型创建控制器</span></div><div class="line"><span class="keyword">let</span> vc = childVCType.<span class="keyword">init</span>()</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//上面通过字符串创建控制器看上去很是蛋疼，但是其实还是有用的。我们可以利用这点要根据json文件去创建控制器。</span></div><div class="line"><span class="comment">//0.0.1获取json文件的路径</span></div><div class="line"><span class="keyword">guard</span> <span class="keyword">let</span> jsonPath = <span class="type">Bundle</span>.main.path(forResource: <span class="string">"MainVCSettings"</span>, ofType: <span class="string">"json"</span>) <span class="keyword">else</span>&#123;</div><div class="line">            </div><div class="line">	<span class="type">TFLog</span>(<span class="string">"没能获取到json数据"</span>)</div><div class="line">	<span class="keyword">return</span></div><div class="line">&#125;</div><div class="line"><span class="comment">//0.0.2读取json文件中的内容：数组-&gt;字典,要按照读取字符串的方法来读取</span></div><div class="line"><span class="keyword">guard</span> <span class="keyword">let</span> jsonData = <span class="type">NSData</span>(contentsOfFile: jsonPath) <span class="keyword">else</span>&#123;</div><div class="line">            </div><div class="line">	<span class="type">TFLog</span>(<span class="string">"没有获取到json文件中的数据--jsonData"</span>)</div><div class="line">	<span class="keyword">return</span></div><div class="line">&#125;</div><div class="line"><span class="comment">//0.0.3将NSData类型转换为数组类型,数组以及数组中存放的字典,进行两层校验</span></div><div class="line"><span class="keyword">guard</span> <span class="keyword">let</span> anyObject = <span class="keyword">try</span>? <span class="type">JSONSerialization</span>.jsonObject(with: jsonData <span class="keyword">as</span> <span class="type">Data</span>, options: .mutableContainers) <span class="keyword">else</span>&#123;</div><div class="line">        </div><div class="line">	<span class="type">TFLog</span>(<span class="string">"jsonData转anyObject失败"</span>)</div><div class="line">	<span class="keyword">return</span></div><div class="line">&#125;</div><div class="line">        </div><div class="line"><span class="keyword">guard</span> <span class="keyword">let</span> dictArray = anyObject <span class="keyword">as</span>? [[<span class="type">String</span> :<span class="type">AnyObject</span>]] <span class="keyword">else</span>&#123;</div><div class="line">        </div><div class="line">	<span class="type">TFLog</span>(<span class="string">"anyObject转字典数组失败"</span>)</div><div class="line">	<span class="keyword">return</span></div><div class="line">&#125;</div><div class="line">        </div><div class="line"><span class="keyword">for</span> dict <span class="keyword">in</span> dictArray&#123;</div><div class="line"></div><div class="line"><span class="comment">//1.获取控制器对应的字符串</span></div><div class="line"><span class="keyword">guard</span> <span class="keyword">let</span> vcName = dict[<span class="string">"vcName"</span>] <span class="keyword">as</span>? <span class="type">String</span> <span class="keyword">else</span>&#123;</div><div class="line">            </div><div class="line">	<span class="type">TFLog</span>(<span class="string">"获取控制器对应的字符串vcName---失败"</span>)</div><div class="line">	<span class="keyword">continue</span></div><div class="line">&#125;</div><div class="line">            </div><div class="line">            </div><div class="line"><span class="comment">//2.获取控制器显示的title</span></div><div class="line"><span class="keyword">guard</span> <span class="keyword">let</span> title = dict[<span class="string">"title"</span>] <span class="keyword">as</span>? <span class="type">String</span> <span class="keyword">else</span>&#123;</div><div class="line">                </div><div class="line">	<span class="type">TFLog</span>(<span class="string">"获取控制器显示的title---失败"</span>)</div><div class="line">	<span class="keyword">continue</span></div><div class="line">&#125;</div><div class="line">            </div><div class="line"><span class="comment">//3.获取控制器显示图标的名称imageName</span></div><div class="line"><span class="keyword">guard</span> <span class="keyword">let</span> imageName = dict[<span class="string">"imageName"</span>] <span class="keyword">as</span>? <span class="type">String</span> <span class="keyword">else</span>&#123;</div><div class="line">                </div><div class="line">	<span class="type">TFLog</span>(<span class="string">"获取控制器显示图标的名称imageName---失败"</span>)</div><div class="line">	<span class="keyword">continue</span></div><div class="line">&#125;</div><div class="line">            </div><div class="line"><span class="comment">//4.添加子控制器</span></div><div class="line">addChildViewController(childVc: vcName, title: title, imageName: imageName)</div><div class="line"></div><div class="line">	<span class="type">TFLog</span>(<span class="string">"---------------"</span>)</div><div class="line">	<span class="type">TFLog</span>(dict)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>注意：想要拿到类的名称创建控制器要加上命名空间</code></p>
+<p>通过上面利用json文件来决定创建几个控制器或者什么样的控制（前提是之前APP中已经有这样的控制器文件），这样就可以实现由服务器来决定APP上显示什么样的控制器。使得APP上显示更加灵活，同时可以通过随时改变json文件来实现软件的改变。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/swift/">swift</a>
+</div>
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://Donkey-Tao.github.io/2016/04/01/2016-04-01--swift项目/" data-title="swift项目:微博 | 陶飞的技术博客" data-tsina="3015394781" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2016/04/01/2016-04-01--swift项目/" data-title="swift项目:微博" data-url="http://Donkey-Tao.github.io/2016/04/01/2016-04-01--swift项目/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Swift项目-新浪微博"><span class="toc-number">1.</span> <span class="toc-text">Swift项目:新浪微博</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#项目的部署-OSChina"><span class="toc-number">1.1.</span> <span class="toc-text">项目的部署:OSChina</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#项目的基本设置"><span class="toc-number">1.2.</span> <span class="toc-text">项目的基本设置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#项目配置"><span class="toc-number">1.2.1.</span> <span class="toc-text">项目配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#整理项目文件目录结构"><span class="toc-number">1.2.2.</span> <span class="toc-text">整理项目文件目录结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#纯代码初始化项目"><span class="toc-number">1.2.3.</span> <span class="toc-text">纯代码初始化项目</span></a></li></ol></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/swift/" title="swift">swift<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=3015394781&verifier=655ac839&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/3015394781" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:taofei0610@gmail.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="陶飞">陶飞</a>
+		
+		
+		</p>
+
+		<script type="text/javascript">
+  		(function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+ 	 		(w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+ 		 e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  		})(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+  
+  		_st('install','AXHzsCAH4RKEmN-p72Lx','2.0.0');
+		</script>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+
+<script>
+(function(){
+var bp = document.createElement('script');
+bp.src = '//push.zhanzhang.baidu.com/push.js';
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+
+
+
+  var m = $('#main'),
+      a = $('#asidepart'),//侧边栏
+      c = $('.closeaside'),//隐藏侧边栏
+      o = $('.openaside');//显示侧边栏
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"taofei"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?9833b52c905ccc936c62c38135a70622";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<script src="http://s11.cnzz.com/z_stat.php?id=1260084222&web_id=1260084222" language="JavaScript"></script>
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
