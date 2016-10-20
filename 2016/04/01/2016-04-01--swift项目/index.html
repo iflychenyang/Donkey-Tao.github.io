@@ -11,35 +11,38 @@
     
 
     <meta name="keywords" content="swift,项目">
-    <meta name="description" content="Swift项目:新浪微博 声明：本文为博主Donkey-Tao ![Donkey-Tao](http://taofei.me)原创，如需转载请注明出处。
+    <meta name="description" content="Swift项目:新浪微博 声明：本文为博主Donkey-Tao原创，如需转载请注明出处。
 本项目使用swift3完成。
 写在项目之前：
 Swift中自定义LOG:在Debug环境下打印内容，但是在Release环境下不显示打印
 
-自定义标记-&amp;gt;项目 -&amp;gt;buildSettings -&amp;gt; Swift flag -&amp;">
+自定义标记-&amp;gt;项目 -&amp;gt;buildSettings -&amp;gt; Swift flag -&amp;gt; Debug -&amp;gt;-D DEBUG
+if DEBUG">
 <meta property="og:type" content="article">
 <meta property="og:title" content="swift项目:微博">
 <meta property="og:url" content="http://Donkey-Tao.github.io/2016/04/01/2016-04-01--swift项目/index.html">
 <meta property="og:site_name" content="陶飞的技术博客">
-<meta property="og:description" content="Swift项目:新浪微博 声明：本文为博主Donkey-Tao ![Donkey-Tao](http://taofei.me)原创，如需转载请注明出处。
+<meta property="og:description" content="Swift项目:新浪微博 声明：本文为博主Donkey-Tao原创，如需转载请注明出处。
 本项目使用swift3完成。
 写在项目之前：
 Swift中自定义LOG:在Debug环境下打印内容，但是在Release环境下不显示打印
 
-自定义标记-&amp;gt;项目 -&amp;gt;buildSettings -&amp;gt; Swift flag -&amp;">
-<meta property="og:image" content="http://Donkey-Tao.github.io/images/CloneAndPuash.png">
-<meta property="og:image" content="http://Donkey-Tao.github.io/images/gitignoreAttention.png">
-<meta property="og:image" content="http://Donkey-Tao.github.io/images/Deployment.png">
-<meta property="og:updated_time" content="2016-10-19T22:21:02.000Z">
+自定义标记-&amp;gt;项目 -&amp;gt;buildSettings -&amp;gt; Swift flag -&amp;gt; Debug -&amp;gt;-D DEBUG
+if DEBUG">
+<meta property="og:image" content="http://Donkey-Tao.github.io/../images/CloneAndPuash.png">
+<meta property="og:image" content="http://Donkey-Tao.github.io/../images/gitignoreAttention.png">
+<meta property="og:image" content="http://Donkey-Tao.github.io/../images/Deployment.png">
+<meta property="og:updated_time" content="2016-10-20T20:31:22.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="swift项目:微博">
-<meta name="twitter:description" content="Swift项目:新浪微博 声明：本文为博主Donkey-Tao ![Donkey-Tao](http://taofei.me)原创，如需转载请注明出处。
+<meta name="twitter:description" content="Swift项目:新浪微博 声明：本文为博主Donkey-Tao原创，如需转载请注明出处。
 本项目使用swift3完成。
 写在项目之前：
 Swift中自定义LOG:在Debug环境下打印内容，但是在Release环境下不显示打印
 
-自定义标记-&amp;gt;项目 -&amp;gt;buildSettings -&amp;gt; Swift flag -&amp;">
-<meta name="twitter:image" content="http://Donkey-Tao.github.io/images/CloneAndPuash.png">
+自定义标记-&amp;gt;项目 -&amp;gt;buildSettings -&amp;gt; Swift flag -&amp;gt; Debug -&amp;gt;-D DEBUG
+if DEBUG">
+<meta name="twitter:image" content="http://Donkey-Tao.github.io/../images/CloneAndPuash.png">
 
     
     <link rel="alternative" href="/atom.xml" title="陶飞的技术博客" type="application/atom+xml">
@@ -109,7 +112,7 @@
 		
 		</div>
 		
-		<h1 id="Swift项目-新浪微博"><a href="#Swift项目-新浪微博" class="headerlink" title="Swift项目:新浪微博"></a>Swift项目:新浪微博</h1><p> <code>声明：本文为博主Donkey-Tao ![Donkey-Tao](http://taofei.me)原创，如需转载请注明出处。</code></p>
+		<h1 id="Swift项目-新浪微博"><a href="#Swift项目-新浪微博" class="headerlink" title="Swift项目:新浪微博"></a>Swift项目:新浪微博</h1><p> <code>声明：本文为博主Donkey-Tao原创，如需转载请注明出处。</code></p>
 <p>本项目使用swift3完成。</p>
 <p>写在项目之前：</p>
 <p>Swift中自定义LOG:在Debug环境下打印内容，但是在Release环境下不显示打印</p>
@@ -133,10 +136,10 @@
 <p>首先在OSChina上面新建项目SinaWeib。这里没有采用SSH方式实现代码的管理，而是采用HTTPS方式来进行代码的管理。<a href="https://git.oschina.net/taofei0610/SinaWeibo.git" target="_blank" rel="external">https://git.oschina.net/taofei0610/SinaWeibo.git</a></p>
 <p>然后将项目Clone到的我的电脑上面，打开终端进入到代码存储的目录下，使用命令Clone下OSChina上面的项目。</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//用到的命令</span></div><div class="line">cd /Users/taofei/Documents/TFCode/TFOSChina</div><div class="line">git clone https:<span class="comment">//git.oschina.net/taofei0610/SinaWeibo.git</span></div><div class="line">cd SinaWeibo</div><div class="line">touch .gitignore</div><div class="line">git add .</div><div class="line">git commit -m <span class="string">"add gitignore"</span></div><div class="line">git push</div></pre></td></tr></table></figure>
-<p><img src="images/CloneAndPuash.png" alt="clone项目"></p>
+<p><img src="../images/CloneAndPuash.png" alt="clone项目"></p>
 <p>到此就将OSChina上面的项目Clone下来了，但是由于OSChina上面创建项目时没有swift的.gitignore，所以我们要去GiyHub中找到swift项目开发中的gitignore并将其复制后加入我们的项目中。(<a href="https://github.com/github/gitignore" target="_blank" rel="external">https://github.com/github/gitignore</a>)</p>
 <p><code>注意：一般在这里复制的.gitignore中的内容时最好将#Pods中的#去掉，这样上传时不用将CocoaPods中的文件上传，只上传Podfile中的内容</code></p>
-<p><img src="images/gitignoreAttention.png" alt="gitignore"></p>
+<p><img src="../images/gitignoreAttention.png" alt="gitignore"></p>
 <p>这样关于swift的.gitignore文件就在项目中了，我们需要git对其进行管理。用命令将其加入然后提交本地最后push到OSChina即可。</p>
 <p>下面我们就可以新建swift项目放到刚才clone下来的与.gitignore同级的目录下。用Xcode创建完项目后我们就可以利用Xcode集成的Source Controller来commit，push项目代码了，当然命令行重度用户可以继续命令行也是特别好的。（此过程中第一次要输入OSChina的账号密码，直接输入就好了。）到此，项目部署完毕。</p>
 <p><code>注意：这里项目名称一定要规范尽量不要出现特殊的符号</code></p>
@@ -146,7 +149,7 @@
 <li>设备方向（Device Orientation）：本项目只支持竖屏。</li>
 <li>启动图片（Launch Screen Source）:Use Asset Catalog. </li>
 </ul>
-<p><img src="images/Deployment.png" alt="项目配置"></p>
+<p><img src="../images/Deployment.png" alt="项目配置"></p>
 <p>到这里我们可以将已有的启动图片添加到项目的启动图片文件夹中了。要想尽量没有警告可以将没有用到的items移除。项目图标也是同样。</p>
 <p>这里APP在模拟器上显示的是用们的项目名称，要想让其显示对用户比较有好多名称在项目的info.plist文件中修该Bundle name（或者Bundle display name） 后面的值为自己想要显示给用户的名称即可。我这里改为：微博。</p>
 <p>最后设置下项目前缀（class prefix）：TF</p>
@@ -163,6 +166,8 @@
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//0.1获取命名空间，根据字符串创建控制器</span></div><div class="line"><span class="keyword">let</span> nameSpace = <span class="type">Bundle</span>.main.infoDictionary!</div><div class="line"><span class="keyword">guard</span> <span class="keyword">let</span> childController = <span class="type">NSClassFromString</span>(nameSpace + <span class="string">"."</span> + <span class="keyword">guard</span> <span class="keyword">let</span> nameSpace = <span class="type">Bundle</span>.main.infoDictionary![<span class="string">"CFBundleExecutable"</span>] <span class="keyword">as</span>? <span class="type">String</span> <span class="keyword">else</span>&#123;</div><div class="line">        </div><div class="line">	<span class="type">TFLog</span>(<span class="string">"没有获取到命名空间"</span>)</div><div class="line">	<span class="keyword">return</span>      </div><div class="line">&#125;</div><div class="line"><span class="keyword">guard</span> <span class="keyword">let</span> <span class="number">_</span> = <span class="type">NSClassFromString</span>(nameSpace + <span class="string">"."</span> + <span class="string">"TFHomeViewController"</span>)<span class="keyword">else</span>&#123;</div><div class="line">            </div><div class="line">    <span class="type">TFLog</span>(<span class="string">"根据字符串创建控制器失败"</span>)</div><div class="line">	<span class="keyword">return</span></div><div class="line">&#125;</div><div class="line"><span class="comment">//0.2将对应的AnyClass转换为控制器类型</span></div><div class="line"><span class="keyword">guard</span> <span class="keyword">let</span> childVCType = childController <span class="keyword">as</span>? <span class="type">UIViewController</span>.<span class="type">Type</span> <span class="keyword">else</span>&#123;</div><div class="line">        </div><div class="line">	<span class="type">TFLog</span>(<span class="string">"没有获取到控制器的类型"</span>)</div><div class="line">	<span class="keyword">return</span></div><div class="line">&#125;</div><div class="line"> <span class="comment">//0.3根据控制器类型创建控制器</span></div><div class="line"><span class="keyword">let</span> vc = childVCType.<span class="keyword">init</span>()</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//上面通过字符串创建控制器看上去很是蛋疼，但是其实还是有用的。我们可以利用这点要根据json文件去创建控制器。</span></div><div class="line"><span class="comment">//0.0.1获取json文件的路径</span></div><div class="line"><span class="keyword">guard</span> <span class="keyword">let</span> jsonPath = <span class="type">Bundle</span>.main.path(forResource: <span class="string">"MainVCSettings"</span>, ofType: <span class="string">"json"</span>) <span class="keyword">else</span>&#123;</div><div class="line">            </div><div class="line">	<span class="type">TFLog</span>(<span class="string">"没能获取到json数据"</span>)</div><div class="line">	<span class="keyword">return</span></div><div class="line">&#125;</div><div class="line"><span class="comment">//0.0.2读取json文件中的内容：数组-&gt;字典,要按照读取字符串的方法来读取</span></div><div class="line"><span class="keyword">guard</span> <span class="keyword">let</span> jsonData = <span class="type">NSData</span>(contentsOfFile: jsonPath) <span class="keyword">else</span>&#123;</div><div class="line">            </div><div class="line">	<span class="type">TFLog</span>(<span class="string">"没有获取到json文件中的数据--jsonData"</span>)</div><div class="line">	<span class="keyword">return</span></div><div class="line">&#125;</div><div class="line"><span class="comment">//0.0.3将NSData类型转换为数组类型,数组以及数组中存放的字典,进行两层校验</span></div><div class="line"><span class="keyword">guard</span> <span class="keyword">let</span> anyObject = <span class="keyword">try</span>? <span class="type">JSONSerialization</span>.jsonObject(with: jsonData <span class="keyword">as</span> <span class="type">Data</span>, options: .mutableContainers) <span class="keyword">else</span>&#123;</div><div class="line">        </div><div class="line">	<span class="type">TFLog</span>(<span class="string">"jsonData转anyObject失败"</span>)</div><div class="line">	<span class="keyword">return</span></div><div class="line">&#125;</div><div class="line">        </div><div class="line"><span class="keyword">guard</span> <span class="keyword">let</span> dictArray = anyObject <span class="keyword">as</span>? [[<span class="type">String</span> :<span class="type">AnyObject</span>]] <span class="keyword">else</span>&#123;</div><div class="line">        </div><div class="line">	<span class="type">TFLog</span>(<span class="string">"anyObject转字典数组失败"</span>)</div><div class="line">	<span class="keyword">return</span></div><div class="line">&#125;</div><div class="line">        </div><div class="line"><span class="keyword">for</span> dict <span class="keyword">in</span> dictArray&#123;</div><div class="line"></div><div class="line"><span class="comment">//1.获取控制器对应的字符串</span></div><div class="line"><span class="keyword">guard</span> <span class="keyword">let</span> vcName = dict[<span class="string">"vcName"</span>] <span class="keyword">as</span>? <span class="type">String</span> <span class="keyword">else</span>&#123;</div><div class="line">            </div><div class="line">	<span class="type">TFLog</span>(<span class="string">"获取控制器对应的字符串vcName---失败"</span>)</div><div class="line">	<span class="keyword">continue</span></div><div class="line">&#125;</div><div class="line">            </div><div class="line">            </div><div class="line"><span class="comment">//2.获取控制器显示的title</span></div><div class="line"><span class="keyword">guard</span> <span class="keyword">let</span> title = dict[<span class="string">"title"</span>] <span class="keyword">as</span>? <span class="type">String</span> <span class="keyword">else</span>&#123;</div><div class="line">                </div><div class="line">	<span class="type">TFLog</span>(<span class="string">"获取控制器显示的title---失败"</span>)</div><div class="line">	<span class="keyword">continue</span></div><div class="line">&#125;</div><div class="line">            </div><div class="line"><span class="comment">//3.获取控制器显示图标的名称imageName</span></div><div class="line"><span class="keyword">guard</span> <span class="keyword">let</span> imageName = dict[<span class="string">"imageName"</span>] <span class="keyword">as</span>? <span class="type">String</span> <span class="keyword">else</span>&#123;</div><div class="line">                </div><div class="line">	<span class="type">TFLog</span>(<span class="string">"获取控制器显示图标的名称imageName---失败"</span>)</div><div class="line">	<span class="keyword">continue</span></div><div class="line">&#125;</div><div class="line">            </div><div class="line"><span class="comment">//4.添加子控制器</span></div><div class="line">addChildViewController(childVc: vcName, title: title, imageName: imageName)</div><div class="line"></div><div class="line">	<span class="type">TFLog</span>(<span class="string">"---------------"</span>)</div><div class="line">	<span class="type">TFLog</span>(dict)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p><code>注意：想要拿到类的名称创建控制器要加上命名空间</code></p>
 <p>通过上面利用json文件来决定创建几个控制器或者什么样的控制（前提是之前APP中已经有这样的控制器文件），这样就可以实现由服务器来决定APP上显示什么样的控制器。使得APP上显示更加灵活，同时可以通过随时改变json文件来实现软件的改变。</p>
+<hr>
+<p>未完待续……</p>
   
 	</div>
 		<footer class="article-footer clearfix">
