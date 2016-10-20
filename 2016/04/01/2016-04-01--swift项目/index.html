@@ -32,7 +32,7 @@ if DEBUG">
 <meta property="og:image" content="http://Donkey-Tao.github.io/images/CloneAndPuash.png">
 <meta property="og:image" content="http://Donkey-Tao.github.io/images/gitignoreAttention.png">
 <meta property="og:image" content="http://Donkey-Tao.github.io/images/Deployment.png">
-<meta property="og:updated_time" content="2016-10-20T20:36:31.000Z">
+<meta property="og:updated_time" content="2016-10-20T20:38:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="swift项目:微博">
 <meta name="twitter:description" content="Swift项目:新浪微博 声明：本文为博主Donkey-Tao原创，如需转载请注明出处。
@@ -138,7 +138,8 @@ if DEBUG">
 <figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//用到的命令</span></div><div class="line">cd /Users/taofei/Documents/TFCode/TFOSChina</div><div class="line">git clone https:<span class="comment">//git.oschina.net/taofei0610/SinaWeibo.git</span></div><div class="line">cd SinaWeibo</div><div class="line">touch .gitignore</div><div class="line">git add .</div><div class="line">git commit -m <span class="string">"add gitignore"</span></div><div class="line">git push</div></pre></td></tr></table></figure>
 <p><img src="/images/CloneAndPuash.png" alt="clone项目"></p>
 <p>到此就将OSChina上面的项目Clone下来了，但是由于OSChina上面创建项目时没有swift的.gitignore，所以我们要去GiyHub中找到swift项目开发中的gitignore并将其复制后加入我们的项目中。(<a href="https://github.com/github/gitignore" target="_blank" rel="external">https://github.com/github/gitignore</a>)</p>
-<p><code>注意：一般在这里复制的.gitignore中的内容时最好将#Pods中的#去掉，这样上传时不用将CocoaPods中的文件上传，只上传Podfile中的内容</code></p>
+<p><code>注意：一般在这里复制的.gitignore中的内容时最好将#Pods中的#去掉，这样上传时不用将CocoaPods中的文件上传，</code></p>
+<p><code>只上传Podfile中的内容</code></p>
 <p><img src="/images/gitignoreAttention.png" alt="gitignore"></p>
 <p>这样关于swift的.gitignore文件就在项目中了，我们需要git对其进行管理。用命令将其加入然后提交本地最后push到OSChina即可。</p>
 <p>下面我们就可以新建swift项目放到刚才clone下来的与.gitignore同级的目录下。用Xcode创建完项目后我们就可以利用Xcode集成的Source Controller来commit，push项目代码了，当然命令行重度用户可以继续命令行也是特别好的。（此过程中第一次要输入OSChina的账号密码，直接输入就好了。）到此，项目部署完毕。</p>
