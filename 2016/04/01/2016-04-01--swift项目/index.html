@@ -127,7 +127,7 @@ if DEBUG">
 <p>3.获取打印所在的行</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 3.获取打印所在行数</span></div><div class="line"><span class="keyword">let</span> lineNum = #line</div></pre></td></tr></table></figure>
 <p>4.整个到一个TFLog函数中，并将函数放在AppDelegae.swift中，这样可以实现整个项目中都可以用，利于团队合作。</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">TFLog</span>&lt;T&gt;<span class="params">(<span class="number">_</span> messsage : T, file : String = #file, funcName : String = #function, lineNum : Int = #line)</span></span> &#123;</div><div class="line"></div><div class="line">    #<span class="keyword">if</span> <span class="type">DEBUG</span>  </div><div class="line">        <span class="keyword">let</span> fileName = (file <span class="keyword">as</span> <span class="type">NSString</span>).lastPathComponent  </div><div class="line">        <span class="built_in">print</span>(<span class="string">"\(fileName):(\(lineNum))-\(messsage)"</span>) </div><div class="line">    #endif</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">TFLog</span>&lt;T&gt;<span class="params">(<span class="number">_</span> messsage : T, file : String = #file, funcName : String = #function, lineNum : Int = #line)</span></span> &#123;</div><div class="line"></div><div class="line">    #<span class="keyword">if</span> <span class="type">DEBUG</span>  </div><div class="line">        <span class="keyword">let</span> fileName = (file <span class="keyword">as</span> <span class="type">NSString</span>).lastPathComponent  </div><div class="line">        <span class="built_in">print</span>(<span class="string">"<span class="subst">\(fileName)</span>:(<span class="subst">\(lineNum)</span>)-<span class="subst">\(messsage)</span>"</span>) </div><div class="line">    #endif</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>其中上面函数中的</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#<span class="keyword">if</span> <span class="type">DEBUG</span></div><div class="line"></div><div class="line">#endif</div></pre></td></tr></table></figure>
 <p>​    可以通过TAGETS -&gt; Build Settings -&gt; Other Swift Flags -&gt; Debug -&gt;Any Architecture|Any SDK方式修改，在其中添加”-D DEBUG”，表示debug环境下有这样的一个标记。加上上面的这些就可以让TFLog()打印的东西在Debug环境下显示，在Release环境下不显示。</p>
@@ -201,9 +201,9 @@ if DEBUG">
  
 
 <div class="next">
-<a href="/2016/03/11/swift中的异常/"  title="swift中的异常处理以及事件监听">
+<a href="/2016/03/16/Swift基础学习/"  title="Donkey-Tao关于iOS开发之Swift基础学习">
  <strong>下一篇：</strong><br/> 
- <span>swift中的异常处理以及事件监听
+ <span>Donkey-Tao关于iOS开发之Swift基础学习
 </span>
 </a>
 </div>
@@ -247,7 +247,7 @@ if DEBUG">
 		  
 		
 		  
-			<li><a href="/categories/swift/" title="swift">swift<sup>2</sup></a></li>
+			<li><a href="/categories/swift/" title="swift">swift<sup>3</sup></a></li>
 		  
 		
 		</ul>
