@@ -260,11 +260,6 @@ swift中提供了三种处理一样的方法：
     </div>
     <footer><div id="footer" >
 	
-	<div class="line">
-		<span></span>
-		<div class="author"></div>
-	</div>
-	
 	
 	<section class="info">
 		<p> I&#39;m a iOS developer interested in data science and artificial intelligence. <br/>
@@ -360,6 +355,11 @@ $(document).ready(function(){
   $(window).scroll(function(){
     o.css("top",Math.max(80,260-$(this).scrollTop()));
   });
+  
+        getSize();
+        if (myWidth >= 1024) {
+          c.click();
+        }
   
 
   
