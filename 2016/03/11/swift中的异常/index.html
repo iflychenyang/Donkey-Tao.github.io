@@ -11,31 +11,28 @@
     
 
     <meta name="keywords" content="swift,异常,事件监听">
-    <meta name="description" content="swift中的异常。
-如果在调用系统某一方法时，该方法最后有throws
-swift中提供了三种处理一样的方法：
-1.try方式，程序员手动处理异常。（开发中 不常用）
-12345678910do &amp;#123;    try NSJSONSerialization  &amp;#125; catch &amp;#123;  //系统提供临时常量error  print(error)    &amp;#125;
-这种方式在">
+    <meta name="description" content="swift中的异常:如果在调用系统某一方法时，该方法最后有throws，说明该方法可能会抛出异常，我们需要对异常进行处理。
+swift中提供了三种处理一样的方法
+try方式，程序员手动处理异常。（开发中 不常用）
+
+123456do &amp;#123;	try JSONSerialization.jsonObject(with: Data, options: .mutableContainers)&amp;#1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="swift中的异常处理以及事件监听">
 <meta property="og:url" content="http://Donkey-Tao.github.io/2016/03/11/swift中的异常/index.html">
 <meta property="og:site_name" content="陶飞的技术博客">
-<meta property="og:description" content="swift中的异常。
-如果在调用系统某一方法时，该方法最后有throws
-swift中提供了三种处理一样的方法：
-1.try方式，程序员手动处理异常。（开发中 不常用）
-12345678910do &amp;#123;    try NSJSONSerialization  &amp;#125; catch &amp;#123;  //系统提供临时常量error  print(error)    &amp;#125;
-这种方式在">
-<meta property="og:updated_time" content="2016-10-30T03:53:47.000Z">
+<meta property="og:description" content="swift中的异常:如果在调用系统某一方法时，该方法最后有throws，说明该方法可能会抛出异常，我们需要对异常进行处理。
+swift中提供了三种处理一样的方法
+try方式，程序员手动处理异常。（开发中 不常用）
+
+123456do &amp;#123;	try JSONSerialization.jsonObject(with: Data, options: .mutableContainers)&amp;#1">
+<meta property="og:updated_time" content="2017-01-25T15:13:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="swift中的异常处理以及事件监听">
-<meta name="twitter:description" content="swift中的异常。
-如果在调用系统某一方法时，该方法最后有throws
-swift中提供了三种处理一样的方法：
-1.try方式，程序员手动处理异常。（开发中 不常用）
-12345678910do &amp;#123;    try NSJSONSerialization  &amp;#125; catch &amp;#123;  //系统提供临时常量error  print(error)    &amp;#125;
-这种方式在">
+<meta name="twitter:description" content="swift中的异常:如果在调用系统某一方法时，该方法最后有throws，说明该方法可能会抛出异常，我们需要对异常进行处理。
+swift中提供了三种处理一样的方法
+try方式，程序员手动处理异常。（开发中 不常用）
+
+123456do &amp;#123;	try JSONSerialization.jsonObject(with: Data, options: .mutableContainers)&amp;#1">
 <meta name="twitter:creator" content="@taofei0610">
 
     
@@ -104,32 +101,29 @@ swift中提供了三种处理一样的方法：
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#swift中提供了三种处理一样的方法"><span class="toc-number">1.</span> <span class="toc-text">swift中提供了三种处理一样的方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#异常的练习：正则表达式"><span class="toc-number">2.</span> <span class="toc-text">异常的练习：正则表达式</span></a></li></ol>
 		
 		</div>
 		
-		<p>swift中的异常。</p>
-<p>如果在调用系统某一方法时，该方法最后有throws</p>
-<p>swift中提供了三种处理一样的方法：</p>
-<p>1.try方式，程序员手动处理异常。（开发中 不常用）</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">do</span> &#123;</div><div class="line">  </div><div class="line">  <span class="keyword">try</span> <span class="type">NSJSONSerialization</span></div><div class="line">  </div><div class="line">&#125; <span class="keyword">catch</span> &#123;</div><div class="line">  <span class="comment">//系统提供临时常量error</span></div><div class="line">  <span class="built_in">print</span>(error)</div><div class="line">  </div><div class="line">  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+		<p>swift中的异常:如果在调用系统某一方法时，该方法最后有throws，说明该方法可能会抛出异常，我们需要对异常进行处理。</p>
+<h2 id="swift中提供了三种处理一样的方法"><a href="#swift中提供了三种处理一样的方法" class="headerlink" title="swift中提供了三种处理一样的方法"></a>swift中提供了三种处理一样的方法</h2><ul>
+<li>try方式，程序员手动处理异常。（开发中 不常用）</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">do</span> &#123;</div><div class="line">	<span class="keyword">try</span> <span class="type">JSONSerialization</span>.jsonObject(with: <span class="type">Data</span>, options: .mutableContainers)</div><div class="line">&#125; <span class="keyword">catch</span> &#123;</div><div class="line">	<span class="comment">//系统提供临时常量error</span></div><div class="line">	<span class="built_in">print</span>(error)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>这种方式在开发中用的不多。</p>
-<p>2.try? 方式 系统帮助我们处理异常，如果该方法出现了异常，则该方法返回nil；如果没有异常则放回对应的对象。要进行安全校验。（常用方式）</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
-<p>3.tyr!方法 直接告诉系统，该方法没有异常。如果该方法出现了异常，那么程序会报错崩溃。（非常危险，不推荐使用）</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">正则表达式：</div><div class="line"></div><div class="line"><span class="number">1</span>.创建正则表达式的规则</div><div class="line"></div><div class="line"><span class="keyword">let</span> pattern = <span class="string">"abc"</span></div><div class="line"></div><div class="line"><span class="number">2</span>.创建正则表达式对象</div><div class="line"><span class="comment">//方式一：try</span></div><div class="line"><span class="keyword">do</span>&#123;</div><div class="line"></div><div class="line">	<span class="keyword">let</span> regex = <span class="type">NSRegularExpression</span>(pattern :pattern, options : .<span class="type">CaseInsensitive</span>)</div><div class="line">&#125; <span class="keyword">catch</span> &#123;</div><div class="line">  </div><div class="line">  <span class="built_in">print</span>(error)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>1.根据字符串创建对应的class要加上命名空间(nameSpace)</p>
-<p>2.读取json文件，并且将json文件转换成数组</p>
-<p>3.异常处理（try,try?,try!）</p>
-<p>swift中使用storyboard进行开发的技巧</p>
-<p>storyboard reference</p>
-<p>选中要分开的控制器 editor -&gt; refactor storyboard</p>
-<p>要改东西，viewWillAppear中修改要好点</p>
-<p>swift中事件监听：</p>
-<p>事件监听的本质是发送消息，但是发送消息是OC中的特性</p>
-<p>将方法包装成@SEL —&gt;类中查找方法列表—&gt;根据@SEL找到 imp指针（函数指针）—&gt;执行函数</p>
-<p>如果swift中将一个函数声明称private，那么该函数不会被添加到方法列表中</p>
-<p>使用private前面加上@objc，那么该方法依然会被添加到方法列表中</p>
+<ul>
+<li>try? 方式 系统帮助我们处理异常，如果该方法出现了异常，则该方法返回nil；如果没有异常则放回对应的对象。要进行安全校验。<code>常用方式</code></li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">guard</span> <span class="keyword">let</span> anyObject = <span class="keyword">try</span>? <span class="type">JSONSerialization</span>.jsonObject(with: jsonData <span class="keyword">as</span> <span class="type">Data</span>, options: .mutableContainers) <span class="keyword">else</span>&#123;</div><div class="line">	<span class="type">TFLog</span>(<span class="string">"jsonData转anyObject失败"</span>)</div><div class="line">	<span class="keyword">return</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>tyr!方法 直接告诉系统，该方法没有异常。如果该方法出现了异常，那么程序会报错崩溃。（非常危险，不推荐使用）</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> anyObject = <span class="keyword">try</span>! <span class="type">JSONSerialization</span>.jsonObject(with: jsonData <span class="keyword">as</span> <span class="type">Data</span>, options: .mutableContainers)</div></pre></td></tr></table></figure>
+<h2 id="异常的练习：正则表达式"><a href="#异常的练习：正则表达式" class="headerlink" title="异常的练习：正则表达式"></a>异常的练习：正则表达式</h2><ul>
+<li>创建正则表达式的规则</li>
+<li>创建正则表达式对象</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//1.创建正则表达式的规则</span></div><div class="line"><span class="keyword">let</span> pattern = <span class="string">"abc"</span></div><div class="line"></div><div class="line"><span class="comment">//2.创建正则表达式对象</span></div><div class="line"><span class="comment">//方式一：try</span></div><div class="line"><span class="keyword">do</span>&#123;</div><div class="line">	<span class="keyword">let</span> regex = <span class="type">NSRegularExpression</span>(pattern :pattern, options : .<span class="type">CaseInsensitive</span>)</div><div class="line">&#125; <span class="keyword">catch</span> &#123;</div><div class="line">	<span class="built_in">print</span>(error)</div><div class="line">&#125;</div><div class="line"><span class="comment">//方式二：try？</span></div><div class="line"><span class="keyword">do</span>&#123;</div><div class="line">	<span class="keyword">let</span> regex = <span class="keyword">try</span>? <span class="type">NSRegularExpression</span>(pattern :pattern, options : .<span class="type">CaseInsensitive</span>)</div><div class="line">&#125; <span class="keyword">catch</span> &#123;</div><div class="line">	<span class="built_in">print</span>(error)</div><div class="line">&#125;</div><div class="line"><span class="comment">//方式三：try!</span></div><div class="line"><span class="keyword">let</span> regex = <span class="keyword">try</span>! <span class="type">NSRegularExpression</span>(pattern :pattern, options : .<span class="type">CaseInsensitive</span>)</div></pre></td></tr></table></figure>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -191,7 +185,7 @@ swift中提供了三种处理一样的方法：
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#swift中提供了三种处理一样的方法"><span class="toc-number">1.</span> <span class="toc-text">swift中提供了三种处理一样的方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#异常的练习：正则表达式"><span class="toc-number">2.</span> <span class="toc-text">异常的练习：正则表达式</span></a></li></ol>
  
   </div>
 
