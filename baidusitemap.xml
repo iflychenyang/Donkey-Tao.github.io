@@ -4,6 +4,24 @@
 
     
   <url>
+    <loc>http://Donkey-Tao.github.io/2016/03/11/swift%E4%B8%AD%E7%9A%84%E5%BC%82%E5%B8%B8/</loc>
+    <lastmod>2017-01-31T02:52:15.000Z</lastmod>
+    <data>
+        <display>
+        <title>Swift中的异常处理</title>
+        <pubTime>2016-03-11T14:00:39.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="swift" url="http://Donkey-Tao.github.io/categories/swift/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://Donkey-Tao.github.io/2013/03/02/2013-03-12-%E6%AC%A7%E6%8B%89%E5%9B%9E%E8%B7%AF/</loc>
     <lastmod>2017-01-31T02:46:33.000Z</lastmod>
     <data>
@@ -51,24 +69,6 @@
            
              
               <breadCrumb title="读书" url="http://Donkey-Tao.github.io/categories/%E8%AF%BB%E4%B9%A6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://Donkey-Tao.github.io/2016/03/11/swift%E4%B8%AD%E7%9A%84%E5%BC%82%E5%B8%B8/</loc>
-    <lastmod>2017-01-29T15:47:59.000Z</lastmod>
-    <data>
-        <display>
-        <title>Swift中的异常处理以及事件监听</title>
-        <pubTime>2016-03-11T14:00:39.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="swift" url="http://Donkey-Tao.github.io/categories/swift/"/>
           
         </display>
     </data>
