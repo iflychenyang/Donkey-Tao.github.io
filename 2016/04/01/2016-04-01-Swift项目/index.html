@@ -32,7 +32,7 @@ if DEBUG 和endif">
 <meta property="og:image" content="http://Donkey-Tao.github.io/images/CloneAndPuash.png">
 <meta property="og:image" content="http://Donkey-Tao.github.io/images/gitignoreAttention.png">
 <meta property="og:image" content="http://Donkey-Tao.github.io/images/Deployment.png">
-<meta property="og:updated_time" content="2017-01-31T02:13:24.000Z">
+<meta property="og:updated_time" content="2017-01-31T11:18:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Swift练手项目:新浪微博">
 <meta name="twitter:description" content="Swift练手项目:新浪微博 声明：本文为博主原创，如需转载请注明出处。
@@ -330,8 +330,22 @@ if DEBUG 和endif">
 <li>SnapKit：本框架是Masonry框架团队针对Swift全新开发的一套自动布局框架</li>
 </ul>
 <p>通过终端进入相应的项目文件夹，然后使用<code>pod init</code>命令来初始化自动生成相关的Podfile文件；</p>
-<p><code>注意：这里最好不要用文本编辑器打开刚创建的Podfile文件，因为可能会出现引号相关问题，一般不容易debug</code></p>
+<p><code>注意：</code></p>
+<p>这里最好不要用文本编辑器打开刚创建的Podfile文件，因为可能会出现引号相关问题，一般不容易debug。</p>
+<p>最好在终端使用vim进行编辑；</p>
 <p>Swift中使用的是.framework的动态库，Swift不支持静态库以及.a</p>
+<p><code>在这里遇到了一个错误</code></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">MacBook-Pro:SinaWeibo taofei$ pod install</div><div class="line">Analyzing dependencies</div><div class="line">Downloading dependencies</div><div class="line">Installing AFNetworking (3.1.0)</div><div class="line">Installing SDWebImage (3.8.2)</div><div class="line">Installing SVProgressHUD (2.1.2)</div><div class="line">Installing SnapKit (3.0.2)</div><div class="line">Generating Pods project</div><div class="line">Abort trap: 6</div></pre></td></tr></table></figure>
+<p>stackoverflow上貌似很多人是cocoapods的版本问题，而我在执行完</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo gem uninstall cocoapods</div></pre></td></tr></table></figure>
+<p>后不能执行</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo gem install cocoapods --pre</div></pre></td></tr></table></figure>
+<p>然而又报错了</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ERROR:  While executing gem ... (Errno::EPERM)</div><div class="line">    Operation not permitted - /usr/bin/xcodeproj</div></pre></td></tr></table></figure>
+<p>新报的这个错误使用下面这条命令就可以进行解决</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo gem install -n /usr/local/bin cocoapods --pre</div></pre></td></tr></table></figure>
+<p>用他来代替：sudo gem install cocoa pods ，这样就完美解决了。</p>
+<p>这次遇到的Abort trap: 6错误果然是因为cocoapods的版本问题引起的，写在后重新安装即可；如果重新安装时出现上面类似的错误，使用上面的命令替换之前的安装命令一般就可以解决了；到此本项目的第三方库管理的任务就已经完成了，以后要是要添加第三方库建议在终端编辑添加。</p>
 <hr>
 <p>未完待续……</p>
   
