@@ -23,16 +23,16 @@
 要求：输入：测试输入包含若干测试用例。每个测试用例的第1行给出两个正整数，分别是节点数N ( 1 &amp;lt; N &amp;lt; 1000 )和边数M；随后的M行对应M条边，每行给出一对正整数，分别是该条边直接连通的两个节点的编号（节点从1到N编号）。当N为0时输入结束。 输出：每个测">
 <meta property="og:image" content="http://Donkey-Tao.github.io/images/FlowChartOfEulerianPath.png">
 <meta property="og:image" content="http://Donkey-Tao.github.io/images/EulerianPathTest1.png">
-<meta property="og:image" content="http://Donkey-Tao.github.io/images/ananysis1.png">
+<meta property="og:image" content="http://Donkey-Tao.github.io/images/EulerianPathAnanysis1.png">
 <meta property="og:image" content="http://Donkey-Tao.github.io/images/EulerianPathTest2.png">
-<meta property="og:image" content="http://Donkey-Tao.github.io/images/ananysis2.png">
+<meta property="og:image" content="http://Donkey-Tao.github.io/images/EulerianPathAnanysis2.png">
 <meta property="og:image" content="http://Donkey-Tao.github.io/images/EulerianPathTest3.png">
-<meta property="og:image" content="http://Donkey-Tao.github.io/images/ananysis3.png">
+<meta property="og:image" content="http://Donkey-Tao.github.io/images/EulerianPathAnanysis3.png">
 <meta property="og:image" content="http://Donkey-Tao.github.io/images/EulerianPathTest4.png">
-<meta property="og:image" content="http://Donkey-Tao.github.io/images/ananysis4.png">
+<meta property="og:image" content="http://Donkey-Tao.github.io/images/EulerianPathAnanysis4.png">
 <meta property="og:image" content="http://Donkey-Tao.github.io/images/EulerianPathTest5.png">
-<meta property="og:image" content="http://Donkey-Tao.github.io/images/ananysis5.png">
-<meta property="og:updated_time" content="2017-01-31T02:42:24.000Z">
+<meta property="og:image" content="http://Donkey-Tao.github.io/images/EulerianPathAnanysis5.png">
+<meta property="og:updated_time" content="2017-01-31T02:46:33.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法：欧拉回路">
 <meta name="twitter:description" content="简介：
@@ -142,7 +142,7 @@
 <p>测试结果：</p>
 <p><img src="/images/EulerianPathTest1.png" alt="测试结果1"></p>
 <p>结果分析：测试数据表示一个3个顶点，3条边的图，顶点两两相连，存在欧拉回路。测试结果正确。</p>
-<p><img src="/images/ananysis1.png" alt="结果分析1"></p>
+<p><img src="/images/EulerianPathAnanysis1.png" alt="结果分析1"></p>
 <h4 id="测试2"><a href="#测试2" class="headerlink" title="测试2"></a>测试2</h4><p>测试数据2：</p>
 <p>3</p>
 <p>3</p>
@@ -152,7 +152,7 @@
 <p>测试结果：</p>
 <p><img src="/images/EulerianPathTest2.png" alt="测试结果2"></p>
 <p>结果分析：测试数据表示一个3个顶点，3条边的图，1,、2相连，2、3相连，不存在欧拉回路。测试结果正确。</p>
-<p><img src="/images/ananysis2.png" alt="结果分析2"></p>
+<p><img src="/images/EulerianPathAnanysis2.png" alt="结果分析2"></p>
 <h4 id="测试3"><a href="#测试3" class="headerlink" title="测试3"></a>测试3</h4><p>测试数据:3：</p>
 <p>4</p>
 <p>5</p>
@@ -164,7 +164,7 @@
 <p>测试结果：</p>
 <p><img src="/images/EulerianPathTest3.png" alt="测试结果3"></p>
 <p>结果分析：测试数据表示一个4个顶点，5条边的图，1、2相连，1、3相连,2、4相连,3、4相连，2、2相连。存在欧拉回路。测试结果正确。</p>
-<p><img src="/images/ananysis3.png" alt="结果分析3"></p>
+<p><img src="/images/EulerianPathAnanysis3.png" alt="结果分析3"></p>
 <h4 id="测试4"><a href="#测试4" class="headerlink" title="测试4"></a>测试4</h4><p>测试数据4：</p>
 <p>5</p>
 <p>4</p>
@@ -175,7 +175,7 @@
 <p>测试结果：</p>
 <p><img src="/images/EulerianPathTest4.png" alt="测试结果4"></p>
 <p>结果分析：测试数据表示一个5个顶点，4条边的图，1、2相连，3、4相连,4、5相连,3、5相连。不存在欧拉回路。测试结果正确。</p>
-<p><img src="/images/ananysis4.png" alt="结果分析4"></p>
+<p><img src="/images/EulerianPathAnanysis4.png" alt="结果分析4"></p>
 <h4 id="测试5"><a href="#测试5" class="headerlink" title="测试5"></a>测试5</h4><p>测试数据5：</p>
 <p>6</p>
 <p>6</p>
@@ -188,7 +188,7 @@
 <p>测试结果：</p>
 <p><img src="/images/EulerianPathTest5.png" alt="测试结果5"></p>
 <p>结果分析：测试数据表示一个6个顶点，6条边的图，1、2相连，1、3相连,2、3相连,4、5相连，4、6相连，5、6相连。不存在欧拉回路。测试结果正确。</p>
-<p><img src="/images/ananysis5.png" alt="结果分析5"></p>
+<p><img src="/images/EulerianPathAnanysis5.png" alt="结果分析5"></p>
 <h3 id="测试结果总结"><a href="#测试结果总结" class="headerlink" title="测试结果总结"></a>测试结果总结</h3><p>通过对多种情况设计了多组数据多次测试如上，结果都得到了真确的结论。说明程序符合题目的要求，达到了实验的目的。</p>
 <h2 id="用户使用说明"><a href="#用户使用说明" class="headerlink" title="用户使用说明"></a>用户使用说明</h2><p>首先本程序中的所有顶点编号为1-N的整数。(0&lt;N&lt;1000)</p>
 <p>先输入图顶点的个数要求为一个正整数n，然后输入图所有边的条数要求为正整数e，再图边数行整形数，每行两个数（用空格相隔）表示一条边所连接的两个顶点编号。输出结果即为题目的解。</p>
