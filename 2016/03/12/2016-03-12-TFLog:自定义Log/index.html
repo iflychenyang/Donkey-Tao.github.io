@@ -4,29 +4,29 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>读鸟哥Linux私房菜笔记 | 陶飞的技术博客</title>
+    <title>TFLog:自定义Log | 陶飞的技术博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="taofei">
     
 
-    <meta name="keywords" content="Linux，鸟哥，操作系统">
-    <meta name="description" content="读鸟哥Linux私房菜笔记Linux的简介什么是Linux？核心(Kernel)是操作系统最底层的东西，他管理所有硬件资源的工作状态，每个操作系统都有自己的核心。
-Windows是针对x86架构的硬件设计的，所以只能在x86的个人计算机上运行，Linux由于是Open Source的操作系统，所以他可以被修改成适合在各种机器上面运行的，这也就是说Linux具有可移植性；
-Kernel要管理的事项">
+    <meta name="keywords" content="iOS，swift">
+    <meta name="description" content="申明:本篇博文内容属原创,如需转载请注明出处.
+自定义Log的目的是使调试的语句在debug环境下打印,在release环境下不打印;
+123456789101112131415161718192021222324//1.获取打印所在的文件let file = (#file as NSString).lastPathComponent//2.获取打印所在的方法let funcName = #fun">
 <meta property="og:type" content="article">
-<meta property="og:title" content="读鸟哥Linux私房菜笔记">
-<meta property="og:url" content="http://Donkey-Tao.github.io/2013/10/16/读鸟哥Linux私房菜/index.html">
+<meta property="og:title" content="TFLog:自定义Log">
+<meta property="og:url" content="http://Donkey-Tao.github.io/2016/03/12/2016-03-12-TFLog:自定义Log/index.html">
 <meta property="og:site_name" content="陶飞的技术博客">
-<meta property="og:description" content="读鸟哥Linux私房菜笔记Linux的简介什么是Linux？核心(Kernel)是操作系统最底层的东西，他管理所有硬件资源的工作状态，每个操作系统都有自己的核心。
-Windows是针对x86架构的硬件设计的，所以只能在x86的个人计算机上运行，Linux由于是Open Source的操作系统，所以他可以被修改成适合在各种机器上面运行的，这也就是说Linux具有可移植性；
-Kernel要管理的事项">
-<meta property="og:updated_time" content="2017-01-30T02:33:40.000Z">
+<meta property="og:description" content="申明:本篇博文内容属原创,如需转载请注明出处.
+自定义Log的目的是使调试的语句在debug环境下打印,在release环境下不打印;
+123456789101112131415161718192021222324//1.获取打印所在的文件let file = (#file as NSString).lastPathComponent//2.获取打印所在的方法let funcName = #fun">
+<meta property="og:updated_time" content="2017-01-25T07:26:54.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="读鸟哥Linux私房菜笔记">
-<meta name="twitter:description" content="读鸟哥Linux私房菜笔记Linux的简介什么是Linux？核心(Kernel)是操作系统最底层的东西，他管理所有硬件资源的工作状态，每个操作系统都有自己的核心。
-Windows是针对x86架构的硬件设计的，所以只能在x86的个人计算机上运行，Linux由于是Open Source的操作系统，所以他可以被修改成适合在各种机器上面运行的，这也就是说Linux具有可移植性；
-Kernel要管理的事项">
+<meta name="twitter:title" content="TFLog:自定义Log">
+<meta name="twitter:description" content="申明:本篇博文内容属原创,如需转载请注明出处.
+自定义Log的目的是使调试的语句在debug环境下打印,在release环境下不打印;
+123456789101112131415161718192021222324//1.获取打印所在的文件let file = (#file as NSString).lastPathComponent//2.获取打印所在的方法let funcName = #fun">
 <meta name="twitter:creator" content="@taofei0610">
 
     
@@ -79,14 +79,14 @@ Kernel要管理的事项">
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2013/10/16/读鸟哥Linux私房菜/" title="读鸟哥Linux私房菜笔记" itemprop="url">读鸟哥Linux私房菜笔记</a>
+      <a href="/2016/03/12/2016-03-12-TFLog:自定义Log/" title="TFLog:自定义Log" itemprop="url">TFLog:自定义Log</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="taofei" target="_blank" itemprop="author">taofei</a>
 		
   <p class="article-time">
-    <time datetime="2013-10-16T14:29:39.000Z" itemprop="datePublished"> 发表于 2013-10-16</time>
+    <time datetime="2016-03-12T13:57:23.000Z" itemprop="datePublished"> 发表于 2016-03-12</time>
     
   </p>
 </header>
@@ -95,63 +95,18 @@ Kernel要管理的事项">
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#读鸟哥Linux私房菜笔记"><span class="toc-number">1.</span> <span class="toc-text">读鸟哥Linux私房菜笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux的简介"><span class="toc-number">1.1.</span> <span class="toc-text">Linux的简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是Linux？"><span class="toc-number">1.1.1.</span> <span class="toc-text">什么是Linux？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Kernel要管理的事项"><span class="toc-number">1.1.2.</span> <span class="toc-text">Kernel要管理的事项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux的发展历程"><span class="toc-number">1.1.3.</span> <span class="toc-text">Linux的发展历程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux-Distribution"><span class="toc-number">1.1.4.</span> <span class="toc-text">Linux Distribution</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux产生以及发展过程中产生的神器"><span class="toc-number">1.1.5.</span> <span class="toc-text">Linux产生以及发展过程中产生的神器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Free-software"><span class="toc-number">1.1.6.</span> <span class="toc-text">Free software</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何学习Linux"><span class="toc-number">1.2.</span> <span class="toc-text">如何学习Linux</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux的应用"><span class="toc-number">1.2.1.</span> <span class="toc-text">Linux的应用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基础学习"><span class="toc-number">1.2.2.</span> <span class="toc-text">基础学习</span></a></li></ol></li></ol></li></ol>
+			
 		
 		</div>
 		
-		<h1 id="读鸟哥Linux私房菜笔记"><a href="#读鸟哥Linux私房菜笔记" class="headerlink" title="读鸟哥Linux私房菜笔记"></a>读鸟哥Linux私房菜笔记</h1><h2 id="Linux的简介"><a href="#Linux的简介" class="headerlink" title="Linux的简介"></a>Linux的简介</h2><h3 id="什么是Linux？"><a href="#什么是Linux？" class="headerlink" title="什么是Linux？"></a>什么是Linux？</h3><p>核心(Kernel)是<code>操作系统最底层</code>的东西，他管理所有硬件资源的工作状态，每个操作系统都有自己的核心。</p>
-<p>Windows是针对x86架构的硬件设计的，所以只能在x86的个人计算机上运行，Linux由于是Open Source的操作系统，所以他可以被修改成适合在各种机器上面运行的，这也就是说Linux具有可移植性；</p>
-<h3 id="Kernel要管理的事项"><a href="#Kernel要管理的事项" class="headerlink" title="Kernel要管理的事项"></a>Kernel要管理的事项</h3><ul>
-<li>系统呼叫接口(System call interface):方便developer与Kernel的交流；</li>
-<li>进程管理(Process control):多任务时Kernel要对让CPU资源得到合理的分配；</li>
-<li>内存管理(Memory management):Kernel实现对运行内存的管理；</li>
-<li>文件管理(File system management):Kernel要对文件进行管理;</li>
-</ul>
-<h3 id="Linux的发展历程"><a href="#Linux的发展历程" class="headerlink" title="Linux的发展历程"></a>Linux的发展历程</h3><p>Linux之前，Unix的历史（语言:Assembler-&gt;B-&gt;C）(Open source)</p>
-<p>Unix：BSD(Berkeley),FreeBSD,System V(AT&amp;T),AIX(IBM),DEC(HP)</p>
-<p>Minix-Unix Like：完成过程中完全没有看Unix核心源码</p>
-<p>兼容分时系统( Compatible Time-Sharing System, CTSS )(MIT)(1960)    </p>
-<p>操作系统的发展历程：</p>
-<p>Multics(Bell,MIT,GE)(1965-1969) -&gt;File server system(Ken Thompson)(1969,Assembler)(1969) -&gt;Unics(Ken Thompson)(1969) -&gt; Unix(Dennis Ritchie)(1973) -&gt;BSD:Berkeley Software Distribution(Berkeley)(Bill Joy)(1977) -&gt;FreeBSD(X86) -&gt;1979 Version -&gt;Minix:Unix Like(Andrew Tanenbaum)(1984) -&gt;GNU Plan(Richard Mathew Stallman)(1984)(Compiler GNU C:gcc) -&gt;FSF(Free Software Foundation)(Richard Mathew Stallman) -&gt;GCC And GNU C Library -&gt;GPL(General Public License)(Copyleft)(1985) -&gt;X Window System(1984) -&gt;XFree86(X Window +Free + x86)(1988) -&gt;Linux(Linus Torvalds)(1994,Verion 1.0)</p>
-<h3 id="Linux-Distribution"><a href="#Linux-Distribution" class="headerlink" title="Linux Distribution"></a>Linux Distribution</h3><p>Linux Distribution : Red Hat,Fedora,Mandriva,<code>Debian</code>,Novell SuSE,Slackware,Linpus,Gentoo,Ubuntu,<code>Centos</code></p>
-<p>Linux Distribution = Kernel + Kernel Tools + Free Software + Documentations +可以完整安装的程序</p>
-<p>POSIX是一种标准规范，</p>
-<h3 id="Linux产生以及发展过程中产生的神器"><a href="#Linux产生以及发展过程中产生的神器" class="headerlink" title="Linux产生以及发展过程中产生的神器"></a>Linux产生以及发展过程中产生的神器</h3><p>编译器:Emac(Editor)-&gt;GNU C:gcc(Compiler) </p>
-<p>GNU开发的几个重要软件：</p>
-<ul>
-<li>Emacs</li>
-<li>GNU C (GCC)</li>
-<li>GNU C Library (glibc)</li>
-<li>Bash shell</li>
-</ul>
-<p>这些软件都是跑在有专利的Unix系统上的，GNU:GNU’s Not Unix</p>
-<h3 id="Free-software"><a href="#Free-software" class="headerlink" title="Free software"></a>Free software</h3><p>目前软件:Free software,Freeware,Shareware</p>
-<p>自由软件是Open source的，但是Open source的软件不一定就是自由软件；</p>
-<h2 id="如何学习Linux"><a href="#如何学习Linux" class="headerlink" title="如何学习Linux"></a>如何学习Linux</h2><h3 id="Linux的应用"><a href="#Linux的应用" class="headerlink" title="Linux的应用"></a>Linux的应用</h3><ul>
-<li>网络服务器：www,Mail Server,FTP Server ,etc.</li>
-<li>工作站计算机：不提供Internet服务</li>
-<li>桌面型计算机：上网浏览，文书处理，办公，收发电子邮件</li>
-</ul>
-<h3 id="基础学习"><a href="#基础学习" class="headerlink" title="基础学习"></a>基础学习</h3><p>作为CSer当然要玩一玩Command Line咯；</p>
-<p>各硬件装置在Linux下的代号</p>
-<ul>
-<li>IDE 硬盘机 /dev/hd[a-d]</li>
-<li>SCSI 硬盘机 /dev/sd[a-p]</li>
-<li>USB 随身碟 /dev/sd[a-p]与SCSI硬盘一样</li>
-<li>CDROM /dev/cdrom</li>
-<li>软盘机 /dev/fd[0-1]</li>
-<li>打印机 /dev/lp[0-2]</li>
-<li>鼠标 /dev/mouse</li>
-</ul>
-<p>相关缩写：</p>
-<ul>
-<li>NAT: Network Address Translation </li>
-<li>SAMBA: </li>
-<li>DHCP: Dynamic Host Configuration Protocol</li>
-</ul>
-<hr>
-<p>未完，待续~</p>
-<p>​<br>​<br>​    </p>
+		<p><code>申明:本篇博文内容属原创,如需转载请注明出处.</code></p>
+<p>自定义Log的目的是使调试的语句在debug环境下打印,在release环境下不打印;</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//1.获取打印所在的文件</span></div><div class="line"><span class="keyword">let</span> file = (#file <span class="keyword">as</span> <span class="type">NSString</span>).lastPathComponent</div><div class="line"><span class="comment">//2.获取打印所在的方法</span></div><div class="line"><span class="keyword">let</span> funcName = #function</div><div class="line"><span class="comment">//3.获取打印所在行数</span></div><div class="line"><span class="keyword">let</span> lineNumber = #function</div><div class="line">        </div><div class="line"><span class="comment">//封装成一个方法</span></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">TFLog</span>&lt;T&gt;<span class="params">(message : T,file : String = #file , funcName : String = 			#function ,lineNum : Int =  #line)</span></span>&#123;</div><div class="line">	<span class="keyword">let</span> fileName = (file <span class="keyword">as</span> <span class="type">NSString</span>).lastPathComponent</div><div class="line">	<span class="built_in">print</span>(<span class="string">"\(fileName):[\(funcName)](\(lineNum))--\(message)"</span>)</div><div class="line">&#125;</div><div class="line"><span class="type">TFLog</span>(message: <span class="string">"TAOFEI"</span>)</div><div class="line"></div><div class="line"><span class="comment">//方法可以不打印</span></div><div class="line"><span class="comment">//封装成一个方法</span></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">TFLog</span>&lt;T&gt;<span class="params">(message : T,file : String = #file , funcName : String = #function ,lineNum : Int =  #line)</span></span>&#123;</div><div class="line">	<span class="keyword">let</span> fileName = (file <span class="keyword">as</span> <span class="type">NSString</span>).lastPathComponent</div><div class="line">	<span class="built_in">print</span>(<span class="string">"\(fileName):(\(lineNum))--\(message)"</span>)</div><div class="line">&#125;</div><div class="line"><span class="type">TFLog</span>(message: <span class="string">"TAOFEI"</span>)</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//注意:这里的#file,#function,#function之前版本是__FILE__,__FUNCTION__,__LINE__.另外这里的T是一个动态类型</span></div></pre></td></tr></table></figure>
+<p>这个函数在整个项目中都要用到,这里就要封装成全局函数</p>
+<p>任意找一个文件,在这个文件中写中,只要不写在对象函数中就可以,一般新建一个专门的文件在写类似这些功能的函数 ;</p>
+<p>Swift中没有宏定义,解决办法:</p>
+<p>项目 -&gt;Build Setting -&gt; Swift compiler - Custom Flags (这里搜swift flag) -&gt; 在Other Swift Flags中的Debug中添加 -D DEBUG,然后在封装的代码中</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//封装成一个方法</span></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">TFLog</span>&lt;T&gt;<span class="params">(message : T,file : String = #file , funcName : String = #function ,lineNum : Int =  #line)</span></span>&#123;</div><div class="line">	#<span class="keyword">if</span> <span class="type">DEBUG</span></div><div class="line">	<span class="keyword">let</span> fileName = (file <span class="keyword">as</span> <span class="type">NSString</span>).lastPathComponent</div><div class="line">	<span class="built_in">print</span>(<span class="string">"\(fileName):(\(lineNum))--\(message)"</span>)</div><div class="line">	#endif</div><div class="line">&#125;</div></pre></td></tr></table></figure>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -159,7 +114,7 @@ Kernel要管理的事项">
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/读书/">读书</a>
+  <a class="article-category-link" href="/categories/swift-Log/">swift,Log</a>
 </div>
 
 
@@ -169,7 +124,7 @@ Kernel要管理的事项">
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://Donkey-Tao.github.io/2013/10/16/读鸟哥Linux私房菜/" data-title="读鸟哥Linux私房菜笔记 | 陶飞的技术博客" data-tsina="3015394781" class="share clearfix">
+	  <div data-url="http://Donkey-Tao.github.io/2016/03/12/2016-03-12-TFLog:自定义Log/" data-title="TFLog:自定义Log | 陶飞的技术博客" data-tsina="3015394781" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -183,18 +138,18 @@ Kernel要管理的事项">
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2014/04/11/2014-04-11--OC中内存管理的总结/" title="OC中内存管理的总结">
+ <a href="/2016/03/16/2016-03-16-Swift基础学习/" title="Swift基础学习笔记">
   <strong>上一篇：</strong><br/>
   <span>
-  OC中内存管理的总结</span>
+  Swift基础学习笔记</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2013/03/02/2013-03-12-欧拉回路/"  title="算法：欧拉回路">
+<a href="/2016/03/11/2016-03-11-Swift中的异常/"  title="Swift中的异常处理">
  <strong>下一篇：</strong><br/> 
- <span>算法：欧拉回路
+ <span>Swift中的异常处理
 </span>
 </a>
 </div>
@@ -203,7 +158,7 @@ Kernel要管理的事项">
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2013/10/16/读鸟哥Linux私房菜/" data-title="读鸟哥Linux私房菜笔记" data-url="http://Donkey-Tao.github.io/2013/10/16/读鸟哥Linux私房菜/"></div>
+	<div class="ds-thread" data-thread-key="2016/03/12/2016-03-12-TFLog:自定义Log/" data-title="TFLog:自定义Log" data-url="http://Donkey-Tao.github.io/2016/03/12/2016-03-12-TFLog:自定义Log/"></div>
 </section>
 
 
@@ -213,7 +168,7 @@ Kernel要管理的事项">
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#读鸟哥Linux私房菜笔记"><span class="toc-number">1.</span> <span class="toc-text">读鸟哥Linux私房菜笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux的简介"><span class="toc-number">1.1.</span> <span class="toc-text">Linux的简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是Linux？"><span class="toc-number">1.1.1.</span> <span class="toc-text">什么是Linux？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Kernel要管理的事项"><span class="toc-number">1.1.2.</span> <span class="toc-text">Kernel要管理的事项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux的发展历程"><span class="toc-number">1.1.3.</span> <span class="toc-text">Linux的发展历程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux-Distribution"><span class="toc-number">1.1.4.</span> <span class="toc-text">Linux Distribution</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux产生以及发展过程中产生的神器"><span class="toc-number">1.1.5.</span> <span class="toc-text">Linux产生以及发展过程中产生的神器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Free-software"><span class="toc-number">1.1.6.</span> <span class="toc-text">Free software</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何学习Linux"><span class="toc-number">1.2.</span> <span class="toc-text">如何学习Linux</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux的应用"><span class="toc-number">1.2.1.</span> <span class="toc-text">Linux的应用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基础学习"><span class="toc-number">1.2.2.</span> <span class="toc-text">基础学习</span></a></li></ol></li></ol></li></ol>
+ 
  
   </div>
 
@@ -237,7 +192,7 @@ Kernel要管理的事项">
 		<ul>
 		
 		  
-			<li><a href="/categories/iOS/" title="iOS">iOS<sup>1</sup></a></li>
+			<li><a href="/categories/iOS/" title="iOS">iOS<sup>2</sup></a></li>
 		  
 		
 		  

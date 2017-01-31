@@ -4,29 +4,35 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>TFLog:自定义Log | 陶飞的技术博客</title>
+    <title>Swift中的异常处理 | 陶飞的技术博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="taofei">
     
 
-    <meta name="keywords" content="iOS，swift">
-    <meta name="description" content="申明:本篇博文内容属原创,如需转载请注明出处.
-自定义Log的目的是使调试的语句在debug环境下打印,在release环境下不打印;
-123456789101112131415161718192021222324//1.获取打印所在的文件let file = (#file as NSString).lastPathComponent//2.获取打印所在的方法let funcName = #fun">
+    <meta name="keywords" content="swift,异常,事件监听">
+    <meta name="description" content="swift中的异常:如果在调用系统某一方法时，该方法最后有throws，说明该方法可能会抛出异常，我们需要对异常进行处理。
+swift中提供了三种处理一样的方法
+try方式，程序员手动处理异常。（开发中 不常用）
+
+123456do &amp;#123;	try JSONSerialization.jsonObject(with: Data, options: .mutableContainers)&amp;#1">
 <meta property="og:type" content="article">
-<meta property="og:title" content="TFLog:自定义Log">
-<meta property="og:url" content="http://Donkey-Tao.github.io/2016/03/12/TFLog:自定义Log/index.html">
+<meta property="og:title" content="Swift中的异常处理">
+<meta property="og:url" content="http://Donkey-Tao.github.io/2016/03/11/2016-03-11-Swift中的异常/index.html">
 <meta property="og:site_name" content="陶飞的技术博客">
-<meta property="og:description" content="申明:本篇博文内容属原创,如需转载请注明出处.
-自定义Log的目的是使调试的语句在debug环境下打印,在release环境下不打印;
-123456789101112131415161718192021222324//1.获取打印所在的文件let file = (#file as NSString).lastPathComponent//2.获取打印所在的方法let funcName = #fun">
-<meta property="og:updated_time" content="2017-01-25T07:26:54.000Z">
+<meta property="og:description" content="swift中的异常:如果在调用系统某一方法时，该方法最后有throws，说明该方法可能会抛出异常，我们需要对异常进行处理。
+swift中提供了三种处理一样的方法
+try方式，程序员手动处理异常。（开发中 不常用）
+
+123456do &amp;#123;	try JSONSerialization.jsonObject(with: Data, options: .mutableContainers)&amp;#1">
+<meta property="og:updated_time" content="2017-01-31T02:52:15.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TFLog:自定义Log">
-<meta name="twitter:description" content="申明:本篇博文内容属原创,如需转载请注明出处.
-自定义Log的目的是使调试的语句在debug环境下打印,在release环境下不打印;
-123456789101112131415161718192021222324//1.获取打印所在的文件let file = (#file as NSString).lastPathComponent//2.获取打印所在的方法let funcName = #fun">
+<meta name="twitter:title" content="Swift中的异常处理">
+<meta name="twitter:description" content="swift中的异常:如果在调用系统某一方法时，该方法最后有throws，说明该方法可能会抛出异常，我们需要对异常进行处理。
+swift中提供了三种处理一样的方法
+try方式，程序员手动处理异常。（开发中 不常用）
+
+123456do &amp;#123;	try JSONSerialization.jsonObject(with: Data, options: .mutableContainers)&amp;#1">
 <meta name="twitter:creator" content="@taofei0610">
 
     
@@ -79,14 +85,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/03/12/TFLog:自定义Log/" title="TFLog:自定义Log" itemprop="url">TFLog:自定义Log</a>
+      <a href="/2016/03/11/2016-03-11-Swift中的异常/" title="Swift中的异常处理" itemprop="url">Swift中的异常处理</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="taofei" target="_blank" itemprop="author">taofei</a>
 		
   <p class="article-time">
-    <time datetime="2016-03-12T13:57:23.000Z" itemprop="datePublished"> 发表于 2016-03-12</time>
+    <time datetime="2016-03-11T14:00:39.000Z" itemprop="datePublished"> 发表于 2016-03-11</time>
     
   </p>
 </header>
@@ -95,18 +101,29 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#swift中提供了三种处理一样的方法"><span class="toc-number">1.</span> <span class="toc-text">swift中提供了三种处理一样的方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#异常的练习：正则表达式"><span class="toc-number">2.</span> <span class="toc-text">异常的练习：正则表达式</span></a></li></ol>
 		
 		</div>
 		
-		<p><code>申明:本篇博文内容属原创,如需转载请注明出处.</code></p>
-<p>自定义Log的目的是使调试的语句在debug环境下打印,在release环境下不打印;</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//1.获取打印所在的文件</span></div><div class="line"><span class="keyword">let</span> file = (#file <span class="keyword">as</span> <span class="type">NSString</span>).lastPathComponent</div><div class="line"><span class="comment">//2.获取打印所在的方法</span></div><div class="line"><span class="keyword">let</span> funcName = #function</div><div class="line"><span class="comment">//3.获取打印所在行数</span></div><div class="line"><span class="keyword">let</span> lineNumber = #function</div><div class="line">        </div><div class="line"><span class="comment">//封装成一个方法</span></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">TFLog</span>&lt;T&gt;<span class="params">(message : T,file : String = #file , funcName : String = 			#function ,lineNum : Int =  #line)</span></span>&#123;</div><div class="line">	<span class="keyword">let</span> fileName = (file <span class="keyword">as</span> <span class="type">NSString</span>).lastPathComponent</div><div class="line">	<span class="built_in">print</span>(<span class="string">"\(fileName):[\(funcName)](\(lineNum))--\(message)"</span>)</div><div class="line">&#125;</div><div class="line"><span class="type">TFLog</span>(message: <span class="string">"TAOFEI"</span>)</div><div class="line"></div><div class="line"><span class="comment">//方法可以不打印</span></div><div class="line"><span class="comment">//封装成一个方法</span></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">TFLog</span>&lt;T&gt;<span class="params">(message : T,file : String = #file , funcName : String = #function ,lineNum : Int =  #line)</span></span>&#123;</div><div class="line">	<span class="keyword">let</span> fileName = (file <span class="keyword">as</span> <span class="type">NSString</span>).lastPathComponent</div><div class="line">	<span class="built_in">print</span>(<span class="string">"\(fileName):(\(lineNum))--\(message)"</span>)</div><div class="line">&#125;</div><div class="line"><span class="type">TFLog</span>(message: <span class="string">"TAOFEI"</span>)</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//注意:这里的#file,#function,#function之前版本是__FILE__,__FUNCTION__,__LINE__.另外这里的T是一个动态类型</span></div></pre></td></tr></table></figure>
-<p>这个函数在整个项目中都要用到,这里就要封装成全局函数</p>
-<p>任意找一个文件,在这个文件中写中,只要不写在对象函数中就可以,一般新建一个专门的文件在写类似这些功能的函数 ;</p>
-<p>Swift中没有宏定义,解决办法:</p>
-<p>项目 -&gt;Build Setting -&gt; Swift compiler - Custom Flags (这里搜swift flag) -&gt; 在Other Swift Flags中的Debug中添加 -D DEBUG,然后在封装的代码中</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//封装成一个方法</span></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">TFLog</span>&lt;T&gt;<span class="params">(message : T,file : String = #file , funcName : String = #function ,lineNum : Int =  #line)</span></span>&#123;</div><div class="line">	#<span class="keyword">if</span> <span class="type">DEBUG</span></div><div class="line">	<span class="keyword">let</span> fileName = (file <span class="keyword">as</span> <span class="type">NSString</span>).lastPathComponent</div><div class="line">	<span class="built_in">print</span>(<span class="string">"\(fileName):(\(lineNum))--\(message)"</span>)</div><div class="line">	#endif</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+		<p>swift中的异常:如果在调用系统某一方法时，该方法最后有throws，说明该方法可能会抛出异常，我们需要对异常进行处理。</p>
+<h2 id="swift中提供了三种处理一样的方法"><a href="#swift中提供了三种处理一样的方法" class="headerlink" title="swift中提供了三种处理一样的方法"></a>swift中提供了三种处理一样的方法</h2><ul>
+<li>try方式，程序员手动处理异常。（开发中 不常用）</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">do</span> &#123;</div><div class="line">	<span class="keyword">try</span> <span class="type">JSONSerialization</span>.jsonObject(with: <span class="type">Data</span>, options: .mutableContainers)</div><div class="line">&#125; <span class="keyword">catch</span> &#123;</div><div class="line">	<span class="comment">//系统提供临时常量error</span></div><div class="line">	<span class="built_in">print</span>(error)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这种方式在开发中用的不多。</p>
+<ul>
+<li>try? 方式 系统帮助我们处理异常，如果该方法出现了异常，则该方法返回nil；如果没有异常则放回对应的对象。要进行安全校验。<code>常用方式</code></li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">guard</span> <span class="keyword">let</span> anyObject = <span class="keyword">try</span>? <span class="type">JSONSerialization</span>.jsonObject(with: jsonData <span class="keyword">as</span> <span class="type">Data</span>, options: .mutableContainers) <span class="keyword">else</span>&#123;</div><div class="line">	<span class="type">TFLog</span>(<span class="string">"jsonData转anyObject失败"</span>)</div><div class="line">	<span class="keyword">return</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>tyr!方法 直接告诉系统，该方法没有异常。如果该方法出现了异常，那么程序会报错崩溃。（非常危险，不推荐使用）</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> anyObject = <span class="keyword">try</span>! <span class="type">JSONSerialization</span>.jsonObject(with: jsonData <span class="keyword">as</span> <span class="type">Data</span>, options: .mutableContainers)</div></pre></td></tr></table></figure>
+<h2 id="异常的练习：正则表达式"><a href="#异常的练习：正则表达式" class="headerlink" title="异常的练习：正则表达式"></a>异常的练习：正则表达式</h2><ul>
+<li>创建正则表达式的规则</li>
+<li>创建正则表达式对象</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//1.创建正则表达式的规则</span></div><div class="line"><span class="keyword">let</span> pattern = <span class="string">"abc"</span></div><div class="line"></div><div class="line"><span class="comment">//2.创建正则表达式对象</span></div><div class="line"><span class="comment">//方式一：try</span></div><div class="line"><span class="keyword">do</span>&#123;</div><div class="line">	<span class="keyword">let</span> regex = <span class="type">NSRegularExpression</span>(pattern :pattern, options : .<span class="type">CaseInsensitive</span>)</div><div class="line">&#125; <span class="keyword">catch</span> &#123;</div><div class="line">	<span class="built_in">print</span>(error)</div><div class="line">&#125;</div><div class="line"><span class="comment">//方式二：try？</span></div><div class="line"><span class="keyword">do</span>&#123;</div><div class="line">	<span class="keyword">let</span> regex = <span class="keyword">try</span>? <span class="type">NSRegularExpression</span>(pattern :pattern, options : .<span class="type">CaseInsensitive</span>)</div><div class="line">&#125; <span class="keyword">catch</span> &#123;</div><div class="line">	<span class="built_in">print</span>(error)</div><div class="line">&#125;</div><div class="line"><span class="comment">//方式三：try!</span></div><div class="line"><span class="keyword">let</span> regex = <span class="keyword">try</span>! <span class="type">NSRegularExpression</span>(pattern :pattern, options : .<span class="type">CaseInsensitive</span>)</div></pre></td></tr></table></figure>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -114,7 +131,7 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/swift-Log/">swift,Log</a>
+  <a class="article-category-link" href="/categories/swift/">swift</a>
 </div>
 
 
@@ -124,7 +141,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://Donkey-Tao.github.io/2016/03/12/TFLog:自定义Log/" data-title="TFLog:自定义Log | 陶飞的技术博客" data-tsina="3015394781" class="share clearfix">
+	  <div data-url="http://Donkey-Tao.github.io/2016/03/11/2016-03-11-Swift中的异常/" data-title="Swift中的异常处理 | 陶飞的技术博客" data-tsina="3015394781" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -138,18 +155,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2016/03/16/Swift基础学习/" title="Swift基础学习笔记">
+ <a href="/2016/03/12/2016-03-12-TFLog:自定义Log/" title="TFLog:自定义Log">
   <strong>上一篇：</strong><br/>
   <span>
-  Swift基础学习笔记</span>
+  TFLog:自定义Log</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2016/03/11/swift中的异常/"  title="Swift中的异常处理">
+<a href="/2015/03/12/2015-03-12-模仿百思不得姐项目开发总结/"  title="OC项目：模仿百思不得姐项目开发总结">
  <strong>下一篇：</strong><br/> 
- <span>Swift中的异常处理
+ <span>OC项目：模仿百思不得姐项目开发总结
 </span>
 </a>
 </div>
@@ -158,7 +175,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2016/03/12/TFLog:自定义Log/" data-title="TFLog:自定义Log" data-url="http://Donkey-Tao.github.io/2016/03/12/TFLog:自定义Log/"></div>
+	<div class="ds-thread" data-thread-key="2016/03/11/2016-03-11-Swift中的异常/" data-title="Swift中的异常处理" data-url="http://Donkey-Tao.github.io/2016/03/11/2016-03-11-Swift中的异常/"></div>
 </section>
 
 
@@ -168,7 +185,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#swift中提供了三种处理一样的方法"><span class="toc-number">1.</span> <span class="toc-text">swift中提供了三种处理一样的方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#异常的练习：正则表达式"><span class="toc-number">2.</span> <span class="toc-text">异常的练习：正则表达式</span></a></li></ol>
  
   </div>
 
@@ -192,7 +209,7 @@
 		<ul>
 		
 		  
-			<li><a href="/categories/iOS/" title="iOS">iOS<sup>1</sup></a></li>
+			<li><a href="/categories/iOS/" title="iOS">iOS<sup>2</sup></a></li>
 		  
 		
 		  

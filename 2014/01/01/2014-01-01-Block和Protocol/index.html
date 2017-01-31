@@ -1,0 +1,596 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Block和Protocol | 陶飞的技术博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="taofei">
+    
+
+    <meta name="keywords" content="block,协议,protocol">
+    <meta name="description" content="block的基本使用什么是block?Block是iOS中比较特殊的数据类型.Block是苹果官方特别推荐使用的数据类型,应用场景比较广泛.
+应用场景:
+
+动画
+多线程
+集合遍历
+网络请求回调
+
+Block的作用:用来保存一段代码,可以在恰当的时间再取出来调用.功能与函数或者方法比较类似.
+函数与Block的区别:函数不能在程序运行的过程中定义代码,函数是一开始的时候就已经写死的.block也是用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Block和Protocol">
+<meta property="og:url" content="http://Donkey-Tao.github.io/2014/01/01/2014-01-01-Block和Protocol/index.html">
+<meta property="og:site_name" content="陶飞的技术博客">
+<meta property="og:description" content="block的基本使用什么是block?Block是iOS中比较特殊的数据类型.Block是苹果官方特别推荐使用的数据类型,应用场景比较广泛.
+应用场景:
+
+动画
+多线程
+集合遍历
+网络请求回调
+
+Block的作用:用来保存一段代码,可以在恰当的时间再取出来调用.功能与函数或者方法比较类似.
+函数与Block的区别:函数不能在程序运行的过程中定义代码,函数是一开始的时候就已经写死的.block也是用">
+<meta property="og:updated_time" content="2017-01-31T08:00:12.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Block和Protocol">
+<meta name="twitter:description" content="block的基本使用什么是block?Block是iOS中比较特殊的数据类型.Block是苹果官方特别推荐使用的数据类型,应用场景比较广泛.
+应用场景:
+
+动画
+多线程
+集合遍历
+网络请求回调
+
+Block的作用:用来保存一段代码,可以在恰当的时间再取出来调用.功能与函数或者方法比较类似.
+函数与Block的区别:函数不能在程序运行的过程中定义代码,函数是一开始的时候就已经写死的.block也是用">
+<meta name="twitter:creator" content="@taofei0610">
+
+    
+    <link rel="alternative" href="/atom.xml" title="陶飞的技术博客" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/Donkey.jpg">
+    
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="陶飞的技术博客">陶飞的技术博客</a></h1>
+				<h2 class="blog-motto">自强不息,厚德载物</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+						<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+						<label>Search</label>
+							<input type="text" id="search" class="st-default-search-input" maxlength="20" placeholder="搜索" />
+						</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2014/01/01/2014-01-01-Block和Protocol/" title="Block和Protocol" itemprop="url">Block和Protocol</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="taofei" target="_blank" itemprop="author">taofei</a>
+		
+  <p class="article-time">
+    <time datetime="2014-01-01T01:13:32.000Z" itemprop="datePublished"> 发表于 2014-01-01</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#block的基本使用"><span class="toc-number">1.</span> <span class="toc-text">block的基本使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#block和typedef"><span class="toc-number">2.</span> <span class="toc-text">block和typedef</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#03-Block03-使用场景"><span class="toc-number">3.</span> <span class="toc-text">03-Block03-使用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#04-Block04-使用注意"><span class="toc-number">4.</span> <span class="toc-text">04-Block04-使用注意</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#05-Protocol01-基本使用"><span class="toc-number">5.</span> <span class="toc-text">05-Protocol01-基本使用</span></a></li></ol>
+		
+		</div>
+		
+		<h2 id="block的基本使用"><a href="#block的基本使用" class="headerlink" title="block的基本使用"></a>block的基本使用</h2><p>什么是block?<br>Block是iOS中比较特殊的<code>数据类型</code>.Block是苹果官方特别推荐使用的数据类型,应用场景比较广泛.</p>
+<p>应用场景:</p>
+<ul>
+<li>动画</li>
+<li>多线程</li>
+<li>集合遍历</li>
+<li>网络请求回调</li>
+</ul>
+<p>Block的作用:<br><code>用来保存一段代码</code>,可以在恰当的时间再取出来调用.<br>功能与函数或者方法比较类似.</p>
+<p>函数与Block的区别:<br>函数不能在程序运行的过程中定义代码,函数是一开始的时候就已经写死的.block也是用来保存代码.<br>Block保存代码:把代码放到大括号中,在大括号的左大括号前面加上一个<code>^</code>标志是一个Block(这^的目的是说明后面的代码段要交给block存储),在大括号的右边大括号后面加上分号表示这个数据类型定义结束.以上这些相当于int a=10;中的数值10;<br>定义简单的Block变量(block跟函数很像,有返回值,有参数):<br>没有返回值时在前面写void,把变量名括起来,前面加个^,这样就代表block类型的变量名.logDonkeyTao是这个block的变量名,logDonkeyTao的变量中就存储了大括号中的代码.</p>
+<ul>
+<li>void:代表是返回值类型</li>
+<li>(^logDonkeyTao):代表block的变量名</li>
+<li>():代表block的参数<br>block跟函数很像,只是在前面加一个^,然后在外面加一对括号.</li>
+</ul>
+<p>block的调用:logDonkeyTao();</p>
+<p>区别:block可以在函数里面定义也可以在外面定义,更加灵活.</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">	<span class="keyword">void</span> (^logDonkeyTao)()^&#123;</div><div class="line"></div><div class="line">		TFLog(<span class="string">@"------------"</span>);</div><div class="line"></div><div class="line">		<span class="built_in">NSLog</span>(<span class="string">@"Donkey-Tao"</span>);</div><div class="line"></div><div class="line">		<span class="built_in">NSLog</span>(<span class="string">@"------------"</span>);</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>定义一个block,存储一段代码,这段代码的功能是可以打印任意行数的*</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">void</span> (^logDonkeyTao)(<span class="keyword">int</span>)=^(<span class="keyword">int</span> numberOfLines)&#123;</div><div class="line"></div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;numberOfLines;i++)&#123;</div><div class="line"></div><div class="line">		TFLog(<span class="string">@"------------"</span>);</div><div class="line"></div><div class="line">		<span class="built_in">NSLog</span>(<span class="string">@"Donkey-Tao"</span>);</div><div class="line"></div><div class="line">		<span class="built_in">NSLog</span>(<span class="string">@"------------"</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>调用block:</p>
+<p>定义一个block计算两个整数的和<br>先写block:</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//定义有返回值有参数的block</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">int</span> (^sumBlock)(<span class="keyword">int</span>,<span class="keyword">int</span>)=^(<span class="keyword">int</span> num1,<span class="keyword">int</span> num2)&#123;</div><div class="line"></div><div class="line">	<span class="keyword">return</span> num1+num2;</div><div class="line"></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">int</span> c=sumBlock(<span class="number">10</span>,<span class="number">9</span>);</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">int</span>(^doubleBlock)(<span class="keyword">int</span>);</div><div class="line"></div><div class="line">doubleBlock=^(<span class="keyword">int</span> num)&#123;</div><div class="line"></div><div class="line">	<span class="keyword">return</span> <span class="number">2</span>*num;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//调用</span></div><div class="line"></div><div class="line"><span class="keyword">int</span> d=doubleBlock(<span class="number">18</span>);</div></pre></td></tr></table></figure>
+<h2 id="block和typedef"><a href="#block和typedef" class="headerlink" title="block和typedef"></a>block和typedef</h2><p>typedef exisiting new;<br>typedef int Myint;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">//定义一个block来计算2个整数的差</span></div><div class="line"><span class="keyword">int</span> (^minusBlock)(<span class="keyword">int</span>,<span class="keyword">int</span>)=^(<span class="keyword">int</span> num1,<span class="keyword">int</span> num2)&#123;</div><div class="line">	</div><div class="line">	<span class="keyword">return</span> num1-num2;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//定义一个block来计算2个整数的积</span></div><div class="line"><span class="keyword">int</span> (^multiBlock)(<span class="keyword">int</span>,<span class="keyword">int</span>)=^(<span class="keyword">int</span> num1,<span class="keyword">int</span> num2)&#123;</div><div class="line">	</div><div class="line">	<span class="keyword">return</span> num1*num2;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//定义一个叫做MyBlock的数据类型,它存储的代码必须返回int,必须接受2个int类型的参数</span></div><div class="line"><span class="keyword">typedef</span> <span class="keyword">int</span>(^MyBlock)(<span class="keyword">int</span>,<span class="keyword">int</span>);</div><div class="line"></div><div class="line">MyBlock minusBlock=^(<span class="keyword">int</span> num1,<span class="keyword">int</span> num2)&#123;</div><div class="line"></div><div class="line">	<span class="keyword">return</span> num1-num2;  </div><div class="line"></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="03-Block03-使用场景"><a href="#03-Block03-使用场景" class="headerlink" title="03-Block03-使用场景"></a>03-Block03-使用场景</h2><p>严谨:调用block之前一定要判断block是否为空</p>
+<h2 id="04-Block04-使用注意"><a href="#04-Block04-使用注意" class="headerlink" title="04-Block04-使用注意"></a>04-Block04-使用注意</h2><p>1.默认情况下,block里面是能够访问外面的内容的,block里面不能修改外面的数值.<br>2.要想修改外面的值,__block int b=10;这样就可以修改外面的变量的值.</p>
+<h2 id="05-Protocol01-基本使用"><a href="#05-Protocol01-基本使用" class="headerlink" title="05-Protocol01-基本使用"></a>05-Protocol01-基本使用</h2><p>protocol翻译过来就是”协议”,协议文件中只有方法的声明.可以把多个类共有的方法抽取出来,用一个协议来表示.一个类可以遵循多份协议.一个协议也可以遵守协议.</p>
+<p>协议与父类不同,使用协议可以少一个类,使用继承时多一个</p>
+<p>protocol的作用:</p>
+<ul>
+<li>用来声明一些方法</li>
+</ul>
+<p>protocol的其他使用,</p>
+<p>协议中的关键字</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/iOS/">iOS</a>
+</div>
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://Donkey-Tao.github.io/2014/01/01/2014-01-01-Block和Protocol/" data-title="Block和Protocol | 陶飞的技术博客" data-tsina="3015394781" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2014/04/11/2014-04-11-OC中内存管理的总结/" title="OC中内存管理的总结">
+  <strong>上一篇：</strong><br/>
+  <span>
+  OC中内存管理的总结</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2013/10/16/2013-10-16-读鸟哥Linux私房菜/"  title="读鸟哥Linux私房菜笔记">
+ <strong>下一篇：</strong><br/> 
+ <span>读鸟哥Linux私房菜笔记
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2014/01/01/2014-01-01-Block和Protocol/" data-title="Block和Protocol" data-url="http://Donkey-Tao.github.io/2014/01/01/2014-01-01-Block和Protocol/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#block的基本使用"><span class="toc-number">1.</span> <span class="toc-text">block的基本使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#block和typedef"><span class="toc-number">2.</span> <span class="toc-text">block和typedef</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#03-Block03-使用场景"><span class="toc-number">3.</span> <span class="toc-text">03-Block03-使用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#04-Block04-使用注意"><span class="toc-number">4.</span> <span class="toc-text">04-Block04-使用注意</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#05-Protocol01-基本使用"><span class="toc-number">5.</span> <span class="toc-text">05-Protocol01-基本使用</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github 名片</p>
+<div class="github-card" data-github="Donkey-Tao" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/iOS/" title="iOS">iOS<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/iOS-原创/" title="iOS,原创">iOS,原创<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/swift/" title="swift">swift<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/swift-Log/" title="swift,Log">swift,Log<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/算法/" title="算法">算法<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/读书/" title="读书">读书<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://taofei.me" target="_blank" title="一个iOS开发者的个人博客">陶飞的技术博客</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=3015394781&verifier=655ac839&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	
+	<section class="info">
+		<p> I&#39;m a iOS developer <br/>
+			interested in data science and artificial intelligence.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/3015394781" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/Donkey-Tao" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		<a href="http://stackoverflow.com/users/6694744" target="_blank" class="icon-stack-overflow" title="stackoverflow"></a>
+		
+		
+		<a href="https://twitter.com/taofei0610" target="_blank" class="icon-twitter" title="twitter"></a>
+		
+		
+		<a href="https://www.facebook.com/taofei0610" target="_blank" class="icon-facebook" title="facebook"></a>
+		
+		
+		<a href="https://www.linkedin.com/in/飞-陶-b0639311a" target="_blank" class="icon-linkedin" title="linkedin"></a>
+		
+		
+		
+		<a href="http://www.zhihu.com/people/tao-fei-97" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:taofei0610@gmail.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		
+		<a href="/about" target="_blank" title="taofei">taofei</a>
+		
+		
+		</p>
+
+		<script type="text/javascript">
+  		(function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+ 	 		(w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+ 		 e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  		})(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+  
+  		_st('install','AXHzsCAH4RKEmN-p72Lx','2.0.0');
+		</script>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+
+<script>
+(function(){
+var bp = document.createElement('script');
+bp.src = '//push.zhanzhang.baidu.com/push.js';
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+
+
+
+  var m = $('#main'),
+      a = $('#asidepart'),//侧边栏
+      c = $('.closeaside'),//隐藏侧边栏
+      o = $('.openaside');//显示侧边栏
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+        getSize();
+        if (myWidth >= 1024) {
+          c.click();
+        }
+  
+
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"taofei"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?9833b52c905ccc936c62c38135a70622";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<CENTER>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260084222'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1260084222%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+</CENTER>
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
