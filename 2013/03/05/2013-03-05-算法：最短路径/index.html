@@ -4,29 +4,38 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>TFLog:自定义Log | 陶飞的技术博客</title>
+    <title>算法：最短路径 | 陶飞的技术博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="taofei">
     
 
-    <meta name="keywords" content="iOS，swift">
-    <meta name="description" content="申明:本篇博文内容属原创,如需转载请注明出处.
-自定义Log的目的是使调试的语句在debug环境下打印,在release环境下不打印;
-123456789101112131415161718192021222324//1.获取打印所在的文件let file = (#file as NSString).lastPathComponent//2.获取打印所在的方法let funcName = #fun">
+    <meta name="keywords" content="算法,图,C">
+    <meta name="description" content="声明:本文为博主原创,如需转载请注明出处.
+本文中的算法用C语言进行了实现。
+简介：
+最短路径问题：给你n个点，m条无向边，每条边都有长度d和花费p，给你起点s终点t，要求输出起点到终点的最短距离及其花费，如果最短距离有多条路线，则输出花费最少的。
+要求：
+输入：输入n,m，点的编号是1~n,然后是m行，每行4个数 a,b,d,p，表示a和b之间有一条边，且其长度为d，花费为p。最后一行是两个数">
 <meta property="og:type" content="article">
-<meta property="og:title" content="TFLog:自定义Log">
-<meta property="og:url" content="http://Donkey-Tao.github.io/2016/03/12/2016-03-12-TFLog:自定义Log/index.html">
+<meta property="og:title" content="算法：最短路径">
+<meta property="og:url" content="http://Donkey-Tao.github.io/2013/03/05/2013-03-05-算法：最短路径/index.html">
 <meta property="og:site_name" content="陶飞的技术博客">
-<meta property="og:description" content="申明:本篇博文内容属原创,如需转载请注明出处.
-自定义Log的目的是使调试的语句在debug环境下打印,在release环境下不打印;
-123456789101112131415161718192021222324//1.获取打印所在的文件let file = (#file as NSString).lastPathComponent//2.获取打印所在的方法let funcName = #fun">
-<meta property="og:updated_time" content="2017-01-25T07:26:54.000Z">
+<meta property="og:description" content="声明:本文为博主原创,如需转载请注明出处.
+本文中的算法用C语言进行了实现。
+简介：
+最短路径问题：给你n个点，m条无向边，每条边都有长度d和花费p，给你起点s终点t，要求输出起点到终点的最短距离及其花费，如果最短距离有多条路线，则输出花费最少的。
+要求：
+输入：输入n,m，点的编号是1~n,然后是m行，每行4个数 a,b,d,p，表示a和b之间有一条边，且其长度为d，花费为p。最后一行是两个数">
+<meta property="og:updated_time" content="2017-01-31T08:13:39.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TFLog:自定义Log">
-<meta name="twitter:description" content="申明:本篇博文内容属原创,如需转载请注明出处.
-自定义Log的目的是使调试的语句在debug环境下打印,在release环境下不打印;
-123456789101112131415161718192021222324//1.获取打印所在的文件let file = (#file as NSString).lastPathComponent//2.获取打印所在的方法let funcName = #fun">
+<meta name="twitter:title" content="算法：最短路径">
+<meta name="twitter:description" content="声明:本文为博主原创,如需转载请注明出处.
+本文中的算法用C语言进行了实现。
+简介：
+最短路径问题：给你n个点，m条无向边，每条边都有长度d和花费p，给你起点s终点t，要求输出起点到终点的最短距离及其花费，如果最短距离有多条路线，则输出花费最少的。
+要求：
+输入：输入n,m，点的编号是1~n,然后是m行，每行4个数 a,b,d,p，表示a和b之间有一条边，且其长度为d，花费为p。最后一行是两个数">
 <meta name="twitter:creator" content="@taofei0610">
 
     
@@ -79,14 +88,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/03/12/2016-03-12-TFLog:自定义Log/" title="TFLog:自定义Log" itemprop="url">TFLog:自定义Log</a>
+      <a href="/2013/03/05/2013-03-05-算法：最短路径/" title="算法：最短路径" itemprop="url">算法：最短路径</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="taofei" target="_blank" itemprop="author">taofei</a>
 		
   <p class="article-time">
-    <time datetime="2016-03-12T13:57:23.000Z" itemprop="datePublished"> 发表于 2016-03-12</time>
+    <time datetime="2013-03-05T00:45:21.000Z" itemprop="datePublished"> 发表于 2013-03-05</time>
     
   </p>
 </header>
@@ -99,14 +108,14 @@
 		
 		</div>
 		
-		<p><code>申明:本篇博文内容属原创,如需转载请注明出处.</code></p>
-<p>自定义Log的目的是使调试的语句在debug环境下打印,在release环境下不打印;</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//1.获取打印所在的文件</span></div><div class="line"><span class="keyword">let</span> file = (#file <span class="keyword">as</span> <span class="type">NSString</span>).lastPathComponent</div><div class="line"><span class="comment">//2.获取打印所在的方法</span></div><div class="line"><span class="keyword">let</span> funcName = #function</div><div class="line"><span class="comment">//3.获取打印所在行数</span></div><div class="line"><span class="keyword">let</span> lineNumber = #function</div><div class="line">        </div><div class="line"><span class="comment">//封装成一个方法</span></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">TFLog</span>&lt;T&gt;<span class="params">(message : T,file : String = #file , funcName : String = 			#function ,lineNum : Int =  #line)</span></span>&#123;</div><div class="line">	<span class="keyword">let</span> fileName = (file <span class="keyword">as</span> <span class="type">NSString</span>).lastPathComponent</div><div class="line">	<span class="built_in">print</span>(<span class="string">"\(fileName):[\(funcName)](\(lineNum))--\(message)"</span>)</div><div class="line">&#125;</div><div class="line"><span class="type">TFLog</span>(message: <span class="string">"TAOFEI"</span>)</div><div class="line"></div><div class="line"><span class="comment">//方法可以不打印</span></div><div class="line"><span class="comment">//封装成一个方法</span></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">TFLog</span>&lt;T&gt;<span class="params">(message : T,file : String = #file , funcName : String = #function ,lineNum : Int =  #line)</span></span>&#123;</div><div class="line">	<span class="keyword">let</span> fileName = (file <span class="keyword">as</span> <span class="type">NSString</span>).lastPathComponent</div><div class="line">	<span class="built_in">print</span>(<span class="string">"\(fileName):(\(lineNum))--\(message)"</span>)</div><div class="line">&#125;</div><div class="line"><span class="type">TFLog</span>(message: <span class="string">"TAOFEI"</span>)</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//注意:这里的#file,#function,#function之前版本是__FILE__,__FUNCTION__,__LINE__.另外这里的T是一个动态类型</span></div></pre></td></tr></table></figure>
-<p>这个函数在整个项目中都要用到,这里就要封装成全局函数</p>
-<p>任意找一个文件,在这个文件中写中,只要不写在对象函数中就可以,一般新建一个专门的文件在写类似这些功能的函数 ;</p>
-<p>Swift中没有宏定义,解决办法:</p>
-<p>项目 -&gt;Build Setting -&gt; Swift compiler - Custom Flags (这里搜swift flag) -&gt; 在Other Swift Flags中的Debug中添加 -D DEBUG,然后在封装的代码中</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//封装成一个方法</span></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">TFLog</span>&lt;T&gt;<span class="params">(message : T,file : String = #file , funcName : String = #function ,lineNum : Int =  #line)</span></span>&#123;</div><div class="line">	#<span class="keyword">if</span> <span class="type">DEBUG</span></div><div class="line">	<span class="keyword">let</span> fileName = (file <span class="keyword">as</span> <span class="type">NSString</span>).lastPathComponent</div><div class="line">	<span class="built_in">print</span>(<span class="string">"\(fileName):(\(lineNum))--\(message)"</span>)</div><div class="line">	#endif</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+		<p><code>声明:本文为博主原创,如需转载请注明出处.</code></p>
+<p><code>本文中的算法用C语言进行了实现。</code></p>
+<p>简介：</p>
+<p>最短路径问题：给你n个点，m条无向边，每条边都有长度d和花费p，给你起点s终点t，要求输出起点到终点的最短距离及其花费，如果最短距离有多条路线，则输出花费最少的。</p>
+<p>要求：</p>
+<p>输入：输入n,m，点的编号是1~n,然后是m行，每行4个数 a,b,d,p，表示a和b之间有一条边，且其长度为d，花费为p。最后一行是两个数 s,t;起点s，终点。n和m为0时输入结束。</p>
+<p>源代码：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;malloc.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_VERTEX_NUM 100</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> max 65536</span></div><div class="line"></div><div class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> </div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> distance;</div><div class="line">	<span class="keyword">int</span> cost;</div><div class="line">&#125;EDG;</div><div class="line"></div><div class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> </div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> n;</div><div class="line">	<span class="keyword">int</span> e;</div><div class="line">	<span class="keyword">int</span> vexs[MAX_VERTEX_NUM];</div><div class="line">	EDG edges[MAX_VERTEX_NUM][MAX_VERTEX_NUM];</div><div class="line">&#125;MGraph;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">shortpat_FLOYED</span><span class="params">(MGraph *mg)</span></span>;</div><div class="line"><span class="function">MGraph *<span class="title">creat_MGraph</span><span class="params">()</span></span>;<span class="comment">//建立邻接矩阵</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> m,n;</div><div class="line">	MGraph *mg;</div><div class="line">	mg=creat_MGraph();<span class="comment">//建立邻接矩阵</span></div><div class="line">	<span class="built_in">printf</span>(<span class="string">"请输入要求的两个顶点的序号："</span>);</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;m,&amp;n);</div><div class="line">	shortpat_FLOYED(mg);</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"顶点%d与顶点%d的最短路径的距离：%d花费为：%d\n"</span>,m,n,mg-&gt;edges[m][n].distance,mg-&gt;edges[m][n].cost);</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"程序结束\n"</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">shortpat_FLOYED</span><span class="params">(MGraph *mg)</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> i,j,k;</div><div class="line">	<span class="keyword">for</span>(k=<span class="number">1</span>;k&lt;=mg-&gt;n;k++)</div><div class="line">		<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=mg-&gt;n;i++)</div><div class="line">			<span class="keyword">for</span>(j=<span class="number">1</span>;j&lt;=mg-&gt;n;j++)</div><div class="line">			&#123;</div><div class="line">				<span class="keyword">if</span>(mg-&gt;edges[i][k].distance+mg-&gt;edges[k][j].distance&lt;mg-&gt;edges[i][j].distance)</div><div class="line">				&#123;</div><div class="line">					mg-&gt;edges[i][j].distance=mg-&gt;edges[i][k].distance+mg-&gt;edges[k][j].distance;</div><div class="line">					mg-&gt;edges[i][j].cost=mg-&gt;edges[i][k].cost+mg-&gt;edges[k][j].cost;</div><div class="line">				&#125;</div><div class="line">				<span class="keyword">else</span> <span class="keyword">if</span>(mg-&gt;edges[i][k].distance+mg-&gt;edges[k][j].distance==mg-&gt;edges[i][j].distance)</div><div class="line">				&#123;</div><div class="line">					<span class="keyword">if</span>(mg-&gt;edges[i][k].cost+mg-&gt;edges[k][j].cost&lt;mg-&gt;edges[i][j].cost)</div><div class="line">						</div><div class="line">						mg-&gt;edges[i][j].cost=mg-&gt;edges[i][k].cost+mg-&gt;edges[k][j].cost;</div><div class="line">					</div><div class="line">				&#125;</div><div class="line">				<span class="keyword">else</span> </div><div class="line">					;<span class="comment">//空语句</span></div><div class="line">			&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function">MGraph *<span class="title">creat_MGraph</span><span class="params">()</span><span class="comment">//建立邻接矩阵</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> i,j,k,n,e,d,c;</div><div class="line">	MGraph *mg=<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(MGraph));</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"请输入顶点的个数："</span>);</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"请输入边的条数："</span>);</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;e);</div><div class="line">	mg-&gt;n=n;</div><div class="line">	mg-&gt;e=e;</div><div class="line">	getchar();</div><div class="line">	<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n;i++)</div><div class="line">		<span class="keyword">for</span>(j=<span class="number">1</span>;j&lt;=n;j++)</div><div class="line">		&#123;</div><div class="line">			mg-&gt;edges[i][j].distance=max;<span class="comment">//初始化邻接矩阵表示的所有边</span></div><div class="line">			mg-&gt;edges[i][j].cost=max;</div><div class="line">		&#125;</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"请输入边的信息:\n"</span>);</div><div class="line">		<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=e;i++)</div><div class="line">		&#123;</div><div class="line">			<span class="built_in">scanf</span>(<span class="string">"%d%d%d%d"</span>,&amp;j,&amp;k,&amp;d,&amp;c);</div><div class="line">			mg-&gt;edges[j][k].distance=d;</div><div class="line">			mg-&gt;edges[j][k].cost=c;</div><div class="line">			mg-&gt;edges[k][j].distance=d;</div><div class="line">			mg-&gt;edges[k][j].cost=c;<span class="comment">//标记存在的边</span></div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> mg;<span class="comment">//返回邻接矩阵的首地址</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -114,7 +123,7 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/swift-Log/">swift,Log</a>
+  <a class="article-category-link" href="/categories/算法/">算法</a>
 </div>
 
 
@@ -124,7 +133,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://Donkey-Tao.github.io/2016/03/12/2016-03-12-TFLog:自定义Log/" data-title="TFLog:自定义Log | 陶飞的技术博客" data-tsina="3015394781" class="share clearfix">
+	  <div data-url="http://Donkey-Tao.github.io/2013/03/05/2013-03-05-算法：最短路径/" data-title="算法：最短路径 | 陶飞的技术博客" data-tsina="3015394781" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -138,18 +147,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2016/03/16/2016-03-16-Swift基础学习/" title="Swift基础学习笔记">
+ <a href="/2013/10/16/2013-10-16-读鸟哥Linux私房菜/" title="读鸟哥Linux私房菜笔记">
   <strong>上一篇：</strong><br/>
   <span>
-  Swift基础学习笔记</span>
+  读鸟哥Linux私房菜笔记</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2016/03/11/2016-03-11-Swift中的异常/"  title="Swift中的异常处理">
+<a href="/2013/03/02/2013-02-26-欧拉回路/"  title="算法：欧拉回路">
  <strong>下一篇：</strong><br/> 
- <span>Swift中的异常处理
+ <span>算法：欧拉回路
 </span>
 </a>
 </div>
@@ -158,7 +167,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2016/03/12/2016-03-12-TFLog:自定义Log/" data-title="TFLog:自定义Log" data-url="http://Donkey-Tao.github.io/2016/03/12/2016-03-12-TFLog:自定义Log/"></div>
+	<div class="ds-thread" data-thread-key="2013/03/05/2013-03-05-算法：最短路径/" data-title="算法：最短路径" data-url="http://Donkey-Tao.github.io/2013/03/05/2013-03-05-算法：最短路径/"></div>
 </section>
 
 
