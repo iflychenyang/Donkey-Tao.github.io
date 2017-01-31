@@ -1,0 +1,626 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>算法：欧拉回路 | 陶飞的技术博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="taofei">
+    
+
+    <meta name="keywords" content="算法,图,C">
+    <meta name="description" content="简介：
+欧拉回路是指不令笔离开纸面，可画过图中每条边仅一次，且可以回到起点的一条回路。现给定一个图，问是否存在欧拉回路？
+要求：输入：测试输入包含若干测试用例。每个测试用例的第1行给出两个正整数，分别是节点数N ( 1 &amp;lt; N &amp;lt; 1000 )和边数M；随后的M行对应M条边，每行给出一对正整数，分别是该条边直接连通的两个节点的编号（节点从1到N编号）。当N为0时输入结束。 输出：每个测">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法：欧拉回路">
+<meta property="og:url" content="http://Donkey-Tao.github.io/2013/03/02/2013-03-12-欧拉回路/index.html">
+<meta property="og:site_name" content="陶飞的技术博客">
+<meta property="og:description" content="简介：
+欧拉回路是指不令笔离开纸面，可画过图中每条边仅一次，且可以回到起点的一条回路。现给定一个图，问是否存在欧拉回路？
+要求：输入：测试输入包含若干测试用例。每个测试用例的第1行给出两个正整数，分别是节点数N ( 1 &amp;lt; N &amp;lt; 1000 )和边数M；随后的M行对应M条边，每行给出一对正整数，分别是该条边直接连通的两个节点的编号（节点从1到N编号）。当N为0时输入结束。 输出：每个测">
+<meta property="og:image" content="http://Donkey-Tao.github.io/images/FlowChartOfEulerianPath.png">
+<meta property="og:image" content="http://Donkey-Tao.github.io/images/test1.png">
+<meta property="og:image" content="http://Donkey-Tao.github.io/images/ananysis1.png">
+<meta property="og:image" content="http://Donkey-Tao.github.io/images/test2.png">
+<meta property="og:image" content="http://Donkey-Tao.github.io/images/ananysis2.png">
+<meta property="og:image" content="http://Donkey-Tao.github.io/images/test3.png">
+<meta property="og:image" content="http://Donkey-Tao.github.io/images/ananysis3.png">
+<meta property="og:image" content="http://Donkey-Tao.github.io/images/test4.png">
+<meta property="og:image" content="http://Donkey-Tao.github.io/images/ananysis4.png">
+<meta property="og:image" content="http://Donkey-Tao.github.io/images/test5.png">
+<meta property="og:image" content="http://Donkey-Tao.github.io/images/ananysis5.png">
+<meta property="og:updated_time" content="2017-01-31T02:30:58.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="算法：欧拉回路">
+<meta name="twitter:description" content="简介：
+欧拉回路是指不令笔离开纸面，可画过图中每条边仅一次，且可以回到起点的一条回路。现给定一个图，问是否存在欧拉回路？
+要求：输入：测试输入包含若干测试用例。每个测试用例的第1行给出两个正整数，分别是节点数N ( 1 &amp;lt; N &amp;lt; 1000 )和边数M；随后的M行对应M条边，每行给出一对正整数，分别是该条边直接连通的两个节点的编号（节点从1到N编号）。当N为0时输入结束。 输出：每个测">
+<meta name="twitter:image" content="http://Donkey-Tao.github.io/images/FlowChartOfEulerianPath.png">
+<meta name="twitter:creator" content="@taofei0610">
+
+    
+    <link rel="alternative" href="/atom.xml" title="陶飞的技术博客" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/Donkey.jpg">
+    
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="陶飞的技术博客">陶飞的技术博客</a></h1>
+				<h2 class="blog-motto">自强不息,厚德载物</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+						<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+						<label>Search</label>
+							<input type="text" id="search" class="st-default-search-input" maxlength="20" placeholder="搜索" />
+						</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2013/03/02/2013-03-12-欧拉回路/" title="算法：欧拉回路" itemprop="url">算法：欧拉回路</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="taofei" target="_blank" itemprop="author">taofei</a>
+		
+  <p class="article-time">
+    <time datetime="2013-03-02T15:00:39.000Z" itemprop="datePublished"> 发表于 2013-03-02</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#问题分析和任务定义"><span class="toc-number">1.</span> <span class="toc-text">问题分析和任务定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据结构的选择与概要设计"><span class="toc-number">2.</span> <span class="toc-text">数据结构的选择与概要设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#数据结构的选择"><span class="toc-number">2.1.</span> <span class="toc-text">数据结构的选择</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#概要设计"><span class="toc-number">2.2.</span> <span class="toc-text">概要设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#详细设计和编码"><span class="toc-number">2.3.</span> <span class="toc-text">详细设计和编码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#将图转化为邻接矩阵存储"><span class="toc-number">2.3.1.</span> <span class="toc-text">将图转化为邻接矩阵存储</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#搜索有没有奇度顶点"><span class="toc-number">2.3.2.</span> <span class="toc-text">搜索有没有奇度顶点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#判断给定的图是否为连通图"><span class="toc-number">2.3.3.</span> <span class="toc-text">判断给定的图是否为连通图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#根据上述2-3可知，必须为连通图且没有奇度顶点才是欧拉图即存在欧拉回路"><span class="toc-number">2.3.4.</span> <span class="toc-text">根据上述2,3可知，必须为连通图且没有奇度顶点才是欧拉图即存在欧拉回路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#流程图"><span class="toc-number">2.3.5.</span> <span class="toc-text">流程图</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#调试过程中遇到的问题"><span class="toc-number">3.</span> <span class="toc-text">调试过程中遇到的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试结果与分析"><span class="toc-number">4.</span> <span class="toc-text">测试结果与分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#测试数据的选择"><span class="toc-number">4.1.</span> <span class="toc-text">测试数据的选择</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#测试1"><span class="toc-number">4.1.1.</span> <span class="toc-text">测试1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#测试2"><span class="toc-number">4.1.2.</span> <span class="toc-text">测试2</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#测试3"><span class="toc-number">4.1.3.</span> <span class="toc-text">测试3</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#测试4"><span class="toc-number">4.1.4.</span> <span class="toc-text">测试4</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#测试5"><span class="toc-number">4.1.5.</span> <span class="toc-text">测试5</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#测试结果总结"><span class="toc-number">4.2.</span> <span class="toc-text">测试结果总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用户使用说明"><span class="toc-number">5.</span> <span class="toc-text">用户使用说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#附录源代码"><span class="toc-number">6.</span> <span class="toc-text">附录源代码</span></a></li></ol>
+		
+		</div>
+		
+		<p>简介：</p>
+<p>欧拉回路是指不令笔离开纸面，可画过图中每条边仅一次，且可以回到起点的一条回路。现给定一个图，问是否存在欧拉回路？</p>
+<p>要求：输入：测试输入包含若干测试用例。每个测试用例的第1行给出两个正整数，分别是节点数N ( 1 &lt; N &lt; 1000 )和边数M；随后的M行对应M条边，每行给出一对正整数，分别是该条边直接连通的两个节点的编号（节点从1到N编号）。当N为0时输入结束。 输出：每个测试用例的输出占一行，若欧拉回路存在则输出1，否则输出0。</p>
+<h2 id="问题分析和任务定义"><a href="#问题分析和任务定义" class="headerlink" title="问题分析和任务定义"></a>问题分析和任务定义</h2><p>题目要求判断一个给定的图中是否存在欧拉回路。由欧拉图的定义，当一个图存在欧拉回路时，该图称为欧拉图。题目问是否存在欧拉回路即等价于问给定的图是否为欧拉图。所以，证明给定图是欧拉图就说明该图存在欧拉回路，否则不存在欧拉回路。根据高等教育出版社出版屈婉玲、耿素云、张立昂主编的《离散数学》P.296定理15.1可知：无向图G是欧拉图当且仅当G是连通图且没有奇度顶点。要证明一个给定的图是否为欧拉图，证明给定的图是连通图且没有奇度顶点即可。所以，解决题目中的问题就转化为证明给定图是否是连通图且没有奇度顶点。</p>
+<p>首先要确定一给定的图是否为连通图。这里我们可以通过图的深度优先搜索遍历确定。从任意顶点出发，如果能深度优先遍历到所有的顶点就说明图中所有的顶点都是连图的即为连通图。</p>
+<p>然后再确定给定的图是否没有奇度顶点。我们可以以邻接矩阵的形式存储给定的图，对邻接矩阵的每行分别行进行扫描，记录每个顶点的度数，当每行扫描完后判断该顶点的度数是否为奇数，存在奇度顶点直接结束扫描，说明存在奇度顶点，给定图不是欧拉图。即不存在欧拉回路。否则继续扫描，当扫描完所有的行没有发现奇度顶点，即说明给定图没有奇度顶点。</p>
+<p>当上述两个问题都确定以后根据定理，当且仅当给定图为连通图且没有奇度顶点时给定的图为欧拉图。由此可确定，给定的图是否存在欧拉回路。</p>
+<h2 id="数据结构的选择与概要设计"><a href="#数据结构的选择与概要设计" class="headerlink" title="数据结构的选择与概要设计"></a>数据结构的选择与概要设计</h2><h3 id="数据结构的选择"><a href="#数据结构的选择" class="headerlink" title="数据结构的选择"></a>数据结构的选择</h3><p>图在我们所学的数据结构与算法课程中有四种存储方式：邻接矩阵、邻接表、十字链表和邻接多重表。本问题比较简单，选用邻接矩阵或邻接矩阵就足够了。在本课程设计中需要判断是否有奇度顶点和是否为连通图，用用邻接表和邻接矩阵在时间繁杂度没有什么大的差别，在空间复杂度上，因为本题是无向图，如果如果用邻接表，储存一条边要储存两次，存储指针比int型的空间消耗大，在图不是很大的情况下，邻接矩阵的空间复杂度要小。同时选用邻接矩阵很容易得到图中个顶点的度数。因为顶点只要求编号这一信息，所以就没有用结构体存储顶点信息，图用邻接矩阵要用结构体存储。结构体定义如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> n;<span class="comment">//顶点个数</span></div><div class="line">	<span class="keyword">int</span> e;<span class="comment">//边的条数</span></div><div class="line">	<span class="keyword">int</span> vexs[MAX_VERTEX_NUM];<span class="comment">//一维数组储存顶点</span></div><div class="line">	<span class="keyword">int</span> edges[MAX_VERTEX_NUM][MAX_VERTEX_NUM];<span class="comment">//二维数组储存边</span></div><div class="line">&#125;MGraph;<span class="comment">//图</span></div></pre></td></tr></table></figure>
+<h3 id="概要设计"><a href="#概要设计" class="headerlink" title="概要设计"></a>概要设计</h3><p>首先将图转换为邻接矩阵存储起来，然后邻接矩阵的每一行进行搜索得图中到每个顶点的度数，如果有奇度顶点，输出：不存在欧拉回路，即可结束程序。否则继续判断给定的图是否为连通图，如果是连通图输出：存在欧拉回路；否则输出：不存在欧拉回路。结束程序。</p>
+<h3 id="详细设计和编码"><a href="#详细设计和编码" class="headerlink" title="详细设计和编码"></a>详细设计和编码</h3><h4 id="将图转化为邻接矩阵存储"><a href="#将图转化为邻接矩阵存储" class="headerlink" title="将图转化为邻接矩阵存储"></a>将图转化为邻接矩阵存储</h4><p>先输入图中顶点个个数和边的条数，对所有可能存在的边初始化为0，再依次输入边的信息，即如果顶点1,2存在相连的边，输入1 2 （1,2为自动给顶点分配的编码）。将边1,2的信息改为1。用函数 MGraph<br>*creat_MGraph();完成，返回邻接矩阵的首地址即可。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="function">MGraph *<span class="title">creat_MGraph</span><span class="params">()</span><span class="comment">//建立邻接矩阵</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> i,j,k,n,e;</div><div class="line">	MGraph *mg=<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(MGraph));</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"请输入顶点的个数："</span>);</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"请输入边的条数："</span>);</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;e);</div><div class="line">	mg-&gt;n=n;</div><div class="line">	mg-&gt;e=e;</div><div class="line">	getchar();</div><div class="line">	<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n;i++)</div><div class="line">		<span class="keyword">for</span>(j=<span class="number">1</span>;j&lt;=n;j++)</div><div class="line">			mg-&gt;edges[i][j]=<span class="number">0</span>;<span class="comment">//初始化邻接矩阵表示的所有边</span></div><div class="line">		<span class="built_in">printf</span>(<span class="string">"请输入边的信息:\n"</span>);</div><div class="line">		<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=e;i++)</div><div class="line">		&#123;</div><div class="line">			<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;j,&amp;k);</div><div class="line">			mg-&gt;edges[j][k]=<span class="number">1</span>;mg-&gt;edges[k][j]=<span class="number">1</span>;<span class="comment">//标记存在的边</span></div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> mg;<span class="comment">//返回邻接矩阵的首地址</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="搜索有没有奇度顶点"><a href="#搜索有没有奇度顶点" class="headerlink" title="搜索有没有奇度顶点"></a>搜索有没有奇度顶点</h4><p>对邻接矩阵的每一行进行搜索，用num记录顶点的度数（每次对新的顶点记录前都将num置为0）。为了排除顶点自身环对判断的影响，当遇到边的两顶点相同，忽略不计，这样不会对结果产生影响。如果搜索到奇度顶点则结束int Euleriancycle(MGraph *mg);函数，返回0，搜索完成且没有发现奇度顶点则返回1.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">Euleriancycle</span><span class="params">(MGraph *mg)</span><span class="comment">//判断是否存在欧拉回路</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> i,j,num;</div><div class="line">	<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=mg-&gt;n;i++)<span class="comment">//从第一个顶点开始，判断顶点的度数</span></div><div class="line">	&#123;</div><div class="line">		num=<span class="number">0</span>;<span class="comment">//初始化每个顶点的度数为0</span></div><div class="line">		<span class="keyword">for</span>(j=<span class="number">1</span>;j&lt;=mg-&gt;n;j++)</div><div class="line">		&#123;</div><div class="line">			<span class="keyword">if</span>((mg-&gt;edges[i][j]!=<span class="number">0</span>)&amp;&amp;(i!=j))<span class="comment">//如果顶点i到j的边存在度数加1</span></div><div class="line">				num=num+<span class="number">1</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span>(num%<span class="number">2</span>==<span class="number">1</span>)<span class="comment">//如果有哪个顶点的度数为奇数，直接退出循环，返回0</span></div><div class="line">			<span class="keyword">return</span> <span class="number">0</span>;	</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> <span class="number">1</span>;<span class="comment">//当所有的顶点都判断完成还没有退出本函数说明所有顶点度数均为偶数，返回1</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="判断给定的图是否为连通图"><a href="#判断给定的图是否为连通图" class="headerlink" title="判断给定的图是否为连通图"></a>判断给定的图是否为连通图</h4><p>本程序的深度优先遍历是一个递归的过程。其中visited[MAX_VERTEX_NUM]是一个辅助的全局变量，初始值均为0.表示该顶点没有被访问。访问后用1表示。在深度优先搜索时。我们需要调用dfs_trave()函数。在dfs_trave()中，针对每个没有被访问过的顶点调用dfs()函数，它是一个递归函数，完成从该顶点开始的深度优先搜索。如果图是一个连通图，那么完成对visited数组的初始化后，在dfs_trave()中只需调用dfs()函数一次即可完成对图的遍历。当图不是一个连通图时，则在dfs_trave()中需要针对每个连通分量分别调用dfs()函数。根据dfs()函数被调用的次数就可以判断给定的图是否为连通图。如果dfs()函数被调用一次则给定的图是连通图，否则不是连通图。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span>  <span class="title">dfs_trave</span><span class="params">(MGraph *mg)</span><span class="comment">//深度优先搜索遍历</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> i,m=<span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=mg-&gt;n;i++)<span class="comment">//将辅助变量全部初始化为0，表明顶点没有被访问过</span></div><div class="line">		visited[i]=<span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=mg-&gt;n;i++)</div><div class="line">		<span class="keyword">if</span>(visited[i]==<span class="number">0</span>)<span class="comment">//对没有访问过的顶点，调用深度优先搜索函数</span></div><div class="line">		&#123;</div><div class="line">			dfs(mg,i);<span class="comment">//深度优先搜索</span></div><div class="line">			m=m+<span class="number">1</span>;<span class="comment">//如果是非连通图，要调用1次以上，m用来记录调用dfs函数的次数</span></div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> m;<span class="comment">//返回调用dfs函数的次数</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(MGraph *mg,<span class="keyword">int</span> i)</span><span class="comment">//深度优先搜索</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> j;</div><div class="line">	visited[i]=<span class="number">1</span>;<span class="comment">//访问该顶点</span></div><div class="line">	<span class="keyword">for</span>(j=<span class="number">1</span>;j&lt;=mg-&gt;n;j++)</div><div class="line">		<span class="keyword">if</span>((visited[j]==<span class="number">0</span>)&amp;&amp;(mg-&gt;edges[i][j]==<span class="number">1</span>))<span class="comment">//当顶点没有被访问过并且两顶点存在边</span></div><div class="line">			dfs(mg,j);<span class="comment">//对该顶点深度优先搜索</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="根据上述2-3可知，必须为连通图且没有奇度顶点才是欧拉图即存在欧拉回路"><a href="#根据上述2-3可知，必须为连通图且没有奇度顶点才是欧拉图即存在欧拉回路" class="headerlink" title="根据上述2,3可知，必须为连通图且没有奇度顶点才是欧拉图即存在欧拉回路"></a>根据上述2,3可知，必须为连通图且没有奇度顶点才是欧拉图即存在欧拉回路</h4><h4 id="流程图"><a href="#流程图" class="headerlink" title="流程图"></a>流程图</h4><p><img src="/images/FlowChartOfEulerianPath.png" alt="欧拉回路流程图"></p>
+<h2 id="调试过程中遇到的问题"><a href="#调试过程中遇到的问题" class="headerlink" title="调试过程中遇到的问题"></a>调试过程中遇到的问题</h2><p>本次实验中也遇到了一些小问题，通过在适当的位置加一些printf语句即可确定出现问题的语句大概的位置。加以分析、修改即可。</p>
+<p>在本次课程设计的第三组数据的测试时出现了不存在欧拉图的错误结果，仔细分析可知，在（2,2）邻接矩阵的对角线上，所以该点的度数在计算的时候就少1度。所以，在if((mg-&gt;edges[i][j]!=0)&amp;&amp;(i!=j))//如果顶点i到j的边存在度数加1 的判断中增加了一个判断，当该点存在环，则在度数的计数时忽略不计，这样不会印象该点度数奇偶性的变化。这样就很好的解决了，存在环对判断结果的印象的问题。</p>
+<p>通过本次课程设计让我更加深刻的体会到调试程序需要平心静气，仔细分析、研究。要有一个严谨的态度，这样才能高效率的写出优质的代码。</p>
+<h2 id="测试结果与分析"><a href="#测试结果与分析" class="headerlink" title="测试结果与分析"></a>测试结果与分析</h2><h3 id="测试数据的选择"><a href="#测试数据的选择" class="headerlink" title="测试数据的选择"></a>测试数据的选择</h3><p>在测试中考虑到多种情况使用了多组数据，分别根据是否为连通图、是否没有奇度顶点设计了一下四组数据。第一组数据为连通图且没有奇度顶点，第二组数据为连通图且有奇度顶点，第三组数据为连通图、没有奇度顶点且有环，第四组数据为非连通图且有奇度顶点，第五组数据为非连通图且没有奇度顶点。</p>
+<p>每组数据进行多次测试。</p>
+<h4 id="测试1"><a href="#测试1" class="headerlink" title="测试1"></a>测试1</h4><p>测试数据1：</p>
+<p>3</p>
+<p>3</p>
+<p>1 2</p>
+<p>1 3</p>
+<p>2 3</p>
+<p>测试结果：</p>
+<p><img src="/images/test1.png" alt="测试结果1"></p>
+<p>结果分析：测试数据表示一个3个顶点，3条边的图，顶点两两相连，存在欧拉回路。测试结果正确。</p>
+<p><img src="/images/ananysis1.png" alt="结果分析1"></p>
+<h4 id="测试2"><a href="#测试2" class="headerlink" title="测试2"></a>测试2</h4><p>测试数据2：</p>
+<p>3</p>
+<p>3</p>
+<p>3 2</p>
+<p>1 2</p>
+<p>2 3</p>
+<p>测试结果：</p>
+<p><img src="/images/test2.png" alt="测试结果2"></p>
+<p>结果分析：测试数据表示一个3个顶点，3条边的图，1,、2相连，2、3相连，不存在欧拉回路。测试结果正确。</p>
+<p><img src="/images/ananysis2.png" alt="结果分析2"></p>
+<h4 id="测试3"><a href="#测试3" class="headerlink" title="测试3"></a>测试3</h4><p>测试数据:3：</p>
+<p>4</p>
+<p>5</p>
+<p>1 2</p>
+<p>1 3</p>
+<p>2 4</p>
+<p>3 4</p>
+<p>2 2</p>
+<p>测试结果：</p>
+<p><img src="/images/test3.png" alt="测试结果3"></p>
+<p>结果分析：测试数据表示一个4个顶点，5条边的图，1、2相连，1、3相连,2、4相连,3、4相连，2、2相连。存在欧拉回路。测试结果正确。</p>
+<p><img src="/images/ananysis3.png" alt="结果分析3"></p>
+<h4 id="测试4"><a href="#测试4" class="headerlink" title="测试4"></a>测试4</h4><p>测试数据4：</p>
+<p>5</p>
+<p>4</p>
+<p>1 2</p>
+<p>3 4 </p>
+<p>4 5</p>
+<p>3 5</p>
+<p>测试结果：</p>
+<p><img src="/images/test4.png" alt="测试结果4"></p>
+<p>结果分析：测试数据表示一个5个顶点，4条边的图，1、2相连，3、4相连,4、5相连,3、5相连。不存在欧拉回路。测试结果正确。</p>
+<p><img src="/images/ananysis4.png" alt="结果分析4"></p>
+<h4 id="测试5"><a href="#测试5" class="headerlink" title="测试5"></a>测试5</h4><p>测试数据5：</p>
+<p>6</p>
+<p>6</p>
+<p>1 2 </p>
+<p>1 3</p>
+<p>2 3</p>
+<p>4 5</p>
+<p>4 6</p>
+<p>5 6</p>
+<p>测试结果：</p>
+<p><img src="/images/test5.png" alt="测试结果5"></p>
+<p>结果分析：测试数据表示一个6个顶点，6条边的图，1、2相连，1、3相连,2、3相连,4、5相连，4、6相连，5、6相连。不存在欧拉回路。测试结果正确。</p>
+<p><img src="/images/ananysis5.png" alt="结果分析5"></p>
+<h3 id="测试结果总结"><a href="#测试结果总结" class="headerlink" title="测试结果总结"></a>测试结果总结</h3><p>通过对多种情况设计了多组数据多次测试如上，结果都得到了真确的结论。说明程序符合题目的要求，达到了实验的目的。</p>
+<h2 id="用户使用说明"><a href="#用户使用说明" class="headerlink" title="用户使用说明"></a>用户使用说明</h2><p>首先本程序中的所有顶点编号为1-N的整数。(0&lt;N&lt;1000)</p>
+<p>先输入图顶点的个数要求为一个正整数n，然后输入图所有边的条数要求为正整数e，再图边数行整形数，每行两个数（用空格相隔）表示一条边所连接的两个顶点编号。输出结果即为题目的解。</p>
+<h2 id="附录源代码"><a href="#附录源代码" class="headerlink" title="附录源代码"></a>附录源代码</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;malloc.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_VERTEX_NUM 1000<span class="comment">//顶点的最大个数</span></span></div><div class="line"></div><div class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> n;<span class="comment">//顶点个数</span></div><div class="line">	<span class="keyword">int</span> e;<span class="comment">//边的条数</span></div><div class="line">	<span class="keyword">int</span> vexs[MAX_VERTEX_NUM];<span class="comment">//一维数组储存顶点</span></div><div class="line">	<span class="keyword">int</span> edges[MAX_VERTEX_NUM][MAX_VERTEX_NUM];<span class="comment">//二维数组储存边</span></div><div class="line">&#125;MGraph;<span class="comment">//图</span></div><div class="line"></div><div class="line"><span class="keyword">int</span> visited[MAX_VERTEX_NUM];<span class="comment">//全局变量。在对顶点进行深度优先搜索遍历时的辅助变量数组</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">Euleriancycle</span><span class="params">(MGraph *mg)</span></span>;<span class="comment">//判断顶点的度数是否全为偶数，有奇数时输出0，全为偶数时输出1</span></div><div class="line"><span class="function">MGraph *<span class="title">creat_MGraph</span><span class="params">()</span></span>;<span class="comment">//将图转化为邻接矩阵储存起来，返回邻接矩阵的首地址</span></div><div class="line"><span class="function"><span class="keyword">int</span>  <span class="title">dfs_trave</span><span class="params">(MGraph *mg)</span></span>;<span class="comment">//深度优先搜索遍历</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(MGraph *mg,<span class="keyword">int</span> i)</span></span>;<span class="comment">//深度优先搜索</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> num,m;<span class="comment">//num用来接收顶点度数判断的结果，m用来接收图是否为连通图的结果</span></div><div class="line">	MGraph *mg;</div><div class="line">	mg=creat_MGraph();<span class="comment">//建立邻接矩阵</span></div><div class="line">	num=Euleriancycle(mg);<span class="comment">//判断顶点的度数是否全为偶数。全为偶数时num=1；否则num=0</span></div><div class="line">	<span class="keyword">if</span>(num!=<span class="number">1</span>)</div><div class="line">	&#123;</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"不存在欧拉图！\n"</span>);</div><div class="line">	getchar();</div><div class="line">	<span class="built_in">exit</span>(<span class="number">0</span>);</div><div class="line">	&#125;</div><div class="line">	m=dfs_trave(mg);<span class="comment">//判断图是否为连通图</span></div><div class="line">	<span class="keyword">if</span>(m!=<span class="number">1</span>)</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"不存在欧拉图！\n"</span>);</div><div class="line">	<span class="keyword">else</span></div><div class="line">		<span class="built_in">printf</span>(<span class="string">"存在欧拉图！\n"</span>);</div><div class="line">	getch();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function">MGraph *<span class="title">creat_MGraph</span><span class="params">()</span><span class="comment">//建立邻接矩阵</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> i,j,k,n,e;</div><div class="line">	MGraph *mg=<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(MGraph));</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"请输入顶点的个数："</span>);</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"请输入边的条数："</span>);</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;e);</div><div class="line">	mg-&gt;n=n;</div><div class="line">	mg-&gt;e=e;</div><div class="line">	getchar();</div><div class="line">	<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n;i++)</div><div class="line">		<span class="keyword">for</span>(j=<span class="number">1</span>;j&lt;=n;j++)</div><div class="line">			mg-&gt;edges[i][j]=<span class="number">0</span>;<span class="comment">//初始化邻接矩阵表示的所有边</span></div><div class="line">		<span class="built_in">printf</span>(<span class="string">"请输入边的信息:\n"</span>);</div><div class="line">		<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=e;i++)</div><div class="line">		&#123;</div><div class="line">			<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;j,&amp;k);</div><div class="line">			mg-&gt;edges[j][k]=<span class="number">1</span>;mg-&gt;edges[k][j]=<span class="number">1</span>;<span class="comment">//标记存在的边</span></div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> mg;<span class="comment">//返回邻接矩阵的首地址</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">Euleriancycle</span><span class="params">(MGraph *mg)</span><span class="comment">//判断是否存在欧拉回路</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> i,j,num;</div><div class="line">	<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=mg-&gt;n;i++)<span class="comment">//从第一个顶点开始，判断顶点的度数</span></div><div class="line">	&#123;</div><div class="line">		num=<span class="number">0</span>;<span class="comment">//初始化每个顶点的度数为0</span></div><div class="line">		<span class="keyword">for</span>(j=<span class="number">1</span>;j&lt;=mg-&gt;n;j++)</div><div class="line">		&#123;</div><div class="line">			If((mg-&gt;edges[i][j]!=<span class="number">0</span>)&amp;&amp;(i!=j))<span class="comment">//如果顶点i到j的边存在度数加1</span></div><div class="line">				num=num+<span class="number">1</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span>(num%<span class="number">2</span>==<span class="number">1</span>)<span class="comment">//如果有哪个顶点的度数为奇数，直接退出循环，返回0</span></div><div class="line">			<span class="keyword">return</span> <span class="number">0</span>;	</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> <span class="number">1</span>;<span class="comment">//当所有的顶点都判断完成还没有退出本函数说明所有顶点度数均为偶数，返回1</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span>  <span class="title">dfs_trave</span><span class="params">(MGraph *mg)</span><span class="comment">//深度优先搜索遍历</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> i,m=<span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=mg-&gt;n;i++)<span class="comment">//将辅助变量全部初始化为0，表明顶点没有被访问过</span></div><div class="line">		visited[i]=<span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=mg-&gt;n;i++)</div><div class="line">		<span class="keyword">if</span>(visited[i]==<span class="number">0</span>)<span class="comment">//对没有访问过的顶点，调用深度优先搜索函数</span></div><div class="line">		&#123;</div><div class="line">			dfs(mg,i);<span class="comment">//深度优先搜索</span></div><div class="line">			m=m+<span class="number">1</span>;<span class="comment">//如果是非连通图，要调用1次以上，m用来记录调用dfs函数的次数</span></div><div class="line">		&#125;</div><div class="line">		</div><div class="line">		<span class="keyword">return</span> m;<span class="comment">//返回调用dfs函数的次数</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(MGraph *mg,<span class="keyword">int</span> i)</span><span class="comment">//深度优先搜索</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> j;</div><div class="line">	visited[i]=<span class="number">1</span>;<span class="comment">//访问该顶点</span></div><div class="line">	<span class="keyword">for</span>(j=<span class="number">1</span>;j&lt;=mg-&gt;n;j++)</div><div class="line">		<span class="keyword">if</span>((visited[j]==<span class="number">0</span>)&amp;&amp;(mg-&gt;edges[i][j]==<span class="number">1</span>))<span class="comment">//当顶点没有被访问过并且两顶点存在边</span></div><div class="line">			dfs(mg,j);<span class="comment">//对该顶点深度优先搜索</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/算法/">算法</a>
+</div>
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://Donkey-Tao.github.io/2013/03/02/2013-03-12-欧拉回路/" data-title="算法：欧拉回路 | 陶飞的技术博客" data-tsina="3015394781" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2013/10/16/读鸟哥Linux私房菜/" title="读鸟哥Linux私房菜笔记">
+  <strong>上一篇：</strong><br/>
+  <span>
+  读鸟哥Linux私房菜笔记</span>
+</a>
+</div>
+
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2013/03/02/2013-03-12-欧拉回路/" data-title="算法：欧拉回路" data-url="http://Donkey-Tao.github.io/2013/03/02/2013-03-12-欧拉回路/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#问题分析和任务定义"><span class="toc-number">1.</span> <span class="toc-text">问题分析和任务定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据结构的选择与概要设计"><span class="toc-number">2.</span> <span class="toc-text">数据结构的选择与概要设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#数据结构的选择"><span class="toc-number">2.1.</span> <span class="toc-text">数据结构的选择</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#概要设计"><span class="toc-number">2.2.</span> <span class="toc-text">概要设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#详细设计和编码"><span class="toc-number">2.3.</span> <span class="toc-text">详细设计和编码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#将图转化为邻接矩阵存储"><span class="toc-number">2.3.1.</span> <span class="toc-text">将图转化为邻接矩阵存储</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#搜索有没有奇度顶点"><span class="toc-number">2.3.2.</span> <span class="toc-text">搜索有没有奇度顶点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#判断给定的图是否为连通图"><span class="toc-number">2.3.3.</span> <span class="toc-text">判断给定的图是否为连通图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#根据上述2-3可知，必须为连通图且没有奇度顶点才是欧拉图即存在欧拉回路"><span class="toc-number">2.3.4.</span> <span class="toc-text">根据上述2,3可知，必须为连通图且没有奇度顶点才是欧拉图即存在欧拉回路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#流程图"><span class="toc-number">2.3.5.</span> <span class="toc-text">流程图</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#调试过程中遇到的问题"><span class="toc-number">3.</span> <span class="toc-text">调试过程中遇到的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试结果与分析"><span class="toc-number">4.</span> <span class="toc-text">测试结果与分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#测试数据的选择"><span class="toc-number">4.1.</span> <span class="toc-text">测试数据的选择</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#测试1"><span class="toc-number">4.1.1.</span> <span class="toc-text">测试1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#测试2"><span class="toc-number">4.1.2.</span> <span class="toc-text">测试2</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#测试3"><span class="toc-number">4.1.3.</span> <span class="toc-text">测试3</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#测试4"><span class="toc-number">4.1.4.</span> <span class="toc-text">测试4</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#测试5"><span class="toc-number">4.1.5.</span> <span class="toc-text">测试5</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#测试结果总结"><span class="toc-number">4.2.</span> <span class="toc-text">测试结果总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用户使用说明"><span class="toc-number">5.</span> <span class="toc-text">用户使用说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#附录源代码"><span class="toc-number">6.</span> <span class="toc-text">附录源代码</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github 名片</p>
+<div class="github-card" data-github="Donkey-Tao" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/iOS/" title="iOS">iOS<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/iOS-原创/" title="iOS,原创">iOS,原创<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/swift/" title="swift">swift<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/swift-Log/" title="swift,Log">swift,Log<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/算法/" title="算法">算法<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/读书/" title="读书">读书<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://taofei.me" target="_blank" title="一个iOS开发者的个人博客">陶飞的技术博客</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=3015394781&verifier=655ac839&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	
+	<section class="info">
+		<p> I&#39;m a iOS developer <br/>
+			interested in data science and artificial intelligence.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/3015394781" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/Donkey-Tao" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		<a href="http://stackoverflow.com/users/6694744" target="_blank" class="icon-stack-overflow" title="stackoverflow"></a>
+		
+		
+		<a href="https://twitter.com/taofei0610" target="_blank" class="icon-twitter" title="twitter"></a>
+		
+		
+		<a href="https://www.facebook.com/taofei0610" target="_blank" class="icon-facebook" title="facebook"></a>
+		
+		
+		<a href="https://www.linkedin.com/in/飞-陶-b0639311a" target="_blank" class="icon-linkedin" title="linkedin"></a>
+		
+		
+		
+		<a href="http://www.zhihu.com/people/tao-fei-97" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:taofei0610@gmail.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		
+		<a href="/about" target="_blank" title="taofei">taofei</a>
+		
+		
+		</p>
+
+		<script type="text/javascript">
+  		(function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+ 	 		(w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+ 		 e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  		})(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+  
+  		_st('install','AXHzsCAH4RKEmN-p72Lx','2.0.0');
+		</script>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+
+<script>
+(function(){
+var bp = document.createElement('script');
+bp.src = '//push.zhanzhang.baidu.com/push.js';
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+
+
+
+  var m = $('#main'),
+      a = $('#asidepart'),//侧边栏
+      c = $('.closeaside'),//隐藏侧边栏
+      o = $('.openaside');//显示侧边栏
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+        getSize();
+        if (myWidth >= 1024) {
+          c.click();
+        }
+  
+
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"taofei"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?9833b52c905ccc936c62c38135a70622";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<CENTER>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260084222'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1260084222%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+</CENTER>
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
