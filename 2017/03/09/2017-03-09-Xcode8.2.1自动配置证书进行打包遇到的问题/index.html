@@ -13,27 +13,27 @@
     <meta name="keywords" content="matching,证书,signing assets,Distribution certificate">
     <meta name="description" content="声明：本文为博主原创，如需转载请注明出处。
 问题描述：
-1Failed to locate or generate matching signing assets，You account already has a valid iOS Distribution certificate
+Failed to locate or generate matching signing assets，You account already has a valid iOS Distribution certificate
 
-这个问题是勾选Automatically manager signing生成IPA文件时产生的，之前一直是自己手">
+这个问题是勾选Automatically manager signing生成IPA文件时产生的，之前一直是自己手动">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Xcode8.2.1自动配置证书进行打包遇到的问题">
 <meta property="og:url" content="http://Donkey-Tao.github.io/2017/03/09/2017-03-09-Xcode8.2.1自动配置证书进行打包遇到的问题/index.html">
 <meta property="og:site_name" content="陶飞的技术博客">
 <meta property="og:description" content="声明：本文为博主原创，如需转载请注明出处。
 问题描述：
-1Failed to locate or generate matching signing assets，You account already has a valid iOS Distribution certificate
+Failed to locate or generate matching signing assets，You account already has a valid iOS Distribution certificate
 
-这个问题是勾选Automatically manager signing生成IPA文件时产生的，之前一直是自己手">
+这个问题是勾选Automatically manager signing生成IPA文件时产生的，之前一直是自己手动">
 <meta property="og:image" content="http://Donkey-Tao.github.io/images/AlreadyHaveAValidDistibutionCertificate.png">
-<meta property="og:updated_time" content="2017-03-09T05:57:15.000Z">
+<meta property="og:updated_time" content="2017-03-09T06:06:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Xcode8.2.1自动配置证书进行打包遇到的问题">
 <meta name="twitter:description" content="声明：本文为博主原创，如需转载请注明出处。
 问题描述：
-1Failed to locate or generate matching signing assets，You account already has a valid iOS Distribution certificate
+Failed to locate or generate matching signing assets，You account already has a valid iOS Distribution certificate
 
-这个问题是勾选Automatically manager signing生成IPA文件时产生的，之前一直是自己手">
+这个问题是勾选Automatically manager signing生成IPA文件时产生的，之前一直是自己手动">
 <meta name="twitter:image" content="http://Donkey-Tao.github.io/images/AlreadyHaveAValidDistibutionCertificate.png">
 <meta name="twitter:creator" content="@taofei0610">
 
@@ -109,12 +109,12 @@
 		
 		<p><code>声明：本文为博主原创，如需转载请注明出处。</code></p>
 <p><code>问题描述</code>：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Failed to locate or generate matching signing assets，You account already has a valid iOS Distribution certificate</div></pre></td></tr></table></figure>
+<p>Failed to locate or generate matching signing assets，You account already has a valid iOS Distribution certificate</p>
 <p><img src="/images/AlreadyHaveAValidDistibutionCertificate.png" alt="证书缺失"></p>
 <p>这个问题是勾选Automatically manager signing生成IPA文件时产生的，之前一直是自己手动配置Profiles、app IDs和Certificates，没有勾选过Automatically manager signing生成IPA文件，在出现上述问题的弹框时没有仔细查看原因直接try again后没能解决就reset了一下，然后再try again时就能够继续打包了。但是，这样做虽然这次可以生成IPA包，看上去没有任何问题。其实，这样做的后果很严重，点击reset后Xcode会自动发送网络请求到开发者中心去生成新的Distribution Certificate，如果之前开发者账号已经有两个发布证书，由于一个开发者账号只能生成两个Distribution Certificate，所以系统会默认revoke掉之前已经有已有的一个发布证书。这样如果revoke的证书是别人创建的，会影响到这个生产证书的相关的电脑证书环境异常(因为以前配置在这台电脑的生产证书已经在苹果的开发者中心找不到了)，还会影响到用被revoke的证书之前生成的描述文件失效。</p>
 <p><code>问题成因</code>：因为Xcode在自动进行Profiles、app IDs和Certificates的配置时没有找到相应的发布证书，可能成因是之前没有安装相应的生产证书。我这之所以出现这样的问题，是因为之前同事只发给我两个推送相关的证书的p12文件，没有生产证书的p12文件，在安装后没有进行检查缺少了生产证书的p12文件。</p>
 <p><code>解决办法</code>：需要去开发者中心进行下载后安装，如果要用的生产证书是别人生产的，那么需要从生产该证书的那台电脑上去导出p12文件，然后安装到自己进行打包的电脑上。</p>
-<p><code>谨记</code>：在勾选Automatically manager signing生成IPA文件时产生的时，出现异常问题要谨慎查看原因，防止Xcode自动在开发者中心中修改了或者revoke了之前别人创建好的证书之类。</p>
+<p><code>谨记</code>：在勾选Automatically manager signing生成IPA文件时产生的时，出现异常问题要谨慎查看原因，遇到reset相关提示时要特别注意，防止Xcode自动在开发者中心中修改了或者revoke了之前别人创建好的证书之类。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
