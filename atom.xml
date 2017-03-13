@@ -1,448 +1,28 @@
-<!doctype html>
-
-
-
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>陶飞的技术博客</title>
+  <subtitle>自强不息,厚德载物</subtitle>
+  <link href="/atom.xml" rel="self"/>
   
-
-
-<html class="theme-next muse use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  <link href="http://Donkey-Tao.github.io/"/>
+  <updated>2017-03-10T03:02:48.000Z</updated>
+  <id>http://Donkey-Tao.github.io/</id>
   
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-  
-  
-  
-  
-
-  
+  <author>
+    <name>Tao Fei</name>
     
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Xcode8.2.1自动配置证书进行打包遇到的问题</title>
+    <link href="http://Donkey-Tao.github.io/2017/03/09/2017-03-09-Xcode8.2.1%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E8%AF%81%E4%B9%A6%E8%BF%9B%E8%A1%8C%E6%89%93%E5%8C%85%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <id>http://Donkey-Tao.github.io/2017/03/09/2017-03-09-Xcode8.2.1自动配置证书进行打包遇到的问题/</id>
+    <published>2017-03-09T05:00:39.000Z</published>
+    <updated>2017-03-10T03:02:48.000Z</updated>
     
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="陶飞, 技术,博客,taofei,taofei.me" />
-
-
-
-
-
-  <link rel="alternate" href="/atom.xml" title="陶飞的技术博客" type="application/atom+xml" />
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/img/Donkey.jpg?v=5.1.0" />
-
-
-
-
-
-
-<meta name="description" content="I&apos;m a iOS developer interested in data science and artificial intelligence.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="陶飞的技术博客">
-<meta property="og:url" content="http://Donkey-Tao.github.io/index.html">
-<meta property="og:site_name" content="陶飞的技术博客">
-<meta property="og:description" content="I&apos;m a iOS developer interested in data science and artificial intelligence.">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="陶飞的技术博客">
-<meta name="twitter:description" content="I&apos;m a iOS developer interested in data science and artificial intelligence.">
-
-
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Muse',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-
-  <link rel="canonical" href="http://Donkey-Tao.github.io/"/>
-
-
-
-
-
-  <title> 陶飞的技术博客 </title>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
-  
-
-
-
-
-
-  <script type="text/javascript">
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?9833b52c905ccc936c62c38135a70622";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
-
-
-
-
-
-
-
-  <div style="display: none;">
-    <script src="//s95.cnzz.com/z_stat.php?id=1260084222&web_id=1260084222" language="JavaScript"></script>
-  </div>
-
-
-
-
-
-
-  
-  
-    
-  
-
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">陶飞的技术博客</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-      
-        <p class="site-subtitle">自强不息,厚德载物</p>
-      
-  </div>
-
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
-</div>
-
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
-        
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
-
-      
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
-            
-            搜索
-          </a>
-        </li>
-      
-    </ul>
-  
-
-  
-    <div class="site-search">
-      
-  <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-    <div class="local-search-input-wrapper">
-      <input autocapitalize="off" autocomplete="off" autocorrect="off"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="local-search-input">
-    </div>
-  </div>
-  <div id="local-search-result"></div>
-</div>
-
-
-
-    </div>
-  
-</nav>
-
-
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-  <section id="posts" class="posts-expand">
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://Donkey-Tao.github.io/2017/03/09/2017-03-09-Xcode8.2.1自动配置证书进行打包遇到的问题/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Tao Fei">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="陶飞的技术博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/09/2017-03-09-Xcode8.2.1自动配置证书进行打包遇到的问题/" itemprop="url">
-                  Xcode8.2.1自动配置证书进行打包遇到的问题
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-09T13:00:39+08:00">
-                2017-03-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/03/09/2017-03-09-Xcode8.2.1自动配置证书进行打包遇到的问题/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/09/2017-03-09-Xcode8.2.1自动配置证书进行打包遇到的问题/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2017/03/09/2017-03-09-Xcode8.2.1自动配置证书进行打包遇到的问题/" class="leancloud_visitors" data-flag-title="Xcode8.2.1自动配置证书进行打包遇到的问题">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><code>声明：本文为博主原创，如需转载请注明出处。</code></p>
+    <content type="html"><![CDATA[<p><code>声明：本文为博主原创，如需转载请注明出处。</code></p>
 <p><code>问题描述</code>：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Failed to locate or generate matching signing assets，You account already has a valid iOS Distribution certificate</div></pre></td></tr></table></figure>
 <p><img src="/images/AlreadyHaveAValidDistibutionCertificate.png" alt="证书缺失"></p>
@@ -451,167 +31,33 @@
 <p><code>问题成因</code>：因为Xcode在自动进行Profiles、app IDs和Certificates的配置时没有找到相应的发布证书，可能成因是之前没有安装相应的生产证书。我这之所以出现这样的问题，是因为之前同事只发给我两个推送相关的证书的p12文件，没有生产证书的p12文件，在安装后没有进行检查缺少了生产证书的p12文件。</p>
 <p><code>解决办法</code>：需要去开发者中心进行下载后安装，如果要用的生产证书是别人生产的，那么需要从生产该证书的那台电脑上去导出p12文件，然后安装到自己进行打包的电脑上。</p>
 <p><code>谨记</code>：在勾选Automatically manager signing生成IPA文件时产生的时，出现异常问题要谨慎查看原因，遇到reset相关提示时要特别注意，防止Xcode自动在开发者中心中修改了或者revoke了之前别人创建好的证书之类。以后开发或者打包时一定要仔细检查使用的电脑上是否已经装有开发证书和生产证书，以免出现Xcode自动生成证书并revoke了之前的证书。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
+]]></content>
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://Donkey-Tao.github.io/2016/04/01/2016-04-01-Swift项目/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Tao Fei">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="陶飞的技术博客">
-    </span>
-
+    <summary type="html">
     
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/01/2016-04-01-Swift项目/" itemprop="url">
-                  Swift练手项目:新浪微博
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-04-01T23:00:39+08:00">
-                2016-04-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/swift/" itemprop="url" rel="index">
-                    <span itemprop="name">swift</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/04/01/2016-04-01-Swift项目/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/01/2016-04-01-Swift项目/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2016/04/01/2016-04-01-Swift项目/" class="leancloud_visitors" data-flag-title="Swift练手项目:新浪微博">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
+      &lt;p&gt;&lt;code&gt;声明：本文为博主原创，如需转载请注明出处。&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;问题描述&lt;/code&gt;：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div 
     
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p> <code>声明：本文为博主原创，如需转载请注明出处。</code></p>
+    </summary>
+    
+      <category term="iOS" scheme="http://Donkey-Tao.github.io/categories/iOS/"/>
+    
+    
+      <category term="certificate" scheme="http://Donkey-Tao.github.io/tags/certificate/"/>
+    
+      <category term="Xcode" scheme="http://Donkey-Tao.github.io/tags/Xcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Swift练手项目:新浪微博</title>
+    <link href="http://Donkey-Tao.github.io/2016/04/01/2016-04-01-Swift%E9%A1%B9%E7%9B%AE/"/>
+    <id>http://Donkey-Tao.github.io/2016/04/01/2016-04-01-Swift项目/</id>
+    <published>2016-04-01T15:00:39.000Z</published>
+    <updated>2017-02-07T06:56:41.000Z</updated>
+    
+    <content type="html"><![CDATA[<p> <code>声明：本文为博主原创，如需转载请注明出处。</code></p>
 <p>本项目使用swift3完成。</p>
 <p>写在项目之前：</p>
 <p>Swift中自定义LOG:在Debug环境下打印内容，但是在Release环境下不显示打印</p>
@@ -982,167 +428,32 @@
 <p>其实，这样做还是很奇葩的，后面会进行代码重构。</p>
 <h3 id="单张图片的显示"><a href="#单张图片的显示" class="headerlink" title="单张图片的显示"></a>单张图片的显示</h3><p>单张配图时</p>
 <p>未完待续……</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt; &lt;code&gt;声明：本文为博主原创，如需转载请注明出处。&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;本项目使用swift3完成。&lt;/p&gt;
+&lt;p&gt;写在项目之前：&lt;/p&gt;
+&lt;p&gt;Swift中自定义LOG:在Debug环境下打印内容，但是在Release环境下不显示打印&lt;/p&gt;
+&lt;ul&gt;
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://Donkey-Tao.github.io/2016/03/16/2016-03-16-Swift学习笔记/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Tao Fei">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="陶飞的技术博客">
-    </span>
-
+    </summary>
     
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/03/16/2016-03-16-Swift学习笔记/" itemprop="url">
-                  Swift学习笔记
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-03-16T22:29:39+08:00">
-                2016-03-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/swift/" itemprop="url" rel="index">
-                    <span itemprop="name">swift</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/03/16/2016-03-16-Swift学习笔记/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/16/2016-03-16-Swift学习笔记/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2016/03/16/2016-03-16-Swift学习笔记/" class="leancloud_visitors" data-flag-title="Swift学习笔记">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
+      <category term="swift" scheme="http://Donkey-Tao.github.io/categories/swift/"/>
     
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><code>申明:本篇博文内容属原创,如需转载请注明出处.</code></p>
+    
+  </entry>
+  
+  <entry>
+    <title>Swift学习笔记</title>
+    <link href="http://Donkey-Tao.github.io/2016/03/16/2016-03-16-Swift%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>http://Donkey-Tao.github.io/2016/03/16/2016-03-16-Swift学习笔记/</id>
+    <published>2016-03-16T14:29:39.000Z</published>
+    <updated>2017-02-02T15:42:14.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><code>申明:本篇博文内容属原创,如需转载请注明出处.</code></p>
 <h2 id="Swift介绍"><a href="#Swift介绍" class="headerlink" title="Swift介绍"></a>Swift介绍</h2><ul>
 <li>历史<ul>
 <li>2014年苹果在WWDC上发布；10年开始，一年后完成基本框架，14年6月发布；</li>
@@ -1438,167 +749,29 @@
 <h2 id="Swift中的tableView"><a href="#Swift中的tableView" class="headerlink" title="Swift中的tableView"></a>Swift中的tableView</h2><h3 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ViewController</span> :<span class="title">UIViewController</span></span>&#123;</div><div class="line"><span class="comment">// MARK:- 懒加载tableView</span></div><div class="line"><span class="comment">/// tableView的属性</span></div><div class="line"><span class="built_in">lazy</span> <span class="keyword">var</span> tableView : <span class="type">UITableView</span> = <span class="type">UITableView</span>()&#123;</div><div class="line"><span class="comment">// MARK:- 系统回调的函数</span></div><div class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span>&#123;</div><div class="line"><span class="keyword">super</span>.viewDidLoad()</div><div class="line"><span class="comment">//初始化界面</span></div><div class="line">setupUI()</div><div class="line">&#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// MARK:- 设置UI界面相关</span></div><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">ViewController</span></span>&#123;</div><div class="line"><span class="comment">/// 设置UI界面 </span></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">setupUI</span><span class="params">()</span></span>&#123;</div><div class="line"><span class="comment">//0.将tableView添加到控制器的View中</span></div><div class="line">view.addSubView(tableView)</div><div class="line"><span class="comment">//1.设置tableView的frame</span></div><div class="line">tableView.frame = view.bounds</div><div class="line"><span class="comment">//2.设置数据源</span></div><div class="line">tableView.dataSource = <span class="keyword">self</span></div><div class="line"><span class="comment">//3.设置代理</span></div><div class="line">tableView.delegate = <span class="keyword">self</span></div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//extension类似于OC中的category,也是只能扩充方法,不能扩充属性</span></div><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">ViewController</span> :<span class="title">UITableViewDataSource</span>,<span class="title">UITbaleViewDelegate</span></span>&#123;</div><div class="line"><span class="comment">// MARK:- 数据源和代理方法</span></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(tableView : UITableView ,numberOfRowsInSection section :Int)</span></span>-&gt; <span class="type">Int</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="number">20</span></div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(tableView:UITabelView ,cellForRowAtIndexPath indexPath: NSIndexPath -&gt; UITableViewCell&#123;</span></span></div><div class="line"></div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>Swift中的注释:</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// MARK:- 懒加载</span></div><div class="line"><span class="comment">/// tableView的属性</span></div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
+]]></content>
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://Donkey-Tao.github.io/2016/03/12/2016-03-12-TFLog:自定义Log/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Tao Fei">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="陶飞的技术博客">
-    </span>
-
+    <summary type="html">
     
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/03/12/2016-03-12-TFLog:自定义Log/" itemprop="url">
-                  TFLog:自定义Log
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-03-12T21:57:23+08:00">
-                2016-03-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/swift-Log/" itemprop="url" rel="index">
-                    <span itemprop="name">swift,Log</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/03/12/2016-03-12-TFLog:自定义Log/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/12/2016-03-12-TFLog:自定义Log/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2016/03/12/2016-03-12-TFLog:自定义Log/" class="leancloud_visitors" data-flag-title="TFLog:自定义Log">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
+      &lt;p&gt;&lt;code&gt;申明:本篇博文内容属原创,如需转载请注明出处.&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&quot;Swift介绍&quot;&gt;&lt;a href=&quot;#Swift介绍&quot; class=&quot;headerlink&quot; title=&quot;Swift介绍&quot;&gt;&lt;/a&gt;Swift介绍&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
     
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><code>申明:本篇博文内容属原创,如需转载请注明出处.</code></p>
+    </summary>
+    
+      <category term="swift" scheme="http://Donkey-Tao.github.io/categories/swift/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>TFLog:自定义Log</title>
+    <link href="http://Donkey-Tao.github.io/2016/03/12/2016-03-12-TFLog:%E8%87%AA%E5%AE%9A%E4%B9%89Log/"/>
+    <id>http://Donkey-Tao.github.io/2016/03/12/2016-03-12-TFLog:自定义Log/</id>
+    <published>2016-03-12T13:57:23.000Z</published>
+    <updated>2017-01-25T07:26:54.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><code>申明:本篇博文内容属原创,如需转载请注明出处.</code></p>
 <p>自定义Log的目的是使调试的语句在debug环境下打印,在release环境下不打印;</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//1.获取打印所在的文件</span></div><div class="line"><span class="keyword">let</span> file = (#file <span class="keyword">as</span> <span class="type">NSString</span>).lastPathComponent</div><div class="line"><span class="comment">//2.获取打印所在的方法</span></div><div class="line"><span class="keyword">let</span> funcName = #function</div><div class="line"><span class="comment">//3.获取打印所在行数</span></div><div class="line"><span class="keyword">let</span> lineNumber = #function</div><div class="line">        </div><div class="line"><span class="comment">//封装成一个方法</span></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">TFLog</span>&lt;T&gt;<span class="params">(message : T,file : String = #file , funcName : String = 			#function ,lineNum : Int =  #line)</span></span>&#123;</div><div class="line">	<span class="keyword">let</span> fileName = (file <span class="keyword">as</span> <span class="type">NSString</span>).lastPathComponent</div><div class="line">	<span class="built_in">print</span>(<span class="string">"\(fileName):[\(funcName)](\(lineNum))--\(message)"</span>)</div><div class="line">&#125;</div><div class="line"><span class="type">TFLog</span>(message: <span class="string">"TAOFEI"</span>)</div><div class="line"></div><div class="line"><span class="comment">//方法可以不打印</span></div><div class="line"><span class="comment">//封装成一个方法</span></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">TFLog</span>&lt;T&gt;<span class="params">(message : T,file : String = #file , funcName : String = #function ,lineNum : Int =  #line)</span></span>&#123;</div><div class="line">	<span class="keyword">let</span> fileName = (file <span class="keyword">as</span> <span class="type">NSString</span>).lastPathComponent</div><div class="line">	<span class="built_in">print</span>(<span class="string">"\(fileName):(\(lineNum))--\(message)"</span>)</div><div class="line">&#125;</div><div class="line"><span class="type">TFLog</span>(message: <span class="string">"TAOFEI"</span>)</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//注意:这里的#file,#function,#function之前版本是__FILE__,__FUNCTION__,__LINE__.另外这里的T是一个动态类型</span></div></pre></td></tr></table></figure>
 <p>这个函数在整个项目中都要用到,这里就要封装成全局函数</p>
@@ -1606,167 +779,29 @@
 <p>Swift中没有宏定义,解决办法:</p>
 <p>项目 -&gt;Build Setting -&gt; Swift compiler - Custom Flags (这里搜swift flag) -&gt; 在Other Swift Flags中的Debug中添加 -D DEBUG,然后在封装的代码中</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//封装成一个方法</span></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">TFLog</span>&lt;T&gt;<span class="params">(message : T,file : String = #file , funcName : String = #function ,lineNum : Int =  #line)</span></span>&#123;</div><div class="line">	#<span class="keyword">if</span> <span class="type">DEBUG</span></div><div class="line">	<span class="keyword">let</span> fileName = (file <span class="keyword">as</span> <span class="type">NSString</span>).lastPathComponent</div><div class="line">	<span class="built_in">print</span>(<span class="string">"\(fileName):(\(lineNum))--\(message)"</span>)</div><div class="line">	#endif</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
+]]></content>
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://Donkey-Tao.github.io/2016/03/11/2016-03-11-Swift中的异常/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Tao Fei">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="陶飞的技术博客">
-    </span>
-
+    <summary type="html">
     
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/03/11/2016-03-11-Swift中的异常/" itemprop="url">
-                  Swift中的异常处理
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-03-11T22:00:39+08:00">
-                2016-03-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/swift/" itemprop="url" rel="index">
-                    <span itemprop="name">swift</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/03/11/2016-03-11-Swift中的异常/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/11/2016-03-11-Swift中的异常/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2016/03/11/2016-03-11-Swift中的异常/" class="leancloud_visitors" data-flag-title="Swift中的异常处理">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
+      &lt;p&gt;&lt;code&gt;申明:本篇博文内容属原创,如需转载请注明出处.&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;自定义Log的目的是使调试的语句在debug环境下打印,在release环境下不打印;&lt;/p&gt;
+&lt;figure class=&quot;highlight swift&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;t
     
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>swift中的异常:如果在调用系统某一方法时，该方法最后有throws，说明该方法可能会抛出异常，我们需要对异常进行处理。</p>
+    </summary>
+    
+      <category term="swift,Log" scheme="http://Donkey-Tao.github.io/categories/swift-Log/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Swift中的异常处理</title>
+    <link href="http://Donkey-Tao.github.io/2016/03/11/2016-03-11-Swift%E4%B8%AD%E7%9A%84%E5%BC%82%E5%B8%B8/"/>
+    <id>http://Donkey-Tao.github.io/2016/03/11/2016-03-11-Swift中的异常/</id>
+    <published>2016-03-11T14:00:39.000Z</published>
+    <updated>2017-01-31T02:52:15.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>swift中的异常:如果在调用系统某一方法时，该方法最后有throws，说明该方法可能会抛出异常，我们需要对异常进行处理。</p>
 <h2 id="swift中提供了三种处理一样的方法"><a href="#swift中提供了三种处理一样的方法" class="headerlink" title="swift中提供了三种处理一样的方法"></a>swift中提供了三种处理一样的方法</h2><ul>
 <li>try方式，程序员手动处理异常。（开发中 不常用）</li>
 </ul>
@@ -1785,167 +820,28 @@
 <li>创建正则表达式对象</li>
 </ul>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//1.创建正则表达式的规则</span></div><div class="line"><span class="keyword">let</span> pattern = <span class="string">"abc"</span></div><div class="line"></div><div class="line"><span class="comment">//2.创建正则表达式对象</span></div><div class="line"><span class="comment">//方式一：try</span></div><div class="line"><span class="keyword">do</span>&#123;</div><div class="line">	<span class="keyword">let</span> regex = <span class="type">NSRegularExpression</span>(pattern :pattern, options : .<span class="type">CaseInsensitive</span>)</div><div class="line">&#125; <span class="keyword">catch</span> &#123;</div><div class="line">	<span class="built_in">print</span>(error)</div><div class="line">&#125;</div><div class="line"><span class="comment">//方式二：try？</span></div><div class="line"><span class="keyword">do</span>&#123;</div><div class="line">	<span class="keyword">let</span> regex = <span class="keyword">try</span>? <span class="type">NSRegularExpression</span>(pattern :pattern, options : .<span class="type">CaseInsensitive</span>)</div><div class="line">&#125; <span class="keyword">catch</span> &#123;</div><div class="line">	<span class="built_in">print</span>(error)</div><div class="line">&#125;</div><div class="line"><span class="comment">//方式三：try!</span></div><div class="line"><span class="keyword">let</span> regex = <span class="keyword">try</span>! <span class="type">NSRegularExpression</span>(pattern :pattern, options : .<span class="type">CaseInsensitive</span>)</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
+]]></content>
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://Donkey-Tao.github.io/2015/03/12/2015-03-12-模仿百思不得姐项目开发总结/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Tao Fei">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="陶飞的技术博客">
-    </span>
-
+    <summary type="html">
     
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/03/12/2015-03-12-模仿百思不得姐项目开发总结/" itemprop="url">
-                  OC项目：模仿百思不得姐项目开发总结
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-03-12T22:48:39+08:00">
-                2015-03-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS-原创/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS,原创</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2015/03/12/2015-03-12-模仿百思不得姐项目开发总结/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/03/12/2015-03-12-模仿百思不得姐项目开发总结/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2015/03/12/2015-03-12-模仿百思不得姐项目开发总结/" class="leancloud_visitors" data-flag-title="OC项目：模仿百思不得姐项目开发总结">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
+      &lt;p&gt;swift中的异常:如果在调用系统某一方法时，该方法最后有throws，说明该方法可能会抛出异常，我们需要对异常进行处理。&lt;/p&gt;
+&lt;h2 id=&quot;swift中提供了三种处理一样的方法&quot;&gt;&lt;a href=&quot;#swift中提供了三种处理一样的方法&quot; class=&quot;header
     
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="模仿百思不得姐项目-开发总结"><a href="#模仿百思不得姐项目-开发总结" class="headerlink" title="模仿百思不得姐项目 开发总结"></a>模仿百思不得姐项目 开发总结</h1><p><code>申明:本篇博文内容属原创,如需转载请注明出处.</code></p>
+    </summary>
+    
+      <category term="swift" scheme="http://Donkey-Tao.github.io/categories/swift/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>OC项目：模仿百思不得姐项目开发总结</title>
+    <link href="http://Donkey-Tao.github.io/2015/03/12/2015-03-12-%E6%A8%A1%E4%BB%BF%E7%99%BE%E6%80%9D%E4%B8%8D%E5%BE%97%E5%A7%90%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E6%80%BB%E7%BB%93/"/>
+    <id>http://Donkey-Tao.github.io/2015/03/12/2015-03-12-模仿百思不得姐项目开发总结/</id>
+    <published>2015-03-12T14:48:39.000Z</published>
+    <updated>2016-10-28T08:06:23.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="模仿百思不得姐项目-开发总结"><a href="#模仿百思不得姐项目-开发总结" class="headerlink" title="模仿百思不得姐项目 开发总结"></a>模仿百思不得姐项目 开发总结</h1><p><code>申明:本篇博文内容属原创,如需转载请注明出处.</code></p>
 <p>练手项目，由于手贱将电脑版本升级为macOS Sierra导致之前的Mou不能用，清理垃圾文件时不能识别.md结尾的文件，误删了之前的博客与笔记。</p>
 <p><code>本篇博文不是完整版，待完成.....囧。</code></p>
 <p><img src="/images/CloneAndPuash.png" alt="BaiSiDemo2015"></p>
@@ -1985,167 +881,27 @@
 <ul>
 <li>Prefix header -&gt; 设置路径</li>
 </ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
+]]></content>
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://Donkey-Tao.github.io/2014/04/11/2014-04-11-OC中内存管理的总结/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Tao Fei">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="陶飞的技术博客">
-    </span>
-
+    <summary type="html">
     
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2014/04/11/2014-04-11-OC中内存管理的总结/" itemprop="url">
-                  OC中内存管理的总结
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-04-11T23:57:48+08:00">
-                2014-04-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2014/04/11/2014-04-11-OC中内存管理的总结/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/04/11/2014-04-11-OC中内存管理的总结/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2014/04/11/2014-04-11-OC中内存管理的总结/" class="leancloud_visitors" data-flag-title="OC中内存管理的总结">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
+      &lt;h1 id=&quot;模仿百思不得姐项目-开发总结&quot;&gt;&lt;a href=&quot;#模仿百思不得姐项目-开发总结&quot; class=&quot;headerlink&quot; title=&quot;模仿百思不得姐项目 开发总结&quot;&gt;&lt;/a&gt;模仿百思不得姐项目 开发总结&lt;/h1&gt;&lt;p&gt;&lt;code&gt;申明:本篇博文内容属原创,如需转
     
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="OC中内存管理的总结"><a href="#OC中内存管理的总结" class="headerlink" title="OC中内存管理的总结"></a>OC中内存管理的总结</h3><p>想必用过iPhone,Android的很多用户都会感觉iPhone在使用过程中相对比较流畅,想必一般的Android手机基本不会出现卡顿的现象,让用户有很好的用户体验.究其原因当然有很多,在此我简单总结下iOS开发中的关于内存管理的一些知识,就当开发过程中的学习笔记咯.</p>
+    </summary>
+    
+      <category term="iOS,原创" scheme="http://Donkey-Tao.github.io/categories/iOS-%E5%8E%9F%E5%88%9B/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>OC中内存管理的总结</title>
+    <link href="http://Donkey-Tao.github.io/2014/04/11/2014-04-11-OC%E4%B8%AD%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E7%9A%84%E6%80%BB%E7%BB%93/"/>
+    <id>http://Donkey-Tao.github.io/2014/04/11/2014-04-11-OC中内存管理的总结/</id>
+    <published>2014-04-11T15:57:48.000Z</published>
+    <updated>2016-10-20T21:04:31.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="OC中内存管理的总结"><a href="#OC中内存管理的总结" class="headerlink" title="OC中内存管理的总结"></a>OC中内存管理的总结</h3><p>想必用过iPhone,Android的很多用户都会感觉iPhone在使用过程中相对比较流畅,想必一般的Android手机基本不会出现卡顿的现象,让用户有很好的用户体验.究其原因当然有很多,在此我简单总结下iOS开发中的关于内存管理的一些知识,就当开发过程中的学习笔记咯.</p>
 <hr>
 <h4 id="OC中内存管理的本质"><a href="#OC中内存管理的本质" class="headerlink" title="OC中内存管理的本质"></a>OC中内存管理的本质</h4><p>iOS开发中,OC中的内存管理实际上主要指的是对OC对象的占用内存的管理.<br>那么问题来了,为什么要管理OC对象的内存呢?这就要涉及OC程序中的内存划分,这里要考虑内存的堆内存部分与栈内存部分.<br>栈内存部分中的内存是用系统管理的的,而堆内存部分的内存是要自己管理(干预)的,OC的对象都是存放在堆内存中.所以需要我们自己管理.<br>OC对象是占用堆内存的.什么时候分配内存,什么时候回收内存是我们要考虑的问题.<br>而OC对象内存的分配与回收的实际上可以等价于OC对象自动引用计数的管理.通过对OC对象的自动引用计数的加减实现对象内存的分配与回收.当一个OC对象的自动引用计数变为0,此时这个对象就会被系统回收.所以,我们要实现对OC对象的内存管理就是要实现对OC对象的自动引用计数的控制.</p>
 <hr>
@@ -2238,167 +994,27 @@
 <hr>
 <h5 id="MRC项目转ARC项目"><a href="#MRC项目转ARC项目" class="headerlink" title="MRC项目转ARC项目"></a>MRC项目转ARC项目</h5><p>Xcode –&gt; Edit –&gt; Refactor –&gt;Convert to Objective-C ARC… –&gt;Convert to Automatic Reference Counting  –&gt;next<br>以前MRC中的retain全部变为strong,release在ARC中全部消失<br>关闭ARC Build Settings -&gt;search(Automatic Reference Counting)-&gt;No</p>
 <hr>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
+]]></content>
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://Donkey-Tao.github.io/2014/01/01/2014-01-01-Block和Protocol/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Tao Fei">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="陶飞的技术博客">
-    </span>
-
+    <summary type="html">
     
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2014/01/01/2014-01-01-Block和Protocol/" itemprop="url">
-                  Block和Protocol
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-01-01T09:13:32+08:00">
-                2014-01-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2014/01/01/2014-01-01-Block和Protocol/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/01/01/2014-01-01-Block和Protocol/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2014/01/01/2014-01-01-Block和Protocol/" class="leancloud_visitors" data-flag-title="Block和Protocol">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
+      &lt;h3 id=&quot;OC中内存管理的总结&quot;&gt;&lt;a href=&quot;#OC中内存管理的总结&quot; class=&quot;headerlink&quot; title=&quot;OC中内存管理的总结&quot;&gt;&lt;/a&gt;OC中内存管理的总结&lt;/h3&gt;&lt;p&gt;想必用过iPhone,Android的很多用户都会感觉iPhone在使用过程
     
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="block的基本使用"><a href="#block的基本使用" class="headerlink" title="block的基本使用"></a>block的基本使用</h2><p>什么是block?<br>Block是iOS中比较特殊的<code>数据类型</code>.Block是苹果官方特别推荐使用的数据类型,应用场景比较广泛.</p>
+    </summary>
+    
+      <category term="iOS" scheme="http://Donkey-Tao.github.io/categories/iOS/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Block和Protocol</title>
+    <link href="http://Donkey-Tao.github.io/2014/01/01/2014-01-01-Block%E5%92%8CProtocol/"/>
+    <id>http://Donkey-Tao.github.io/2014/01/01/2014-01-01-Block和Protocol/</id>
+    <published>2014-01-01T01:13:32.000Z</published>
+    <updated>2017-01-31T08:00:12.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="block的基本使用"><a href="#block的基本使用" class="headerlink" title="block的基本使用"></a>block的基本使用</h2><p>什么是block?<br>Block是iOS中比较特殊的<code>数据类型</code>.Block是苹果官方特别推荐使用的数据类型,应用场景比较广泛.</p>
 <p>应用场景:</p>
 <ul>
 <li>动画</li>
@@ -2433,167 +1049,27 @@
 </ul>
 <p>protocol的其他使用,</p>
 <p>协议中的关键字</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
+]]></content>
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://Donkey-Tao.github.io/2013/10/16/2013-10-16-读鸟哥Linux私房菜/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Tao Fei">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="陶飞的技术博客">
-    </span>
-
+    <summary type="html">
     
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2013/10/16/2013-10-16-读鸟哥Linux私房菜/" itemprop="url">
-                  读鸟哥Linux私房菜笔记
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2013-10-16T22:29:39+08:00">
-                2013-10-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/读书/" itemprop="url" rel="index">
-                    <span itemprop="name">读书</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2013/10/16/2013-10-16-读鸟哥Linux私房菜/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2013/10/16/2013-10-16-读鸟哥Linux私房菜/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2013/10/16/2013-10-16-读鸟哥Linux私房菜/" class="leancloud_visitors" data-flag-title="读鸟哥Linux私房菜笔记">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
+      &lt;h2 id=&quot;block的基本使用&quot;&gt;&lt;a href=&quot;#block的基本使用&quot; class=&quot;headerlink&quot; title=&quot;block的基本使用&quot;&gt;&lt;/a&gt;block的基本使用&lt;/h2&gt;&lt;p&gt;什么是block?&lt;br&gt;Block是iOS中比较特殊的&lt;code&gt;数据类型
     
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="读鸟哥Linux私房菜笔记"><a href="#读鸟哥Linux私房菜笔记" class="headerlink" title="读鸟哥Linux私房菜笔记"></a>读鸟哥Linux私房菜笔记</h1><h2 id="Linux的简介"><a href="#Linux的简介" class="headerlink" title="Linux的简介"></a>Linux的简介</h2><h3 id="什么是Linux？"><a href="#什么是Linux？" class="headerlink" title="什么是Linux？"></a>什么是Linux？</h3><p>核心(Kernel)是<code>操作系统最底层</code>的东西，他管理所有硬件资源的工作状态，每个操作系统都有自己的核心。</p>
+    </summary>
+    
+      <category term="iOS" scheme="http://Donkey-Tao.github.io/categories/iOS/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>读鸟哥Linux私房菜笔记</title>
+    <link href="http://Donkey-Tao.github.io/2013/10/16/2013-10-16-%E8%AF%BB%E9%B8%9F%E5%93%A5Linux%E7%A7%81%E6%88%BF%E8%8F%9C/"/>
+    <id>http://Donkey-Tao.github.io/2013/10/16/2013-10-16-读鸟哥Linux私房菜/</id>
+    <published>2013-10-16T14:29:39.000Z</published>
+    <updated>2017-01-30T02:33:40.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="读鸟哥Linux私房菜笔记"><a href="#读鸟哥Linux私房菜笔记" class="headerlink" title="读鸟哥Linux私房菜笔记"></a>读鸟哥Linux私房菜笔记</h1><h2 id="Linux的简介"><a href="#Linux的简介" class="headerlink" title="Linux的简介"></a>Linux的简介</h2><h3 id="什么是Linux？"><a href="#什么是Linux？" class="headerlink" title="什么是Linux？"></a>什么是Linux？</h3><p>核心(Kernel)是<code>操作系统最底层</code>的东西，他管理所有硬件资源的工作状态，每个操作系统都有自己的核心。</p>
 <p>Windows是针对x86架构的硬件设计的，所以只能在x86的个人计算机上运行，Linux由于是Open Source的操作系统，所以他可以被修改成适合在各种机器上面运行的，这也就是说Linux具有可移植性；</p>
 <h3 id="Kernel要管理的事项"><a href="#Kernel要管理的事项" class="headerlink" title="Kernel要管理的事项"></a>Kernel要管理的事项</h3><ul>
 <li>系统呼叫接口(System call interface):方便developer与Kernel的交流；</li>
@@ -2646,167 +1122,27 @@
 <hr>
 <p>未完，待续~</p>
 <p>​<br>​<br>​    </p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
+]]></content>
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://Donkey-Tao.github.io/2013/03/05/2013-03-05-算法：最短路径/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Tao Fei">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="陶飞的技术博客">
-    </span>
-
+    <summary type="html">
     
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2013/03/05/2013-03-05-算法：最短路径/" itemprop="url">
-                  算法：最短路径
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2013-03-05T08:45:21+08:00">
-                2013-03-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2013/03/05/2013-03-05-算法：最短路径/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2013/03/05/2013-03-05-算法：最短路径/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2013/03/05/2013-03-05-算法：最短路径/" class="leancloud_visitors" data-flag-title="算法：最短路径">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
+      &lt;h1 id=&quot;读鸟哥Linux私房菜笔记&quot;&gt;&lt;a href=&quot;#读鸟哥Linux私房菜笔记&quot; class=&quot;headerlink&quot; title=&quot;读鸟哥Linux私房菜笔记&quot;&gt;&lt;/a&gt;读鸟哥Linux私房菜笔记&lt;/h1&gt;&lt;h2 id=&quot;Linux的简介&quot;&gt;&lt;a href=&quot;#L
     
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><code>声明:本文为博主原创,如需转载请注明出处.</code></p>
+    </summary>
+    
+      <category term="读书" scheme="http://Donkey-Tao.github.io/categories/%E8%AF%BB%E4%B9%A6/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>算法：最短路径</title>
+    <link href="http://Donkey-Tao.github.io/2013/03/05/2013-03-05-%E7%AE%97%E6%B3%95%EF%BC%9A%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/"/>
+    <id>http://Donkey-Tao.github.io/2013/03/05/2013-03-05-算法：最短路径/</id>
+    <published>2013-03-05T00:45:21.000Z</published>
+    <updated>2017-01-31T08:13:39.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><code>声明:本文为博主原创,如需转载请注明出处.</code></p>
 <p><code>本文中的算法用C语言进行了实现。</code></p>
 <p>简介：</p>
 <p>最短路径问题：给你n个点，m条无向边，每条边都有长度d和花费p，给你起点s终点t，要求输出起点到终点的最短距离及其花费，如果最短距离有多条路线，则输出花费最少的。</p>
@@ -2814,579 +1150,128 @@
 <p>输入：输入n,m，点的编号是1~n,然后是m行，每行4个数 a,b,d,p，表示a和b之间有一条边，且其长度为d，花费为p。最后一行是两个数 s,t;起点s，终点。n和m为0时输入结束。</p>
 <p>源代码：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;malloc.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_VERTEX_NUM 100</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> max 65536</span></div><div class="line"></div><div class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> </div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> distance;</div><div class="line">	<span class="keyword">int</span> cost;</div><div class="line">&#125;EDG;</div><div class="line"></div><div class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> </div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> n;</div><div class="line">	<span class="keyword">int</span> e;</div><div class="line">	<span class="keyword">int</span> vexs[MAX_VERTEX_NUM];</div><div class="line">	EDG edges[MAX_VERTEX_NUM][MAX_VERTEX_NUM];</div><div class="line">&#125;MGraph;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">shortpat_FLOYED</span><span class="params">(MGraph *mg)</span></span>;</div><div class="line"><span class="function">MGraph *<span class="title">creat_MGraph</span><span class="params">()</span></span>;<span class="comment">//建立邻接矩阵</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> m,n;</div><div class="line">	MGraph *mg;</div><div class="line">	mg=creat_MGraph();<span class="comment">//建立邻接矩阵</span></div><div class="line">	<span class="built_in">printf</span>(<span class="string">"请输入要求的两个顶点的序号："</span>);</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;m,&amp;n);</div><div class="line">	shortpat_FLOYED(mg);</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"顶点%d与顶点%d的最短路径的距离：%d花费为：%d\n"</span>,m,n,mg-&gt;edges[m][n].distance,mg-&gt;edges[m][n].cost);</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"程序结束\n"</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">shortpat_FLOYED</span><span class="params">(MGraph *mg)</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> i,j,k;</div><div class="line">	<span class="keyword">for</span>(k=<span class="number">1</span>;k&lt;=mg-&gt;n;k++)</div><div class="line">		<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=mg-&gt;n;i++)</div><div class="line">			<span class="keyword">for</span>(j=<span class="number">1</span>;j&lt;=mg-&gt;n;j++)</div><div class="line">			&#123;</div><div class="line">				<span class="keyword">if</span>(mg-&gt;edges[i][k].distance+mg-&gt;edges[k][j].distance&lt;mg-&gt;edges[i][j].distance)</div><div class="line">				&#123;</div><div class="line">					mg-&gt;edges[i][j].distance=mg-&gt;edges[i][k].distance+mg-&gt;edges[k][j].distance;</div><div class="line">					mg-&gt;edges[i][j].cost=mg-&gt;edges[i][k].cost+mg-&gt;edges[k][j].cost;</div><div class="line">				&#125;</div><div class="line">				<span class="keyword">else</span> <span class="keyword">if</span>(mg-&gt;edges[i][k].distance+mg-&gt;edges[k][j].distance==mg-&gt;edges[i][j].distance)</div><div class="line">				&#123;</div><div class="line">					<span class="keyword">if</span>(mg-&gt;edges[i][k].cost+mg-&gt;edges[k][j].cost&lt;mg-&gt;edges[i][j].cost)</div><div class="line">						</div><div class="line">						mg-&gt;edges[i][j].cost=mg-&gt;edges[i][k].cost+mg-&gt;edges[k][j].cost;</div><div class="line">					</div><div class="line">				&#125;</div><div class="line">				<span class="keyword">else</span> </div><div class="line">					;<span class="comment">//空语句</span></div><div class="line">			&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function">MGraph *<span class="title">creat_MGraph</span><span class="params">()</span><span class="comment">//建立邻接矩阵</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> i,j,k,n,e,d,c;</div><div class="line">	MGraph *mg=<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(MGraph));</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"请输入顶点的个数："</span>);</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"请输入边的条数："</span>);</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;e);</div><div class="line">	mg-&gt;n=n;</div><div class="line">	mg-&gt;e=e;</div><div class="line">	getchar();</div><div class="line">	<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n;i++)</div><div class="line">		<span class="keyword">for</span>(j=<span class="number">1</span>;j&lt;=n;j++)</div><div class="line">		&#123;</div><div class="line">			mg-&gt;edges[i][j].distance=max;<span class="comment">//初始化邻接矩阵表示的所有边</span></div><div class="line">			mg-&gt;edges[i][j].cost=max;</div><div class="line">		&#125;</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"请输入边的信息:\n"</span>);</div><div class="line">		<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=e;i++)</div><div class="line">		&#123;</div><div class="line">			<span class="built_in">scanf</span>(<span class="string">"%d%d%d%d"</span>,&amp;j,&amp;k,&amp;d,&amp;c);</div><div class="line">			mg-&gt;edges[j][k].distance=d;</div><div class="line">			mg-&gt;edges[j][k].cost=c;</div><div class="line">			mg-&gt;edges[k][j].distance=d;</div><div class="line">			mg-&gt;edges[k][j].cost=c;<span class="comment">//标记存在的边</span></div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> mg;<span class="comment">//返回邻接矩阵的首地址</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
+]]></content>
     
-  </section>
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
-
-          
-          </div>
-          
-
-
-          
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-
-      
-
-      
-
-      <section class="site-overview sidebar-panel sidebar-panel-active">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/uploads/avatar.jpg"
-               alt="Tao Fei" />
-          <p class="site-author-name" itemprop="name">Tao Fei</p>
-           
-              <p class="site-description motion-element" itemprop="description">I'm a iOS developer interested in data science and artificial intelligence.</p>
-          
-        </div>
-        <nav class="site-state motion-element">
-
-          
-            <div class="site-state-item site-state-posts">
-              <a href="/archives">
-                <span class="site-state-item-count">11</span>
-                <span class="site-state-item-name">日志</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-categories">
-              
-                <span class="site-state-item-count">6</span>
-                <span class="site-state-item-name">分类</span>
-              
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-tags">
-              
-                <span class="site-state-item-count">2</span>
-                <span class="site-state-item-name">标签</span>
-              
-            </div>
-          
-
-        </nav>
-
-        
-          <div class="feed-link motion-element">
-            <a href="/atom.xml" rel="alternate">
-              <i class="fa fa-rss"></i>
-              RSS
-            </a>
-          </div>
-        
-
-        <div class="links-of-author motion-element">
-          
-            
-              <span class="links-of-author-item">
-                <a href="https://github.com/Donkey-Tao" target="_blank" title="GitHub">
-                  
-                    <i class="fa fa-fw fa-github"></i>
-                  
-                  GitHub
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="http://weibo.com/taofei0610" target="_blank" title="Weibo">
-                  
-                    <i class="fa fa-fw fa-weibo"></i>
-                  
-                  Weibo
-                </a>
-              </span>
-            
-          
-        </div>
-
-        
-        
-
-        
-        
-
-        
-
-
-      </section>
-
-      
-
-      
-
-    </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy;  2013 - 
-  <span itemprop="copyrightYear">2017</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Tao Fei</span>
-</div>
-
-
-
-
-
-        
-
-<div class="busuanzi-count">
-
-  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-  
-    <span class="site-uv"><i class="fa fa-user"></i> 本站访客数<span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人次</span>
-  
-
-  
-    <span class="site-pv"><i class="fa fa-eye"></i> 本站总访问量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
-  
-  
-</div>
-
-
-
-        
-      </div>
-    </footer>
-
+    <summary type="html">
     
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
+      &lt;p&gt;&lt;code&gt;声明:本文为博主原创,如需转载请注明出处.&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;本文中的算法用C语言进行了实现。&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;简介：&lt;/p&gt;
+&lt;p&gt;最短路径问题：给你n个点，m条无向边，每条边都有长度d和花费p，给你起点s终点t，要求输出起点
+    
+    </summary>
+    
+      <category term="算法" scheme="http://Donkey-Tao.github.io/categories/%E7%AE%97%E6%B3%95/"/>
     
     
-  </div>
-
+  </entry>
   
-
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
-</script>
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
-
-
-
-  
-  
-
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
-
-
-
-  
-
-  
+  <entry>
+    <title>算法：欧拉回路</title>
+    <link href="http://Donkey-Tao.github.io/2013/02/26/2013-02-26-%E6%AC%A7%E6%8B%89%E5%9B%9E%E8%B7%AF/"/>
+    <id>http://Donkey-Tao.github.io/2013/02/26/2013-02-26-欧拉回路/</id>
+    <published>2013-02-26T15:00:39.000Z</published>
+    <updated>2017-01-31T08:16:13.000Z</updated>
     
-  
-
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"taofei"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
-
-  
+    <content type="html"><![CDATA[<p> <code>声明:本文为博主原创,如需转载请注明出处.</code></p>
+<p><code>本文中的算法用C语言进行了实现。</code></p>
+<p>简介：</p>
+<p>欧拉回路是指不令笔离开纸面，可画过图中每条边仅一次，且可以回到起点的一条回路。现给定一个图，问是否存在欧拉回路？</p>
+<p>要求：输入：测试输入包含若干测试用例。每个测试用例的第1行给出两个正整数，分别是节点数N ( 1 &lt; N &lt; 1000 )和边数M；随后的M行对应M条边，每行给出一对正整数，分别是该条边直接连通的两个节点的编号（节点从1到N编号）。当N为0时输入结束。 输出：每个测试用例的输出占一行，若欧拉回路存在则输出1，否则输出0。</p>
+<h2 id="问题分析和任务定义"><a href="#问题分析和任务定义" class="headerlink" title="问题分析和任务定义"></a>问题分析和任务定义</h2><p>题目要求判断一个给定的图中是否存在欧拉回路。由欧拉图的定义，当一个图存在欧拉回路时，该图称为欧拉图。题目问是否存在欧拉回路即等价于问给定的图是否为欧拉图。所以，证明给定图是欧拉图就说明该图存在欧拉回路，否则不存在欧拉回路。根据高等教育出版社出版屈婉玲、耿素云、张立昂主编的《离散数学》P.296定理15.1可知：无向图G是欧拉图当且仅当G是连通图且没有奇度顶点。要证明一个给定的图是否为欧拉图，证明给定的图是连通图且没有奇度顶点即可。所以，解决题目中的问题就转化为证明给定图是否是连通图且没有奇度顶点。</p>
+<p>首先要确定一给定的图是否为连通图。这里我们可以通过图的深度优先搜索遍历确定。从任意顶点出发，如果能深度优先遍历到所有的顶点就说明图中所有的顶点都是连图的即为连通图。</p>
+<p>然后再确定给定的图是否没有奇度顶点。我们可以以邻接矩阵的形式存储给定的图，对邻接矩阵的每行分别行进行扫描，记录每个顶点的度数，当每行扫描完后判断该顶点的度数是否为奇数，存在奇度顶点直接结束扫描，说明存在奇度顶点，给定图不是欧拉图。即不存在欧拉回路。否则继续扫描，当扫描完所有的行没有发现奇度顶点，即说明给定图没有奇度顶点。</p>
+<p>当上述两个问题都确定以后根据定理，当且仅当给定图为连通图且没有奇度顶点时给定的图为欧拉图。由此可确定，给定的图是否存在欧拉回路。</p>
+<h2 id="数据结构的选择与概要设计"><a href="#数据结构的选择与概要设计" class="headerlink" title="数据结构的选择与概要设计"></a>数据结构的选择与概要设计</h2><h3 id="数据结构的选择"><a href="#数据结构的选择" class="headerlink" title="数据结构的选择"></a>数据结构的选择</h3><p>图在我们所学的数据结构与算法课程中有四种存储方式：邻接矩阵、邻接表、十字链表和邻接多重表。本问题比较简单，选用邻接矩阵或邻接矩阵就足够了。在本课程设计中需要判断是否有奇度顶点和是否为连通图，用用邻接表和邻接矩阵在时间繁杂度没有什么大的差别，在空间复杂度上，因为本题是无向图，如果如果用邻接表，储存一条边要储存两次，存储指针比int型的空间消耗大，在图不是很大的情况下，邻接矩阵的空间复杂度要小。同时选用邻接矩阵很容易得到图中个顶点的度数。因为顶点只要求编号这一信息，所以就没有用结构体存储顶点信息，图用邻接矩阵要用结构体存储。结构体定义如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> n;<span class="comment">//顶点个数</span></div><div class="line">	<span class="keyword">int</span> e;<span class="comment">//边的条数</span></div><div class="line">	<span class="keyword">int</span> vexs[MAX_VERTEX_NUM];<span class="comment">//一维数组储存顶点</span></div><div class="line">	<span class="keyword">int</span> edges[MAX_VERTEX_NUM][MAX_VERTEX_NUM];<span class="comment">//二维数组储存边</span></div><div class="line">&#125;MGraph;<span class="comment">//图</span></div></pre></td></tr></table></figure>
+<h3 id="概要设计"><a href="#概要设计" class="headerlink" title="概要设计"></a>概要设计</h3><p>首先将图转换为邻接矩阵存储起来，然后邻接矩阵的每一行进行搜索得图中到每个顶点的度数，如果有奇度顶点，输出：不存在欧拉回路，即可结束程序。否则继续判断给定的图是否为连通图，如果是连通图输出：存在欧拉回路；否则输出：不存在欧拉回路。结束程序。</p>
+<h3 id="详细设计和编码"><a href="#详细设计和编码" class="headerlink" title="详细设计和编码"></a>详细设计和编码</h3><h4 id="将图转化为邻接矩阵存储"><a href="#将图转化为邻接矩阵存储" class="headerlink" title="将图转化为邻接矩阵存储"></a>将图转化为邻接矩阵存储</h4><p>先输入图中顶点个个数和边的条数，对所有可能存在的边初始化为0，再依次输入边的信息，即如果顶点1,2存在相连的边，输入1 2 （1,2为自动给顶点分配的编码）。将边1,2的信息改为1。用函数 MGraph<br>*creat_MGraph();完成，返回邻接矩阵的首地址即可。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="function">MGraph *<span class="title">creat_MGraph</span><span class="params">()</span><span class="comment">//建立邻接矩阵</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> i,j,k,n,e;</div><div class="line">	MGraph *mg=<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(MGraph));</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"请输入顶点的个数："</span>);</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"请输入边的条数："</span>);</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;e);</div><div class="line">	mg-&gt;n=n;</div><div class="line">	mg-&gt;e=e;</div><div class="line">	getchar();</div><div class="line">	<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n;i++)</div><div class="line">		<span class="keyword">for</span>(j=<span class="number">1</span>;j&lt;=n;j++)</div><div class="line">			mg-&gt;edges[i][j]=<span class="number">0</span>;<span class="comment">//初始化邻接矩阵表示的所有边</span></div><div class="line">		<span class="built_in">printf</span>(<span class="string">"请输入边的信息:\n"</span>);</div><div class="line">		<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=e;i++)</div><div class="line">		&#123;</div><div class="line">			<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;j,&amp;k);</div><div class="line">			mg-&gt;edges[j][k]=<span class="number">1</span>;mg-&gt;edges[k][j]=<span class="number">1</span>;<span class="comment">//标记存在的边</span></div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> mg;<span class="comment">//返回邻接矩阵的首地址</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="搜索有没有奇度顶点"><a href="#搜索有没有奇度顶点" class="headerlink" title="搜索有没有奇度顶点"></a>搜索有没有奇度顶点</h4><p>对邻接矩阵的每一行进行搜索，用num记录顶点的度数（每次对新的顶点记录前都将num置为0）。为了排除顶点自身环对判断的影响，当遇到边的两顶点相同，忽略不计，这样不会对结果产生影响。如果搜索到奇度顶点则结束int Euleriancycle(MGraph *mg);函数，返回0，搜索完成且没有发现奇度顶点则返回1.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">Euleriancycle</span><span class="params">(MGraph *mg)</span><span class="comment">//判断是否存在欧拉回路</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> i,j,num;</div><div class="line">	<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=mg-&gt;n;i++)<span class="comment">//从第一个顶点开始，判断顶点的度数</span></div><div class="line">	&#123;</div><div class="line">		num=<span class="number">0</span>;<span class="comment">//初始化每个顶点的度数为0</span></div><div class="line">		<span class="keyword">for</span>(j=<span class="number">1</span>;j&lt;=mg-&gt;n;j++)</div><div class="line">		&#123;</div><div class="line">			<span class="keyword">if</span>((mg-&gt;edges[i][j]!=<span class="number">0</span>)&amp;&amp;(i!=j))<span class="comment">//如果顶点i到j的边存在度数加1</span></div><div class="line">				num=num+<span class="number">1</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span>(num%<span class="number">2</span>==<span class="number">1</span>)<span class="comment">//如果有哪个顶点的度数为奇数，直接退出循环，返回0</span></div><div class="line">			<span class="keyword">return</span> <span class="number">0</span>;	</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> <span class="number">1</span>;<span class="comment">//当所有的顶点都判断完成还没有退出本函数说明所有顶点度数均为偶数，返回1</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="判断给定的图是否为连通图"><a href="#判断给定的图是否为连通图" class="headerlink" title="判断给定的图是否为连通图"></a>判断给定的图是否为连通图</h4><p>本程序的深度优先遍历是一个递归的过程。其中visited[MAX_VERTEX_NUM]是一个辅助的全局变量，初始值均为0.表示该顶点没有被访问。访问后用1表示。在深度优先搜索时。我们需要调用dfs_trave()函数。在dfs_trave()中，针对每个没有被访问过的顶点调用dfs()函数，它是一个递归函数，完成从该顶点开始的深度优先搜索。如果图是一个连通图，那么完成对visited数组的初始化后，在dfs_trave()中只需调用dfs()函数一次即可完成对图的遍历。当图不是一个连通图时，则在dfs_trave()中需要针对每个连通分量分别调用dfs()函数。根据dfs()函数被调用的次数就可以判断给定的图是否为连通图。如果dfs()函数被调用一次则给定的图是连通图，否则不是连通图。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span>  <span class="title">dfs_trave</span><span class="params">(MGraph *mg)</span><span class="comment">//深度优先搜索遍历</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> i,m=<span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=mg-&gt;n;i++)<span class="comment">//将辅助变量全部初始化为0，表明顶点没有被访问过</span></div><div class="line">		visited[i]=<span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=mg-&gt;n;i++)</div><div class="line">		<span class="keyword">if</span>(visited[i]==<span class="number">0</span>)<span class="comment">//对没有访问过的顶点，调用深度优先搜索函数</span></div><div class="line">		&#123;</div><div class="line">			dfs(mg,i);<span class="comment">//深度优先搜索</span></div><div class="line">			m=m+<span class="number">1</span>;<span class="comment">//如果是非连通图，要调用1次以上，m用来记录调用dfs函数的次数</span></div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> m;<span class="comment">//返回调用dfs函数的次数</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(MGraph *mg,<span class="keyword">int</span> i)</span><span class="comment">//深度优先搜索</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> j;</div><div class="line">	visited[i]=<span class="number">1</span>;<span class="comment">//访问该顶点</span></div><div class="line">	<span class="keyword">for</span>(j=<span class="number">1</span>;j&lt;=mg-&gt;n;j++)</div><div class="line">		<span class="keyword">if</span>((visited[j]==<span class="number">0</span>)&amp;&amp;(mg-&gt;edges[i][j]==<span class="number">1</span>))<span class="comment">//当顶点没有被访问过并且两顶点存在边</span></div><div class="line">			dfs(mg,j);<span class="comment">//对该顶点深度优先搜索</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="根据上述2-3可知"><a href="#根据上述2-3可知" class="headerlink" title="根据上述2,3可知"></a>根据上述2,3可知</h4><p>必须为连通图且没有奇度顶点才是欧拉图即存在欧拉回路</p>
+<h4 id="流程图"><a href="#流程图" class="headerlink" title="流程图"></a>流程图</h4><p><img src="/images/FlowChartOfEulerianPath.png" alt="欧拉回路流程图"></p>
+<h2 id="调试过程中遇到的问题"><a href="#调试过程中遇到的问题" class="headerlink" title="调试过程中遇到的问题"></a>调试过程中遇到的问题</h2><p>本次实验中也遇到了一些小问题，通过在适当的位置加一些printf语句即可确定出现问题的语句大概的位置。加以分析、修改即可。</p>
+<p>在本次课程设计的第三组数据的测试时出现了不存在欧拉图的错误结果，仔细分析可知，在（2,2）邻接矩阵的对角线上，所以该点的度数在计算的时候就少1度。所以，在if((mg-&gt;edges[i][j]!=0)&amp;&amp;(i!=j))//如果顶点i到j的边存在度数加1 的判断中增加了一个判断，当该点存在环，则在度数的计数时忽略不计，这样不会印象该点度数奇偶性的变化。这样就很好的解决了，存在环对判断结果的印象的问题。</p>
+<p>通过本次课程设计让我更加深刻的体会到调试程序需要平心静气，仔细分析、研究。要有一个严谨的态度，这样才能高效率的写出优质的代码。</p>
+<h2 id="测试结果与分析"><a href="#测试结果与分析" class="headerlink" title="测试结果与分析"></a>测试结果与分析</h2><h3 id="测试数据的选择"><a href="#测试数据的选择" class="headerlink" title="测试数据的选择"></a>测试数据的选择</h3><p>在测试中考虑到多种情况使用了多组数据，分别根据是否为连通图、是否没有奇度顶点设计了一下四组数据。第一组数据为连通图且没有奇度顶点，第二组数据为连通图且有奇度顶点，第三组数据为连通图、没有奇度顶点且有环，第四组数据为非连通图且有奇度顶点，第五组数据为非连通图且没有奇度顶点。</p>
+<p>每组数据进行多次测试。</p>
+<h4 id="测试1"><a href="#测试1" class="headerlink" title="测试1"></a>测试1</h4><p>测试数据1：</p>
+<p>3</p>
+<p>3</p>
+<p>1 2</p>
+<p>1 3</p>
+<p>2 3</p>
+<p>测试结果：</p>
+<p><img src="/images/EulerianPathTest1.png" alt="测试结果1"></p>
+<p>结果分析：测试数据表示一个3个顶点，3条边的图，顶点两两相连，存在欧拉回路。测试结果正确。</p>
+<p><img src="/images/EulerianPathAnanysis1.png" alt="结果分析1"></p>
+<h4 id="测试2"><a href="#测试2" class="headerlink" title="测试2"></a>测试2</h4><p>测试数据2：</p>
+<p>3</p>
+<p>3</p>
+<p>3 2</p>
+<p>1 2</p>
+<p>2 3</p>
+<p>测试结果：</p>
+<p><img src="/images/EulerianPathTest2.png" alt="测试结果2"></p>
+<p>结果分析：测试数据表示一个3个顶点，3条边的图，1,、2相连，2、3相连，不存在欧拉回路。测试结果正确。</p>
+<p><img src="/images/EulerianPathAnanysis2.png" alt="结果分析2"></p>
+<h4 id="测试3"><a href="#测试3" class="headerlink" title="测试3"></a>测试3</h4><p>测试数据:3：</p>
+<p>4</p>
+<p>5</p>
+<p>1 2</p>
+<p>1 3</p>
+<p>2 4</p>
+<p>3 4</p>
+<p>2 2</p>
+<p>测试结果：</p>
+<p><img src="/images/EulerianPathTest3.png" alt="测试结果3"></p>
+<p>结果分析：测试数据表示一个4个顶点，5条边的图，1、2相连，1、3相连,2、4相连,3、4相连，2、2相连。存在欧拉回路。测试结果正确。</p>
+<p><img src="/images/EulerianPathAnanysis3.png" alt="结果分析3"></p>
+<h4 id="测试4"><a href="#测试4" class="headerlink" title="测试4"></a>测试4</h4><p>测试数据4：</p>
+<p>5</p>
+<p>4</p>
+<p>1 2</p>
+<p>3 4 </p>
+<p>4 5</p>
+<p>3 5</p>
+<p>测试结果：</p>
+<p><img src="/images/EulerianPathTest4.png" alt="测试结果4"></p>
+<p>结果分析：测试数据表示一个5个顶点，4条边的图，1、2相连，3、4相连,4、5相连,3、5相连。不存在欧拉回路。测试结果正确。</p>
+<p><img src="/images/EulerianPathAnanysis4.png" alt="结果分析4"></p>
+<h4 id="测试5"><a href="#测试5" class="headerlink" title="测试5"></a>测试5</h4><p>测试数据5：</p>
+<p>6</p>
+<p>6</p>
+<p>1 2 </p>
+<p>1 3</p>
+<p>2 3</p>
+<p>4 5</p>
+<p>4 6</p>
+<p>5 6</p>
+<p>测试结果：</p>
+<p><img src="/images/EulerianPathTest5.png" alt="测试结果5"></p>
+<p>结果分析：测试数据表示一个6个顶点，6条边的图，1、2相连，1、3相连,2、3相连,4、5相连，4、6相连，5、6相连。不存在欧拉回路。测试结果正确。</p>
+<p><img src="/images/EulerianPathAnanysis5.png" alt="结果分析5"></p>
+<h3 id="测试结果总结"><a href="#测试结果总结" class="headerlink" title="测试结果总结"></a>测试结果总结</h3><p>通过对多种情况设计了多组数据多次测试如上，结果都得到了真确的结论。说明程序符合题目的要求，达到了实验的目的。</p>
+<h2 id="用户使用说明"><a href="#用户使用说明" class="headerlink" title="用户使用说明"></a>用户使用说明</h2><p>首先本程序中的所有顶点编号为1-N的整数。(0&lt;N&lt;1000)</p>
+<p>先输入图顶点的个数要求为一个正整数n，然后输入图所有边的条数要求为正整数e，再图边数行整形数，每行两个数（用空格相隔）表示一条边所连接的两个顶点编号。输出结果即为题目的解。</p>
+<h2 id="附录源代码"><a href="#附录源代码" class="headerlink" title="附录源代码"></a>附录源代码</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;malloc.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_VERTEX_NUM 1000<span class="comment">//顶点的最大个数</span></span></div><div class="line"></div><div class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> n;<span class="comment">//顶点个数</span></div><div class="line">	<span class="keyword">int</span> e;<span class="comment">//边的条数</span></div><div class="line">	<span class="keyword">int</span> vexs[MAX_VERTEX_NUM];<span class="comment">//一维数组储存顶点</span></div><div class="line">	<span class="keyword">int</span> edges[MAX_VERTEX_NUM][MAX_VERTEX_NUM];<span class="comment">//二维数组储存边</span></div><div class="line">&#125;MGraph;<span class="comment">//图</span></div><div class="line"></div><div class="line"><span class="keyword">int</span> visited[MAX_VERTEX_NUM];<span class="comment">//全局变量。在对顶点进行深度优先搜索遍历时的辅助变量数组</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">Euleriancycle</span><span class="params">(MGraph *mg)</span></span>;<span class="comment">//判断顶点的度数是否全为偶数，有奇数时输出0，全为偶数时输出1</span></div><div class="line"><span class="function">MGraph *<span class="title">creat_MGraph</span><span class="params">()</span></span>;<span class="comment">//将图转化为邻接矩阵储存起来，返回邻接矩阵的首地址</span></div><div class="line"><span class="function"><span class="keyword">int</span>  <span class="title">dfs_trave</span><span class="params">(MGraph *mg)</span></span>;<span class="comment">//深度优先搜索遍历</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(MGraph *mg,<span class="keyword">int</span> i)</span></span>;<span class="comment">//深度优先搜索</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> num,m;<span class="comment">//num用来接收顶点度数判断的结果，m用来接收图是否为连通图的结果</span></div><div class="line">	MGraph *mg;</div><div class="line">	mg=creat_MGraph();<span class="comment">//建立邻接矩阵</span></div><div class="line">	num=Euleriancycle(mg);<span class="comment">//判断顶点的度数是否全为偶数。全为偶数时num=1；否则num=0</span></div><div class="line">	<span class="keyword">if</span>(num!=<span class="number">1</span>)</div><div class="line">	&#123;</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"不存在欧拉图！\n"</span>);</div><div class="line">	getchar();</div><div class="line">	<span class="built_in">exit</span>(<span class="number">0</span>);</div><div class="line">	&#125;</div><div class="line">	m=dfs_trave(mg);<span class="comment">//判断图是否为连通图</span></div><div class="line">	<span class="keyword">if</span>(m!=<span class="number">1</span>)</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"不存在欧拉图！\n"</span>);</div><div class="line">	<span class="keyword">else</span></div><div class="line">		<span class="built_in">printf</span>(<span class="string">"存在欧拉图！\n"</span>);</div><div class="line">	getch();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function">MGraph *<span class="title">creat_MGraph</span><span class="params">()</span><span class="comment">//建立邻接矩阵</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> i,j,k,n,e;</div><div class="line">	MGraph *mg=<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(MGraph));</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"请输入顶点的个数："</span>);</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"请输入边的条数："</span>);</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;e);</div><div class="line">	mg-&gt;n=n;</div><div class="line">	mg-&gt;e=e;</div><div class="line">	getchar();</div><div class="line">	<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n;i++)</div><div class="line">		<span class="keyword">for</span>(j=<span class="number">1</span>;j&lt;=n;j++)</div><div class="line">			mg-&gt;edges[i][j]=<span class="number">0</span>;<span class="comment">//初始化邻接矩阵表示的所有边</span></div><div class="line">		<span class="built_in">printf</span>(<span class="string">"请输入边的信息:\n"</span>);</div><div class="line">		<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=e;i++)</div><div class="line">		&#123;</div><div class="line">			<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;j,&amp;k);</div><div class="line">			mg-&gt;edges[j][k]=<span class="number">1</span>;mg-&gt;edges[k][j]=<span class="number">1</span>;<span class="comment">//标记存在的边</span></div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> mg;<span class="comment">//返回邻接矩阵的首地址</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">Euleriancycle</span><span class="params">(MGraph *mg)</span><span class="comment">//判断是否存在欧拉回路</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> i,j,num;</div><div class="line">	<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=mg-&gt;n;i++)<span class="comment">//从第一个顶点开始，判断顶点的度数</span></div><div class="line">	&#123;</div><div class="line">		num=<span class="number">0</span>;<span class="comment">//初始化每个顶点的度数为0</span></div><div class="line">		<span class="keyword">for</span>(j=<span class="number">1</span>;j&lt;=mg-&gt;n;j++)</div><div class="line">		&#123;</div><div class="line">			If((mg-&gt;edges[i][j]!=<span class="number">0</span>)&amp;&amp;(i!=j))<span class="comment">//如果顶点i到j的边存在度数加1</span></div><div class="line">				num=num+<span class="number">1</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span>(num%<span class="number">2</span>==<span class="number">1</span>)<span class="comment">//如果有哪个顶点的度数为奇数，直接退出循环，返回0</span></div><div class="line">			<span class="keyword">return</span> <span class="number">0</span>;	</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> <span class="number">1</span>;<span class="comment">//当所有的顶点都判断完成还没有退出本函数说明所有顶点度数均为偶数，返回1</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span>  <span class="title">dfs_trave</span><span class="params">(MGraph *mg)</span><span class="comment">//深度优先搜索遍历</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> i,m=<span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=mg-&gt;n;i++)<span class="comment">//将辅助变量全部初始化为0，表明顶点没有被访问过</span></div><div class="line">		visited[i]=<span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=mg-&gt;n;i++)</div><div class="line">		<span class="keyword">if</span>(visited[i]==<span class="number">0</span>)<span class="comment">//对没有访问过的顶点，调用深度优先搜索函数</span></div><div class="line">		&#123;</div><div class="line">			dfs(mg,i);<span class="comment">//深度优先搜索</span></div><div class="line">			m=m+<span class="number">1</span>;<span class="comment">//如果是非连通图，要调用1次以上，m用来记录调用dfs函数的次数</span></div><div class="line">		&#125;</div><div class="line">		</div><div class="line">		<span class="keyword">return</span> m;<span class="comment">//返回调用dfs函数的次数</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(MGraph *mg,<span class="keyword">int</span> i)</span><span class="comment">//深度优先搜索</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> j;</div><div class="line">	visited[i]=<span class="number">1</span>;<span class="comment">//访问该顶点</span></div><div class="line">	<span class="keyword">for</span>(j=<span class="number">1</span>;j&lt;=mg-&gt;n;j++)</div><div class="line">		<span class="keyword">if</span>((visited[j]==<span class="number">0</span>)&amp;&amp;(mg-&gt;edges[i][j]==<span class="number">1</span>))<span class="comment">//当顶点没有被访问过并且两顶点存在边</span></div><div class="line">			dfs(mg,j);<span class="comment">//对该顶点深度优先搜索</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt; &lt;code&gt;声明:本文为博主原创,如需转载请注明出处.&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;本文中的算法用C语言进行了实现。&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;简介：&lt;/p&gt;
+&lt;p&gt;欧拉回路是指不令笔离开纸面，可画过图中每条边仅一次，且可以回到起点的一条回路。现给定一个图，
+    
+    </summary>
+    
+      <category term="算法" scheme="http://Donkey-Tao.github.io/categories/%E7%AE%97%E6%B3%95/"/>
     
     
-    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
-    <script src="/js/src/hook-duoshuo.js"></script>
+  </entry>
   
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <script type="text/javascript">
-    // Popup Window;
-    var isfetched = false;
-    // Search DB path;
-    var search_path = "search.xml";
-    if (search_path.length == 0) {
-      search_path = "search.xml";
-    }
-    var path = "/" + search_path;
-    // monitor main search box;
-
-    function proceedsearch() {
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
-        .css('overflow', 'hidden');
-      $('.popup').toggle();
-    }
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-      $.ajax({
-        url: path,
-        dataType: "xml",
-        async: true,
-        success: function( xmlResponse ) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = $( "entry", xmlResponse ).map(function() {
-            return {
-              title: $( "title", this ).text(),
-              content: $("content",this).text(),
-              url: $( "url" , this).text()
-            };
-          }).get();
-          var $input = document.getElementById(search_id);
-          var $resultContent = document.getElementById(content_id);
-          $input.addEventListener('input', function(){
-            var matchcounts = 0;
-            var str='<ul class=\"search-result-list\">';
-            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
-            $resultContent.innerHTML = "";
-            if (this.value.trim().length > 1) {
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = false;
-                var content_index = [];
-                var data_title = data.title.trim().toLowerCase();
-                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
-                var data_url = decodeURIComponent(data.url);
-                var index_title = -1;
-                var index_content = -1;
-                var first_occur = -1;
-                // only match artiles with not empty titles and contents
-                if(data_title != '') {
-                  keywords.forEach(function(keyword, i) {
-                    index_title = data_title.indexOf(keyword);
-                    index_content = data_content.indexOf(keyword);
-                    if( index_title >= 0 || index_content >= 0 ){
-                      isMatch = true;
-                      if (i == 0) {
-                        first_occur = index_content;
-                      }
-                    }
-
-                  });
-                }
-                // show search results
-                if (isMatch) {
-                  matchcounts += 1;
-                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
-                  var content = data.content.trim().replace(/<[^>]+>/g,"");
-                  if (first_occur >= 0) {
-                    // cut out 100 characters
-                    var start = first_occur - 20;
-                    var end = first_occur + 80;
-                    if(start < 0){
-                      start = 0;
-                    }
-                    if(start == 0){
-                      end = 50;
-                    }
-                    if(end > content.length){
-                      end = content.length;
-                    }
-                    var match_content = content.substring(start, end);
-                    // highlight all keywords
-                    keywords.forEach(function(keyword){
-                      var regS = new RegExp(keyword, "gi");
-                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
-                    });
-
-                    str += "<p class=\"search-result\">" + match_content +"...</p>"
-                  }
-                  str += "</li>";
-                }
-              })};
-            str += "</ul>";
-            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
-            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
-            $resultContent.innerHTML = str;
-          });
-          proceedsearch();
-        }
-      });}
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched == false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-    });
-
-    $('.popup-btn-close').click(function(e){
-      $('.popup').hide();
-      $(".local-search-pop-overlay").remove();
-      $('body').css('overflow', '');
-    });
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-  </script>
-
-
-  
-
-  
-
-  
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
-  <script>AV.initialize("b1TBrJx72NMDsr9SL5QRBIM9-gzGzoHsz", "mfqbxiQnMnHq6lvIpxRfW0TX");</script>
-  <script>
-    function showTime(Counter) {
-      var query = new AV.Query(Counter);
-      var entries = [];
-      var $visitors = $(".leancloud_visitors");
-
-      $visitors.each(function () {
-        entries.push( $(this).attr("id").trim() );
-      });
-
-      query.containedIn('url', entries);
-      query.find()
-        .done(function (results) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
-
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
-
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.get('url');
-            var time = item.get('time');
-            var element = document.getElementById(url);
-
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for(var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if( countSpan.text() == '') {
-              countSpan.text(0);
-            }
-          }
-        })
-        .fail(function (object, error) {
-          console.log("Error: " + error.code + " " + error.message);
-        });
-    }
-
-    function addCount(Counter) {
-      var $visitors = $(".leancloud_visitors");
-      var url = $visitors.attr('id').trim();
-      var title = $visitors.attr('data-flag-title').trim();
-      var query = new AV.Query(Counter);
-
-      query.equalTo("url", url);
-      query.find({
-        success: function(results) {
-          if (results.length > 0) {
-            var counter = results[0];
-            counter.fetchWhenSave(true);
-            counter.increment("time");
-            counter.save(null, {
-              success: function(counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time'));
-              },
-              error: function(counter, error) {
-                console.log('Failed to save Visitor num, with error message: ' + error.message);
-              }
-            });
-          } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
-          }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
-    }
-
-    $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
-        addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
-        showTime(Counter);
-      }
-    });
-  </script>
-
-
-
-  
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
-
-  
-
-
-  
-
-</body>
-</html>
+</feed>
