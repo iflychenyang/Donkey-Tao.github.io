@@ -1,0 +1,1181 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="CocoaPods,TFKit,TFNetworking" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="陶飞的技术博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/img/Donkey.jpg?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="将自己的开源框架发布到CocoaPods
+我们在iOS开发过程中经常会使用一些第三方框架。例如，比较著名的AFNetworking、SDWebImage等。在使用这些框架时，我们只要在podfile文件中添加相关的框架名称（以及版本号），然后使用pod install命令即可很方便的将其加到我们自己的项目中。
+如果我们也想将自己写的框架或者组件开源出去并且让别人也可以通过pod install命令">
+<meta property="og:type" content="article">
+<meta property="og:title" content="将自己的开源框架发布到CocoaPods">
+<meta property="og:url" content="http://Donkey-Tao.github.io/2017/03/16/2017-03-16-将自己的开源框架发布到CocoaPods/index.html">
+<meta property="og:site_name" content="陶飞的技术博客">
+<meta property="og:description" content="将自己的开源框架发布到CocoaPods
+我们在iOS开发过程中经常会使用一些第三方框架。例如，比较著名的AFNetworking、SDWebImage等。在使用这些框架时，我们只要在podfile文件中添加相关的框架名称（以及版本号），然后使用pod install命令即可很方便的将其加到我们自己的项目中。
+如果我们也想将自己写的框架或者组件开源出去并且让别人也可以通过pod install命令">
+<meta property="og:updated_time" content="2017-03-18T22:09:05.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="将自己的开源框架发布到CocoaPods">
+<meta name="twitter:description" content="将自己的开源框架发布到CocoaPods
+我们在iOS开发过程中经常会使用一些第三方框架。例如，比较著名的AFNetworking、SDWebImage等。在使用这些框架时，我们只要在podfile文件中添加相关的框架名称（以及版本号），然后使用pod install命令即可很方便的将其加到我们自己的项目中。
+如果我们也想将自己写的框架或者组件开源出去并且让别人也可以通过pod install命令">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://Donkey-Tao.github.io/2017/03/16/2017-03-16-将自己的开源框架发布到CocoaPods/"/>
+
+
+
+
+
+  <title> 将自己的开源框架发布到CocoaPods | 陶飞的技术博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9833b52c905ccc936c62c38135a70622";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1260084222&web_id=1260084222" language="JavaScript"></script>
+  </div>
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">陶飞的技术博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">自强不息,厚德载物</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://Donkey-Tao.github.io/2017/03/16/2017-03-16-将自己的开源框架发布到CocoaPods/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Tao Fei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陶飞的技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                将自己的开源框架发布到CocoaPods
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-16T12:32:48+08:00">
+                2017-03-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/16/2017-03-16-将自己的开源框架发布到CocoaPods/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/16/2017-03-16-将自己的开源框架发布到CocoaPods/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/03/16/2017-03-16-将自己的开源框架发布到CocoaPods/" class="leancloud_visitors" data-flag-title="将自己的开源框架发布到CocoaPods">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>将自己的开源框架发布到CocoaPods</p>
+<p>我们在iOS开发过程中经常会使用一些第三方框架。例如，比较著名的AFNetworking、SDWebImage等。在使用这些框架时，我们只要在podfile文件中添加相关的框架名称（以及版本号），然后使用pod install命令即可很方便的将其加到我们自己的项目中。</p>
+<p>如果我们也想将自己写的框架或者组件开源出去并且让别人也可以通过pod install命令安装自己的框架，那么怎样才能办到呢？</p>
+<p>下面我们来一步一步实现将自己的框架或者组件发布到Cocoapods上。</p>
+<p>在项项目发布到GitHub后需要打上tag。</p>
+<ul>
+<li>在本地打tag标机</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git tag -a <span class="number">0.0</span><span class="number">.1</span> -m <span class="string">"0.0.1"</span></div><div class="line">git push origin master</div></pre></td></tr></table></figure>
+<ul>
+<li>提交标签到GitHub上</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push origin --tag</div></pre></td></tr></table></figure>
+<p>1.创建自己开源项目的Podspec描述文件</p>
+<p>下面我来通过我自己的一个开源项目:TFNetworking来讲解这个过程。</p>
+<p>我们之前发布在GitHub上的项目在打上tag后，现在我们需要进入项目<code>根目录</code>,在项目的<code>根目录</code>中初始化一个Podspec文件；</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod spec create TFNetworking</div></pre></td></tr></table></figure>
+<p>执行完该命令后会在本目录下会生成一个名为TFNetworking.podspec的文件。用编辑器打开这个文件，里面会有丰富的说明配置信息。</p>
+<p>2.编辑podspec文件</p>
+<p>声明我们开源的框架的<code>代码目录</code>和<code>资源目录</code>以及第三方库所<code>依赖</code>的<code>iOS核心框架</code>和<code>第三方库</code>。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div></pre></td><td class="code"><pre><div class="line">Pod::Spec.<span class="keyword">new</span> <span class="keyword">do</span> |s|</div><div class="line">  </div><div class="line">  s.name         = <span class="string">"TFNetworking"</span></div><div class="line">  s.version      = <span class="string">"0.0.1"</span></div><div class="line">  s.summary      = <span class="string">"A framework for iOS networking"</span></div><div class="line">  s.description  = &lt;&lt;-DESC</div><div class="line">                  dabay tech : A framework <span class="keyword">for</span> iOS networking</div><div class="line">                   DESC</div><div class="line">  s.homepage     = <span class="string">"https://github.com/Donkey-Tao/TFNetworking"</span></div><div class="line">  s.license      = <span class="string">"MIT"</span></div><div class="line">  s.author       = &#123; <span class="string">"Tao Fei"</span> =&gt; <span class="string">"taofei0610@gmail.com"</span> &#125;</div><div class="line">  # s.social_media_url   = <span class="string">"http://twitter.com/"</span></div><div class="line"></div><div class="line">  # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #</div><div class="line">  #</div><div class="line">  #  If <span class="keyword">this</span> Pod runs only on iOS or OS X, then specify the platform and</div><div class="line">  #  the deployment target. You can optionally include the target after the platform.</div><div class="line">  #</div><div class="line"></div><div class="line">  # s.platform     = :ios</div><div class="line">   s.platform     = :ios, <span class="string">"8.0"</span></div><div class="line"></div><div class="line">  #  When <span class="keyword">using</span> multiple platforms</div><div class="line">  # s.ios.deployment_target = <span class="string">"5.0"</span></div><div class="line">  # s.osx.deployment_target = <span class="string">"10.7"</span></div><div class="line">  # s.watchos.deployment_target = <span class="string">"2.0"</span></div><div class="line">  # s.tvos.deployment_target = <span class="string">"9.0"</span></div><div class="line"></div><div class="line"></div><div class="line">  # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #</div><div class="line">  #</div><div class="line">  #  Specify the location from where the source should be retrieved.</div><div class="line">  #  Supports git, hg, bzr, svn and HTTP.</div><div class="line">  #</div><div class="line"></div><div class="line">  s.source       = &#123; :git =&gt; <span class="string">"https://github.com/Donkey-Tao/TFNetworking.git"</span>, :tag =&gt; <span class="string">"#&#123;s.version&#125;"</span> &#125;</div><div class="line"></div><div class="line"></div><div class="line">  # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #</div><div class="line">  #</div><div class="line">  #  CocoaPods is smart about how it includes source code. For source files</div><div class="line">  #  giving a folder will include any swift, h, m, mm, c &amp; cpp files.</div><div class="line">  #  For header files it will include any header in the folder.</div><div class="line">  #  Not including the public_header_files will make all headers <span class="keyword">public</span>.</div><div class="line">  #</div><div class="line"></div><div class="line">  s.source_files  = <span class="string">"TFNetworking"</span>, <span class="string">"TFNetworking/**/*.&#123;h,m&#125;"</span></div><div class="line">  #s.exclude_files = <span class="string">"Classes/Exclude"</span></div><div class="line"></div><div class="line">  # s.public_header_files = <span class="string">"Classes/**/*.h"</span></div><div class="line"></div><div class="line"></div><div class="line">  # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #</div><div class="line">  #</div><div class="line">  #  A <span class="built_in">list</span> of resources included with the Pod. These are copied into the</div><div class="line">  #  target bundle with a build phase script. Anything <span class="keyword">else</span> will be cleaned.</div><div class="line">  #  You can preserve files from being cleaned, please don't preserve</div><div class="line">  #  non-essential files like tests, examples and documentation.</div><div class="line">  #</div><div class="line"></div><div class="line">  # s.resource  = <span class="string">"icon.png"</span></div><div class="line">  # s.resources = <span class="string">"Resources/*.png"</span></div><div class="line"></div><div class="line">  # s.preserve_paths = <span class="string">"FilesToSave"</span>, <span class="string">"MoreFilesToSave"</span></div><div class="line"></div><div class="line"></div><div class="line">  # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #</div><div class="line">  #</div><div class="line">  #  Link your library with frameworks, or libraries. Libraries <span class="keyword">do</span> not include</div><div class="line">  #  the lib prefix of their name.</div><div class="line">  #</div><div class="line"></div><div class="line">   s.framework  = <span class="string">"UIKit"</span></div><div class="line">  # s.frameworks = <span class="string">"SomeFramework"</span>, <span class="string">"AnotherFramework"</span></div><div class="line"></div><div class="line">  # s.library   = <span class="string">"iconv"</span></div><div class="line">  # s.libraries = <span class="string">"iconv"</span>, <span class="string">"xml2"</span></div><div class="line"></div><div class="line"></div><div class="line">  # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #</div><div class="line">  #</div><div class="line">  #  If your library depends on compiler flags you can <span class="built_in">set</span> them in the xcconfig hash</div><div class="line">  #  where they will only apply to your library. If you depend on other Podspecs</div><div class="line">  #  you can include multiple dependencies to ensure it works.</div><div class="line"></div><div class="line">  # s.requires_arc = <span class="literal">true</span></div><div class="line"></div><div class="line">  # s.xcconfig = &#123; <span class="string">"HEADER_SEARCH_PATHS"</span> =&gt; <span class="string">"$(SDKROOT)/usr/include/libxml2"</span> &#125;</div><div class="line">  # s.dependency <span class="string">"JSONKit"</span>, <span class="string">"~&gt; 1.4"</span></div><div class="line"></div><div class="line">end</div></pre></td></tr></table></figure>
+<p>s.name是我们库的名称，s.version是库原代码版本号，s.summary是对我们库的一个简单的介绍，s.homepage声明库的主页，s.license是所采用的授权版本，s.author是库的作者。s.platform是我们库所支持的软件平台，这在我们最后提交进行编译时有用。s.source声明原代码的地址。我这里是托管在GitHub上,所以这里将地址copy过来就行了。</p>
+<p>对于很多第三方库而言，在发布的时候都会打上一个tag，如版本0.0.1就会打上一个名为0.0.1的tag,你也可以选择一个最新的commit来作为该库0.0.1版的代码, 那么最终source就是这样了：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;:git =&gt; "https://github.com/hujewelz/HUPhotoBrowser.git", :commit =&gt; '65584b0e0b08e01f83e66d487180c164b5182409'&#125;</div></pre></td></tr></table></figure>
+<p>我这里还是使用的tag，所以我这里就是这样的：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123; :git =&gt; <span class="string">"https://github.com/hujewelz/HUPhotoBrowser.git"</span>, :tag =&gt; <span class="string">"0.0.2"</span> &#125;</div></pre></td></tr></table></figure>
+<p>以后我们的库有新版本时，我们可以修改相应的version和source。</p>
+<p>s.source_files声明了我们库的源代码的位置，所以这个地方不能填错了。</p>
+<p>到此我们看下我的目录结构：</p>
+<p>所以工程根目录下的TFNetworking文件夹才是库的原代码目录。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">s.source_files  = <span class="string">"TFNetworking"</span>, <span class="string">"TFNetworking/**/*.&#123;h,m&#125;"</span></div></pre></td></tr></table></figure>
+<p>目录的层级关系一定要跟代码库的保持一致。这里前一部分可以不用的，因为我这里后一部分的TFNetworking/<em>*与前面是一致的，这个指定的目录下的文件都会进行编译。如果该目录下还有一些资源文件（如图片等），这些文件并不需要进行编译。可以使用s.resourcs声明。</em>.{h,m}是一个类似正则表达式的字符串，表示匹配所有以.h和.m为扩展名的文件。</p>
+<p>s.framework声明了所依赖的核心库，我这里只用到了UIKit,所以是这样的：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">s.framework  = <span class="string">"UIKit"</span></div></pre></td></tr></table></figure>
+<p>如果你的项目中依赖多个库，可以使用</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">s.frameworks = <span class="string">"SomeFramework"</span>, <span class="string">"AnotherFramework"</span></div></pre></td></tr></table></figure>
+<p>当然，我们开发的库中也可能还依赖第三方库，例如JSONKit，那么，就可以做如下声明:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">s.dependency <span class="string">"JSONKit"</span>, <span class="string">"~&gt; 1.4"</span></div></pre></td></tr></table></figure>
+<p>如果有多个需要填写多个s.dependency。</p>
+<p>遇到的错误：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[!] The spec did not pass validation, due to <span class="number">2</span> errors and <span class="number">1</span> warning.</div><div class="line">[!] The validator <span class="keyword">for</span> Swift projects uses Swift <span class="number">3.0</span> by <span class="keyword">default</span>, <span class="keyword">if</span> you are <span class="keyword">using</span> a different version of swift you can use a `.swift-version` file to <span class="built_in">set</span> the version <span class="keyword">for</span> your Pod. For example to use Swift <span class="number">2.3</span>, run: </div><div class="line">    `echo <span class="string">"2.3"</span> &gt; .swift-version`.</div></pre></td></tr></table></figure>
+<p>执行上面提示的命令即可；</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo <span class="string">"2.3"</span> &gt; .swift-version</div></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- ERROR | [iOS] xcodebuild: Returned an unsuccessful <span class="built_in">exit</span> code. You can use `--verbose` <span class="keyword">for</span> more information.</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- ERROR | xcodebuild:  TFNetworking/TFNetworking/JHNetWorkTools.h:10:9: error: 'AFNetworking.h' file not found with &lt;angled&gt; include; use "quotes" instead</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- WARN  | xcodebuild:  TFNetworking/TFNetworking/JHNetWorkTools.m:238:22: warning: unused variable 'status' [-Wunused-variable]</div></pre></td></tr></table></figure>
+<p>编辑完podspec文件后，需要验证一下这个文件是否可用，如果有任何WARNING或者ERROR都是不可以的，它就不能被添加到Spec Repo中，不过xcode的WARNING是可以存在的，验证需要执行命令：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod spec lint PodName.podspec</div></pre></td></tr></table></figure>
+<p>当看到HUPhotoBrowser passed validation.时，说明验证通过了。</p>
+<p>编辑好podspec文件后就可以将该podspec文件保存到本机的~/.cocoapods/repos/master/Specs目录中仅供自己使用，也可以将其提交到CocoaPods/Specs代码库中。下面我们先将其保存到本机中：</p>
+<p>下面可以看一下是否可以通过搜索找到该库:</p>
+<p>同样在需要依赖于HUPhotoBrowser这个库的项目，可以将下列添加到项目的Podfile文件中</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod 'HUPhotoBrowser', '~0.0.2'</div></pre></td></tr></table></figure>
+<p>保存文件，并用pod install安装HUPhotoBrowser库。</p>
+<p>通过以上步骤创建Pod库还只能供自己使用，下面会继续讲解如何将其提交到CocoaPods/Specs代码库中，让其他人也可以通过pod install安装我们的开源库。</p>
+<p>CocoaPods Trunk发布自己的Pods</p>
+<p>在cocoapods使用了trunk之后，CocoaPods 需要0.33以上版本，用 pod –version查看版本，如果版本低，需要更新。</p>
+<p>注册Trunk</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ pod trunk register orta@cocoapods.org 'Orta Therox' --description='macbook air'</div></pre></td></tr></table></figure>
+<p>大家在注册时需要替换成自己的邮箱和用户名，一切顺利的话就会受到一份邮件，点击邮件中的链接后验证一下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod trunk me</div></pre></td></tr></table></figure>
+<p>当然，如果你的pod是由多人维护的，你也可以添加其他维护者:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ pod trunk add-owner ARAnalytics kyle@cocoapods.org</div></pre></td></tr></table></figure>
+<p>上面的工作完成之后，我们就可以开始 trunk push了。</p>
+<p>Trunk push</p>
+<p>pod trunk push 命令会首先验证你本地的podspec文件(是否有错误)，之后会上传spec文件到trunk，最后会将你上传的podspec文件转换为需要的json文件。在工程根目录(包含有.podspec)下执行命令：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod trunk push</div></pre></td></tr></table></figure>
+<p>如果在trunk push过程中报错了，仔细查看一下错误信息。我当初就是使用了podspec文件中描述的版本所没有的API，之后修改podspec文件中s.platform = :ios, “7.0”就可以了。</p>
+<p>如果你能看的上面的结果说明上传成功了。我们也可以在本地的~/.cocoapods/repos/master/Specs目录下看到转换之后的json文件,</p>
+<p>至此我们整个制作自己的开源库的过程就完成了，以后有新版本只需要修改工程根目录下的podspec文件就行了，然后重新执行pod trunk push命令。</p>
+<p>最后</p>
+<p>最后对这个过程做个总结：</p>
+<p>1.开源库发布之后，需要打上tag</p>
+<p>2.进入到项目根目录下，创建podspec文件</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod spec create PodName</div></pre></td></tr></table></figure>
+<p>3.编辑podspec文件中的相关信息，有两个比较重要的地方s.source和s.source_files,可以验证是否有误：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod spec lint PodName.podspec</div></pre></td></tr></table></figure>
+<p>4.注册pod trunk</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ pod trunk register orta@cocoapods.org 'Orta Therox' --description='macbook air'</div></pre></td></tr></table></figure>
+<p>5.发布到pod trunk</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod trunk push [NAME.podspec]</div></pre></td></tr></table></figure>
+<p>该命令在包含有.podspec文件的目录下执行</p>
+<p>6.更新pod库</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod setup</div></pre></td></tr></table></figure>
+<p>如果pod trunk push成功后无法pod search到自己的库，可执行该命令。</p>
+<p>最后的最后</p>
+<p>哈哈。好吧，我承认其实我是来打广告的。例子中的<a href="https://github.com/hujewelz/HUPhotoBrowser" target="_blank" rel="external">HUPhotoBrowser</a>是我开源的一个图片浏览器的库，使用起来非常简单，一行代码就以实现图片浏览功能，支持本地和网络图片。希望大家可以支持一下，欢迎大家star。如果有什么问题的话可以直接issue我。最后，希望能跟大家共同进步。项目地址：<a href="https://github.com/hujewelz/HUPhotoBrowser" target="_blank" rel="external">HUPhotoBrowser</a></p>
+<p><a href="http://www.cocoachina.com/ios/20160301/15459.html" target="_blank" rel="external">http://www.cocoachina.com/ios/20160301/15459.html</a></p>
+<p><a href="https://github.com/trending" target="_blank" rel="external">https://github.com/trending</a></p>
+<p><a href="http://www.cnblogs.com/Keys/p/5245143.html" target="_blank" rel="external">http://www.cnblogs.com/Keys/p/5245143.html</a></p>
+<p><a href="http://www.cnblogs.com/marlonxlj/p/6062646.html" target="_blank" rel="external">http://www.cnblogs.com/marlonxlj/p/6062646.html</a></p>
+<p><a href="http://blog.csdn.net/th_gsb/article/details/50114331" target="_blank" rel="external">http://blog.csdn.net/th_gsb/article/details/50114331</a></p>
+<p><a href="http://blog.csdn.net/tsite/article/details/59547646" target="_blank" rel="external">http://blog.csdn.net/tsite/article/details/59547646</a></p>
+<p><a href="http://zeeyang.com/archives/" target="_blank" rel="external">http://zeeyang.com/archives/</a></p>
+<p><a href="http://blog.csdn.net/hellozsmj/article/details/50725370" target="_blank" rel="external">http://blog.csdn.net/hellozsmj/article/details/50725370</a></p>
+<p><a href="http://www.jianshu.com/p/8a7b9232cbab" target="_blank" rel="external">http://www.jianshu.com/p/8a7b9232cbab</a></p>
+<p><a href="http://www.jianshu.com/p/8a7b9232cbab#" target="_blank" rel="external">http://www.jianshu.com/p/8a7b9232cbab#</a></p>
+<p><a href="http://www.cnblogs.com/zhanglinfeng/p/6283178.html" target="_blank" rel="external">http://www.cnblogs.com/zhanglinfeng/p/6283178.html</a></p>
+<p>pod新版本时出现的问题</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[!] There was an error pushing a <span class="keyword">new</span> version to trunk: getaddrinfo: nodename nor servname provided, or not known</div></pre></td></tr></table></figure>
+<p>解决办法：</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatRewardImage.png" alt="Tao Fei WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipayRewardImage.png" alt="Tao Fei Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CocoaPods/" rel="tag"># CocoaPods</a>
+          
+            <a href="/tags/TFKit/" rel="tag"># TFKit</a>
+          
+            <a href="/tags/TFNetworking/" rel="tag"># TFNetworking</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/09/2017-03-09-Xcode8.2.1自动配置证书进行打包遇到的问题/" rel="next" title="Xcode8.2.1自动配置证书进行打包遇到的问题">
+                <i class="fa fa-chevron-left"></i> Xcode8.2.1自动配置证书进行打包遇到的问题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/03/16/2017-03-16-将自己的开源框架发布到CocoaPods/"
+           data-title="将自己的开源框架发布到CocoaPods" data-url="http://Donkey-Tao.github.io/2017/03/16/2017-03-16-将自己的开源框架发布到CocoaPods/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="Tao Fei" />
+          <p class="site-author-name" itemprop="name">Tao Fei</p>
+           
+              <p class="site-description motion-element" itemprop="description">I'm a iOS developer interested in data science and artificial intelligence.</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Donkey-Tao" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/taofei0610" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Tao Fei</span>
+</div>
+
+
+
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i> 本站访客数<span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人次</span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i> 本站总访问量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"taofei"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("b1TBrJx72NMDsr9SL5QRBIM9-gzGzoHsz", "mfqbxiQnMnHq6lvIpxRfW0TX");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+
+  
+
+</body>
+</html>
