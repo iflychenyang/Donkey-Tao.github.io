@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://Donkey-Tao.github.io/"/>
-  <updated>2017-03-19T01:54:55.000Z</updated>
+  <updated>2017-03-23T14:56:01.000Z</updated>
   <id>http://Donkey-Tao.github.io/</id>
   
   <author>
@@ -14,6 +14,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://Donkey-Tao.github.io/2017/03/23/iOS8%E4%B8%ADUITextView%E7%9A%84%E5%86%85%E5%AD%98%E9%97%AE%E9%A2%98/"/>
+    <id>http://Donkey-Tao.github.io/2017/03/23/iOS8中UITextView的内存问题/</id>
+    <published>2017-03-23T14:56:01.000Z</published>
+    <updated>2017-03-23T14:56:01.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>[UITextView textInputView:] message sent to deallocated instance </p>
+<p>今天测试说项目在iOS8环境下其中的用户反馈点击进入并返回后再次进入后点击UITextView时软件会直接闪退，并且能够百分之百重现。这个问题在iOS7、iOS9、iOS10上均没有出现。</p>
+<p>连接在电脑上调试时没有打印出相关的错误信息，然后打开Enable Zombie Objects后控制台打印出了错误信息如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[UITextView textInputView:] message sent to deallocated instance</div></pre></td></tr></table></figure>
+<p>说明是产生了内存泄漏了。但是，这个问题只是出现在iOS8系统的手机上，并且能够百分之百重现，这就有点奇怪了。在网上搜到了相似的问题：</p>
+<ul>
+<li><a href="http://stackoverflow.com/questions/35715601/uitextfield-textinputview-message-sent-to-deallocated-instance" target="_blank" rel="external">http://stackoverflow.com/questions/35715601/uitextfield-textinputview-message-sent-to-deallocated-instance</a></li>
+<li><a href="http://stackoverflow.com/questions/40459924/uitextfield-textinputview-message-sent-to-deallocated-instance-ios-8" target="_blank" rel="external">http://stackoverflow.com/questions/40459924/uitextfield-textinputview-message-sent-to-deallocated-instance-ios-8</a></li>
+</ul>
+<p>发现可能是引入第三方的分类引起的。一开始以为Category中可能是某个监听没有移除掉导致的。但实际检查分类后发现通知都已经移除了，而且其他版本没有问题，最后将引入的 Category 中 dealloc 方法注释掉，就不会闪退了。</p>
+<p>此处是内存问题，分析问题时不能只看系统 的UITextView这个类，还要分析他的分类。此处，从监听等多方面考虑。但是，iOS8提前释放了UITextView类型的对象，iOS8 和 iOS 9的内存处理可能确实有点不同，在此没有具体弄清楚是什么机理。如有知道具体原因的望不吝告知~谢谢！</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;[UITextView textInputView:] message sent to deallocated instance &lt;/p&gt;
+&lt;p&gt;今天测试说项目在iOS8环境下其中的用户反馈点击进入并返回后再次进入后点击UITextView时软件会直接闪退，并且能够百分之百
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>将自己的开源框架发布到CocoaPods</title>
@@ -954,6 +984,38 @@
     </summary>
     
       <category term="swift" scheme="http://Donkey-Tao.github.io/categories/swift/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Nonnull区域设置(Audited Regions)</title>
+    <link href="http://Donkey-Tao.github.io/2015/10/23/2015-10-23-Nonnull%E5%8C%BA%E5%9F%9F%E8%AE%BE%E7%BD%AE(Audited%20Regions)/"/>
+    <id>http://Donkey-Tao.github.io/2015/10/23/2015-10-23-Nonnull区域设置(Audited Regions)/</id>
+    <published>2015-10-23T14:48:39.000Z</published>
+    <updated>2017-03-23T15:02:29.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Nonnull区域设置(Audited Regions)</p>
+<p>如果需要每个属性或每个方法都去指定nonnull和nullable，是一件非常繁琐的事。苹果为了减轻我们的工作量，专门提供了两个宏：NS_ASSUME_NONNULL_BEGIN和NS_ASSUME_NONNULL_END。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#define NS_ASSUME_NONNULL_BEGIN _Pragma(&quot;clang assume_nonnull begin&quot;)</div><div class="line">#define NS_ASSUME_NONNULL_END   _Pragma(&quot;clang assume_nonnull end&quot;)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">NS_ASSUME_NONNULL_BEGIN</div><div class="line">@interface TestNullabilityClass () </div><div class="line"> </div><div class="line">@property (nonatomic, copy) NSArray * items; </div><div class="line">- (id)itemWithName:(nullable NSString *)name; </div><div class="line"> </div><div class="line">@end </div><div class="line">NS_ASSUME_NONNULL_END</div></pre></td></tr></table></figure>
+<p>在上面的代码中，items属性默认是nonnull的，itemWithName:方法的返回值也是nonnull，而参数是指定为nullable的。</p>
+<p>不过，为了安全起见，苹果还制定了几条规则：</p>
+<ul>
+<li>typedef定义的类型的nullability特性通常依赖于上下文，即使是在Audited Regions中，也不能假定它为nonnull。</li>
+<li>复杂的指针类型(如id <em>)必须显示去指定是nonnull还是nullable。例如，指定一个指向nullable对象的nonnull指针，可以使用”__nullable id </em> __nonnull”。</li>
+<li>我们经常使用的NSError **通常是被假定为一个指向nullable NSError对象的nullable指针。</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Nonnull区域设置(Audited Regions)&lt;/p&gt;
+&lt;p&gt;如果需要每个属性或每个方法都去指定nonnull和nullable，是一件非常繁琐的事。苹果为了减轻我们的工作量，专门提供了两个宏：NS_ASSUME_NONNULL_BEGIN和NS_ASSUME_N
+    
+    </summary>
+    
+      <category term="源码阅读,原创,AFNetworking" scheme="http://Donkey-Tao.github.io/categories/%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB-%E5%8E%9F%E5%88%9B-AFNetworking/"/>
     
     
   </entry>
