@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="block,协议,protocol" />
+  <meta name="keywords" content="iOS8,UITextView,deallocated,textInputView,message,instance" />
 
 
 
@@ -89,43 +89,22 @@
 
 
 
-<meta name="description" content="block的基本使用什么是block?Block是iOS中比较特殊的数据类型.Block是苹果官方特别推荐使用的数据类型,应用场景比较广泛.
-应用场景:
-
-动画
-多线程
-集合遍历
-网络请求回调
-
-Block的作用:用来保存一段代码,可以在恰当的时间再取出来调用.功能与函数或者方法比较类似.
-函数与Block的区别:函数不能在程序运行的过程中定义代码,函数是一开始的时候就已经写死的.block也是用">
+<meta name="description" content="[UITextView textInputView:] message sent to deallocated instance 
+今天测试说项目在iOS8环境下其中的用户反馈点击进入并返回后再次进入后点击UITextView时软件会直接闪退，并且能够百分之百重现。这个问题在iOS7、iOS9、iOS10上均没有出现。
+连接在电脑上调试时没有打印出相关的错误信息，然后打开Enable Zombie">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Block和Protocol">
-<meta property="og:url" content="http://Donkey-Tao.github.io/2014/01/01/2014-01-01-Block和Protocol/index.html">
+<meta property="og:title" content="iOS8环境下UITextView出现的内存泄露">
+<meta property="og:url" content="http://Donkey-Tao.github.io/2017/03/22/iOS8中UITextView的内存问题/index.html">
 <meta property="og:site_name" content="陶飞的技术博客">
-<meta property="og:description" content="block的基本使用什么是block?Block是iOS中比较特殊的数据类型.Block是苹果官方特别推荐使用的数据类型,应用场景比较广泛.
-应用场景:
-
-动画
-多线程
-集合遍历
-网络请求回调
-
-Block的作用:用来保存一段代码,可以在恰当的时间再取出来调用.功能与函数或者方法比较类似.
-函数与Block的区别:函数不能在程序运行的过程中定义代码,函数是一开始的时候就已经写死的.block也是用">
-<meta property="og:updated_time" content="2017-01-31T08:00:12.000Z">
+<meta property="og:description" content="[UITextView textInputView:] message sent to deallocated instance 
+今天测试说项目在iOS8环境下其中的用户反馈点击进入并返回后再次进入后点击UITextView时软件会直接闪退，并且能够百分之百重现。这个问题在iOS7、iOS9、iOS10上均没有出现。
+连接在电脑上调试时没有打印出相关的错误信息，然后打开Enable Zombie">
+<meta property="og:updated_time" content="2017-03-23T15:09:05.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Block和Protocol">
-<meta name="twitter:description" content="block的基本使用什么是block?Block是iOS中比较特殊的数据类型.Block是苹果官方特别推荐使用的数据类型,应用场景比较广泛.
-应用场景:
-
-动画
-多线程
-集合遍历
-网络请求回调
-
-Block的作用:用来保存一段代码,可以在恰当的时间再取出来调用.功能与函数或者方法比较类似.
-函数与Block的区别:函数不能在程序运行的过程中定义代码,函数是一开始的时候就已经写死的.block也是用">
+<meta name="twitter:title" content="iOS8环境下UITextView出现的内存泄露">
+<meta name="twitter:description" content="[UITextView textInputView:] message sent to deallocated instance 
+今天测试说项目在iOS8环境下其中的用户反馈点击进入并返回后再次进入后点击UITextView时软件会直接闪退，并且能够百分之百重现。这个问题在iOS7、iOS9、iOS10上均没有出现。
+连接在电脑上调试时没有打印出相关的错误信息，然后打开Enable Zombie">
 
 
 
@@ -153,13 +132,13 @@ Block的作用:用来保存一段代码,可以在恰当的时间再取出来调�
 
 
 
-  <link rel="canonical" href="http://Donkey-Tao.github.io/2014/01/01/2014-01-01-Block和Protocol/"/>
+  <link rel="canonical" href="http://Donkey-Tao.github.io/2017/03/22/iOS8中UITextView的内存问题/"/>
 
 
 
 
 
-  <title> Block和Protocol | 陶飞的技术博客 </title>
+  <title> iOS8环境下UITextView出现的内存泄露 | 陶飞的技术博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -348,7 +327,7 @@ Block的作用:用来保存一段代码,可以在恰当的时间再取出来调�
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://Donkey-Tao.github.io/2014/01/01/2014-01-01-Block和Protocol/">
+    <link itemprop="mainEntityOfPage" href="http://Donkey-Tao.github.io/2017/03/22/iOS8中UITextView的内存问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Tao Fei">
@@ -369,7 +348,7 @@ Block的作用:用来保存一段代码,可以在恰当的时间再取出来调�
             
             
               
-                Block和Protocol
+                iOS8环境下UITextView出现的内存泄露
               
             
           </h1>
@@ -384,8 +363,8 @@ Block的作用:用来保存一段代码,可以在恰当的时间再取出来调�
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-01-01T09:13:32+08:00">
-                2014-01-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-22T22:48:39+08:00">
+                2017-03-22
               </time>
             
 
@@ -407,8 +386,8 @@ Block的作用:用来保存一段代码,可以在恰当的时间再取出来调�
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
+                  <a href="/categories/Bug-iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">Bug,iOS</span>
                   </a>
                 </span>
 
@@ -425,8 +404,8 @@ Block的作用:用来保存一段代码,可以在恰当的时间再取出来调�
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2014/01/01/2014-01-01-Block和Protocol/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/01/01/2014-01-01-Block和Protocol/" itemprop="commentCount"></span>
+                <a href="/2017/03/22/iOS8中UITextView的内存问题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/22/iOS8中UITextView的内存问题/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -434,7 +413,7 @@ Block的作用:用来保存一段代码,可以在恰当的时间再取出来调�
 
           
           
-             <span id="/2014/01/01/2014-01-01-Block和Protocol/" class="leancloud_visitors" data-flag-title="Block和Protocol">
+             <span id="/2017/03/22/iOS8中UITextView的内存问题/" class="leancloud_visitors" data-flag-title="iOS8环境下UITextView出现的内存泄露">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -463,41 +442,17 @@ Block的作用:用来保存一段代码,可以在恰当的时间再取出来调�
       
 
       
-        <h2 id="block的基本使用"><a href="#block的基本使用" class="headerlink" title="block的基本使用"></a>block的基本使用</h2><p>什么是block?<br>Block是iOS中比较特殊的<code>数据类型</code>.Block是苹果官方特别推荐使用的数据类型,应用场景比较广泛.</p>
-<p>应用场景:</p>
+        <p>[UITextView textInputView:] message sent to deallocated instance </p>
+<p>今天测试说项目在iOS8环境下其中的用户反馈点击进入并返回后再次进入后点击UITextView时软件会直接闪退，并且能够百分之百重现。这个问题在iOS7、iOS9、iOS10上均没有出现。</p>
+<p>连接在电脑上调试时没有打印出相关的错误信息，然后打开Enable Zombie Objects后控制台打印出了错误信息如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[UITextView textInputView:] message sent to deallocated instance</div></pre></td></tr></table></figure>
+<p>说明是产生了内存泄漏了。但是，这个问题只是出现在iOS8系统的手机上，并且能够百分之百重现，这就有点奇怪了。在网上搜到了相似的问题：</p>
 <ul>
-<li>动画</li>
-<li>多线程</li>
-<li>集合遍历</li>
-<li>网络请求回调</li>
+<li><a href="http://stackoverflow.com/questions/35715601/uitextfield-textinputview-message-sent-to-deallocated-instance" target="_blank" rel="external">http://stackoverflow.com/questions/35715601/uitextfield-textinputview-message-sent-to-deallocated-instance</a></li>
+<li><a href="http://stackoverflow.com/questions/40459924/uitextfield-textinputview-message-sent-to-deallocated-instance-ios-8" target="_blank" rel="external">http://stackoverflow.com/questions/40459924/uitextfield-textinputview-message-sent-to-deallocated-instance-ios-8</a></li>
 </ul>
-<p>Block的作用:<br><code>用来保存一段代码</code>,可以在恰当的时间再取出来调用.<br>功能与函数或者方法比较类似.</p>
-<p>函数与Block的区别:<br>函数不能在程序运行的过程中定义代码,函数是一开始的时候就已经写死的.block也是用来保存代码.<br>Block保存代码:把代码放到大括号中,在大括号的左大括号前面加上一个<code>^</code>标志是一个Block(这^的目的是说明后面的代码段要交给block存储),在大括号的右边大括号后面加上分号表示这个数据类型定义结束.以上这些相当于int a=10;中的数值10;<br>定义简单的Block变量(block跟函数很像,有返回值,有参数):<br>没有返回值时在前面写void,把变量名括起来,前面加个^,这样就代表block类型的变量名.logDonkeyTao是这个block的变量名,logDonkeyTao的变量中就存储了大括号中的代码.</p>
-<ul>
-<li>void:代表是返回值类型</li>
-<li>(^logDonkeyTao):代表block的变量名</li>
-<li>():代表block的参数<br>block跟函数很像,只是在前面加一个^,然后在外面加一对括号.</li>
-</ul>
-<p>block的调用:logDonkeyTao();</p>
-<p>区别:block可以在函数里面定义也可以在外面定义,更加灵活.</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">	<span class="keyword">void</span> (^logDonkeyTao)()^&#123;</div><div class="line"></div><div class="line">		TFLog(<span class="string">@"------------"</span>);</div><div class="line"></div><div class="line">		<span class="built_in">NSLog</span>(<span class="string">@"Donkey-Tao"</span>);</div><div class="line"></div><div class="line">		<span class="built_in">NSLog</span>(<span class="string">@"------------"</span>);</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>定义一个block,存储一段代码,这段代码的功能是可以打印任意行数的*</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">void</span> (^logDonkeyTao)(<span class="keyword">int</span>)=^(<span class="keyword">int</span> numberOfLines)&#123;</div><div class="line"></div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;numberOfLines;i++)&#123;</div><div class="line"></div><div class="line">		TFLog(<span class="string">@"------------"</span>);</div><div class="line"></div><div class="line">		<span class="built_in">NSLog</span>(<span class="string">@"Donkey-Tao"</span>);</div><div class="line"></div><div class="line">		<span class="built_in">NSLog</span>(<span class="string">@"------------"</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>调用block:</p>
-<p>定义一个block计算两个整数的和<br>先写block:</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//定义有返回值有参数的block</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">int</span> (^sumBlock)(<span class="keyword">int</span>,<span class="keyword">int</span>)=^(<span class="keyword">int</span> num1,<span class="keyword">int</span> num2)&#123;</div><div class="line"></div><div class="line">	<span class="keyword">return</span> num1+num2;</div><div class="line"></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">int</span> c=sumBlock(<span class="number">10</span>,<span class="number">9</span>);</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">int</span>(^doubleBlock)(<span class="keyword">int</span>);</div><div class="line"></div><div class="line">doubleBlock=^(<span class="keyword">int</span> num)&#123;</div><div class="line"></div><div class="line">	<span class="keyword">return</span> <span class="number">2</span>*num;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//调用</span></div><div class="line"></div><div class="line"><span class="keyword">int</span> d=doubleBlock(<span class="number">18</span>);</div></pre></td></tr></table></figure>
-<h2 id="block和typedef"><a href="#block和typedef" class="headerlink" title="block和typedef"></a>block和typedef</h2><p>typedef exisiting new;<br>typedef int Myint;</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">//定义一个block来计算2个整数的差</span></div><div class="line"><span class="keyword">int</span> (^minusBlock)(<span class="keyword">int</span>,<span class="keyword">int</span>)=^(<span class="keyword">int</span> num1,<span class="keyword">int</span> num2)&#123;</div><div class="line">	</div><div class="line">	<span class="keyword">return</span> num1-num2;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//定义一个block来计算2个整数的积</span></div><div class="line"><span class="keyword">int</span> (^multiBlock)(<span class="keyword">int</span>,<span class="keyword">int</span>)=^(<span class="keyword">int</span> num1,<span class="keyword">int</span> num2)&#123;</div><div class="line">	</div><div class="line">	<span class="keyword">return</span> num1*num2;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//定义一个叫做MyBlock的数据类型,它存储的代码必须返回int,必须接受2个int类型的参数</span></div><div class="line"><span class="keyword">typedef</span> <span class="keyword">int</span>(^MyBlock)(<span class="keyword">int</span>,<span class="keyword">int</span>);</div><div class="line"></div><div class="line">MyBlock minusBlock=^(<span class="keyword">int</span> num1,<span class="keyword">int</span> num2)&#123;</div><div class="line"></div><div class="line">	<span class="keyword">return</span> num1-num2;  </div><div class="line"></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="03-Block03-使用场景"><a href="#03-Block03-使用场景" class="headerlink" title="03-Block03-使用场景"></a>03-Block03-使用场景</h2><p>严谨:调用block之前一定要判断block是否为空</p>
-<h2 id="04-Block04-使用注意"><a href="#04-Block04-使用注意" class="headerlink" title="04-Block04-使用注意"></a>04-Block04-使用注意</h2><p>1.默认情况下,block里面是能够访问外面的内容的,block里面不能修改外面的数值.<br>2.要想修改外面的值,__block int b=10;这样就可以修改外面的变量的值.</p>
-<h2 id="05-Protocol01-基本使用"><a href="#05-Protocol01-基本使用" class="headerlink" title="05-Protocol01-基本使用"></a>05-Protocol01-基本使用</h2><p>protocol翻译过来就是”协议”,协议文件中只有方法的声明.可以把多个类共有的方法抽取出来,用一个协议来表示.一个类可以遵循多份协议.一个协议也可以遵守协议.</p>
-<p>协议与父类不同,使用协议可以少一个类,使用继承时多一个</p>
-<p>protocol的作用:</p>
-<ul>
-<li>用来声明一些方法</li>
-</ul>
-<p>protocol的其他使用,</p>
-<p>协议中的关键字</p>
+<p>发现可能是引入第三方的分类引起的。一开始以为Category中可能是某个监听没有移除掉导致的。但实际检查分类后发现通知都已经移除了，而且其他版本没有问题，最后将引入的 Category 中 dealloc 方法注释掉，就不会闪退了。</p>
+<p>此处是内存问题，分析问题时不能只看系统 的UITextView这个类，还要分析他的分类。此处，从监听等多方面考虑。但是，iOS8提前释放了UITextView类型的对象，iOS8 和 iOS 9的内存处理可能确实有点不同，在此没有具体弄清楚是什么机理。如有知道具体原因的望不吝告知~谢谢！</p>
 
       
     </div>
@@ -549,8 +504,8 @@ Block的作用:用来保存一段代码,可以在恰当的时间再取出来调�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2013/10/16/2013-10-16-读鸟哥Linux私房菜/" rel="next" title="读鸟哥Linux私房菜笔记">
-                <i class="fa fa-chevron-left"></i> 读鸟哥Linux私房菜笔记
+              <a href="/2017/03/16/2017-03-16-将自己的开源框架发布到CocoaPods/" rel="next" title="将自己的开源框架发布到CocoaPods">
+                <i class="fa fa-chevron-left"></i> 将自己的开源框架发布到CocoaPods
               </a>
             
           </div>
@@ -558,10 +513,6 @@ Block的作用:用来保存一段代码,可以在恰当的时间再取出来调�
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2014/04/11/2014-04-11-OC中内存管理的总结/" rel="prev" title="OC中内存管理的总结">
-                OC中内存管理的总结 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -587,8 +538,8 @@ Block的作用:用来保存一段代码,可以在恰当的时间再取出来调�
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2014/01/01/2014-01-01-Block和Protocol/"
-           data-title="Block和Protocol" data-url="http://Donkey-Tao.github.io/2014/01/01/2014-01-01-Block和Protocol/">
+      <div class="ds-thread" data-thread-key="2017/03/22/iOS8中UITextView的内存问题/"
+           data-title="iOS8环境下UITextView出现的内存泄露" data-url="http://Donkey-Tao.github.io/2017/03/22/iOS8中UITextView的内存问题/">
       </div>
     
   </div>
@@ -612,17 +563,8 @@ Block的作用:用来保存一段代码,可以在恰当的时间再取出来调�
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -711,22 +653,6 @@ Block的作用:用来保存一段代码,可以在恰当的时间再取出来调�
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#block的基本使用"><span class="nav-number">1.</span> <span class="nav-text">block的基本使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#block和typedef"><span class="nav-number">2.</span> <span class="nav-text">block和typedef</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#03-Block03-使用场景"><span class="nav-number">3.</span> <span class="nav-text">03-Block03-使用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#04-Block04-使用注意"><span class="nav-number">4.</span> <span class="nav-text">04-Block04-使用注意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#05-Protocol01-基本使用"><span class="nav-number">5.</span> <span class="nav-text">05-Protocol01-基本使用</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

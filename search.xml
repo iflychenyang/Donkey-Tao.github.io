@@ -3,8 +3,8 @@
   
     
     <entry>
-      <title></title>
-      <url>%2F2017%2F03%2F23%2FiOS8%E4%B8%ADUITextView%E7%9A%84%E5%86%85%E5%AD%98%E9%97%AE%E9%A2%98%2F</url>
+      <title><![CDATA[iOS8环境下UITextView出现的内存泄露]]></title>
+      <url>%2F2017%2F03%2F22%2FiOS8%E4%B8%ADUITextView%E7%9A%84%E5%86%85%E5%AD%98%E9%97%AE%E9%A2%98%2F</url>
       <content type="text"><![CDATA[[UITextView textInputView:] message sent to deallocated instance 今天测试说项目在iOS8环境下其中的用户反馈点击进入并返回后再次进入后点击UITextView时软件会直接闪退，并且能够百分之百重现。这个问题在iOS7、iOS9、iOS10上均没有出现。 连接在电脑上调试时没有打印出相关的错误信息，然后打开Enable Zombie Objects后控制台打印出了错误信息如下： 1[UITextView textInputView:] message sent to deallocated instance 说明是产生了内存泄漏了。但是，这个问题只是出现在iOS8系统的手机上，并且能够百分之百重现，这就有点奇怪了。在网上搜到了相似的问题： http://stackoverflow.com/questions/35715601/uitextfield-textinputview-message-sent-to-deallocated-instance http://stackoverflow.com/questions/40459924/uitextfield-textinputview-message-sent-to-deallocated-instance-ios-8 发现可能是引入第三方的分类引起的。一开始以为Category中可能是某个监听没有移除掉导致的。但实际检查分类后发现通知都已经移除了，而且其他版本没有问题，最后将引入的 Category 中 dealloc 方法注释掉，就不会闪退了。 此处是内存问题，分析问题时不能只看系统 的UITextView这个类，还要分析他的分类。此处，从监听等多方面考虑。但是，iOS8提前释放了UITextView类型的对象，iOS8 和 iOS 9的内存处理可能确实有点不同，在此没有具体弄清楚是什么机理。如有知道具体原因的望不吝告知~谢谢！]]></content>
     </entry>
 

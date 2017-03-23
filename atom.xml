@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://Donkey-Tao.github.io/"/>
-  <updated>2017-03-23T14:56:01.000Z</updated>
+  <updated>2017-03-23T15:09:05.000Z</updated>
   <id>http://Donkey-Tao.github.io/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
-    <link href="http://Donkey-Tao.github.io/2017/03/23/iOS8%E4%B8%ADUITextView%E7%9A%84%E5%86%85%E5%AD%98%E9%97%AE%E9%A2%98/"/>
-    <id>http://Donkey-Tao.github.io/2017/03/23/iOS8中UITextView的内存问题/</id>
-    <published>2017-03-23T14:56:01.000Z</published>
-    <updated>2017-03-23T14:56:01.000Z</updated>
+    <title>iOS8环境下UITextView出现的内存泄露</title>
+    <link href="http://Donkey-Tao.github.io/2017/03/22/iOS8%E4%B8%ADUITextView%E7%9A%84%E5%86%85%E5%AD%98%E9%97%AE%E9%A2%98/"/>
+    <id>http://Donkey-Tao.github.io/2017/03/22/iOS8中UITextView的内存问题/</id>
+    <published>2017-03-22T14:48:39.000Z</published>
+    <updated>2017-03-23T15:09:05.000Z</updated>
     
     <content type="html"><![CDATA[<p>[UITextView textInputView:] message sent to deallocated instance </p>
 <p>今天测试说项目在iOS8环境下其中的用户反馈点击进入并返回后再次进入后点击UITextView时软件会直接闪退，并且能够百分之百重现。这个问题在iOS7、iOS9、iOS10上均没有出现。</p>
@@ -41,6 +41,8 @@
 &lt;p&gt;今天测试说项目在iOS8环境下其中的用户反馈点击进入并返回后再次进入后点击UITextView时软件会直接闪退，并且能够百分之百
     
     </summary>
+    
+      <category term="Bug,iOS" scheme="http://Donkey-Tao.github.io/categories/Bug-iOS/"/>
     
     
   </entry>
