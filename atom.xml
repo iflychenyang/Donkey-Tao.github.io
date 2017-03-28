@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://Donkey-Tao.github.io/"/>
-  <updated>2017-03-28T12:59:26.000Z</updated>
+  <updated>2017-03-28T13:02:26.000Z</updated>
   <id>http://Donkey-Tao.github.io/</id>
   
   <author>
@@ -17,14 +17,14 @@
   
   <entry>
     <title></title>
-    <link href="http://Donkey-Tao.github.io/2017/03/28/2016-04-03-AFNetworking%20(3.1.0)%20%E8%8B%B1%E6%96%87%E7%BF%BB%E8%AF%91%E4%B8%8E%E6%BA%90%E7%A0%81%E8%AF%A6%E7%BB%86%E8%A7%A3%E6%9E%90%3C%E4%B8%80%3E/"/>
-    <id>http://Donkey-Tao.github.io/2017/03/28/2016-04-03-AFNetworking (3.1.0) 英文翻译与源码详细解析&lt;一&gt;/</id>
+    <link href="http://Donkey-Tao.github.io/2017/03/28/2016-05-03-AFNetworking%20(3.1.0)%20%E8%8B%B1%E6%96%87%E7%BF%BB%E8%AF%91%E4%B8%8E%E6%BA%90%E7%A0%81%E8%AF%A6%E7%BB%86%E8%A7%A3%E6%9E%90%3C%E4%B8%80%3E/"/>
+    <id>http://Donkey-Tao.github.io/2017/03/28/2016-05-03-AFNetworking (3.1.0) 英文翻译与源码详细解析&lt;一&gt;/</id>
     <published>2017-03-28T12:56:36.000Z</published>
-    <updated>2017-03-28T12:59:26.000Z</updated>
+    <updated>2017-03-28T13:02:26.000Z</updated>
     
     <content type="html"><![CDATA[<p>-–</p>
 <p>title: AFNetworking (3.1.0) 英文翻译与源码详细解析&lt;一&gt;</p>
-<p>date: 2016-04-03 22:10:54</p>
+<p>date: 2016-05-03 22:10:54</p>
 <p>categories: AFNetworking</p>
 <p>keywords: AFNetworking,源码,解析,翻译</p>
 <p>-–</p>
@@ -118,7 +118,7 @@
     
       &lt;p&gt;-–&lt;/p&gt;
 &lt;p&gt;title: AFNetworking (3.1.0) 英文翻译与源码详细解析&amp;lt;一&amp;gt;&lt;/p&gt;
-&lt;p&gt;date: 2016-04-03 22:10:54&lt;/p&gt;
+&lt;p&gt;date: 2016-05-03 22:10:54&lt;/p&gt;
 &lt;p&gt;categories: AFNetworking&lt;/p&gt;
 &lt;p&gt;keywor
     
