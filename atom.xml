@@ -740,7 +740,7 @@
     <link href="http://Donkey-Tao.github.io/2016/03/16/2016-03-16-Swift%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     <id>http://Donkey-Tao.github.io/2016/03/16/2016-03-16-Swift学习笔记/</id>
     <published>2016-03-16T14:29:39.000Z</published>
-    <updated>2017-02-02T15:42:14.000Z</updated>
+    <updated>2017-06-22T05:34:22.000Z</updated>
     
     <content type="html"><![CDATA[<p><code>申明:本篇博文内容属原创,如需转载请注明出处.</code></p>
 <h2 id="Swift介绍"><a href="#Swift介绍" class="headerlink" title="Swift介绍"></a>Swift介绍</h2><ul>
@@ -992,8 +992,7 @@
 <li>函数的嵌套使用(为程序的可读性,不要用)</li>
 </ul>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">test</span><span class="params">()</span></span>&#123;</div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">demo</span><span class="params">()</span></span>&#123;</div><div class="line"><span class="built_in">print</span>(<span class="string">"demo"</span>)</div><div class="line">&#125;</div><div class="line"><span class="built_in">print</span>(<span class="string">"test"</span>)</div><div class="line">&#125;</div><div class="line">test()<span class="comment">//此时不会打印demo,因为只是在函数中定义了,并没有调用</span></div></pre></td></tr></table></figure>
-<p>​### 类的构造函数</p>
-<ul>
+<h3 id="类的构造函数"><a href="#类的构造函数" class="headerlink" title="类的构造函数"></a>类的构造函数</h3><ul>
 <li>构造函数类似于OC中的初始化方法:init方法</li>
 <li>默认情况下创建一个类时,必然会调用一个构造函数</li>
 <li>即使是没有编写构造函数编译器也会提供一个默认的构造函数</li>
