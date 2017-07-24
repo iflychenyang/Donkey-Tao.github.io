@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="源码阅读,NS_ASSUME_NONNULL_BEGIN,Nonnull,AFNetworking,详细解析" />
+  <meta name="keywords" content="AFNetworking,DBNetworking,网络请求框架" />
 
 
 
@@ -89,22 +89,19 @@
 
 
 
-<meta name="description" content="Nonnull区域设置(Audited Regions)
-如果需要每个属性或每个方法都去指定nonnull和nullable，是一件非常繁琐的事。苹果为了减轻我们的工作量，专门提供了两个宏：NS_ASSUME_NONNULL_BEGIN和NS_ASSUME_NONNULL_END。
-12#define NS_ASSUME_NONNULL_BEGIN _Pragma(&amp;quot;clang assu">
+<meta name="description" content="DBNetworking简介​    DBNetworking是基于AFNetworking开发的网络请求框架。DBNetworking集成依赖AFNetworking(3.1.0)、DBProgressHUD，提供HTTPS请求的相关方法，并可以自动监控网络状态的改变并弹出相应的提示。在网络请求时有提供默认的加载中提示。
+​    DBNetworking中关于GET/POST网络请求的封装主要">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Nonnull区域设置(Audited Regions)">
-<meta property="og:url" content="http://Donkey-Tao.github.io/2015/10/23/2015-10-23-Nonnull区域设置(Audited Regions)/index.html">
+<meta property="og:title" content="DBNetworking">
+<meta property="og:url" content="http://Donkey-Tao.github.io/2017/06/02/2017-06-02-DBNetworking/index.html">
 <meta property="og:site_name" content="陶飞的技术博客">
-<meta property="og:description" content="Nonnull区域设置(Audited Regions)
-如果需要每个属性或每个方法都去指定nonnull和nullable，是一件非常繁琐的事。苹果为了减轻我们的工作量，专门提供了两个宏：NS_ASSUME_NONNULL_BEGIN和NS_ASSUME_NONNULL_END。
-12#define NS_ASSUME_NONNULL_BEGIN _Pragma(&amp;quot;clang assu">
-<meta property="og:updated_time" content="2017-03-23T15:02:29.000Z">
+<meta property="og:description" content="DBNetworking简介​    DBNetworking是基于AFNetworking开发的网络请求框架。DBNetworking集成依赖AFNetworking(3.1.0)、DBProgressHUD，提供HTTPS请求的相关方法，并可以自动监控网络状态的改变并弹出相应的提示。在网络请求时有提供默认的加载中提示。
+​    DBNetworking中关于GET/POST网络请求的封装主要">
+<meta property="og:updated_time" content="2017-07-24T08:01:20.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Nonnull区域设置(Audited Regions)">
-<meta name="twitter:description" content="Nonnull区域设置(Audited Regions)
-如果需要每个属性或每个方法都去指定nonnull和nullable，是一件非常繁琐的事。苹果为了减轻我们的工作量，专门提供了两个宏：NS_ASSUME_NONNULL_BEGIN和NS_ASSUME_NONNULL_END。
-12#define NS_ASSUME_NONNULL_BEGIN _Pragma(&amp;quot;clang assu">
+<meta name="twitter:title" content="DBNetworking">
+<meta name="twitter:description" content="DBNetworking简介​    DBNetworking是基于AFNetworking开发的网络请求框架。DBNetworking集成依赖AFNetworking(3.1.0)、DBProgressHUD，提供HTTPS请求的相关方法，并可以自动监控网络状态的改变并弹出相应的提示。在网络请求时有提供默认的加载中提示。
+​    DBNetworking中关于GET/POST网络请求的封装主要">
 
 
 
@@ -132,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://Donkey-Tao.github.io/2015/10/23/2015-10-23-Nonnull区域设置(Audited Regions)/"/>
+  <link rel="canonical" href="http://Donkey-Tao.github.io/2017/06/02/2017-06-02-DBNetworking/"/>
 
 
 
 
 
-  <title> Nonnull区域设置(Audited Regions) | 陶飞的技术博客 </title>
+  <title> DBNetworking | 陶飞的技术博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -327,7 +324,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://Donkey-Tao.github.io/2015/10/23/2015-10-23-Nonnull区域设置(Audited Regions)/">
+    <link itemprop="mainEntityOfPage" href="http://Donkey-Tao.github.io/2017/06/02/2017-06-02-DBNetworking/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Tao Fei">
@@ -348,7 +345,7 @@
             
             
               
-                Nonnull区域设置(Audited Regions)
+                DBNetworking
               
             
           </h1>
@@ -363,8 +360,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-10-23T22:48:39+08:00">
-                2015-10-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-02T14:24:39+08:00">
+                2017-06-02
               </time>
             
 
@@ -386,8 +383,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/源码阅读-原创-AFNetworking/" itemprop="url" rel="index">
-                    <span itemprop="name">源码阅读,原创,AFNetworking</span>
+                  <a href="/categories/iOS-AFNetworking/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS , AFNetworking</span>
                   </a>
                 </span>
 
@@ -404,8 +401,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2015/10/23/2015-10-23-Nonnull区域设置(Audited Regions)/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/23/2015-10-23-Nonnull区域设置(Audited Regions)/" itemprop="commentCount"></span>
+                <a href="/2017/06/02/2017-06-02-DBNetworking/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/06/02/2017-06-02-DBNetworking/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -413,7 +410,7 @@
 
           
           
-             <span id="/2015/10/23/2015-10-23-Nonnull区域设置(Audited Regions)/" class="leancloud_visitors" data-flag-title="Nonnull区域设置(Audited Regions)">
+             <span id="/2017/06/02/2017-06-02-DBNetworking/" class="leancloud_visitors" data-flag-title="DBNetworking">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -442,17 +439,28 @@
       
 
       
-        <p>Nonnull区域设置(Audited Regions)</p>
-<p>如果需要每个属性或每个方法都去指定nonnull和nullable，是一件非常繁琐的事。苹果为了减轻我们的工作量，专门提供了两个宏：NS_ASSUME_NONNULL_BEGIN和NS_ASSUME_NONNULL_END。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#define NS_ASSUME_NONNULL_BEGIN _Pragma(&quot;clang assume_nonnull begin&quot;)</div><div class="line">#define NS_ASSUME_NONNULL_END   _Pragma(&quot;clang assume_nonnull end&quot;)</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">NS_ASSUME_NONNULL_BEGIN</div><div class="line">@interface TestNullabilityClass () </div><div class="line"> </div><div class="line">@property (nonatomic, copy) NSArray * items; </div><div class="line">- (id)itemWithName:(nullable NSString *)name; </div><div class="line"> </div><div class="line">@end </div><div class="line">NS_ASSUME_NONNULL_END</div></pre></td></tr></table></figure>
-<p>在上面的代码中，items属性默认是nonnull的，itemWithName:方法的返回值也是nonnull，而参数是指定为nullable的。</p>
-<p>不过，为了安全起见，苹果还制定了几条规则：</p>
+        <h1 id="DBNetworking"><a href="#DBNetworking" class="headerlink" title="DBNetworking"></a>DBNetworking</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>​    DBNetworking是基于AFNetworking开发的网络请求框架。DBNetworking集成依赖AFNetworking(3.1.0)、DBProgressHUD，提供HTTPS请求的相关方法，并可以自动监控网络状态的改变并弹出相应的提示。在网络请求时有提供默认的加载中提示。</p>
+<p>​    DBNetworking中关于GET/POST网络请求的封装主要代码放在DBHTTPSSessionManager中。利用DBHTTPSSessionManager可以实现各种网络请求。但是，目前项目中的请求基本都是POST请求，所以在DBHTTPSSessionManager的基础上提供了<code>DBPoster</code>专门用来发送POST请求，DBPoster中目前提供了三种样式的POST请求。</p>
+<p>​    关于网络状态改变的提示，目前默认在网络状态发生改变时进行提示。</p>
+<h2 id="将DBNetworking加入到项目中"><a href="#将DBNetworking加入到项目中" class="headerlink" title="将DBNetworking加入到项目中"></a>将DBNetworking加入到项目中</h2><p>建议使用CocoaPods对项目中的第三方框架进行管理。</p>
 <ul>
-<li>typedef定义的类型的nullability特性通常依赖于上下文，即使是在Audited Regions中，也不能假定它为nonnull。</li>
-<li>复杂的指针类型(如id <em>)必须显示去指定是nonnull还是nullable。例如，指定一个指向nullable对象的nonnull指针，可以使用”__nullable id </em> __nonnull”。</li>
-<li>我们经常使用的NSError **通常是被假定为一个指向nullable NSError对象的nullable指针。</li>
+<li>在Podfile文件中添加<code>pod &#39;DBNetworking&#39;</code>；</li>
+<li>使用<code>pod install</code>命令将DBNetworking加入到项目中；</li>
+<li>在使用的时候将其引入或者在PCH文件中将其引入；</li>
 </ul>
+<h2 id="DBNetworking的使用"><a href="#DBNetworking的使用" class="headerlink" title="DBNetworking的使用"></a>DBNetworking的使用</h2><h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p>DBNetworking中的网络请求是HTTPS，需要配置相应的证书。在使用前需要将证书加入项目中。（如果改项目的证书暂时没有，也可以使用。）</p>
+<p>在使用DBNetworking发送网络请求之前要对网络请求的管理者进行初始化操作，建议在AppDelegate中进行初始化。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">DBNetWorkingManager *manager=[DBNetWorkingManager sharedManager];</div><div class="line">manager.db_BaseURLString=@&quot;http://taofei.me&quot;;</div><div class="line">manager.db_certificateString=@&quot;donkey.dabay.cn&quot;;</div></pre></td></tr></table></figure>
+<p>DBNetWorkingManager使用sharedManager方法创建后作为单例存在，然后设置项目的基地址和HTTPS请求相关的证书名称，并且将证书加入到项目中。</p>
+<h3 id="DBHTTPSSessionManager"><a href="#DBHTTPSSessionManager" class="headerlink" title="DBHTTPSSessionManager"></a>DBHTTPSSessionManager</h3><p>关于GET/POST网络请求的封装主要代码放在DBHTTPSSessionManager中;</p>
+<h4 id="发送POST请求，默认带有加载中提示的HUD"><a href="#发送POST请求，默认带有加载中提示的HUD" class="headerlink" title="发送POST请求，默认带有加载中提示的HUD"></a>发送POST请求，默认带有加载中提示的HUD</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> DBNetworking HTTPS请求 默认带有HUD</div><div class="line"></div><div class="line"> @param URLString 网络请求的URL地址字符串</div><div class="line"> @param parameters 网络请求的参数</div><div class="line"> @param successBlock 网络请求成功的回调</div><div class="line"> @param failedBlock 网络请求失败的回调</div><div class="line"> */</div><div class="line">+(void)db_postWithURLString:(NSString *)URLString Parameters:(NSDictionary *)parameters succeed:(SuccessBlock)successBlock failure:(FailedBlock)failedBlock;</div></pre></td></tr></table></figure>
+<h4 id="发送POST请求，加载中提示的HUD可以进行配置是否显示"><a href="#发送POST请求，加载中提示的HUD可以进行配置是否显示" class="headerlink" title="发送POST请求，加载中提示的HUD可以进行配置是否显示"></a>发送POST请求，加载中提示的HUD可以进行配置是否显示</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> DBNetworking HTTPS请求 默认为POST请求</div><div class="line"> </div><div class="line"> @param URLString 网络请求的URL地址字符串</div><div class="line"> @param parameters 网络请求的参数</div><div class="line"> @param isWithHUD 是否带有HUD提示</div><div class="line"> @param view HUD显示在View上</div><div class="line"> @param successBlock 网络请求成功的回调</div><div class="line"> @param failedBlock 网络请求失败的回调</div><div class="line"> */</div><div class="line">+(void)db_postRequestWithURLString:(NSString*)URLString Parameters:(NSDictionary *)parameters isWithHUD:(BOOL)isWithHUD inView:(UIView *)view succeed:(SuccessBlock)successBlock failure:(FailedBlock)failedBlock;</div></pre></td></tr></table></figure>
+<h4 id="发送POST或者GET请求，加载中提示的HUD可以进行配置是否显示"><a href="#发送POST或者GET请求，加载中提示的HUD可以进行配置是否显示" class="headerlink" title="发送POST或者GET请求，加载中提示的HUD可以进行配置是否显示"></a>发送POST或者GET请求，加载中提示的HUD可以进行配置是否显示</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> DBNetworking HTTPS请求 可以选择请求方式：GET,POST</div><div class="line"></div><div class="line"> @param URLString 网络请求的URL地址字符串</div><div class="line"> @param method 网络请求的方式：GET/POST</div><div class="line"> @param parameters 网络请求的参数</div><div class="line"> @param isWithHUD 是否带有HUD提示</div><div class="line"> @param view HUD显示在View上</div><div class="line"> @param successBlock 网络请求成功的回调</div><div class="line"> @param failedBlock 网络请求失败的回调</div><div class="line"> */</div><div class="line">+(void)db_requestWithURLString:(NSString *)URLString httpsMethod:(DB_HTTPSMETHOD)method  parameters:(NSDictionary *)parameters isWithHUD:(BOOL)isWithHUD inView:(UIView *)view  succeed:(SuccessBlock)successBlock failure:(FailedBlock)failedBlock;</div></pre></td></tr></table></figure>
+<h3 id="DBPoster"><a href="#DBPoster" class="headerlink" title="DBPoster"></a>DBPoster</h3><p>DBPoster是专门发送POST请求的类，在项目中如果POST请求使用的频率比较高，使用DBPoster发送POST请求可以简化代码。DBPoster中提供了一些实用的方法。</p>
+<h4 id="网络请求默认带有HUD提示加载中"><a href="#网络请求默认带有HUD提示加载中" class="headerlink" title="网络请求默认带有HUD提示加载中"></a>网络请求默认带有HUD提示加载中</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> DBNetworking--发送POST请求--带有默认的HUD提示</div><div class="line"> </div><div class="line"> @param URLString 网络请求的URL地址字符串</div><div class="line"> @param parameters 网络请求的参数</div><div class="line"> @param successBlock 网络请求成功的回调</div><div class="line"> @param failedBlock 网络请求失败的回调</div><div class="line"> */</div><div class="line">+(void)db_URLString:(NSString *)URLString parameters:(NSDictionary *)parameters succeed:(SuccessBlock)successBlock failure:(FailedBlock)failedBlock;</div></pre></td></tr></table></figure>
+<h4 id="网络请求的同时不显示HUD提示加载中"><a href="#网络请求的同时不显示HUD提示加载中" class="headerlink" title="网络请求的同时不显示HUD提示加载中"></a>网络请求的同时不显示HUD提示加载中</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> DBNetworking--发送POST请求--没有默认的HUD提示</div><div class="line"></div><div class="line"> @param URLString 网络请求的URL地址字符串</div><div class="line"> @param parameters 网络请求的参数</div><div class="line"> @param successBlock 网络请求成功的回调</div><div class="line"> @param failedBlock 网络请求失败的回调</div><div class="line"> */</div><div class="line">+(void)db_withoutHUDWithURLString:(NSString *)URLString parameters:(NSDictionary *)parameters succeed:(SuccessBlock)successBlock failure:(FailedBlock)failedBlock;</div></pre></td></tr></table></figure>
+<h4 id="网络请求的同时加载HUD到特定的View上"><a href="#网络请求的同时加载HUD到特定的View上" class="headerlink" title="网络请求的同时加载HUD到特定的View上"></a>网络请求的同时加载HUD到特定的View上</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> DBNetworking--发送POST请求--指定HUD显示在View上</div><div class="line"></div><div class="line"> @param view HUD显示在View上</div><div class="line"> @param URLString 网络请求的URL地址字符串</div><div class="line"> @param parameters 网络请求的参数</div><div class="line"> @param successBlock 网络请求成功的回调</div><div class="line"> @param failedBlock 网络请求失败的回调</div><div class="line"> */</div></pre></td></tr></table></figure>
+<h4 id="DBPoster的使用"><a href="#DBPoster的使用" class="headerlink" title="DBPoster的使用"></a>DBPoster的使用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[DBPoster db_withHUDInView:self.view URLString:@&quot;index/banner.json?&quot; parameters:nil succeed:^(NSDictionary *responseDict) &#123;</div><div class="line"></div><div class="line">    NSLog(@&quot;请求成功&quot;);</div><div class="line">&#125; failure:^(NSError *error) &#123;</div><div class="line">    NSLog(@&quot;请求失败&quot;);</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -504,8 +512,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/03/12/2015-03-12-模仿百思不得姐项目开发总结/" rel="next" title="OC项目：模仿百思不得姐项目开发总结">
-                <i class="fa fa-chevron-left"></i> OC项目：模仿百思不得姐项目开发总结
+              <a href="/2017/05/12/2017-05-12-DBProgressHUD使用说明/" rel="next" title="DBProgressHUD">
+                <i class="fa fa-chevron-left"></i> DBProgressHUD
               </a>
             
           </div>
@@ -513,10 +521,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/03/11/2016-03-11-Swift中的异常/" rel="prev" title="Swift中的异常处理">
-                Swift中的异常处理 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -542,8 +546,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/10/23/2015-10-23-Nonnull区域设置(Audited Regions)/"
-           data-title="Nonnull区域设置(Audited Regions)" data-url="http://Donkey-Tao.github.io/2015/10/23/2015-10-23-Nonnull区域设置(Audited Regions)/">
+      <div class="ds-thread" data-thread-key="2017/06/02/2017-06-02-DBNetworking/"
+           data-title="DBNetworking" data-url="http://Donkey-Tao.github.io/2017/06/02/2017-06-02-DBNetworking/">
       </div>
     
   </div>
@@ -567,8 +571,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -657,6 +670,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#DBNetworking"><span class="nav-number">1.</span> <span class="nav-text">DBNetworking</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#将DBNetworking加入到项目中"><span class="nav-number">1.2.</span> <span class="nav-text">将DBNetworking加入到项目中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DBNetworking的使用"><span class="nav-number">1.3.</span> <span class="nav-text">DBNetworking的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化"><span class="nav-number">1.3.1.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DBHTTPSSessionManager"><span class="nav-number">1.3.2.</span> <span class="nav-text">DBHTTPSSessionManager</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#发送POST请求，默认带有加载中提示的HUD"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">发送POST请求，默认带有加载中提示的HUD</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#发送POST请求，加载中提示的HUD可以进行配置是否显示"><span class="nav-number">1.3.2.2.</span> <span class="nav-text">发送POST请求，加载中提示的HUD可以进行配置是否显示</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#发送POST或者GET请求，加载中提示的HUD可以进行配置是否显示"><span class="nav-number">1.3.2.3.</span> <span class="nav-text">发送POST或者GET请求，加载中提示的HUD可以进行配置是否显示</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DBPoster"><span class="nav-number">1.3.3.</span> <span class="nav-text">DBPoster</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#网络请求默认带有HUD提示加载中"><span class="nav-number">1.3.3.1.</span> <span class="nav-text">网络请求默认带有HUD提示加载中</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#网络请求的同时不显示HUD提示加载中"><span class="nav-number">1.3.3.2.</span> <span class="nav-text">网络请求的同时不显示HUD提示加载中</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#网络请求的同时加载HUD到特定的View上"><span class="nav-number">1.3.3.3.</span> <span class="nav-text">网络请求的同时加载HUD到特定的View上</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DBPoster的使用"><span class="nav-number">1.3.3.4.</span> <span class="nav-text">DBPoster的使用</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

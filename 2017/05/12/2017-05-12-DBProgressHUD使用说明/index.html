@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="AFNetworking,DBNetworking,网络请求框架" />
+  <meta name="keywords" content="DBProgressHUD,MBNetworking,HUD" />
 
 
 
@@ -89,19 +89,22 @@
 
 
 
-<meta name="description" content="DBNetworking简介​    DBNetworking是基于AFNetworking开发的网络请求框架。DBNetworking集成依赖AFNetworking(3.1.0)、DBProgressHUD，提供HTTPS请求的相关方法，并可以自动监控网络状态的改变并弹出相应的提示。在网络请求时有提供默认的加载中提示。
-​    DBNetworking中关于GET/POST网络请求的封装主要">
+<meta name="description" content="DBProgressHUDDBProgressHUD是在开源框架MBProgressHUD（version 1.0.0）的基础上进行了一些功能的增加。
+本项目是为DBNetworking进行开发的，目前DBNetworking已经使用了本项目中相关功能。
+如果现在的项目中有MBProgressHUD的1.0.0版本且利用CocoaPods进行管理的，那么只要pod ‘DBProgressHUD’即">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DBNetworking">
-<meta property="og:url" content="http://Donkey-Tao.github.io/2017/05/02/2017-05-02-DBNetworking/index.html">
+<meta property="og:title" content="DBProgressHUD">
+<meta property="og:url" content="http://Donkey-Tao.github.io/2017/05/12/2017-05-12-DBProgressHUD使用说明/index.html">
 <meta property="og:site_name" content="陶飞的技术博客">
-<meta property="og:description" content="DBNetworking简介​    DBNetworking是基于AFNetworking开发的网络请求框架。DBNetworking集成依赖AFNetworking(3.1.0)、DBProgressHUD，提供HTTPS请求的相关方法，并可以自动监控网络状态的改变并弹出相应的提示。在网络请求时有提供默认的加载中提示。
-​    DBNetworking中关于GET/POST网络请求的封装主要">
-<meta property="og:updated_time" content="2017-07-24T07:58:18.000Z">
+<meta property="og:description" content="DBProgressHUDDBProgressHUD是在开源框架MBProgressHUD（version 1.0.0）的基础上进行了一些功能的增加。
+本项目是为DBNetworking进行开发的，目前DBNetworking已经使用了本项目中相关功能。
+如果现在的项目中有MBProgressHUD的1.0.0版本且利用CocoaPods进行管理的，那么只要pod ‘DBProgressHUD’即">
+<meta property="og:updated_time" content="2017-07-24T08:02:39.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="DBNetworking">
-<meta name="twitter:description" content="DBNetworking简介​    DBNetworking是基于AFNetworking开发的网络请求框架。DBNetworking集成依赖AFNetworking(3.1.0)、DBProgressHUD，提供HTTPS请求的相关方法，并可以自动监控网络状态的改变并弹出相应的提示。在网络请求时有提供默认的加载中提示。
-​    DBNetworking中关于GET/POST网络请求的封装主要">
+<meta name="twitter:title" content="DBProgressHUD">
+<meta name="twitter:description" content="DBProgressHUDDBProgressHUD是在开源框架MBProgressHUD（version 1.0.0）的基础上进行了一些功能的增加。
+本项目是为DBNetworking进行开发的，目前DBNetworking已经使用了本项目中相关功能。
+如果现在的项目中有MBProgressHUD的1.0.0版本且利用CocoaPods进行管理的，那么只要pod ‘DBProgressHUD’即">
 
 
 
@@ -129,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="http://Donkey-Tao.github.io/2017/05/02/2017-05-02-DBNetworking/"/>
+  <link rel="canonical" href="http://Donkey-Tao.github.io/2017/05/12/2017-05-12-DBProgressHUD使用说明/"/>
 
 
 
 
 
-  <title> DBNetworking | 陶飞的技术博客 </title>
+  <title> DBProgressHUD | 陶飞的技术博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -324,7 +327,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://Donkey-Tao.github.io/2017/05/02/2017-05-02-DBNetworking/">
+    <link itemprop="mainEntityOfPage" href="http://Donkey-Tao.github.io/2017/05/12/2017-05-12-DBProgressHUD使用说明/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Tao Fei">
@@ -345,7 +348,7 @@
             
             
               
-                DBNetworking
+                DBProgressHUD
               
             
           </h1>
@@ -360,8 +363,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-02T14:24:39+08:00">
-                2017-05-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-12T13:41:52+08:00">
+                2017-05-12
               </time>
             
 
@@ -401,8 +404,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/05/02/2017-05-02-DBNetworking/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/05/02/2017-05-02-DBNetworking/" itemprop="commentCount"></span>
+                <a href="/2017/05/12/2017-05-12-DBProgressHUD使用说明/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/05/12/2017-05-12-DBProgressHUD使用说明/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -410,7 +413,7 @@
 
           
           
-             <span id="/2017/05/02/2017-05-02-DBNetworking/" class="leancloud_visitors" data-flag-title="DBNetworking">
+             <span id="/2017/05/12/2017-05-12-DBProgressHUD使用说明/" class="leancloud_visitors" data-flag-title="DBProgressHUD">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -439,28 +442,32 @@
       
 
       
-        <h1 id="DBNetworking"><a href="#DBNetworking" class="headerlink" title="DBNetworking"></a>DBNetworking</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>​    DBNetworking是基于AFNetworking开发的网络请求框架。DBNetworking集成依赖AFNetworking(3.1.0)、DBProgressHUD，提供HTTPS请求的相关方法，并可以自动监控网络状态的改变并弹出相应的提示。在网络请求时有提供默认的加载中提示。</p>
-<p>​    DBNetworking中关于GET/POST网络请求的封装主要代码放在DBHTTPSSessionManager中。利用DBHTTPSSessionManager可以实现各种网络请求。但是，目前项目中的请求基本都是POST请求，所以在DBHTTPSSessionManager的基础上提供了<code>DBPoster</code>专门用来发送POST请求，DBPoster中目前提供了三种样式的POST请求。</p>
-<p>​    关于网络状态改变的提示，目前默认在网络状态发生改变时进行提示。</p>
-<h2 id="将DBNetworking加入到项目中"><a href="#将DBNetworking加入到项目中" class="headerlink" title="将DBNetworking加入到项目中"></a>将DBNetworking加入到项目中</h2><p>建议使用CocoaPods对项目中的第三方框架进行管理。</p>
-<ul>
-<li>在Podfile文件中添加<code>pod &#39;DBNetworking&#39;</code>；</li>
-<li>使用<code>pod install</code>命令将DBNetworking加入到项目中；</li>
-<li>在使用的时候将其引入或者在PCH文件中将其引入；</li>
-</ul>
-<h2 id="DBNetworking的使用"><a href="#DBNetworking的使用" class="headerlink" title="DBNetworking的使用"></a>DBNetworking的使用</h2><h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p>DBNetworking中的网络请求是HTTPS，需要配置相应的证书。在使用前需要将证书加入项目中。（如果改项目的证书暂时没有，也可以使用。）</p>
-<p>在使用DBNetworking发送网络请求之前要对网络请求的管理者进行初始化操作，建议在AppDelegate中进行初始化。例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">DBNetWorkingManager *manager=[DBNetWorkingManager sharedManager];</div><div class="line">manager.db_BaseURLString=@&quot;http://taofei.me&quot;;</div><div class="line">manager.db_certificateString=@&quot;donkey.dabay.cn&quot;;</div></pre></td></tr></table></figure>
-<p>DBNetWorkingManager使用sharedManager方法创建后作为单例存在，然后设置项目的基地址和HTTPS请求相关的证书名称，并且将证书加入到项目中。</p>
-<h3 id="DBHTTPSSessionManager"><a href="#DBHTTPSSessionManager" class="headerlink" title="DBHTTPSSessionManager"></a>DBHTTPSSessionManager</h3><p>关于GET/POST网络请求的封装主要代码放在DBHTTPSSessionManager中;</p>
-<h4 id="发送POST请求，默认带有加载中提示的HUD"><a href="#发送POST请求，默认带有加载中提示的HUD" class="headerlink" title="发送POST请求，默认带有加载中提示的HUD"></a>发送POST请求，默认带有加载中提示的HUD</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> DBNetworking HTTPS请求 默认带有HUD</div><div class="line"></div><div class="line"> @param URLString 网络请求的URL地址字符串</div><div class="line"> @param parameters 网络请求的参数</div><div class="line"> @param successBlock 网络请求成功的回调</div><div class="line"> @param failedBlock 网络请求失败的回调</div><div class="line"> */</div><div class="line">+(void)db_postWithURLString:(NSString *)URLString Parameters:(NSDictionary *)parameters succeed:(SuccessBlock)successBlock failure:(FailedBlock)failedBlock;</div></pre></td></tr></table></figure>
-<h4 id="发送POST请求，加载中提示的HUD可以进行配置是否显示"><a href="#发送POST请求，加载中提示的HUD可以进行配置是否显示" class="headerlink" title="发送POST请求，加载中提示的HUD可以进行配置是否显示"></a>发送POST请求，加载中提示的HUD可以进行配置是否显示</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> DBNetworking HTTPS请求 默认为POST请求</div><div class="line"> </div><div class="line"> @param URLString 网络请求的URL地址字符串</div><div class="line"> @param parameters 网络请求的参数</div><div class="line"> @param isWithHUD 是否带有HUD提示</div><div class="line"> @param view HUD显示在View上</div><div class="line"> @param successBlock 网络请求成功的回调</div><div class="line"> @param failedBlock 网络请求失败的回调</div><div class="line"> */</div><div class="line">+(void)db_postRequestWithURLString:(NSString*)URLString Parameters:(NSDictionary *)parameters isWithHUD:(BOOL)isWithHUD inView:(UIView *)view succeed:(SuccessBlock)successBlock failure:(FailedBlock)failedBlock;</div></pre></td></tr></table></figure>
-<h4 id="发送POST或者GET请求，加载中提示的HUD可以进行配置是否显示"><a href="#发送POST或者GET请求，加载中提示的HUD可以进行配置是否显示" class="headerlink" title="发送POST或者GET请求，加载中提示的HUD可以进行配置是否显示"></a>发送POST或者GET请求，加载中提示的HUD可以进行配置是否显示</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> DBNetworking HTTPS请求 可以选择请求方式：GET,POST</div><div class="line"></div><div class="line"> @param URLString 网络请求的URL地址字符串</div><div class="line"> @param method 网络请求的方式：GET/POST</div><div class="line"> @param parameters 网络请求的参数</div><div class="line"> @param isWithHUD 是否带有HUD提示</div><div class="line"> @param view HUD显示在View上</div><div class="line"> @param successBlock 网络请求成功的回调</div><div class="line"> @param failedBlock 网络请求失败的回调</div><div class="line"> */</div><div class="line">+(void)db_requestWithURLString:(NSString *)URLString httpsMethod:(DB_HTTPSMETHOD)method  parameters:(NSDictionary *)parameters isWithHUD:(BOOL)isWithHUD inView:(UIView *)view  succeed:(SuccessBlock)successBlock failure:(FailedBlock)failedBlock;</div></pre></td></tr></table></figure>
-<h3 id="DBPoster"><a href="#DBPoster" class="headerlink" title="DBPoster"></a>DBPoster</h3><p>DBPoster是专门发送POST请求的类，在项目中如果POST请求使用的频率比较高，使用DBPoster发送POST请求可以简化代码。DBPoster中提供了一些实用的方法。</p>
-<h4 id="网络请求默认带有HUD提示加载中"><a href="#网络请求默认带有HUD提示加载中" class="headerlink" title="网络请求默认带有HUD提示加载中"></a>网络请求默认带有HUD提示加载中</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> DBNetworking--发送POST请求--带有默认的HUD提示</div><div class="line"> </div><div class="line"> @param URLString 网络请求的URL地址字符串</div><div class="line"> @param parameters 网络请求的参数</div><div class="line"> @param successBlock 网络请求成功的回调</div><div class="line"> @param failedBlock 网络请求失败的回调</div><div class="line"> */</div><div class="line">+(void)db_URLString:(NSString *)URLString parameters:(NSDictionary *)parameters succeed:(SuccessBlock)successBlock failure:(FailedBlock)failedBlock;</div></pre></td></tr></table></figure>
-<h4 id="网络请求的同时不显示HUD提示加载中"><a href="#网络请求的同时不显示HUD提示加载中" class="headerlink" title="网络请求的同时不显示HUD提示加载中"></a>网络请求的同时不显示HUD提示加载中</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> DBNetworking--发送POST请求--没有默认的HUD提示</div><div class="line"></div><div class="line"> @param URLString 网络请求的URL地址字符串</div><div class="line"> @param parameters 网络请求的参数</div><div class="line"> @param successBlock 网络请求成功的回调</div><div class="line"> @param failedBlock 网络请求失败的回调</div><div class="line"> */</div><div class="line">+(void)db_withoutHUDWithURLString:(NSString *)URLString parameters:(NSDictionary *)parameters succeed:(SuccessBlock)successBlock failure:(FailedBlock)failedBlock;</div></pre></td></tr></table></figure>
-<h4 id="网络请求的同时加载HUD到特定的View上"><a href="#网络请求的同时加载HUD到特定的View上" class="headerlink" title="网络请求的同时加载HUD到特定的View上"></a>网络请求的同时加载HUD到特定的View上</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> DBNetworking--发送POST请求--指定HUD显示在View上</div><div class="line"></div><div class="line"> @param view HUD显示在View上</div><div class="line"> @param URLString 网络请求的URL地址字符串</div><div class="line"> @param parameters 网络请求的参数</div><div class="line"> @param successBlock 网络请求成功的回调</div><div class="line"> @param failedBlock 网络请求失败的回调</div><div class="line"> */</div></pre></td></tr></table></figure>
-<h4 id="DBPoster的使用"><a href="#DBPoster的使用" class="headerlink" title="DBPoster的使用"></a>DBPoster的使用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[DBPoster db_withHUDInView:self.view URLString:@&quot;index/banner.json?&quot; parameters:nil succeed:^(NSDictionary *responseDict) &#123;</div><div class="line"></div><div class="line">    NSLog(@&quot;请求成功&quot;);</div><div class="line">&#125; failure:^(NSError *error) &#123;</div><div class="line">    NSLog(@&quot;请求失败&quot;);</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
+        <h1 id="DBProgressHUD"><a href="#DBProgressHUD" class="headerlink" title="DBProgressHUD"></a>DBProgressHUD</h1><p>DBProgressHUD是在开源框架MBProgressHUD（version 1.0.0）的基础上进行了一些功能的增加。</p>
+<p>本项目是为DBNetworking进行开发的，目前DBNetworking已经使用了本项目中相关功能。</p>
+<p>如果现在的项目中有MBProgressHUD的1.0.0版本且利用CocoaPods进行管理的，那么只要pod ‘DBProgressHUD’即可将本项目加入现有的项目中， 可以兼容完全兼容MBProgressHUD的1.0.0版本。MBProgressHUD的1.0.0以下的版本暂时未做适配。</p>
+<h2 id="使用CocoaPods添加DBProgressHUD到项目中"><a href="#使用CocoaPods添加DBProgressHUD到项目中" class="headerlink" title="使用CocoaPods添加DBProgressHUD到项目中"></a>使用CocoaPods添加DBProgressHUD到项目中</h2><p>本项目DBProgressHUD已经放在CocoaPods上进行管理，目前版本1.1.5。</p>
+<p>推荐使用CocoaPods引入DBProgressHUD并对项目中的第三方框架进行管理。</p>
+<ol>
+<li>在Podfile文件中添加 <code>pod &#39;DBProgressHUD&#39;</code></li>
+<li>进入Podfile同级目录，使用命令 <code>pod install</code>进行本项目的安装.</li>
+<li>建议在项目的pch文件中导入本项目或者在要使用的时候引入 <code>#import &quot;DBProgressHUD.h&quot;</code>.</li>
+</ol>
+<h2 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h2><p>之前的MBProgressHUD在使用时经常要在使用的控制器中拥有MBProgressHUD类型的属性，添加HUD时进行还有指定相关的View，导致整个项目中有很多类似的代码，使用起来比较麻烦。另外，在非视图控制器中拿不到相应的view，想使用MBProgressHUD进行相应的提示就不是很方便了。</p>
+<p><code>本项目中新增的方法都是DBProgressHUD的类方法且方法名都是以db_开头。</code></p>
+<p>在进行耗时操作需要给用户一些提示时，推荐使用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[DBProgressHUD db_showLoading:@&quot;加载中...&quot;];</div></pre></td></tr></table></figure>
+<p>在耗时操作结束需要结束提示时，推荐使用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[DBProgressHUD db_hideHUD];</div></pre></td></tr></table></figure>
+<p>在操作成功需要提示时，推荐使用：(默认3秒后自动消失)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[DBProgressHUD db_showMessage:@&quot;认证成功！&quot;];</div></pre></td></tr></table></figure>
+<p>在操作失败需要提示时，推荐使用：(默认3秒后自动消失)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[DBProgressHUD db_showError:@&quot;服务暂不可用，请稍后重试&quot;];</div></pre></td></tr></table></figure>
+<p>如果要提示的内容有多行，DBProgressHUD提供了相应的方法。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[DBProgressHUD db_showMultiLineMessage:@&quot;服务暂不可用，请稍后重试 服务暂不可用，请稍后重试&quot;];</div></pre></td></tr></table></figure>
+<p>如果想要特定的位置进行换行，在已在想要换行的位置加\n即可。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[DBProgressHUD db_showMultiLineMessage:@&quot;服务暂不可用，请稍后\n重试 服务暂不可用，请稍后重试&quot;];</div></pre></td></tr></table></figure>
+<p>其他的成功、失败的提示类似。</p>
+<p>想使用更多的方法，建议简单浏览下DBProgressHUD.h。</p>
 
       
     </div>
@@ -522,6 +529,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2017/06/02/2017-06-02-DBNetworking/" rel="prev" title="DBNetworking">
+                DBNetworking <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -546,8 +557,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/05/02/2017-05-02-DBNetworking/"
-           data-title="DBNetworking" data-url="http://Donkey-Tao.github.io/2017/05/02/2017-05-02-DBNetworking/">
+      <div class="ds-thread" data-thread-key="2017/05/12/2017-05-12-DBProgressHUD使用说明/"
+           data-title="DBProgressHUD" data-url="http://Donkey-Tao.github.io/2017/05/12/2017-05-12-DBProgressHUD使用说明/">
       </div>
     
   </div>
@@ -596,7 +607,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -680,7 +691,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#DBNetworking"><span class="nav-number">1.</span> <span class="nav-text">DBNetworking</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#将DBNetworking加入到项目中"><span class="nav-number">1.2.</span> <span class="nav-text">将DBNetworking加入到项目中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DBNetworking的使用"><span class="nav-number">1.3.</span> <span class="nav-text">DBNetworking的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化"><span class="nav-number">1.3.1.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DBHTTPSSessionManager"><span class="nav-number">1.3.2.</span> <span class="nav-text">DBHTTPSSessionManager</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#发送POST请求，默认带有加载中提示的HUD"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">发送POST请求，默认带有加载中提示的HUD</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#发送POST请求，加载中提示的HUD可以进行配置是否显示"><span class="nav-number">1.3.2.2.</span> <span class="nav-text">发送POST请求，加载中提示的HUD可以进行配置是否显示</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#发送POST或者GET请求，加载中提示的HUD可以进行配置是否显示"><span class="nav-number">1.3.2.3.</span> <span class="nav-text">发送POST或者GET请求，加载中提示的HUD可以进行配置是否显示</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DBPoster"><span class="nav-number">1.3.3.</span> <span class="nav-text">DBPoster</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#网络请求默认带有HUD提示加载中"><span class="nav-number">1.3.3.1.</span> <span class="nav-text">网络请求默认带有HUD提示加载中</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#网络请求的同时不显示HUD提示加载中"><span class="nav-number">1.3.3.2.</span> <span class="nav-text">网络请求的同时不显示HUD提示加载中</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#网络请求的同时加载HUD到特定的View上"><span class="nav-number">1.3.3.3.</span> <span class="nav-text">网络请求的同时加载HUD到特定的View上</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DBPoster的使用"><span class="nav-number">1.3.3.4.</span> <span class="nav-text">DBPoster的使用</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#DBProgressHUD"><span class="nav-number">1.</span> <span class="nav-text">DBProgressHUD</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用CocoaPods添加DBProgressHUD到项目中"><span class="nav-number">1.1.</span> <span class="nav-text">使用CocoaPods添加DBProgressHUD到项目中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用说明"><span class="nav-number">1.2.</span> <span class="nav-text">使用说明</span></a></li></ol></li></ol></div>
             
 
           </div>

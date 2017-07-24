@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://Donkey-Tao.github.io/"/>
-  <updated>2017-07-24T07:58:18.000Z</updated>
+  <updated>2017-07-24T08:01:20.000Z</updated>
   <id>http://Donkey-Tao.github.io/</id>
   
   <author>
@@ -17,10 +17,10 @@
   
   <entry>
     <title>DBNetworking</title>
-    <link href="http://Donkey-Tao.github.io/2017/05/02/2017-05-02-DBNetworking/"/>
-    <id>http://Donkey-Tao.github.io/2017/05/02/2017-05-02-DBNetworking/</id>
-    <published>2017-05-02T06:24:39.000Z</published>
-    <updated>2017-07-24T07:58:18.000Z</updated>
+    <link href="http://Donkey-Tao.github.io/2017/06/02/2017-06-02-DBNetworking/"/>
+    <id>http://Donkey-Tao.github.io/2017/06/02/2017-06-02-DBNetworking/</id>
+    <published>2017-06-02T06:24:39.000Z</published>
+    <updated>2017-07-24T08:01:20.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="DBNetworking"><a href="#DBNetworking" class="headerlink" title="DBNetworking"></a>DBNetworking</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>​    DBNetworking是基于AFNetworking开发的网络请求框架。DBNetworking集成依赖AFNetworking(3.1.0)、DBProgressHUD，提供HTTPS请求的相关方法，并可以自动监控网络状态的改变并弹出相应的提示。在网络请求时有提供默认的加载中提示。</p>
 <p>​    DBNetworking中关于GET/POST网络请求的封装主要代码放在DBHTTPSSessionManager中。利用DBHTTPSSessionManager可以实现各种网络请求。但是，目前项目中的请求基本都是POST请求，所以在DBHTTPSSessionManager的基础上提供了<code>DBPoster</code>专门用来发送POST请求，DBPoster中目前提供了三种样式的POST请求。</p>
@@ -49,6 +49,52 @@
     <summary type="html">
     
       &lt;h1 id=&quot;DBNetworking&quot;&gt;&lt;a href=&quot;#DBNetworking&quot; class=&quot;headerlink&quot; title=&quot;DBNetworking&quot;&gt;&lt;/a&gt;DBNetworking&lt;/h1&gt;&lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;
+    
+    </summary>
+    
+      <category term="iOS , AFNetworking" scheme="http://Donkey-Tao.github.io/categories/iOS-AFNetworking/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>DBProgressHUD</title>
+    <link href="http://Donkey-Tao.github.io/2017/05/12/2017-05-12-DBProgressHUD%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/"/>
+    <id>http://Donkey-Tao.github.io/2017/05/12/2017-05-12-DBProgressHUD使用说明/</id>
+    <published>2017-05-12T05:41:52.000Z</published>
+    <updated>2017-07-24T08:02:39.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="DBProgressHUD"><a href="#DBProgressHUD" class="headerlink" title="DBProgressHUD"></a>DBProgressHUD</h1><p>DBProgressHUD是在开源框架MBProgressHUD（version 1.0.0）的基础上进行了一些功能的增加。</p>
+<p>本项目是为DBNetworking进行开发的，目前DBNetworking已经使用了本项目中相关功能。</p>
+<p>如果现在的项目中有MBProgressHUD的1.0.0版本且利用CocoaPods进行管理的，那么只要pod ‘DBProgressHUD’即可将本项目加入现有的项目中， 可以兼容完全兼容MBProgressHUD的1.0.0版本。MBProgressHUD的1.0.0以下的版本暂时未做适配。</p>
+<h2 id="使用CocoaPods添加DBProgressHUD到项目中"><a href="#使用CocoaPods添加DBProgressHUD到项目中" class="headerlink" title="使用CocoaPods添加DBProgressHUD到项目中"></a>使用CocoaPods添加DBProgressHUD到项目中</h2><p>本项目DBProgressHUD已经放在CocoaPods上进行管理，目前版本1.1.5。</p>
+<p>推荐使用CocoaPods引入DBProgressHUD并对项目中的第三方框架进行管理。</p>
+<ol>
+<li>在Podfile文件中添加 <code>pod &#39;DBProgressHUD&#39;</code></li>
+<li>进入Podfile同级目录，使用命令 <code>pod install</code>进行本项目的安装.</li>
+<li>建议在项目的pch文件中导入本项目或者在要使用的时候引入 <code>#import &quot;DBProgressHUD.h&quot;</code>.</li>
+</ol>
+<h2 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h2><p>之前的MBProgressHUD在使用时经常要在使用的控制器中拥有MBProgressHUD类型的属性，添加HUD时进行还有指定相关的View，导致整个项目中有很多类似的代码，使用起来比较麻烦。另外，在非视图控制器中拿不到相应的view，想使用MBProgressHUD进行相应的提示就不是很方便了。</p>
+<p><code>本项目中新增的方法都是DBProgressHUD的类方法且方法名都是以db_开头。</code></p>
+<p>在进行耗时操作需要给用户一些提示时，推荐使用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[DBProgressHUD db_showLoading:@&quot;加载中...&quot;];</div></pre></td></tr></table></figure>
+<p>在耗时操作结束需要结束提示时，推荐使用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[DBProgressHUD db_hideHUD];</div></pre></td></tr></table></figure>
+<p>在操作成功需要提示时，推荐使用：(默认3秒后自动消失)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[DBProgressHUD db_showMessage:@&quot;认证成功！&quot;];</div></pre></td></tr></table></figure>
+<p>在操作失败需要提示时，推荐使用：(默认3秒后自动消失)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[DBProgressHUD db_showError:@&quot;服务暂不可用，请稍后重试&quot;];</div></pre></td></tr></table></figure>
+<p>如果要提示的内容有多行，DBProgressHUD提供了相应的方法。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[DBProgressHUD db_showMultiLineMessage:@&quot;服务暂不可用，请稍后重试 服务暂不可用，请稍后重试&quot;];</div></pre></td></tr></table></figure>
+<p>如果想要特定的位置进行换行，在已在想要换行的位置加\n即可。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[DBProgressHUD db_showMultiLineMessage:@&quot;服务暂不可用，请稍后\n重试 服务暂不可用，请稍后重试&quot;];</div></pre></td></tr></table></figure>
+<p>其他的成功、失败的提示类似。</p>
+<p>想使用更多的方法，建议简单浏览下DBProgressHUD.h。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;DBProgressHUD&quot;&gt;&lt;a href=&quot;#DBProgressHUD&quot; class=&quot;headerlink&quot; title=&quot;DBProgressHUD&quot;&gt;&lt;/a&gt;DBProgressHUD&lt;/h1&gt;&lt;p&gt;DBProgressHUD是在开源框架MBProgr
     
     </summary>
     
