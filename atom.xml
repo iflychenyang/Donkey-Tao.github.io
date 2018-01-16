@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://Donkey-Tao.github.io/"/>
-  <updated>2017-07-20T08:28:24.000Z</updated>
+  <updated>2018-01-16T07:16:44.341Z</updated>
   <id>http://Donkey-Tao.github.io/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
+    <title>TestFlight操作手册</title>
     <link href="http://Donkey-Tao.github.io/2017/07/20/2017-07-20-TestFlight%E6%93%8D%E4%BD%9C%E6%89%8B%E5%86%8C/"/>
     <id>http://Donkey-Tao.github.io/2017/07/20/2017-07-20-TestFlight操作手册/</id>
-    <published>2017-07-20T08:28:24.000Z</published>
-    <updated>2017-07-20T08:28:24.000Z</updated>
+    <published>2017-07-20T07:45:21.000Z</published>
+    <updated>2018-01-16T07:16:44.341Z</updated>
     
     <content type="html"><![CDATA[<h1 id="TestFlight操作手册"><a href="#TestFlight操作手册" class="headerlink" title="TestFlight操作手册"></a>TestFlight操作手册</h1><p>​    以前iOS APP 使用的测试方法受限于开发者账号中只能添加100台设备且设备删除不能实时更新。现建议使用苹果公司提供的TestFlight进行<code>内部测试</code>和<code>外部测试</code>，使用TestFlight进行测试不需要将测试人员的UDID加入开发者账号中。目前TestFlight已经整合进了iTunes Connect，开发者可以通过电子邮件来邀请测试员来进行测试，这样开发者就可以更简单地让内部测试人员以及外部客户等人员一起来测试应用。</p>
 <p>​    TestFlight的测试方式分为两种：一种是<code>内部测试</code>；一种是<code>外部测试</code>。<br>​    从功能上讲，这两种方式都可以为测试人员在测试阶段对你的App进行测试。所谓的内部主要是指iTunes Connect上在你的开发团队里参与技术开发或者管理的成员，最多可以邀请<code>25个内部成员</code>。而与之相对的外部测试，指的是那些不属于你的团队或者公司的测试者，最多可以邀请<code>2000个外部成员</code>。这里有一点需要注意的是，在你邀请外部成员参与测试之前，需要先通过苹果的审核，一般审核会在一天左右。而这一限制在内部成员上就没有，也就是说只要你把你的App上传到iTunes Connect上之后内部成员就可以开始进行内部测试了，无需审核。在邀请发出后，有效测试时间为60天。</p>
@@ -77,6 +77,8 @@
       &lt;h1 id=&quot;TestFlight操作手册&quot;&gt;&lt;a href=&quot;#TestFlight操作手册&quot; class=&quot;headerlink&quot; title=&quot;TestFlight操作手册&quot;&gt;&lt;/a&gt;TestFlight操作手册&lt;/h1&gt;&lt;p&gt;​    以前iOS APP 使用的测试方法
     
     </summary>
+    
+      <category term="iOS,TestFlight,测试" scheme="http://Donkey-Tao.github.io/categories/iOS-TestFlight-%E6%B5%8B%E8%AF%95/"/>
     
     
   </entry>
