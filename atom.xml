@@ -4,9 +4,9 @@
   <subtitle>自强不息,厚德载物</subtitle>
   <link href="/blog/atom.xml" rel="self"/>
   
-  <link href="http://Donkey-Tao.github.io/"/>
+  <link href="https://gitee.com/taofei0610/blog/"/>
   <updated>2018-01-16T07:30:46.207Z</updated>
-  <id>http://Donkey-Tao.github.io/</id>
+  <id>https://gitee.com/taofei0610/blog/</id>
   
   <author>
     <name>Tao Fei</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>TestFlight操作手册</title>
-    <link href="http://Donkey-Tao.github.io/2017/07/20/2017-07-20-TestFlight%E6%93%8D%E4%BD%9C%E6%89%8B%E5%86%8C/"/>
-    <id>http://Donkey-Tao.github.io/2017/07/20/2017-07-20-TestFlight操作手册/</id>
+    <link href="https://gitee.com/taofei0610/blog/2017/07/20/2017-07-20-TestFlight%E6%93%8D%E4%BD%9C%E6%89%8B%E5%86%8C/"/>
+    <id>https://gitee.com/taofei0610/blog/2017/07/20/2017-07-20-TestFlight操作手册/</id>
     <published>2017-07-20T07:45:21.000Z</published>
     <updated>2018-01-16T07:30:46.207Z</updated>
     
@@ -78,15 +78,15 @@
     
     </summary>
     
-      <category term="iOS,TestFlight,测试" scheme="http://Donkey-Tao.github.io/categories/iOS-TestFlight-%E6%B5%8B%E8%AF%95/"/>
+      <category term="iOS,TestFlight,测试" scheme="https://gitee.com/taofei0610/blog/categories/iOS-TestFlight-%E6%B5%8B%E8%AF%95/"/>
     
     
   </entry>
   
   <entry>
     <title>DBNetworking</title>
-    <link href="http://Donkey-Tao.github.io/2017/06/02/2017-06-02-DBNetworking/"/>
-    <id>http://Donkey-Tao.github.io/2017/06/02/2017-06-02-DBNetworking/</id>
+    <link href="https://gitee.com/taofei0610/blog/2017/06/02/2017-06-02-DBNetworking/"/>
+    <id>https://gitee.com/taofei0610/blog/2017/06/02/2017-06-02-DBNetworking/</id>
     <published>2017-06-02T06:24:39.000Z</published>
     <updated>2017-07-24T08:01:20.000Z</updated>
     
@@ -120,15 +120,15 @@
     
     </summary>
     
-      <category term="iOS , AFNetworking" scheme="http://Donkey-Tao.github.io/categories/iOS-AFNetworking/"/>
+      <category term="iOS , AFNetworking" scheme="https://gitee.com/taofei0610/blog/categories/iOS-AFNetworking/"/>
     
     
   </entry>
   
   <entry>
     <title>DBProgressHUD</title>
-    <link href="http://Donkey-Tao.github.io/2017/05/12/2017-05-12-DBProgressHUD%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/"/>
-    <id>http://Donkey-Tao.github.io/2017/05/12/2017-05-12-DBProgressHUD使用说明/</id>
+    <link href="https://gitee.com/taofei0610/blog/2017/05/12/2017-05-12-DBProgressHUD%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/"/>
+    <id>https://gitee.com/taofei0610/blog/2017/05/12/2017-05-12-DBProgressHUD使用说明/</id>
     <published>2017-05-12T05:41:52.000Z</published>
     <updated>2017-07-24T08:02:39.000Z</updated>
     
@@ -166,15 +166,15 @@
     
     </summary>
     
-      <category term="iOS , AFNetworking" scheme="http://Donkey-Tao.github.io/categories/iOS-AFNetworking/"/>
+      <category term="iOS , AFNetworking" scheme="https://gitee.com/taofei0610/blog/categories/iOS-AFNetworking/"/>
     
     
   </entry>
   
   <entry>
     <title>安装CocoaPods时遇见的问题</title>
-    <link href="http://Donkey-Tao.github.io/2017/04/26/2017-4-26-%E5%AE%89%E8%A3%85CocoaPods%E6%97%B6%E9%81%87%E8%A7%81%E7%9A%84%E9%97%AE%E9%A2%98/"/>
-    <id>http://Donkey-Tao.github.io/2017/04/26/2017-4-26-安装CocoaPods时遇见的问题/</id>
+    <link href="https://gitee.com/taofei0610/blog/2017/04/26/2017-4-26-%E5%AE%89%E8%A3%85CocoaPods%E6%97%B6%E9%81%87%E8%A7%81%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <id>https://gitee.com/taofei0610/blog/2017/04/26/2017-4-26-安装CocoaPods时遇见的问题/</id>
     <published>2017-04-26T08:24:39.000Z</published>
     <updated>2017-04-26T08:26:21.000Z</updated>
     
@@ -195,15 +195,15 @@
     
     </summary>
     
-      <category term="CocoaPods,iOS" scheme="http://Donkey-Tao.github.io/categories/CocoaPods-iOS/"/>
+      <category term="CocoaPods,iOS" scheme="https://gitee.com/taofei0610/blog/categories/CocoaPods-iOS/"/>
     
     
   </entry>
   
   <entry>
     <title>iOS8环境下UITextView出现的内存泄露</title>
-    <link href="http://Donkey-Tao.github.io/2017/03/22/2017-03-22-iOS8%E4%B8%ADUITextView%E7%9A%84%E5%86%85%E5%AD%98%E9%97%AE%E9%A2%98/"/>
-    <id>http://Donkey-Tao.github.io/2017/03/22/2017-03-22-iOS8中UITextView的内存问题/</id>
+    <link href="https://gitee.com/taofei0610/blog/2017/03/22/2017-03-22-iOS8%E4%B8%ADUITextView%E7%9A%84%E5%86%85%E5%AD%98%E9%97%AE%E9%A2%98/"/>
+    <id>https://gitee.com/taofei0610/blog/2017/03/22/2017-03-22-iOS8中UITextView的内存问题/</id>
     <published>2017-03-22T14:48:39.000Z</published>
     <updated>2017-03-23T15:09:05.000Z</updated>
     
@@ -227,15 +227,15 @@
     
     </summary>
     
-      <category term="Bug,iOS" scheme="http://Donkey-Tao.github.io/categories/Bug-iOS/"/>
+      <category term="Bug,iOS" scheme="https://gitee.com/taofei0610/blog/categories/Bug-iOS/"/>
     
     
   </entry>
   
   <entry>
     <title>将自己的开源框架发布到CocoaPods</title>
-    <link href="http://Donkey-Tao.github.io/2017/03/16/2017-03-16-%E5%B0%86%E8%87%AA%E5%B7%B1%E7%9A%84%E5%BC%80%E6%BA%90%E6%A1%86%E6%9E%B6%E5%8F%91%E5%B8%83%E5%88%B0CocoaPods/"/>
-    <id>http://Donkey-Tao.github.io/2017/03/16/2017-03-16-将自己的开源框架发布到CocoaPods/</id>
+    <link href="https://gitee.com/taofei0610/blog/2017/03/16/2017-03-16-%E5%B0%86%E8%87%AA%E5%B7%B1%E7%9A%84%E5%BC%80%E6%BA%90%E6%A1%86%E6%9E%B6%E5%8F%91%E5%B8%83%E5%88%B0CocoaPods/"/>
+    <id>https://gitee.com/taofei0610/blog/2017/03/16/2017-03-16-将自己的开源框架发布到CocoaPods/</id>
     <published>2017-03-16T04:32:48.000Z</published>
     <updated>2017-03-19T01:54:55.000Z</updated>
     
@@ -345,21 +345,21 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://Donkey-Tao.github.io/categories/iOS/"/>
+      <category term="iOS" scheme="https://gitee.com/taofei0610/blog/categories/iOS/"/>
     
     
-      <category term="CocoaPods" scheme="http://Donkey-Tao.github.io/tags/CocoaPods/"/>
+      <category term="CocoaPods" scheme="https://gitee.com/taofei0610/blog/tags/CocoaPods/"/>
     
-      <category term="TFKit" scheme="http://Donkey-Tao.github.io/tags/TFKit/"/>
+      <category term="TFKit" scheme="https://gitee.com/taofei0610/blog/tags/TFKit/"/>
     
-      <category term="TFNetworking" scheme="http://Donkey-Tao.github.io/tags/TFNetworking/"/>
+      <category term="TFNetworking" scheme="https://gitee.com/taofei0610/blog/tags/TFNetworking/"/>
     
   </entry>
   
   <entry>
     <title>Xcode8.2.1自动配置证书进行打包遇到的问题</title>
-    <link href="http://Donkey-Tao.github.io/2017/03/09/2017-03-09-Xcode8.2.1%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E8%AF%81%E4%B9%A6%E8%BF%9B%E8%A1%8C%E6%89%93%E5%8C%85%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/"/>
-    <id>http://Donkey-Tao.github.io/2017/03/09/2017-03-09-Xcode8.2.1自动配置证书进行打包遇到的问题/</id>
+    <link href="https://gitee.com/taofei0610/blog/2017/03/09/2017-03-09-Xcode8.2.1%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E8%AF%81%E4%B9%A6%E8%BF%9B%E8%A1%8C%E6%89%93%E5%8C%85%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <id>https://gitee.com/taofei0610/blog/2017/03/09/2017-03-09-Xcode8.2.1自动配置证书进行打包遇到的问题/</id>
     <published>2017-03-09T05:00:39.000Z</published>
     <updated>2017-03-10T03:02:48.000Z</updated>
     
@@ -382,19 +382,19 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://Donkey-Tao.github.io/categories/iOS/"/>
+      <category term="iOS" scheme="https://gitee.com/taofei0610/blog/categories/iOS/"/>
     
     
-      <category term="certificate" scheme="http://Donkey-Tao.github.io/tags/certificate/"/>
+      <category term="certificate" scheme="https://gitee.com/taofei0610/blog/tags/certificate/"/>
     
-      <category term="Xcode" scheme="http://Donkey-Tao.github.io/tags/Xcode/"/>
+      <category term="Xcode" scheme="https://gitee.com/taofei0610/blog/tags/Xcode/"/>
     
   </entry>
   
   <entry>
     <title>AFNetworking (3.1.0) 英文翻译与源码详细解析&lt;一&gt;</title>
-    <link href="http://Donkey-Tao.github.io/2016/05/03/2016-05-03-AFNetworking%20(3.1.0)%20%E8%8B%B1%E6%96%87%E7%BF%BB%E8%AF%91%E4%B8%8E%E6%BA%90%E7%A0%81%E8%AF%A6%E7%BB%86%E8%A7%A3%E6%9E%90%3C%E4%B8%80%3E/"/>
-    <id>http://Donkey-Tao.github.io/2016/05/03/2016-05-03-AFNetworking (3.1.0) 英文翻译与源码详细解析&lt;一&gt;/</id>
+    <link href="https://gitee.com/taofei0610/blog/2016/05/03/2016-05-03-AFNetworking%20(3.1.0)%20%E8%8B%B1%E6%96%87%E7%BF%BB%E8%AF%91%E4%B8%8E%E6%BA%90%E7%A0%81%E8%AF%A6%E7%BB%86%E8%A7%A3%E6%9E%90%3C%E4%B8%80%3E/"/>
+    <id>https://gitee.com/taofei0610/blog/2016/05/03/2016-05-03-AFNetworking (3.1.0) 英文翻译与源码详细解析&lt;一&gt;/</id>
     <published>2016-05-03T14:10:54.000Z</published>
     <updated>2017-03-28T13:04:10.000Z</updated>
     
@@ -490,15 +490,15 @@
     
     </summary>
     
-      <category term="AFNetworking" scheme="http://Donkey-Tao.github.io/categories/AFNetworking/"/>
+      <category term="AFNetworking" scheme="https://gitee.com/taofei0610/blog/categories/AFNetworking/"/>
     
     
   </entry>
   
   <entry>
     <title>Swift练手项目:新浪微博</title>
-    <link href="http://Donkey-Tao.github.io/2016/04/01/2016-04-01-Swift%E9%A1%B9%E7%9B%AE/"/>
-    <id>http://Donkey-Tao.github.io/2016/04/01/2016-04-01-Swift项目/</id>
+    <link href="https://gitee.com/taofei0610/blog/2016/04/01/2016-04-01-Swift%E9%A1%B9%E7%9B%AE/"/>
+    <id>https://gitee.com/taofei0610/blog/2016/04/01/2016-04-01-Swift项目/</id>
     <published>2016-04-01T15:00:39.000Z</published>
     <updated>2017-02-07T06:56:41.000Z</updated>
     
@@ -886,15 +886,15 @@
     
     </summary>
     
-      <category term="swift" scheme="http://Donkey-Tao.github.io/categories/swift/"/>
+      <category term="swift" scheme="https://gitee.com/taofei0610/blog/categories/swift/"/>
     
     
   </entry>
   
   <entry>
     <title>Swift学习笔记</title>
-    <link href="http://Donkey-Tao.github.io/2016/03/16/2016-03-16-Swift%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    <id>http://Donkey-Tao.github.io/2016/03/16/2016-03-16-Swift学习笔记/</id>
+    <link href="https://gitee.com/taofei0610/blog/2016/03/16/2016-03-16-Swift%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>https://gitee.com/taofei0610/blog/2016/03/16/2016-03-16-Swift学习笔记/</id>
     <published>2016-03-16T14:29:39.000Z</published>
     <updated>2017-06-22T05:34:22.000Z</updated>
     
@@ -1203,15 +1203,15 @@
     
     </summary>
     
-      <category term="swift" scheme="http://Donkey-Tao.github.io/categories/swift/"/>
+      <category term="swift" scheme="https://gitee.com/taofei0610/blog/categories/swift/"/>
     
     
   </entry>
   
   <entry>
     <title>TFLog:自定义Log</title>
-    <link href="http://Donkey-Tao.github.io/2016/03/12/2016-03-12-TFLog:%E8%87%AA%E5%AE%9A%E4%B9%89Log/"/>
-    <id>http://Donkey-Tao.github.io/2016/03/12/2016-03-12-TFLog:自定义Log/</id>
+    <link href="https://gitee.com/taofei0610/blog/2016/03/12/2016-03-12-TFLog:%E8%87%AA%E5%AE%9A%E4%B9%89Log/"/>
+    <id>https://gitee.com/taofei0610/blog/2016/03/12/2016-03-12-TFLog:自定义Log/</id>
     <published>2016-03-12T13:57:23.000Z</published>
     <updated>2017-01-25T07:26:54.000Z</updated>
     
@@ -1233,15 +1233,15 @@
     
     </summary>
     
-      <category term="swift,Log" scheme="http://Donkey-Tao.github.io/categories/swift-Log/"/>
+      <category term="swift,Log" scheme="https://gitee.com/taofei0610/blog/categories/swift-Log/"/>
     
     
   </entry>
   
   <entry>
     <title>Swift中的异常处理</title>
-    <link href="http://Donkey-Tao.github.io/2016/03/11/2016-03-11-Swift%E4%B8%AD%E7%9A%84%E5%BC%82%E5%B8%B8/"/>
-    <id>http://Donkey-Tao.github.io/2016/03/11/2016-03-11-Swift中的异常/</id>
+    <link href="https://gitee.com/taofei0610/blog/2016/03/11/2016-03-11-Swift%E4%B8%AD%E7%9A%84%E5%BC%82%E5%B8%B8/"/>
+    <id>https://gitee.com/taofei0610/blog/2016/03/11/2016-03-11-Swift中的异常/</id>
     <published>2016-03-11T14:00:39.000Z</published>
     <updated>2017-01-31T02:52:15.000Z</updated>
     
@@ -1273,15 +1273,15 @@
     
     </summary>
     
-      <category term="swift" scheme="http://Donkey-Tao.github.io/categories/swift/"/>
+      <category term="swift" scheme="https://gitee.com/taofei0610/blog/categories/swift/"/>
     
     
   </entry>
   
   <entry>
     <title>Nonnull区域设置(Audited Regions)</title>
-    <link href="http://Donkey-Tao.github.io/2015/10/23/2015-10-23-Nonnull%E5%8C%BA%E5%9F%9F%E8%AE%BE%E7%BD%AE(Audited%20Regions)/"/>
-    <id>http://Donkey-Tao.github.io/2015/10/23/2015-10-23-Nonnull区域设置(Audited Regions)/</id>
+    <link href="https://gitee.com/taofei0610/blog/2015/10/23/2015-10-23-Nonnull%E5%8C%BA%E5%9F%9F%E8%AE%BE%E7%BD%AE(Audited%20Regions)/"/>
+    <id>https://gitee.com/taofei0610/blog/2015/10/23/2015-10-23-Nonnull区域设置(Audited Regions)/</id>
     <published>2015-10-23T14:48:39.000Z</published>
     <updated>2017-03-23T15:02:29.000Z</updated>
     
@@ -1305,15 +1305,15 @@
     
     </summary>
     
-      <category term="源码阅读,原创,AFNetworking" scheme="http://Donkey-Tao.github.io/categories/%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB-%E5%8E%9F%E5%88%9B-AFNetworking/"/>
+      <category term="源码阅读,原创,AFNetworking" scheme="https://gitee.com/taofei0610/blog/categories/%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB-%E5%8E%9F%E5%88%9B-AFNetworking/"/>
     
     
   </entry>
   
   <entry>
     <title>运行时机制</title>
-    <link href="http://Donkey-Tao.github.io/2015/08/11/2015-08-11%E8%BF%90%E8%A1%8C%E6%97%B6%E6%9C%BA%E5%88%B6/"/>
-    <id>http://Donkey-Tao.github.io/2015/08/11/2015-08-11运行时机制/</id>
+    <link href="https://gitee.com/taofei0610/blog/2015/08/11/2015-08-11%E8%BF%90%E8%A1%8C%E6%97%B6%E6%9C%BA%E5%88%B6/"/>
+    <id>https://gitee.com/taofei0610/blog/2015/08/11/2015-08-11运行时机制/</id>
     <published>2015-08-11T15:32:11.000Z</published>
     <updated>2018-01-16T07:11:39.523Z</updated>
     
@@ -1343,15 +1343,15 @@
     
     </summary>
     
-      <category term="iOS,原创" scheme="http://Donkey-Tao.github.io/categories/iOS-%E5%8E%9F%E5%88%9B/"/>
+      <category term="iOS,原创" scheme="https://gitee.com/taofei0610/blog/categories/iOS-%E5%8E%9F%E5%88%9B/"/>
     
     
   </entry>
   
   <entry>
     <title>OC项目：模仿百思不得姐项目开发总结</title>
-    <link href="http://Donkey-Tao.github.io/2015/03/12/2015-03-12-%E6%A8%A1%E4%BB%BF%E7%99%BE%E6%80%9D%E4%B8%8D%E5%BE%97%E5%A7%90%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E6%80%BB%E7%BB%93/"/>
-    <id>http://Donkey-Tao.github.io/2015/03/12/2015-03-12-模仿百思不得姐项目开发总结/</id>
+    <link href="https://gitee.com/taofei0610/blog/2015/03/12/2015-03-12-%E6%A8%A1%E4%BB%BF%E7%99%BE%E6%80%9D%E4%B8%8D%E5%BE%97%E5%A7%90%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E6%80%BB%E7%BB%93/"/>
+    <id>https://gitee.com/taofei0610/blog/2015/03/12/2015-03-12-模仿百思不得姐项目开发总结/</id>
     <published>2015-03-12T14:48:39.000Z</published>
     <updated>2016-10-28T08:06:23.000Z</updated>
     
@@ -1403,15 +1403,15 @@
     
     </summary>
     
-      <category term="iOS,原创" scheme="http://Donkey-Tao.github.io/categories/iOS-%E5%8E%9F%E5%88%9B/"/>
+      <category term="iOS,原创" scheme="https://gitee.com/taofei0610/blog/categories/iOS-%E5%8E%9F%E5%88%9B/"/>
     
     
   </entry>
   
   <entry>
     <title>OC中内存管理的总结</title>
-    <link href="http://Donkey-Tao.github.io/2014/04/11/2014-04-11-OC%E4%B8%AD%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E7%9A%84%E6%80%BB%E7%BB%93/"/>
-    <id>http://Donkey-Tao.github.io/2014/04/11/2014-04-11-OC中内存管理的总结/</id>
+    <link href="https://gitee.com/taofei0610/blog/2014/04/11/2014-04-11-OC%E4%B8%AD%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E7%9A%84%E6%80%BB%E7%BB%93/"/>
+    <id>https://gitee.com/taofei0610/blog/2014/04/11/2014-04-11-OC中内存管理的总结/</id>
     <published>2014-04-11T15:57:48.000Z</published>
     <updated>2016-10-20T21:04:31.000Z</updated>
     
@@ -1516,15 +1516,15 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://Donkey-Tao.github.io/categories/iOS/"/>
+      <category term="iOS" scheme="https://gitee.com/taofei0610/blog/categories/iOS/"/>
     
     
   </entry>
   
   <entry>
     <title>Block和Protocol</title>
-    <link href="http://Donkey-Tao.github.io/2014/01/01/2014-01-01-Block%E5%92%8CProtocol/"/>
-    <id>http://Donkey-Tao.github.io/2014/01/01/2014-01-01-Block和Protocol/</id>
+    <link href="https://gitee.com/taofei0610/blog/2014/01/01/2014-01-01-Block%E5%92%8CProtocol/"/>
+    <id>https://gitee.com/taofei0610/blog/2014/01/01/2014-01-01-Block和Protocol/</id>
     <published>2014-01-01T01:13:32.000Z</published>
     <updated>2017-01-31T08:00:12.000Z</updated>
     
@@ -1571,15 +1571,15 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://Donkey-Tao.github.io/categories/iOS/"/>
+      <category term="iOS" scheme="https://gitee.com/taofei0610/blog/categories/iOS/"/>
     
     
   </entry>
   
   <entry>
     <title>读鸟哥Linux私房菜笔记</title>
-    <link href="http://Donkey-Tao.github.io/2013/10/16/2013-10-16-%E8%AF%BB%E9%B8%9F%E5%93%A5Linux%E7%A7%81%E6%88%BF%E8%8F%9C/"/>
-    <id>http://Donkey-Tao.github.io/2013/10/16/2013-10-16-读鸟哥Linux私房菜/</id>
+    <link href="https://gitee.com/taofei0610/blog/2013/10/16/2013-10-16-%E8%AF%BB%E9%B8%9F%E5%93%A5Linux%E7%A7%81%E6%88%BF%E8%8F%9C/"/>
+    <id>https://gitee.com/taofei0610/blog/2013/10/16/2013-10-16-读鸟哥Linux私房菜/</id>
     <published>2013-10-16T14:29:39.000Z</published>
     <updated>2017-01-30T02:33:40.000Z</updated>
     
@@ -1644,15 +1644,15 @@
     
     </summary>
     
-      <category term="读书" scheme="http://Donkey-Tao.github.io/categories/%E8%AF%BB%E4%B9%A6/"/>
+      <category term="读书" scheme="https://gitee.com/taofei0610/blog/categories/%E8%AF%BB%E4%B9%A6/"/>
     
     
   </entry>
   
   <entry>
     <title>SVN命令</title>
-    <link href="http://Donkey-Tao.github.io/2013/05/26/2013-05-26-SVN%E5%91%BD%E4%BB%A4/"/>
-    <id>http://Donkey-Tao.github.io/2013/05/26/2013-05-26-SVN命令/</id>
+    <link href="https://gitee.com/taofei0610/blog/2013/05/26/2013-05-26-SVN%E5%91%BD%E4%BB%A4/"/>
+    <id>https://gitee.com/taofei0610/blog/2013/05/26/2013-05-26-SVN命令/</id>
     <published>2013-05-26T15:00:39.000Z</published>
     <updated>2017-12-05T06:31:04.714Z</updated>
     
@@ -1669,15 +1669,15 @@
     
     </summary>
     
-      <category term="SVN" scheme="http://Donkey-Tao.github.io/categories/SVN/"/>
+      <category term="SVN" scheme="https://gitee.com/taofei0610/blog/categories/SVN/"/>
     
     
   </entry>
   
   <entry>
     <title>算法：最短路径</title>
-    <link href="http://Donkey-Tao.github.io/2013/03/05/2013-03-05-%E7%AE%97%E6%B3%95%EF%BC%9A%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/"/>
-    <id>http://Donkey-Tao.github.io/2013/03/05/2013-03-05-算法：最短路径/</id>
+    <link href="https://gitee.com/taofei0610/blog/2013/03/05/2013-03-05-%E7%AE%97%E6%B3%95%EF%BC%9A%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/"/>
+    <id>https://gitee.com/taofei0610/blog/2013/03/05/2013-03-05-算法：最短路径/</id>
     <published>2013-03-05T00:45:21.000Z</published>
     <updated>2017-01-31T08:13:39.000Z</updated>
     
@@ -1700,7 +1700,7 @@
     
     </summary>
     
-      <category term="算法" scheme="http://Donkey-Tao.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法" scheme="https://gitee.com/taofei0610/blog/categories/%E7%AE%97%E6%B3%95/"/>
     
     
   </entry>
