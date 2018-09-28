@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>陶飞的技术博客</title>
   <subtitle>自强不息,厚德载物</subtitle>
-  <link href="/atom.xml" rel="self"/>
+  <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://Donkey-Tao.github.io/"/>
   <updated>2018-01-16T07:30:46.207Z</updated>
